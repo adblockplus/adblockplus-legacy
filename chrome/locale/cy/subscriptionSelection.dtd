@@ -1,1 +1,12 @@
-<!ENTITY location.label "&amp;Lleoliad y rhestr ffilteri:">
+<!ENTITY addMain.label "Ychwanegu'r &amp;tanysgrifiad hidlo &quot;?1?&quot; hefyd">
+<!ENTITY list.download.failed "Methodd Adblock Plus ddod o hyd i'r rhestr o danysgrifiadau.">
+<!ENTITY list.download.retry "Ceisio eto">
+<!ENTITY title.label "Teitl y &amp;tanysgrifiad:">
+<!ENTITY list.download.website "Ymweld â'r wefan">
+<!ENTITY supplementMessage "Dylid defnyddio'r tanysgrifiad hidlo hwn gyda'r tanysgrifiad hidlo &quot;?1?&quot; nad ydych yn ei ddefnyddio eto.">
+<!ENTITY viewList.label "Gweld yr hidlyddion">
+<!ENTITY visitHomepage.label "Ymweld â'r hafan">
+<!ENTITY addSubscription.label "Ychwanegu'r tanysgrifiad">
+<!ENTITY dialog.title "Ychwanegu tanysgrifiadau hidlo Adblock Plus">
+<!ENTITY location.label "&amp;Lleoliad y rhestr hidlyddion:">
+<!ENTITY fromWeb.description "Cadarnhewch eich bod am ychwanegu'r tanysgrifiad hidlo hwn. Gallwch newid teitl neu leoliad y tanysgrifiad cyn ei ychwanegu.">

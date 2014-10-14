@@ -1,0 +1,33 @@
+<!ENTITY anchor.end.label "ar dd&amp;iwedd y cyfeiriad">
+<!ENTITY domainRestriction.label "Cyfyngu i &amp;barth:">
+<!ENTITY collapse.default.no.label "Defnyddio'r rhagosodiad (na)">
+<!ENTITY firstParty.label "&amp;Mewnol yn unig">
+<!ENTITY preferences.label "&amp;Dangos hidlyddion presennol...">
+<!ENTITY pattern.label "Chwilio am batrwm">
+<!ENTITY thirdParty.label "&amp;Allanol yn unig">
+<!ENTITY filter.label "&amp;Hidlydd newydd:">
+<!ENTITY collapse.label "Cuddio'r hyn sydd wedi'i rwystro:">
+<!ENTITY match.warning "Nid yw'r patrwm a roesoch bellach yn cyfateb i'r cyfeiriad i'w rwystro/wenrestru ac ni fydd yn cael unrhyw effaith arno.">
+<!ENTITY anchor.start.label "ar &amp;ddechrau'r cyfeiriad">
+<!ENTITY matchCase.label "&amp;Ystyried priflythrennau">
+<!ENTITY custom.pattern.label "&amp;Addasedig:">
+<!ENTITY unselectAllTypes.label "Dewis dim">
+<!ENTITY type.whitelist.label "Rheol &amp;eithrio">
+<!ENTITY regexp.warning "Caiff y patrwm a roesoch ei ddehongli fel ymadrodd arferol na ellir ei brosesu'n effeithlon gan Adblock Plus a gall arafu'ch porwr. Os nad oeddech am ddefnyddio ymadrodd arferol, rhowch seren (*) ar ddiwedd y patrwm.">
+<!ENTITY dialog.title "Ychwanegu rheol hidlydd Adblock Plus">
+<!ENTITY basic.label "Golwg sylfaenol">
+<!ENTITY type.filter.label "Hidlydd &amp;rhwystro">
+<!ENTITY types.label "Gweithredu ar y mathau:">
+<!ENTITY shortpattern.warning "Mae'r patrwm a roeswch yn rhy fyr i gael ei optimeiddio a gall arafu'ch porwr. Argymhellir eich bod yn dewis llinyn hwy ar gyfer yr hidlydd i Adblock Plus gael brosesu'r hidlydd yn fwy effeithlon.">
+<!ENTITY collapse.yes.label "Ie">
+<!ENTITY anchors.label "Derbyn y patrwm dim ond:">
+<!ENTITY collapse.default.yes.label "Defnyddio'r rhagosodiad (ie)">
+<!ENTITY domainRestriction.help "Defnyddiwch hwn i nodi un neu fwy o barthau wedi'u gwahanu gan y symbol '|'. Bydd yr hidlydd ond yn gweithredu ar y parth(au) a ddewiswyd. Mae tild (~) cyn enw parth yn golygu na fydd yr hidlydd yn gweithredu ar y parth hwnnw.">
+<!ENTITY accept.label "Ychwanegu hidlydd">
+<!ENTITY options.label "Dewisiadau">
+<!ENTITY disabled.warning "Mae Adblock Plus wedi'i analluogi ar hyn o bryd. Gallwch ychwanegu hidlyddion o hyd, ond fyddan nhw ddim yn weithredol oni bai i chi [link] alluogi Adblock Plus [/link].">
+<!ENTITY anchor.start.flexible.label "ar dd&amp;echrau enw'r parth">
+<!ENTITY collapse.no.label "Na">
+<!ENTITY selectAllTypes.label "Dewis y cyfan">
+<!ENTITY advanced.label "Golwg uwch">
+<!ENTITY pattern.explanation "Gall y patrwm fod yn unrhyw ran o'r cyfeiriad; mae sêr (*) yn gweithredu fel nodau chwilio. Bydd yr hidlydd yn gweithredu ar y cyfeiriadau sy'n cyd-fynd â'r patrwm a roddwyd.">

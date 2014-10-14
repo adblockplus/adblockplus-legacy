@@ -1,12 +1,12 @@
-<!ENTITY addMain.label "Tambahkan filter &amp;langganan &quot;?1?&quot; juga">
-<!ENTITY list.download.failed "Adblock Plus gagal untuk mengambil daftar langganan.">
+<!ENTITY addMain.label "Tambahkan juga penyaring &amp;langganan &quot;?1?&quot;">
+<!ENTITY list.download.failed "Adblock Plus gagal mengambil daftar penyaring langganan.">
 <!ENTITY list.download.retry "Coba lagi">
 <!ENTITY title.label "&amp;Judul langganan:">
-<!ENTITY list.download.website "Lihat situs">
-<!ENTITY supplementMessage "Filter langganan ini dimaksudkan untuk digunakan dengan filter langganan &quot;?1?&quot; yang Anda tidak menggunakannya lagi.">
-<!ENTITY viewList.label "Lihat filter">
-<!ENTITY visitHomepage.label "Kunjungi situs web">
-<!ENTITY addSubscription.label "Tambahkan langganan">
-<!ENTITY dialog.title "Tambahkan filter langganan Adblock Plus">
-<!ENTITY location.label "&amp;Lokasi daftar filter:">
-<!ENTITY fromWeb.description "Silahkan konfirmasi bahwa Anda ingin menambahkan filter langganan. Anda dapat merubah judul langganan atau lokasi sebelum menambahkannya.">
+<!ENTITY list.download.website "Tampilkan situs web">
+<!ENTITY supplementMessage "Penyaring langganan ini dimaksudkan untuk digunakan bersamaan dengan penyaring langganan &quot;?1?&quot; yang tidak Anda gunakan saat ini.">
+<!ENTITY viewList.label "Tampilkan penyaring">
+<!ENTITY visitHomepage.label "Kunjungi beranda">
+<!ENTITY addSubscription.label "Tambah langganan">
+<!ENTITY dialog.title "Tambah penyaring langganan Adblock Plus">
+<!ENTITY location.label "&amp;Lokasi daftar penyaring:">
+<!ENTITY fromWeb.description "Silakan konfirmasi bahwa Anda ingin menambahkan penyaring langganan ini. Anda dapat mengubah judul atau lokasi langganan sebelum menambahkannya.">

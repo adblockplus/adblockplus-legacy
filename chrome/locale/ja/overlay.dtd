@@ -9,7 +9,7 @@
 <!ENTITY menuitem.label "Adblock Plus 設定(&amp;B)">
 <!ENTITY objecttabs.label "Flash と Java でタブを表示(&amp;T)">
 <!ENTITY sendReport.label "このページでの不具合を報告(&amp;R)">
-<!ENTITY whitelist.page.label "このページだけ無効">
+<!ENTITY whitelist.page.label "このページのみで無効">
 <!ENTITY context.image.label "Adblock Plus: 画像をブロック">
 <!ENTITY counthits.label "フィルタのヒット数を数える(&amp;H)">
 <!ENTITY opensidebar.label "ブロック可能項目一覧を開く(&amp;B)">

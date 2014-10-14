@@ -1,0 +1,65 @@
+<!ENTITY screenshot.undo.label "&amp;Dadwneud">
+<!ENTITY issues.disabledgroups.description "Mae'r tanysgrifiadau hidlo/grwpiau hidlo canlynol wedi eu hanalluogi, ac eto gallant gael effaith ar y dudalen hon:">
+<!ENTITY showData.label "Dangos data'r adroddiad">
+<!ENTITY typeSelector.falsePositive.label "Mae Adblock Plus yn rhwystro &amp;gormod">
+<!ENTITY issues.change.description "Newidwyd eich ffurfweddiad. Ail-lwythwch y dudalen i brofi'r newidiadau a chyflwyno adroddiad os na fydd y newidiadau'n datrys y nam.">
+<!ENTITY email.label "&amp;Ebost:">
+<!ENTITY issues.openPreferences.label "Agor gosodiadau'r hidlydd">
+<!ENTITY sendPage.confirmation "Cadwyd eich adroddiad. Gallwch fynd ato drwy'r cyfeiriad canlynol:">
+<!ENTITY copyLink.label "&amp;Copïo cyfeiriad yr adroddiad">
+<!ENTITY issues.nofilters.description "Dyw Adblock Plus ddim yn rhwystro unrhyw beth ar y dudalen gyfredol. Mae'n debyg nad yw'r nam rydych chi'n ei brofi'n ymwneud ag Adblock Plus.">
+<!ENTITY sendPage.knownIssue "Mae'n debygol bod y nam ag adroddoch yn hysbys. Mwy o wybodaeth:">
+<!ENTITY typeSelector.other.description "Dewiswch hwn os ydych yn amau bod nam gydag Adblock Plus ei hun yn hytrach na'i hidlyddion.">
+<!ENTITY issues.disabledgroups.enable.label "Galluogi'r tanysgrifiad hidlo/grŵp hidlo">
+<!ENTITY typeWarning.override.label "&amp;Rwy'n deall ac rwyf am gyflwyno'r adroddiad beth bynnag">
+<!ENTITY issues.disabled.enable.label "Galluogi Adblock Plus">
+<!ENTITY update.fixed.description "Mae'n debygol bod y diweddariadau i'ch tanysgrifiadau hidlo wedi datrys y namau adroddoch chi. Ail-lwythwch y dudalen a rhoi cynnig arall arni. Cliciwch Adrodd eto os bydd y broblem yn parhau.">
+<!ENTITY anonymous.label "&amp;Cyflwyniad dienw">
+<!ENTITY reloadButton.label "&amp;Ail-lwytho'r dudalen">
+<!ENTITY recentReports.clear.label "&amp;Dileu pob adroddiad">
+<!ENTITY typeSelector.description "Bydd y ffenestr hon yn eich tywys drwy'r camau sydd eu hangen er mwyn adrodd nam ar Adblock Plus. Yn gyntaf, dewiswch isod y math o nam rydych chi'n ei brofi:">
+<!ENTITY screenshot.remove.label "&amp;Tynnu data sensitif">
+<!ENTITY issues.ownfilters.description "Mae rhai o'r hidlyddion ar waith ar y dudalen hon wedi eu diffinio â llaw. Analluogwch yr hidlyddion a allai fod wedi achosi'r nam:">
+<!ENTITY update.inProgress.description "Rhaid i Adblock Plus ddiweddaru'ch tanysgrifiadau hidlo i wneud yn siŵr nad yw'r nam wedi ei ddatrys eisoes. Arhoswch...">
+<!ENTITY sendPage.retry.label "Anfon eto">
+<!ENTITY data.label "A&amp;drodd data:">
+<!ENTITY recentReports.label "Yr adroddiadau a gyflwynoch yn ddiweddar">
+<!ENTITY typeWarning.description "Rydych wedi nodi eich bod am adrodd nam cyffredinol gydag Adblock Plus yn hytrach na phroblem gyda'r hidlyddion. Noder ei bod yn well adrodd namau fel hyn yn [link] fforymau Adblock Plus[/link]. Dylech ond ddefnyddio'r teclyn adrodd namau i ategu i drafodaeth sydd eisoes yn bodoli, gan na fydd neb yn sylwi ar eich adroddiad oni bai eich bod yn rhoi'r ddolen iddynt. Rhoddir y ddolen i chi ar ôl cyflwyno'r adroddiad.">
+<!ENTITY issues.disabled.description "Mae Adblock Plus wedi ei analluogi, ni fydd yn rhwystro dim ar hyn o bryd.">
+<!ENTITY attachExtensions.label "Atodi rhestr o &amp;ychwanegiadau gweithredol i'r adroddiad rhag ofn taw gwrthdaro rhwng ychwanegion sy'n achosi'r nam">
+<!ENTITY issues.nosubscriptions.add.label "Ychwanegu tanysgrifiad hidlo">
+<!ENTITY issues.disabledfilters.enable.label "Galluogi'r hidlydd">
+<!ENTITY issues.override.label "Mae'r &amp;ffurfweddiad yn gywir, parhau â'r adroddiad">
+<!ENTITY issues.nosubscriptions.description "Mae'n ymddangos nad ydych wedi tanysgrifio i unrhyw un o'r hidlyddion rhagosodedig sy'n tynnu cynnwys annymunedig oddi ar wefannau'n ddiofyn.">
+<!ENTITY typeSelector.falsePositive.description "Dewiswch hwn os yw'r dudalen heb gynnwys pwysig, yn ymddangos yn anghywir neu'n methu gweithio'n gywir. Gallwch ddarganfod ai Adblock Plus sy'n achosi'r broblem drwy ei analluogi dros dro.">
+<!ENTITY typeSelector.other.label "&amp;Nam arall">
+<!ENTITY emailComment.label "Rydym yn eich annog i roi cyfeiriad ebost dilys fel y gallwn gysylltu â chi os oes cwestiynau am eich adroddiad. Bydd hefyd yn ein galluogi i adnabod eich cyfraniadau a'u blaenoriaethu.">
+<!ENTITY issues.whitelist.remove.label "Ail-alluogi Adblock Plus ar y dudalen hon">
+<!ENTITY outdatedSubscriptions.description "Dyw'r tanysgrifiadau hidlo canlynol heb eu diweddaru ers o leiaf dwy wythnos. Diweddarwch y tanysgrifiadau hyn cyn adrodd namau, mae'n bosibl bod y nam wedi ei ddatrys eisoes.">
+<!ENTITY dataCollector.description "Arhoswch ychydig eiliadau tra bod Adblock Plus yn casglu'r data sydd ei angen.">
+<!ENTITY sendButton.label "An&amp;fon yr adroddiad">
+<!ENTITY comment.label "&amp;Sylw (dewisol):">
+<!ENTITY sendPage.errorMessage "Methwyd cais i anfon yr adroddiad gyda chôd gwall &quot;?1?&quot;. Sicrhewch eich bod chi wedi cysylltu â'r we a rhowch gynnig arall arni. Os bydd y broblem yn parhau, gofynnwch am gymorth yn [link]fforwm Adblock Plus[/link].">
+<!ENTITY showRecentReports.label "Dangos adroddiadau a gyflwynwyd yn ddiweddar">
+<!ENTITY commentPage.heading "Ychwanegu sylw">
+<!ENTITY update.start.label "Dechrau diweddaru nawr">
+<!ENTITY issues.disabledfilters.description "Mae'r hidlyddion canlynol wedi eu hanalluogi ac eto gallant gael effaith ar y dudalen hon:">
+<!ENTITY screenshot.description "Gall yr un dudalen edrych yn wahanol i bobl wahanol. Gall atodi sgrîn-lun i'ch adroddiad fod o gymorth i ni ddeall y broblem. Gallwch dynnu adrannau sy'n cynnwys gwybodaeth sensitif yn ogystal â marcio'r rhannau lle mae'r broblem yn amlwg. I wneud hynny, cliciwch ar y botwm cyfatebol a dewiswch ddarn o'r llun gyda'ch llygoden.">
+<!ENTITY screenshot.attach.label "A&amp;todi llun o'r dudalen i'r adroddiad">
+<!ENTITY issues.whitelist.description "Mae Adblock Plus wedi ei analluogi ar y dudalen rydych chi'n ei hadrodd. Ail-alluogwch Adblock Plus ac ail-lwythwch y dudalen cyn adrodd y nam i helpu ymchwilio i'r nam.">
+<!ENTITY typeSelector.falseNegative.label "Dyw Adblock Plus ddim yn rhwystro &amp;hysbyseb">
+<!ENTITY typeSelector.heading "Dewis y math o nam">
+<!ENTITY anonymity.warning "Allwn ni ddim ymateb a byddwn yn debygol o beidio â blaenoriaethu'r adroddiad.">
+<!ENTITY wizard.title "Teclyn adrodd namau">
+<!ENTITY issues.ownfilters.disable.label "Analluogi'r hidlydd">
+<!ENTITY commentPage.description "Mae'r blwch testun isod yn eich galluogi i adael sylw i helpu ni i ddeall beth yw'r nam. Mae'r cam yn ddewisol ond argymhellir ei gymryd os nad yw'r broblem yn amlwg. Gallwch hefyd adolygu data'r adroddiad cyn ei anfon.">
+<!ENTITY comment.lengthWarning "Mae hyd eich sylw dros 1000 nod. Dim ond y 1000 nod cyntaf caiff ei anfon.">
+<!ENTITY typeSelector.falseNegative.description "Dewiswch hwn os yw hysbyseb yn cael ei harddangos er bod Adblock Plus wedi ei alluogi.">
+<!ENTITY sendPage.waitMessage "Arhoswch funud tra bod Adblock Plus yn cyflwyno eich adroddiad.">
+<!ENTITY dataCollector.heading "Croeso i'r teclyn adrodd namau">
+<!ENTITY screenshot.heading "Atodi sgrinlun">
+<!ENTITY sendPage.heading "An&amp;fon yr adroddiad">
+<!ENTITY issues.subscriptionCount.description "Mae'n debyg eich bod chi wedi tanysgrifio i ormod o danysgrifiadau hidlo. 'Dyn ni ddim yn argymell hyn oherwydd ei bod hi'n cynyddu'r siawns y bydd namau. Hefyd, allwn ni ddim derbyn eich adroddiad o nam oherwydd nad yw'n glir pa danysgrifiad hidlo sydd ar fai. Dilëwch pob tanysgrifiad hidlo ond am y rhai angenrheidiol a phrofwch a yw'r nam yn dal i ddigwydd wedyn.">
+<!ENTITY screenshot.mark.label "&amp;Marcio'r broblem">
+<!ENTITY privacyPolicy.label "Polisi preifatrwydd">
+<!ENTITY issues.description "Mae Adblock Plus wedi canfod namau gyda'ch ffurfweddiad a allai fod yn gyfrifol am y nam hwn neu a allai wneud ymchwilio i'r adroddiad yn anodd.">

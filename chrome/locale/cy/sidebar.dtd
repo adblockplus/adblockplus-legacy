@@ -1,0 +1,35 @@
+<!ENTITY context.flash.label "Fflachio ymylon yr eitem">
+<!ENTITY address.label "Cyfeiriad">
+<!ENTITY context.open.label "Agor mewn tab newydd">
+<!ENTITY type.label "Math">
+<!ENTITY tooltip.filterSource.label "Ffynhonnell yr hidlydd:">
+<!ENTITY noitems.label "Dim eitem y gellir ei rwystro">
+<!ENTITY filter.label "Hidlydd">
+<!ENTITY tooltip.size.label "Maint:">
+<!ENTITY reattach.label "Ailgysylltu">
+<!ENTITY search.label "&amp;Chwilio:">
+<!ENTITY docDomain.thirdParty "(allanol)">
+<!ENTITY filterSource.label "Ffynhonnell yr hidlydd">
+<!ENTITY tooltip.docDomain.label "Ffynhonnell y ddogfen:">
+<!ENTITY context.copy.label "Copïo cyfeiriad yr eitem">
+<!ENTITY tooltip.type.label "Math:">
+<!ENTITY context.disablefilter.label "Analluogi'r hidlydd ?1?">
+<!ENTITY context.copyFilter.label "Copïo'r hidlydd">
+<!ENTITY context.block.label "Rhwystro'r eitem hon">
+<!ENTITY context.enablefilter.label "Ail-alluogi'r hidlydd ?1?">
+<!ENTITY detach.label "Datgysylltu">
+<!ENTITY whitelisted.label "Tudalen a wenrestrwyd">
+<!ENTITY context.disablefilteronsite.label "Analluogi'r hidlydd hwn ar ?1?">
+<!ENTITY detached.title "Adblock Plus: Eitemau gellir eu rhwystro (wedi'i ddatgysylltu)">
+<!ENTITY docDomain.firstParty "(mewnol)">
+<!ENTITY tooltip.type.whitelisted "(wedi'i wenrestru)">
+<!ENTITY tooltip.filter.label "Hidlydd ar waith:">
+<!ENTITY tooltip.filter.disabled "(analluogwyd)">
+<!ENTITY context.editfilter.label "Golygu'r hidlydd ar waith">
+<!ENTITY tooltip.type.blocked "(wedi'i rwystro)">
+<!ENTITY size.label "Maint">
+<!ENTITY context.whitelist.label "Ychwanegu eithriad i'r rheol ar gyfer yr eitem">
+<!ENTITY context.selectAll.label "Dewis y cyfan">
+<!ENTITY state.label "Cyflwr">
+<!ENTITY docDomain.label "Ffynhonnell y ddogfen">
+<!ENTITY tooltip.address.label "Cyfeiriad:">

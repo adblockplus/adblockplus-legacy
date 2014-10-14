@@ -18,7 +18,7 @@
 <!ENTITY basic.label "Hiển thị cơ bản">
 <!ENTITY type.filter.label "Bộ lọc chặn">
 <!ENTITY types.label "Áp dụng cho các kiểu:">
-<!ENTITY shortpattern.warning "Mẫu bạn gõ vào quá ngắn để tối ưu hóa, nhiều mẫu như vậy có thể làm chậm việc duyệt web của bạn. Lời khuyên là bạn hãy chọn một chuỗi dài hơn cho bộ lọc này.">
+<!ENTITY shortpattern.warning "Mẫu bạn gõ vào quá ngắn để tối ưu hóa, nhiều mẫu như vậy có thể làm chậm việc duyệt mạng của bạn. Lời khuyên là bạn hãy chọn một chuỗi dài hơn cho bộ lọc này.">
 <!ENTITY collapse.yes.label "Có">
 <!ENTITY anchors.label "Chỉ chấp nhận mẫu:">
 <!ENTITY collapse.default.yes.label "Dùng mặc định (có)">

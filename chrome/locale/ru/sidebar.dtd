@@ -7,7 +7,7 @@
 <!ENTITY filter.label "Фильтр">
 <!ENTITY tooltip.size.label "Размер:">
 <!ENTITY reattach.label "Присоединить">
-<!ENTITY search.label "П&amp;оиск:">
+<!ENTITY search.label "&amp;Поиск:">
 <!ENTITY docDomain.thirdParty "(запрос с другого сайта)">
 <!ENTITY filterSource.label "Список фильтров">
 <!ENTITY tooltip.docDomain.label "Домен страницы:">

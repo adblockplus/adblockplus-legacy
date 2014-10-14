@@ -1,12 +1,12 @@
 <!ENTITY screenshot.undo.label "&amp;Отмени">
 <!ENTITY issues.disabledgroups.description "Следните абонаменти за филтри/групи филтри са изключени. Все пак биха могли да имат ефект върху тази страница:">
-<!ENTITY showData.label "Покажи докладваните данни">
+<!ENTITY showData.label "Покажи данните който са докладвани">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus блокира твърде &amp;много">
 <!ENTITY issues.change.description "Вашата конфигурация е променена. Моля, презаредете страницата, за да тествате промените и да представите доклад, ако въпросът не бъде уреден от промените.">
 <!ENTITY email.label "&amp;Е-поща:">
-<!ENTITY issues.openPreferences.label "Отваряне на настройките на филтъра">
-<!ENTITY sendPage.confirmation "Докладът е записан. Ще го откриете на следния адрес:">
-<!ENTITY copyLink.label "&amp;Копирай препратката на доклада">
+<!ENTITY issues.openPreferences.label "Отвори настройките за филтър">
+<!ENTITY sendPage.confirmation "Докладът ти е записан. Ще го откриете на следния адрес:">
+<!ENTITY copyLink.label "&amp;Копирай препратка на доклада">
 <!ENTITY issues.nofilters.description "Adblock Плюс не блокира нищо на текущата страница. Наблюдавания проблем най-вероятно
  не е свързан с Adblock Плюс.">
 <!ENTITY sendPage.knownIssue "Докладваният от Вас проблем вероятно вече е известен. За повече информация:">
@@ -16,20 +16,20 @@
 <!ENTITY issues.disabled.enable.label "Разрешаване на Adblock Plus">
 <!ENTITY update.fixed.description "Актуализациите на вашите абонаменти за филтри вероятно са решили въпроса който сте докладвали. Моля, презаредете страницата и опитайте отново, Докладвайте отново, ако проблемът все още го има.">
 <!ENTITY anonymous.label "&amp;Анонимно изпращане на информация">
-<!ENTITY reloadButton.label "Пре&amp;зареди страницата">
+<!ENTITY reloadButton.label "&amp;Презареди страницата">
 <!ENTITY recentReports.clear.label "Премах&amp;ни всички доклади">
 <!ENTITY typeSelector.description "Този прозорец ще ви преведе през стъпките, необходими за подаване на доклад за Adblock
  Плюс проблем. Първо, моля изберете вида на проблема, който сте срещнали на тази страница:">
 <!ENTITY screenshot.remove.label "П&amp;ремахване на чувствителните данни">
 <!ENTITY issues.ownfilters.description "Някои от филтрите, приложени на тази страница са дефинирани от потребителя. Моля, деактивирайте филтрите, които може да причиняват проблема:">
-<!ENTITY update.inProgress.description "Adblock Plus трябва да актуализира вашите абонаменти за филтри и да се увери, че въпросът не е решен вече. Моля, изчакайте..">
+<!ENTITY update.inProgress.description "Adblock Plus трябва да актуализира вашия филтър абонамент за да сте сигурни, че проблемът не е бил разрешен. Моля, изчакайте...">
 <!ENTITY sendPage.retry.label "Изпрати отново">
 <!ENTITY data.label "&amp;Докладвани данни:">
 <!ENTITY recentReports.label "Вашите наскоро представените доклади">
 <!ENTITY typeWarning.description "Посочили сте, че искате да съобщите за общ проблем с Adblock Plus, а не проблем с филтрите. Моля, обърнете внимание, че тези въпроси са най-докладвани във [link]форума на Adblock Plus[/link]. Трябва да използвате докладчика на проблеми за допълване на съществуваща дискусия, тъй като никой няма да забележи вашия доклад, докато не предоставите връзка към него. Автоматично генерирана връзка ще бъде предоставена след предоставянето на доклада.">
 <!ENTITY issues.disabled.description "Adblock Plus е изключен - няма да блокира нищо в неговото текущо състояние.">
 <!ENTITY attachExtensions.label "Прилагане на списък с активните раз&amp;ширения към доклада в случай че добавката  причинява проблема">
-<!ENTITY issues.nosubscriptions.add.label "Добавяне на абонамент за филтър">
+<!ENTITY issues.nosubscriptions.add.label "Добави абонамент за филтър">
 <!ENTITY issues.disabledfilters.enable.label "Разрешаване на филтър">
 <!ENTITY issues.override.label "Конфигурацията е &amp;правилна, продължаване с доклада">
 <!ENTITY issues.nosubscriptions.description "Изглежда не сте абонирани за някои от предварително направени списъци с филтри, които автоматично премахват нежеланото съдържание от страниците.">
@@ -43,7 +43,7 @@
 <!ENTITY comment.label "&amp;Коментар (по избор):">
 <!ENTITY sendPage.errorMessage "Опитът за изпращане на доклада се провали с код на грешка &quot;?1?&quot;. Моля, уверете се, че сте свързани с интернет и повторете. Ако проблемът продължи, моля потърсете помощ в [link]форума на Adblock Plus[/link].">
 <!ENTITY showRecentReports.label "Покажи наскоро представените доклади">
-<!ENTITY commentPage.heading "Въвеждане на коментар">
+<!ENTITY commentPage.heading "Въведете коментар">
 <!ENTITY update.start.label "Започни обновяването сега">
 <!ENTITY issues.disabledfilters.description "Следните филтри са изключени, но въпреки това може да окажат влияние на тази страница:">
 <!ENTITY screenshot.description "Същата страница може да изглежда различно за различни хора. Това може да ни помогне да разберем проблема, ако прикачите снимка на екрана към вашия доклад. Можете да премахнете частите, съдържащи чувствителна информация, както и зони, в които проблемът се забелязва. За да направите това натиснете съответния бутон и изберете частта от изображението с мишката.">
@@ -53,12 +53,12 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Плюс не блоки&amp;ра реклама">
 <!ENTITY typeSelector.heading "Избор на неизправност">
 <!ENTITY anonymity.warning "Ние няма да бъдем в състояние да се върнем при теб и вероятно ще свалим приоритета на на доклада най доло.">
-<!ENTITY wizard.title "Докладчик за неизправност">
-<!ENTITY issues.ownfilters.disable.label "Забраняване на филтър">
+<!ENTITY wizard.title "Докладване за неизправност">
+<!ENTITY issues.ownfilters.disable.label "Забрани филтър">
 <!ENTITY commentPage.description "Полето по-долу ви позволява да въведете коментар да ни помогне да разберем проблема. Тази стъпка не е задължителна, но се препоръчва, ако проблемът не е очевиден. Можете също да прегледате данните от доклада, преди да е изпратен.">
 <!ENTITY comment.lengthWarning "Дължината на коментара надвишава 1000 знака. Само първите 1000 знака ще бъдат изпратени.">
 <!ENTITY typeSelector.falseNegative.description "Изберете тази настройка, ако се показва реклама въпреки, че Adblock Плюс е включен.">
-<!ENTITY sendPage.waitMessage "Моля, изчакайте докато Adblock Plus предаде вашия доклад.">
+<!ENTITY sendPage.waitMessage "Моля, изчакайте докато Adblock Plus изпрати вашият доклад.">
 <!ENTITY dataCollector.heading "Добре дошли в докладчика за неизправност">
 <!ENTITY screenshot.heading "Прикрепяне на екранна снимка">
 <!ENTITY sendPage.heading "Изпращане на доклада">

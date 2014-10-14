@@ -1,7 +1,7 @@
 <!ENTITY anchor.end.label "I slutet av adressen">
 <!ENTITY domainRestriction.label "Begränsa till domän:">
 <!ENTITY collapse.default.no.label "Standard (nej)">
-<!ENTITY firstParty.label "Endast första part">
+<!ENTITY firstParty.label "Endast &amp;första part">
 <!ENTITY preferences.label "Visa existerande filter…">
 <!ENTITY pattern.label "Sök efter mönster">
 <!ENTITY thirdParty.label "Endast tredje part">
@@ -11,7 +11,7 @@
 <!ENTITY anchor.start.label "I början av adressen">
 <!ENTITY matchCase.label "S&amp;kiftlägeskänslig">
 <!ENTITY custom.pattern.label "Eget:">
-<!ENTITY unselectAllTypes.label "Välj ingen">
+<!ENTITY unselectAllTypes.label "Markera ingen">
 <!ENTITY type.whitelist.label "Regel för &amp;undantag">
 <!ENTITY regexp.warning "Mönstret du angivit hanteras som ett reguljärt uttryck. Många reguljära uttryck kan göra din surfning långsam. Om du inte avsåg att använda reguljära uttryck, lägg till en asterisk (*) i slutet av mönstret.">
 <!ENTITY dialog.title "Lägg till filterregel för Adblock Plus">

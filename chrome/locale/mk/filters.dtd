@@ -55,7 +55,7 @@
 <!ENTITY backup.complete.title "Сите филтри и претплати">
 <!ENTITY restore.own.label "Врати своја резервна копија">
 <!ENTITY restore.complete.warning "Сите филтерски нагодувања ќе се заменат со оние од копијата. Дали сакате да продолжите?">
-<!ENTITY filters.tab.label "Твои филтери">
+<!ENTITY filters.tab.label "Сопствени филтери">
 <!ENTITY backup.label "Направи нова резервна копија">
 <!ENTITY find.label "Пронајди">
 <!ENTITY subscription.moveDown.label "Оди надолу">

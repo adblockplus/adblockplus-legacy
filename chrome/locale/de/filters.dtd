@@ -1,5 +1,5 @@
 <!ENTITY restore.custom.warning "Alle Ihre eigenen Filter werden durch den Inhalt dieser Datei ersetzt. Wollen Sie fortfahren?">
-<!ENTITY slow.column "&amp;Langsame Filter">
+<!ENTITY slow.column "&amp;Langsam">
 <!ENTITY enabled.column "A&amp;ktiviert">
 <!ENTITY subscription.lastDownload.checksumMismatch "Fehler, Prüfsumme ist falsch, möglicherweise ein Übertragungsfehler">
 <!ENTITY noFiltersInGroup.text "Die gewählte Filtergruppe ist leer.">

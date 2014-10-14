@@ -1,0 +1,31 @@
+<!ENTITY notification.button.yes "&amp;Ie">
+<!ENTITY notification.button.no "&amp;Na">
+<!ENTITY sync.label "&amp;Cysoni gosodiadau Adblock Plus">
+<!ENTITY whitelist.site.label "Analluogi ar ?1?">
+<!ENTITY filters.label "&amp;Dewisiadau hidlo">
+<!ENTITY disable.label "Analluogi ym mhobman">
+<!ENTITY objecttab.title "Rhwystro">
+<!ENTITY objecttab.tooltip "Cliciwch yma i rwystro hwn gydag Adblock Plus">
+<!ENTITY menuitem.label "Dewisiadau Ad&amp;block Plus">
+<!ENTITY objecttabs.label "Dangos &amp;tabiau ar Flash a Java">
+<!ENTITY sendReport.label "&amp;Adrodd nam ar y dudalen hon">
+<!ENTITY whitelist.page.label "Analluogi ar y dudalen hon yn unig">
+<!ENTITY context.image.label "Adblock Plus: Rhwystro llun">
+<!ENTITY counthits.label "&amp;Mesurydd yr hidlydd">
+<!ENTITY opensidebar.label "Dangos yr eitemau y gellir &amp;rhwystro">
+<!ENTITY notification.button.close "&amp;Cau">
+<!ENTITY contribute.label "Cyfrannu i Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus: Rhwystro fframyn">
+<!ENTITY blocked.tooltip "Eitemau rwystrwyd ar y dudalen hon:">
+<!ENTITY hideplaceholders.label "Cuddio &amp;dalfannau'r elfennau a rwystrwyd">
+<!ENTITY showinstatusbar.label "Dangos yn y bar &amp;statws">
+<!ENTITY sidebar.title "Eitemau gellir eu rhwystro ar y dudalen hon">
+<!ENTITY options.label "&amp;Dewisiadau">
+<!ENTITY context.object.label "Adblock Plus: Rhwystro gwrthrych">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Ail-alluogi ar y dudalen hon">
+<!ENTITY filters.tooltip "Hidlyddion mwyaf gweithgar:">
+<!ENTITY closesidebar.label "Cuddio'r eitemau y gellir &amp;rhwystro">
+<!ENTITY showintoolbar.label "Dangos yn y &amp;bar offer">
+<!ENTITY status.tooltip "Statws:">
+<!ENTITY context.media.label "Adblock Plus: Rhwystro sain/fideo">

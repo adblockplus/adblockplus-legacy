@@ -1,0 +1,12 @@
+<!ENTITY addMain.label "&quot;?1?&quot; வடிகட்டி சந்தா உடனும் சேர்">
+<!ENTITY list.download.failed "Adblock Plus சந்தாக்கள் பட்டியலை மீட்க தவறியது.">
+<!ENTITY list.download.retry "மீண்டும் முயற்சி செய்">
+<!ENTITY title.label "சந்தா தலைப்பு:">
+<!ENTITY list.download.website "வலைத்தளத்தை பார்க்க">
+<!ENTITY supplementMessage "இந்த வடிகட்டி சந்தா  நீங்கள் இன்னும் பயன்படுத்தாத ?1? உடன் பயன்படுத்த வேண்டியது">
+<!ENTITY viewList.label "வடிகட்டிகள் பார்க்க">
+<!ENTITY visitHomepage.label "முகப்பு பக்கம் செல்ல">
+<!ENTITY addSubscription.label "சந்தா சேர்க்க">
+<!ENTITY dialog.title "சேர் Adblock Plus சந்தா வடிகட்டி">
+<!ENTITY location.label "வடிகட்டி பட்டியல் பகுதி:">
+<!ENTITY fromWeb.description "நீங்கள் இந்த வடிகட்டியை சேர்க்க உறுதி செய்யவும்.  சேர்ப்பதற்கு முன் தலைப்பை மாற்றலாம்">
