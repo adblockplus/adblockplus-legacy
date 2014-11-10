@@ -1,0 +1,35 @@
+<!ENTITY context.flash.label "ഫ്ലാഷ് ഇനത്തിനെ അതിരുകള്‍">
+<!ENTITY address.label "വിലാസം">
+<!ENTITY context.open.label "പുതിയ ടാബില്‍ തുറക്കുക">
+<!ENTITY type.label "തരം">
+<!ENTITY tooltip.filterSource.label "ഫില്‍റ്ററിന്‍റെ ഉറവിടം:">
+<!ENTITY noitems.label "ബ്ലോക്ക്‌ ചെയ്യാവുന്നത് ഇല്ല">
+<!ENTITY filter.label "ഫില്‍റ്റര്‍">
+<!ENTITY tooltip.size.label "വലിപ്പം:">
+<!ENTITY reattach.label "വീണ്ടും ബന്ധിക്കുക">
+<!ENTITY search.label "&amp;തിരയുക:">
+<!ENTITY docDomain.thirdParty "(തേര്‍ഡ് പാര്‍ട്ടി)">
+<!ENTITY filterSource.label "ഫില്‍റ്ററിന്‍റെ ഉറവിടം">
+<!ENTITY tooltip.docDomain.label "ഡോക്യുമെന്റിന്റെ ഉറവിടം:">
+<!ENTITY context.copy.label "വിലാസം പകര്‍ത്തുക">
+<!ENTITY tooltip.type.label "തരം:">
+<!ENTITY context.disablefilter.label "ഫില്‍റ്റര്‍ പ്രവര്‍ത്തനരഹിതമാക്കുക ?1?">
+<!ENTITY context.copyFilter.label "ഫില്‍റ്റര്‍ പകര്‍ത്തുക">
+<!ENTITY context.block.label "ഈ ഇനം ബ്ലോക്ക്‌ ചെയ്യുക">
+<!ENTITY context.enablefilter.label "ഫില്‍റ്റര്‍ വീണ്ടും പ്രവര്‍ത്തനസജ്ജമാക്കുക ?1?">
+<!ENTITY detach.label "വേര്‍പെടുത്തുക">
+<!ENTITY whitelisted.label "വൈറ്റ്ലിസ്റ്റ് ചെയ്തിരിക്കുന്ന പേജ്">
+<!ENTITY context.disablefilteronsite.label "ഈ ഫില്‍റ്റര്‍ പ്രവര്‍ത്തനരഹിതമാക്കുക ?1?">
+<!ENTITY detached.title "ആഡ്ബ്ലോക്ക്‌ പ്ലസ്‌: ബ്ലോക്ക്‌ ചെയ്യാവുന്നവ (വേര്‍പെടുത്തിയവ)">
+<!ENTITY docDomain.firstParty "(ഒന്നാം പാര്‍ട്ടി)">
+<!ENTITY tooltip.type.whitelisted "(വൈറ്റ്ലിസ്റ്റ് ചെയ്തിരിക്കുന്നു)">
+<!ENTITY tooltip.filter.label "നിലവിലുള്ള ഫില്‍റ്റര്‍:">
+<!ENTITY tooltip.filter.disabled "(പ്രവര്‍ത്തനരഹിതം)">
+<!ENTITY context.editfilter.label "നിലവിലുള്ള ഫില്‍റ്റര്‍ തിരുത്തുക">
+<!ENTITY tooltip.type.blocked "(ബ്ലോക്ക്‌ ചെയ്തിരിക്കുന്നു)">
+<!ENTITY size.label "വലിപ്പം">
+<!ENTITY context.whitelist.label "ഈ ഇനത്തിനു ഒഴിവാക്കല്‍ നിയമം ചേര്‍ക്കുക">
+<!ENTITY context.selectAll.label "എല്ലാം തിരഞ്ഞെടുക്കുക">
+<!ENTITY state.label "സ്ഥിതി">
+<!ENTITY docDomain.label "ഡോക്യുമെന്റിന്റെ ഉറവിടം">
+<!ENTITY tooltip.address.label "വിലാസം:">

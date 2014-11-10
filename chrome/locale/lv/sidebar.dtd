@@ -1,7 +1,7 @@
 <!ENTITY context.flash.label "Flash vienības malas">
 <!ENTITY address.label "Adrese">
 <!ENTITY context.open.label "Atvērt jaunā cilnē">
-<!ENTITY type.label "Tips">
+<!ENTITY type.label "Veids">
 <!ENTITY tooltip.filterSource.label "Filtra avots:">
 <!ENTITY noitems.label "Nav bloķējamu vienību">
 <!ENTITY filter.label "Filtrs">

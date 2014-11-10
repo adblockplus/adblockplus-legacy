@@ -1,5 +1,8 @@
-<!ENTITY dialog.title "ആഡ് ആട്ബ്ലോക്ക്‌ പ്ലസ്‌ ഫിൽറ്റർ റൂൾ">
-<!ENTITY collapse.yes.label "അതെ">
-<!ENTITY pattern.label "പാറ്റേണ്‍ ശ്രദ്ധിക്കാം‍‍">
 <!ENTITY accept.label "ആഡ് ഫിൽറ്റർ">
 <!ENTITY collapse.no.label "അല്ല">
+<!ENTITY thirdParty.label "&amp;തേര്‍ഡ്-പാര്‍ട്ടി മാത്രം">
+<!ENTITY preferences.label "&amp;നിലവിലുള്ള ഫില്‍റ്റര്‍ കാണിക്കുക...">
+<!ENTITY collapse.yes.label "അതെ">
+<!ENTITY pattern.label "പാറ്റേണ്‍ ശ്രദ്ധിക്കാം‍‍">
+<!ENTITY dialog.title "ആഡ് ആട്ബ്ലോക്ക്‌ പ്ലസ്‌ ഫിൽറ്റർ റൂൾ">
+<!ENTITY filter.label "പുതിയ &amp;ഫില്‍റ്റര്‍:">
