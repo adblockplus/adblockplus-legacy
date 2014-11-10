@@ -1,0 +1,46 @@
+<!ENTITY noFiltersInGroup.text "തിരഞ്ഞെടുത്ത ഗ്രൂപ്പ്‌ കാലിയാണ്.">
+<!ENTITY subscription.actions.label "പ്രവര്‍ത്തികള്‍">
+<!ENTITY filter.selectAll.label "എല്ലാം തിരഞ്ഞെടുക്കുക">
+<!ENTITY sort.ascending.label "&amp;A &gt; Z രീതിയില്‍ ക്രമീകരിക്കുക">
+<!ENTITY sort.label "&amp;രീതിയില്‍ ക്രമീകരിക്കുക">
+<!ENTITY subscription.source.label "ഫില്‍റ്റര്‍ പട്ടിക">
+<!ENTITY hitcount.column "&amp;ഹിറ്റുകള്‍">
+<!ENTITY filter.paste.label "ഒട്ടിക്കുക">
+<!ENTITY backup.custom.title "കസ്റ്റം ഫില്‍റ്ററുകള്‍ മാത്രം">
+<!ENTITY viewList.label "പട്ടിക കാണുക">
+<!ENTITY subscription.delete.label "മായ്ച്ചുകളയുക">
+<!ENTITY subscription.lastDownload.inProgress "ഡൌണ്‍ലോഡ് ചെയ്യുന്നു…">
+<!ENTITY filter.delete.label "ഒഴിവാക്കുക">
+<!ENTITY addSubscriptionAdd.label "ചേര്‍ക്കുക">
+<!ENTITY viewMenu.label "കാണുക">
+<!ENTITY subscription.lastDownload.unknown "ബാധകമല്ല">
+<!ENTITY addSubscriptionCancel.label "റദ്ദ്ചെയ്യുക">
+<!ENTITY subscription.enabled.label "പ്രാപ്തമാക്കി">
+<!ENTITY lasthit.column "&amp;അവസാന ഹിറ്റ്‌">
+<!ENTITY subscription.update.label "ഫില്‍റ്ററുകള്‍ നവീകരിക്കുക">
+<!ENTITY dialog.title "ആഡ്ബ്ലോക്ക്‌ പ്ലസ്‌ ഫില്‍റ്റര്‍ മുന്‍ഗണനകള്‍">
+<!ENTITY subscription.lastDownload.invalidURL "പരാജയപ്പെട്ടിരിക്കുന്നു, ഇതൊരു സാധുവായ വിലാസം അല്ല">
+<!ENTITY filter.moveUp.label "മുകളിലോട്ടു ചലിക്കുക">
+<!ENTITY addGroup.label "ഫില്‍റ്റര്‍ &amp;ഗ്രൂപ്പ്‌ ചേര്‍ക്കുക">
+<!ENTITY filter.edit.label "തിരുത്തുക">
+<!ENTITY subscription.showHideFilters.label "ഫില്‍റ്ററുകള്‍ കാണിക്കുക/മറക്കുക">
+<!ENTITY filter.cut.label "മുറിക്കുക">
+<!ENTITY close.label "അടക്കുക">
+<!ENTITY sort.none.label "&amp;ക്രമീകരിക്കാത്തത്">
+<!ENTITY filter.actions.label "ഫില്‍റ്റര്‍ പ്രവര്‍ത്തികള്‍">
+<!ENTITY filter.copy.label "പകര്‍ത്തുക">
+<!ENTITY filter.moveDown.label "താഴേക്കു ചലിക്കുക">
+<!ENTITY readMore.label "കൂടുതല്‍ വായിക്കുക">
+<!ENTITY subscription.moveUp.label "മുകളിലോട്ടു ചലിക്കുക">
+<!ENTITY restore.own.label "സ്വന്തം ബാക്ക്അപ് പുന:സ്ഥാപിക്കുക">
+<!ENTITY subscription.moveDown.label "താഴേക്കു ചലിക്കുക">
+<!ENTITY backup.label "പുതിയ ബാക്ക്അപ് നിര്‍മിക്കുക">
+<!ENTITY find.label "ക&amp;ണ്ടെത്തുക">
+<!ENTITY sort.descending.label "&amp;Z &gt; A രീതിയില്‍ ക്രമീകരിക്കുക">
+<!ENTITY subscription.lastDownload.connectionError "പരാജയം, ഡൌണ്‍ലോഡ് പരാജയപ്പെട്ടിരിക്കുന്നു">
+<!ENTITY subscription.lastDownload.success "സഫലം">
+<!ENTITY subscription.lastDownload.invalidData "പരാജയപ്പെട്ടിരിക്കുന്നു, ഇതൊരു സാധുവായ ഫില്‍റ്റര്‍ പട്ടിക അല്ല">
+<!ENTITY addFilter.label "ഫില്‍റ്റര്‍ ചേര്‍&amp;ക്കുക">
+<!ENTITY subscription.editTitle.label "നാമം തിരുത്തുക">
+<!ENTITY subscription.lastDownload.label "അവസാനം ഡൌണ്‍ലോഡ് ചെയ്തത്:">
+<!ENTITY filter.column "&amp;ഫില്‍റ്റര്‍ നിയമം">

@@ -1,25 +1,72 @@
+<!ENTITY restore.custom.warning "Holl ho siloù personelaet a vo eillec'hiet gant endalc'had ar restr diuzet. Ha c'hoant ho peus kenderc'hel ?">
 <!ENTITY slow.column "Diskouez ar siloù">
+<!ENTITY enabled.column "Gweredekaet">
 <!ENTITY subscription.lastDownload.checksumMismatch "Fazi, n'eo ket ar memes checksum">
-<!ENTITY lasthit.column "Implij diwezhañ">
+<!ENTITY noFiltersInGroup.text "Ar strollad diuzet a zo goullo.">
+<!ENTITY subscription.actions.label "Oberennoù">
+<!ENTITY filter.selectAll.label "Diuzañ an holl">
+<!ENTITY backupButton.label "&amp;Gwarediñ hag assav">
+<!ENTITY restore.minVersion.warning "Diwallit : ar restr a zo bet krouet gant un handelv nevez Adblock Plus. Ret e vefe deoc'h hizivaat d'an handelv Adblock Plus nevesañ a-raok assav adalek ar restr-mañ.">
+<!ENTITY restore.error "N'eus ket bet tu keweriañ roadennoù ar restr, marteze n'eo ket ur restr gwarediñ Adblock Plus ?">
 <!ENTITY sort.ascending.label "Urzh A &gt; Z">
 <!ENTITY sort.label "Rummañ dre">
-<!ENTITY filter.paste.label "Pegañ">
-<!ENTITY subscription.lastDownload.inProgress "O pellgargañ...">
-<!ENTITY filter.delete.label "Skarzhañ kuit">
-<!ENTITY enabled.column "Gweredekaet">
-<!ENTITY viewMenu.label "Diskouez">
-<!ENTITY subscription.lastDownload.invalidURL "Fazi, n'eo ket ur chomlec'h">
+<!ENTITY subscription.source.label "Listenn ar siloù">
 <!ENTITY hitcount.column "Konter">
+<!ENTITY noFilters.text "N'ho 'peus siloù personelaet ebet evit ar mare.">
+<!ENTITY backup.custom.title "Siloù personelaet nemetken">
+<!ENTITY subscription.external.label "Hizivaet gant un askouezh all">
+<!ENTITY subscription.delete.label "Diverkañ">
+<!ENTITY noGroupSelected.text "Ret eo deoc'h diuzañ ur strollad siloù a-raok vefe tu diskouez e siloù.">
 <!ENTITY filter.cut.label "Troc'hañ">
-<!ENTITY addSubscriptionOther.label "Ouzhpenn ur c'houmanant all">
-<!ENTITY sort.none.label "Na rummet">
-<!ENTITY filter.copy.label "Kopiañ">
-<!ENTITY addSubscription.label "Koumanantiñ el listenn siloù">
-<!ENTITY find.label "Klask">
+<!ENTITY restore.default.label "Assav ar gwaredin adalek ?1?">
+<!ENTITY subscription.lastDownload.inProgress "O pellgargañ...">
+<!ENTITY subscriptions.tab.label "Koumanantoù sil">
 <!ENTITY sort.descending.label "Urzh Z &gt; A">
+<!ENTITY filters.remove.warning "Ha c'hoant ho 'peus lemel an holl siloù diuzet ?">
+<!ENTITY filter.delete.label "Skarzhañ kuit">
+<!ENTITY addSubscriptionAdd.label "Ouzhpennañ">
+<!ENTITY viewMenu.label "Diskouez">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY addSubscriptionCancel.label "Nullañ">
+<!ENTITY subscription.enabled.label "Gweredekaet">
+<!ENTITY noSubscriptions.text "N'ho peus ouzhpennet koumanant sil ebet c'hoazh. Ne vo stanket netra gant Adblock Plus ma ne lakait sil ebet. Implijit &quot;Ouzhpennañ ur goumanant sil&quot; evit ouzhpennañ un nebeut.">
+<!ENTITY subscription.update.label "Hizivaat ar siloù">
+<!ENTITY dialog.title "Gwellvezioù Sil Adblock Plus">
+<!ENTITY addFilter.label "Ouzhpenn ur sil">
+<!ENTITY subscription.minVersion.warning "Un handelv nevezoc'h eus Adblock Plus a zo dleet evit kaout ar goumanant sil, ret vefe deoc'h hizivaat d'an handelv nevesañ.">
+<!ENTITY subscription.lastDownload.invalidURL "Fazi, n'eo ket ur chomlec'h">
+<!ENTITY backup.error "Ur gudenn a zo bet en ur skrivañ ar siloù d'ar restroù. Bezit sur n'eo ket gwarezet ar restr pe implijet gant ur poellad all.">
+<!ENTITY filter.moveUp.label "Pignat">
+<!ENTITY addGroup.label "Ouzhpennañ &amp;strollad sil">
+<!ENTITY filter.edit.label "Kemmañ">
+<!ENTITY subscription.showHideFilters.label "Diskouez/Kuzhat ar siloù">
+<!ENTITY acceptableAds2.label "Aotren bruderezh nann-intrudus">
+<!ENTITY addSubscriptionOther.label "Ouzhpenn ur c'houmanant all">
+<!ENTITY close.label "Serriñ">
+<!ENTITY sort.none.label "Na rummet">
+<!ENTITY filter.actions.label "Oberennoù ar siloù">
+<!ENTITY filter.copy.label "Kopiañ">
+<!ENTITY filter.moveDown.label "Diskenn">
+<!ENTITY filter.resetHitCounts.label "Adderaouekaat ar stadegoù">
+<!ENTITY readMore.label "Lenn muioc'h">
+<!ENTITY subscription.moveUp.label "Pignat">
+<!ENTITY addSubscription.label "Koumanantiñ el listenn siloù">
+<!ENTITY subscription.homepage.label "Pajenn degemer">
+<!ENTITY backup.complete.title "An holl siloù ha koumanantoù">
+<!ENTITY restore.own.label "Assav ar gwarediñ a-bez">
+<!ENTITY restore.complete.warning "Holl ho gwellvezioù siloù a vo eillec'hiet gant endalc'had ar restr diuzet. Ha c'hoant ho 'peus en kenderc'hel ?">
+<!ENTITY filters.tab.label "Siloù personelaet">
+<!ENTITY backup.label "Krouin ur gwaredin nevez">
+<!ENTITY find.label "Klask">
+<!ENTITY subscription.moveDown.label "Diskenn">
 <!ENTITY subscription.lastDownload.connectionError "Fazi, pellgargañ torret">
 <!ENTITY subscription.lastDownload.success "Trec'hadenn">
 <!ENTITY subscription.lastDownload.invalidData "Fazi, n'eo ket ul listenn siloù mat">
-<!ENTITY addFilter.label "Ouzhpenn ur sil">
-<!ENTITY subscription.lastDownload.label "pellgargañ diwezhañ">
+<!ENTITY filter.paste.label "Pegañ">
+<!ENTITY subscription.disabledFilters.enable "Gweredekaet ar siloù diweredekaet">
+<!ENTITY lasthit.column "Implij diwezhañ">
+<!ENTITY subscription.editTitle.label "Kemmañ en titl">
+<!ENTITY subscription.disabledFilters.warning "Siloù 'zo er goumanant-mañ a zo diweredekaet.">
 <!ENTITY filter.column "Reolenn silaj">
+<!ENTITY subscription.lastDownload.label "pellgargañ diwezhañ">
+<!ENTITY viewList.label "Gwelet al listenn">
