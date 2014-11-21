@@ -45,7 +45,7 @@
   <subscription title="EasyList Czech and Slovak+EasyList"
                 specialization="čeština, slovenčina"
                 url="https://easylist-downloads.adblockplus.org/easylistczechslovak+easylist.txt"
-                homepage="http://adblocksk.tk/"
+                homepage="http://adblock.sk/"
                 prefixes="cs,sk"
                 author="tomasko126"/>
   <subscription title="EasyList Dutch+EasyList"
