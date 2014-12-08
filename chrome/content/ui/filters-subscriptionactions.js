@@ -444,7 +444,7 @@ var TitleEditor =
     if (save)
     {
       newTitle = subscriptionNode.getElementsByClassName("titleEditor")[0].value;
-      newTitle = newTitle.replace(/^\s+/, "").replace(/\s+$/, "");
+      newTitle = newTitle.trim();
     }
 
     let subscription = Templater.getDataForNode(subscriptionNode).subscription
