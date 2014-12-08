@@ -29,7 +29,6 @@
 <!ENTITY showintoolbar.label        "Show in tool&amp;bar">
 <!ENTITY showinstatusbar.label      "&amp;Show in status bar">
 <!ENTITY objecttabs.label           "Show &amp;tabs on Flash and Java">
-<!ENTITY hideplaceholders.label     "Hide p&amp;laceholders of blocked elements">
 <!ENTITY counthits.label            "Count filter &amp;hits">
 <!ENTITY sync.label                 "Syn&amp;c Adblock Plus settings">
 <!ENTITY objecttab.title        "Block">

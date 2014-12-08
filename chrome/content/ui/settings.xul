@@ -29,7 +29,6 @@
   </setting>
   <setting pref="extensions.adblockplus.enabled" type="bool" inverted="true" title="&disable.label;"/>
   <setting pref="extensions.adblockplus.frameobjects" type="bool" title="&objecttabs.label;"/>
-  <setting pref="extensions.adblockplus.fastcollapse" type="bool" inverted="true" title="&hideplaceholders.label;"/>
   <setting id="adblockplus-savestats" type="bool" title="&counthits.label;"/>
   <setting id="adblockplus-sync" type="bool" title="&sync.label;"/>
   <setting id="adblockplus-showintoolbar" type="bool" title="&showintoolbar.label;"/>
