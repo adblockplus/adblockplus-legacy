@@ -43,9 +43,6 @@
 
   function onDOMLoaded()
   {
-    var locale = require("utils").Utils.appLocale;
-    document.documentElement.setAttribute("lang", locale);
-
     // Set up URLs
     var donateLink = E("donate");
     donateLink.href = Utils.getDocLink("donate");
