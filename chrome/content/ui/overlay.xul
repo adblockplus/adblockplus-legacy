@@ -59,7 +59,6 @@
     <menu id="abp-status-options" label="&options.label;">
       <menupopup id="abp-status-options-popup">
         <menuitem id="abp-status-frameobjects" label="&objecttabs.label;" type="checkbox" command="abp-command-toggleobjtabs"/>
-        <menuitem id="abp-status-slowcollapse" label="&hideplaceholders.label;" type="checkbox" command="abp-command-togglecollapse"/>
         <menuitem id="abp-status-savestats" label="&counthits.label;" type="checkbox" command="abp-command-togglesavestats"/>
         <menuitem id="abp-status-sync" label="&sync.label;" type="checkbox" command="abp-command-togglesync"/>
         <menuseparator id="abp-status-iconSettingsSeparator"/>
@@ -87,7 +86,6 @@
     <command id="abp-command-togglesitewhitelist"/>
     <command id="abp-command-togglepagewhitelist"/>
     <command id="abp-command-toggleobjtabs"/>
-    <command id="abp-command-togglecollapse"/>
     <command id="abp-command-togglesavestats"/>
     <command id="abp-command-togglesync"/>
     <command id="abp-command-toggleshowintoolbar"/>

@@ -31,8 +31,6 @@
   </setting>
   <setting id="adblockplus-acceptableAds" type="bool" title="&acceptableAds2.label;"
     oncommand="/**See bug 762015*/ if (event.type == 'oncommand') {event = document.createEvent('Events'); event.initEvent('command', false, false); this.dispatchEvent(event);}"/>
-  <setting pref="extensions.adblockplus.fastcollapse" type="bool" title="&hideplaceholders.label;"
-           inverted="true"/>
   <setting id="adblockplus-sync" type="bool" title="&sync.label;"
     oncommand="/**See bug 762015*/ if (event.type == 'oncommand') {event = document.createEvent('Events'); event.initEvent('command', false, false); this.dispatchEvent(event);}"/>
 </vbox>
