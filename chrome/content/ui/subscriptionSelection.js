@@ -239,7 +239,7 @@ function validateURL(url)
 {
   if (!url)
     return null;
-  url = url.replace(/^\s+/, "").replace(/\s+$/, "");
+  url = url.trim();
 
   // Is this a file path?
   try {
@@ -266,7 +266,7 @@ function addSubscription()
     return false;
   }
 
-  let title = E("title").value.replace(/^\s+/, "").replace(/\s+$/, "");
+  let title = E("title").value.trim();
   if (!title)
     title = url;
 
