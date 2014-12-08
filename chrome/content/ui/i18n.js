@@ -18,12 +18,12 @@
 var i18n;
 
 if (typeof ext != "undefined")
+{
   i18n = ext.i18n;
-else if (typeof chrome != "undefined")
-  // TODO: This check only exist for backwards compatibility, while the Safari
-  // port isn't merged into the adblockpluschrome repo. So this branch should
-  // be removed when the Safari port was merged.
-  i18n = chrome.i18n;
+
+  document.documentElement.lang = ext.i18n.getMessage("@@ui_locale").replace(/_/g, "-");
+  document.documentElement.dir = ext.i18n.getMessage("@@bidi_dir");
+}
 else
 {
   // Using Firefox' approach on i18n instead
@@ -84,6 +84,10 @@ else
       }
     };
   })();
+
+  var Utils = require("utils").Utils;
+  document.documentElement.lang = Utils.appLocale;
+  document.documentElement.dir = Utils.chromeRegistry.isLocaleRTL("adblockplus") ? "rtl" : "ltr";
 }
 
 // Inserts i18n strings into matching elements. Any inner HTML already in the element is

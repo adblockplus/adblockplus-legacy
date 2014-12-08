@@ -296,19 +296,21 @@ section > p
   display: inline-block;
   vertical-align: top;
   padding: 5px 0 5px 0;
+  border: 1px dashed #37506d;
+  border-style: none dashed;
 }
 
 #donate-block
 {
-  border: 1px dashed #37506d;
-  border-style: none dashed;
   width: 50%;
 }
 
 #share-block
 {
-  border-right: 1px dashed #37506d;
   width: 49%;
+
+  -webkit-border-start-style: none;
+  -moz-border-start-style: none;
 }
 
 .share-buttons
