@@ -29,11 +29,38 @@ zh-CN=https://adblockplus.org/zh_CN/
 zh-TW=https://adblockplus.org/zh_TW/
 
 [compat]
-firefox=22.0/37.0
-fennec2=22.0/37.0
-thunderbird=22.0/37.0
-seamonkey=2.19/2.34
-toolkit=22.0/37.0
+firefox=25.0/37.0
+fennec2=25.0/37.0
+thunderbird=25.0/37.0
+seamonkey=2.22/2.34
+toolkit=25.0/37.0
 
-[preprocess]
-chrome/content/ui/firstRun.html =
+[mapping]
+chrome/content/ui/firstRun.html = adblockplusui/firstRun.html
+chrome/content/ui/firstRun.js = adblockplusui/firstRun.js
+chrome/content/ui/i18n.js = adblockplusui/i18n.js
+chrome/content/ui/skin/firstRun.css = adblockplusui/skin/firstRun.css
+chrome/content/ui/skin/abp-icon-big.png = adblockplusui/skin/abp-icon-big.png
+chrome/content/ui/skin/ajax-loader.gif = adblockplusui/skin/ajax-loader.gif
+chrome/content/ui/skin/background.png = adblockplusui/skin/background.png
+chrome/content/ui/skin/background-main.png = adblockplusui/skin/background-main.png
+chrome/content/ui/skin/background-share.png = adblockplusui/skin/background-share.png
+chrome/content/ui/skin/donate.png = adblockplusui/skin/donate.png
+chrome/content/ui/skin/features/malware.png = adblockplusui/skin/features/malware.png
+chrome/content/ui/skin/features/social.png = adblockplusui/skin/features/social.png
+chrome/content/ui/skin/features/tracking.png = adblockplusui/skin/features/tracking.png
+chrome/content/ui/skin/fonts/CreteRound-Italic.otf = adblockplusui/skin/fonts/CreteRound-Italic.otf
+chrome/content/ui/skin/fonts/CreteRound-Regular.otf = adblockplusui/skin/fonts/CreteRound-Regular.otf
+chrome/content/ui/skin/social/facebook.png = adblockplusui/skin/social/facebook.png
+chrome/content/ui/skin/social/googleplus.png = adblockplusui/skin/social/googleplus.png
+chrome/content/ui/skin/social/renren.png = adblockplusui/skin/social/renren.png
+chrome/content/ui/skin/social/twitter.png = adblockplusui/skin/social/twitter.png
+chrome/content/ui/skin/social/weibo.png = adblockplusui/skin/social/weibo.png
+chrome/content/ui/ext/common.js = ext/common.js
+chrome/content/ui/ext/content.js = ext/content.js
+lib/ext_background.js = ext/background.js
+lib/ext_common.js = ext/common.js
+lib/messageResponder.js = adblockplusui/messageResponder.js
+
+[import_locales]
+adblockplusui/locale/*/firstRun.json = *
