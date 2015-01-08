@@ -62,35 +62,38 @@
       this._messageManager.removeMessageListener("AdblockPlus:Response", this._handleResponse);
     },
 
-    _sendResponse: function(sender, callbackId, response)
+    _sendResponse: function(sender, callbackId, message)
     {
-      this._responseSent = true;
-
-      if (sender instanceof Ci.nsIMessageSender)
-      {
-        sender.sendAsyncMessage("AdblockPlus:Response", {
-          callbackId: callbackId,
-          responseSent: typeof response != "undefined",
-          payload: response
-        });
-      }
+      var response = {
+        callbackId: callbackId
+      };
+      if (typeof response != "undefined")
+        response.payload = message;
+      sender.sendAsyncMessage("AdblockPlus:Response", response);
     },
 
     _handleRequest: function(message)
     {
       var sender = getSender(message.target);
       var request = message.data;
+
+      var sent = false;
       var sendResponse;
       if (sender && "callbackId" in request)
-        sendResponse = this._sendResponse.bind(this, sender, request.callbackId);
+      {
+        sendResponse = function(message)
+        {
+          this._sendResponse(sender, request.callbackId, message);
+          sent = true;
+        }.bind(this);
+      }
       else
         sendResponse = function() {};
 
-      this._responseSent = false;
-      var result = this._messageTarget._dispatch(request.payload, {
+      var results = this._messageTarget._dispatch(request.payload, {
         page: new holder.Page(sender)
       }, sendResponse);
-      if (!result && !this._responseSent)
+      if (!sent && results.indexOf(true) == -1)
         sendResponse(undefined);
     },
 
@@ -101,7 +104,7 @@
       if (callback)
       {
         this._callbacks.delete(response.callbackId);
-        if (response.responseSent)
+        if ("payload" in response)
           callback(response.payload);
       }
     },
@@ -142,12 +145,12 @@
     },
     _dispatch: function()
     {
-      var result = null;
+      var results = [];
 
       for (var i = 0; i < this._listeners.length; i++)
-        result = this._listeners[i].apply(null, arguments);
+        results.push(this._listeners[i].apply(null, arguments));
 
-      return result;
+      return results;
     }
   };
 
