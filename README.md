@@ -39,4 +39,4 @@ are a separate extension that is installed in addition to Adblock Plus. You can
 either install the
 [existing unit test builds](https://adblockplus.org/devbuilds/adblockplustests)
 or clone the repository and create your own build. After installing the unit
-tests go to _chrome://adblockplustests/content/index.html_ to run the tests.
+tests go to extension's options and run the unit tests from there.
