@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Ja">
 <!ENTITY notification.button.no "&amp;Nee">
 <!ENTITY sync.label "Sync Adblock Plus opsjes">
 <!ENTITY whitelist.site.label "Utskeakelje op ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "Rapportearje probleem op dizze side">
 <!ENTITY whitelist.page.label "Allinnich op dizze side útskeakelje">
 <!ENTITY context.image.label "Ofbylding blokkearje">
-<!ENTITY counthits.label "Tel filterhits">
+<!ENTITY notification.button.yes "&amp;Ja">
 <!ENTITY opensidebar.label "&amp;Blokkearbere ûnderdielen iepenje">
 <!ENTITY notification.button.close "&amp;Slûte">
 <!ENTITY contribute.label "Donearje oan Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Dielfinster blokkearje">
 <!ENTITY blocked.tooltip "Blokkearre ûnderdielen:">
-<!ENTITY hideplaceholders.label "Ferstop placeholders fan blokkearre eleminten">
+<!ENTITY counthits.label "Tel filterhits">
 <!ENTITY showinstatusbar.label "Toane yn steatbalke">
 <!ENTITY sidebar.title "Blokkearbere ûnderdelen op dizze side">
 <!ENTITY options.label "Opsjes">

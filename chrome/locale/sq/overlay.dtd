@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;po">
 <!ENTITY notification.button.no "&amp;Jo">
 <!ENTITY sync.label "Sync Adblock Plus settings">
 <!ENTITY whitelist.site.label "Çaktivizo në ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "&amp;Raporti çështje në këtë faqe">
 <!ENTITY whitelist.page.label "Çaktivizo vetëm në këtë faqe">
 <!ENTITY context.image.label "Adblock Plus: Figurat e bllokuara">
-<!ENTITY counthits.label "Llogarit filtrat&amp;hits">
+<!ENTITY notification.button.yes "&amp;po">
 <!ENTITY opensidebar.label "Hap elementet &amp;bllokuese">
 <!ENTITY notification.button.close "&amp;Mbyll">
 <!ENTITY contribute.label "Kontribut te Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Pjesët e bllokuara">
 <!ENTITY blocked.tooltip "Jane bllokuar te dhena ne kete faqe:">
-<!ENTITY hideplaceholders.label "Fshi p&amp;laceholders te elementeve te bllokuar">
+<!ENTITY counthits.label "Llogarit filtrat&amp;hits">
 <!ENTITY showinstatusbar.label "&amp;Trego ne status bar">
 <!ENTITY sidebar.title "Artikuj Blockable në faqen aktuale">
 <!ENTITY options.label "Mundësitë (&amp;O)">

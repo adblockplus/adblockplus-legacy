@@ -1,13 +1,23 @@
-<!ENTITY sidebar.title "Elementos bloqueables en la página actual">
-<!ENTITY context.object.label "Adblock Plus: Bloquear objeto.">
-<!ENTITY context.media.label "Adblock Plus: Bloqueo de audio/vídeo">
-<!ENTITY context.frame.label "Adblock Plus: Bloquear marco">
-<!ENTITY filters.tooltip "Filtros más activos:">
+<!ENTITY notification.button.no "&amp;No">
+<!ENTITY whitelist.site.label "¿Deshabilitar en ?1?">
+<!ENTITY filters.label "&amp;Preferencias de filtros">
+<!ENTITY objecttab.title "Blloquear">
+<!ENTITY objecttab.tooltip "Haga click aquí para bloquear este objeto con Adblock Plus">
 <!ENTITY menuitem.label "Preferencias de Adblock Plus">
 <!ENTITY sendReport.label "Informar de un problema en esta página">
-<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY whitelist.page.label "Desactivar solo en esta pagina">
 <!ENTITY context.image.label "Adblock Plus: Bloquear Imagen">
-<!ENTITY filters.label "&amp;Preferencias de filtros">
-<!ENTITY status.tooltip "Estado:">
+<!ENTITY notification.button.yes "&amp;Sí">
+<!ENTITY opensidebar.label "Abrir &amp;items bloqueables">
+<!ENTITY notification.button.close "&amp;Cerrar">
+<!ENTITY contribute.label "Contruibuir a Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus: Bloquear marco">
 <!ENTITY blocked.tooltip "Elementos bloqueados en esta página:">
+<!ENTITY sidebar.title "Elementos bloqueables en la página actual">
+<!ENTITY options.label "&amp;Opciones">
+<!ENTITY context.object.label "Adblock Plus: Bloquear objeto.">
 <!ENTITY context.removeWhitelist.label "Adblock Plus: Re-activar publicidad en esta página">
+<!ENTITY filters.tooltip "Filtros más activos:">
+<!ENTITY status.tooltip "Estado:">
+<!ENTITY context.media.label "Adblock Plus: Bloqueo de audio/vídeo">

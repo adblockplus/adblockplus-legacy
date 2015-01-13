@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;確定">
 <!ENTITY notification.button.no "&amp;取消">
 <!ENTITY sync.label "同步 Adblo&amp;ck Plus 設定值">
 <!ENTITY whitelist.site.label "在 ?1? 停用">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "回報此頁面錯誤 (&amp;R)">
 <!ENTITY whitelist.page.label "只在此頁面停用">
 <!ENTITY context.image.label "Adblock Plus：阻擋圖片">
-<!ENTITY counthits.label "計算條件命中次數 (&amp;h)">
+<!ENTITY notification.button.yes "&amp;確定">
 <!ENTITY opensidebar.label "開啟可阻擋項目 (&amp;b)">
 <!ENTITY notification.button.close "&amp;關閉">
 <!ENTITY contribute.label "贊助 Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus：阻擋頁框">
 <!ENTITY blocked.tooltip "此頁已阻擋項目:">
-<!ENTITY hideplaceholders.label "隱藏已阻擋元素所佔用的空間 (&amp;l)">
+<!ENTITY counthits.label "計算條件命中次數 (&amp;h)">
 <!ENTITY showinstatusbar.label "在狀態列顯示 (&amp;s)">
 <!ENTITY sidebar.title "本頁可阻擋項目">
 <!ENTITY options.label "選項 (&amp;O)">

@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Да">
 <!ENTITY notification.button.no "&amp;Нет">
 <!ENTITY sync.label "Син&amp;хронизировать настройки Adblock Plus">
 <!ENTITY whitelist.site.label "Отключить на ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "&amp;Сообщить о проблеме на этой странице">
 <!ENTITY whitelist.page.label "Отключить только на этой странице">
 <!ENTITY context.image.label "Adblock Plus: заблокировать изображение">
-<!ENTITY counthits.label "С&amp;читать срабатывания фильтров">
+<!ENTITY notification.button.yes "&amp;Да">
 <!ENTITY opensidebar.label "Открыть с&amp;писок элементов">
 <!ENTITY notification.button.close "&amp;Закрыть">
 <!ENTITY contribute.label "Помочь проекту Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Заблокировать фрейм">
 <!ENTITY blocked.tooltip "Заблокированные элементы на этой странице:">
-<!ENTITY hideplaceholders.label "Прятать &amp;метки на месте заблокированных элементов">
+<!ENTITY counthits.label "С&amp;читать срабатывания фильтров">
 <!ENTITY showinstatusbar.label "Показывать в &amp;строке состояния">
 <!ENTITY sidebar.title "Доступные для блокирования элементы на текущей странице">
 <!ENTITY options.label "&amp;Настройки">

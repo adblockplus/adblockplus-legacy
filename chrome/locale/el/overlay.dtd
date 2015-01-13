@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Ναι">
 <!ENTITY notification.button.no "&amp;Όχι">
 <!ENTITY sync.label "Συγ&amp;χρονισμός των ρυθμίσεων του Adblock Plus">
 <!ENTITY whitelist.site.label "Απενεργοποίηση στο ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "Αναφο&amp;ρά προβλήματος σε αυτή την σελίδα">
 <!ENTITY whitelist.page.label "Απενεργοποίηση σε αυτή τη σελίδα μόνο">
 <!ENTITY context.image.label "Adblock Plus: φραγή εικόνας">
-<!ENTITY counthits.label "Κα&amp;ταμέτρηση επιτυχιών φίλτρων">
+<!ENTITY notification.button.yes "&amp;Ναι">
 <!ENTITY opensidebar.label "Άνοιγμ&amp;α των φιλτραρισμένων στοιχείων">
 <!ENTITY notification.button.close "&amp;Κλείσιμο">
 <!ENTITY contribute.label "Συνεισφέρετε στο Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: φραγή πλαισίου">
 <!ENTITY blocked.tooltip "Στοιχεία που έχουν φραχθεί σε αυτή τη σελίδα:">
-<!ENTITY hideplaceholders.label "Απόκρυψη πλα&amp;ισίων των φιλτραρισμένων στοιχείων">
+<!ENTITY counthits.label "Κα&amp;ταμέτρηση επιτυχιών φίλτρων">
 <!ENTITY showinstatusbar.label "Εμφάνιση στην γραμμή &amp;κατάστασης">
 <!ENTITY sidebar.title "Στοιχεία προς φιλτράρισμα στην τρέχουσα σελίδα">
 <!ENTITY options.label "Επι&amp;λογές">

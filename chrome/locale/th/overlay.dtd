@@ -9,13 +9,12 @@
 <!ENTITY sendReport.label "&amp;รายงานปัญหาที่พบในหน้านี้">
 <!ENTITY whitelist.page.label "ปิดการใช้งานเฉพาะหน้านี้">
 <!ENTITY context.image.label "Adblock รูปภาพ">
-<!ENTITY counthits.label "นับจำนวนตัว&amp;กรองฮิต">
 <!ENTITY opensidebar.label "เปิดราย&amp;การที่บล็อกได้">
 <!ENTITY contribute.label "เข้ามีส่วนร่วมกับ Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock เฟรม">
 <!ENTITY blocked.tooltip "สิ่งที่บล็อกในหน้านี้:">
-<!ENTITY hideplaceholders.label "ซ่อน&amp;ตำแหน่งตัวยึดตำแหน่งขององค์ประกอบที่ถูกบล็อคไว้">
+<!ENTITY counthits.label "นับจำนวนตัว&amp;กรองฮิต">
 <!ENTITY showinstatusbar.label "แ&amp;สดงในแถบสถานะ">
 <!ENTITY sidebar.title "รายการที่บล็อกได้ในหน้าล่าสุด">
 <!ENTITY options.label "ตั&amp;วเลือก">

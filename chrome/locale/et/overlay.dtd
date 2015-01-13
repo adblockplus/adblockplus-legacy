@@ -9,13 +9,12 @@
 <!ENTITY sendReport.label "&amp;Teata probleemist antud lehel">
 <!ENTITY whitelist.page.label "Keela ainult antud lehel">
 <!ENTITY context.image.label "Adblock Plus: Blokeeri pilt">
-<!ENTITY counthits.label "Loenda &amp;filtrite tabamusi">
 <!ENTITY opensidebar.label "Ava blokeeritavad elemendid">
 <!ENTITY contribute.label "Toeta Adblock Plus'i">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Blokeeri raam">
 <!ENTITY blocked.tooltip "Blokeeritud elemendid antud lehel:">
-<!ENTITY hideplaceholders.label "Peida blokeeritud elementide kohatäitjad">
+<!ENTITY counthits.label "Loenda &amp;filtrite tabamusi">
 <!ENTITY showinstatusbar.label "Näita &amp;olekuribal">
 <!ENTITY sidebar.title "Blokeeritavad elemendid antud lehel">
 <!ENTITY options.label "V&amp;alikud">

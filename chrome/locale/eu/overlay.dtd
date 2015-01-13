@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Bai">
 <!ENTITY notification.button.no "&amp;Ez">
 <!ENTITY sync.label "&amp;Sinkronizatu Adblock Plus ezarpenak">
 <!ENTITY whitelist.site.label "Ezgaitu hemen: ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "Orri hone&amp;tan sortutako arazo bati buruzko txostena egin">
 <!ENTITY whitelist.page.label "Ezgaitu orri honetan soilik">
 <!ENTITY context.image.label "Adblock Plus: Irudia blokeatu">
-<!ENTITY counthits.label "Zenbatu iragazkien &amp;bategiteak">
+<!ENTITY notification.button.yes "&amp;Bai">
 <!ENTITY opensidebar.label "Ire&amp;ki elementu blokeagarriak">
 <!ENTITY notification.button.close "&amp;Itxi">
 <!ENTITY contribute.label "Adblock Plus-en parte hartu">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Markoa blokeatu">
 <!ENTITY blocked.tooltip "Orri honetan blokeatutako elementuak:">
-<!ENTITY hideplaceholders.label "Ezkutatu blokeatutako elementuen &amp;kokagunea">
+<!ENTITY counthits.label "Zenbatu iragazkien &amp;bategiteak">
 <!ENTITY showinstatusbar.label "Erakutsi &amp;egoera-barran">
 <!ENTITY sidebar.title "Elementu blokeagarriak uneko orrialdean">
 <!ENTITY options.label "&amp;Aukerak">

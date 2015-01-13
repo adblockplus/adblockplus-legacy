@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Ja">
 <!ENTITY notification.button.no "&amp;Nei">
 <!ENTITY sync.label "Synkroniser innstillinger for Adblo&amp;ck Plus">
 <!ENTITY whitelist.site.label "Deaktiver på ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "&amp;Rapporter problem på denne siden">
 <!ENTITY whitelist.page.label "Deaktiv kun på denne siden">
 <!ENTITY context.image.label "Adblock Plus: Blokker bilde">
-<!ENTITY counthits.label "Tell filtertreff (&amp;h)">
+<!ENTITY notification.button.yes "&amp;Ja">
 <!ENTITY opensidebar.label "Åpne &amp;blokkerbare elementer">
 <!ENTITY notification.button.close "&amp;Lukk">
 <!ENTITY contribute.label "Bidra til Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Blokker ramme">
 <!ENTITY blocked.tooltip "Blokkerte elementer på denne siden:">
-<!ENTITY hideplaceholders.label "Skjul plassbeholder for blokkerte elementer">
+<!ENTITY counthits.label "Tell filtertreff (&amp;h)">
 <!ENTITY showinstatusbar.label "Vis i statuslinjen">
 <!ENTITY sidebar.title "Blokkerbare elementer på nåværende side">
 <!ENTITY options.label "Alternativer (&amp;O)">

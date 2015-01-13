@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;כן">
 <!ENTITY notification.button.no "&amp;לא">
 <!ENTITY sync.label "&amp;סנכרון הגדרות Adblock Plus">
 <!ENTITY whitelist.site.label "נטרול ב-?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "&amp;דיווח על בעיה בעמוד זה">
 <!ENTITY whitelist.page.label "נטרול בעמוד הזה בלבד">
 <!ENTITY context.image.label "Adblock Plus: חסימת תמונה">
-<!ENTITY counthits.label "מנה &amp;לחיצות מסנן">
+<!ENTITY notification.button.yes "&amp;כן">
 <!ENTITY opensidebar.label "&amp;פתיחת רשימת הפריטים לחסימה">
 <!ENTITY notification.button.close "&amp;סגירה">
 <!ENTITY contribute.label "תרום ל-Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: חסימת מסגרת (פריים)">
 <!ENTITY blocked.tooltip "פריטים חסומים בעמוד זה:">
-<!ENTITY hideplaceholders.label "הסתרת &amp;מצייני מקום של אלמנטים חסומים">
+<!ENTITY counthits.label "מנה &amp;לחיצות מסנן">
 <!ENTITY showinstatusbar.label "&amp;הצגה בשורת המצב">
 <!ENTITY sidebar.title "פריטים לחסימה בעמוד הנוכחי">
 <!ENTITY options.label "&amp;אפשרויות">

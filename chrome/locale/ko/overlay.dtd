@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;예">
 <!ENTITY notification.button.no "&amp;아니요">
 <!ENTITY sync.label "애드블록 플러스 설정 동기화 (&amp;c)">
 <!ENTITY whitelist.site.label "사이트 허용 : ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "현재 페이지의 문제 보고 (&amp;R)">
 <!ENTITY whitelist.page.label "현재 페이지 허용">
 <!ENTITY context.image.label "애드블록 플러스 : 이미지 차단">
-<!ENTITY counthits.label "필터 적용 횟수 기록 (&amp;h)">
+<!ENTITY notification.button.yes "&amp;예">
 <!ENTITY opensidebar.label "차단 가능 목록 (&amp;B)">
 <!ENTITY notification.button.close "&amp;닫기">
 <!ENTITY contribute.label "애드블록 플러스에 공헌하기">
 <!ENTITY toolbarbutton.label "애드블록 플러스">
 <!ENTITY context.frame.label "애드블록 플러스 : 프레임 차단">
 <!ENTITY blocked.tooltip "적용된 필터 개수">
-<!ENTITY hideplaceholders.label "차단된 요소의 영역 숨기기 (&amp;l)">
+<!ENTITY counthits.label "필터 적용 횟수 기록 (&amp;h)">
 <!ENTITY showinstatusbar.label "상태 표시줄에 아이콘 보이기 (&amp;S)">
 <!ENTITY sidebar.title "현재 페이지의 차단 가능한 항목">
 <!ENTITY options.label "옵션 (&amp;O)">

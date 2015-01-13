@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "はい(&amp;Y)">
 <!ENTITY notification.button.no "いいえ(&amp;N)">
 <!ENTITY sync.label "Adblock Plus 設定を Sync で同期(&amp;C)">
 <!ENTITY whitelist.site.label "?1? で無効">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "このページでの不具合を報告(&amp;R)">
 <!ENTITY whitelist.page.label "このページのみで無効">
 <!ENTITY context.image.label "Adblock Plus: 画像をブロック">
-<!ENTITY counthits.label "フィルタのヒット数を数える(&amp;H)">
+<!ENTITY notification.button.yes "はい(&amp;Y)">
 <!ENTITY opensidebar.label "ブロック可能項目一覧を開く(&amp;B)">
 <!ENTITY notification.button.close "閉じる(&amp;C)">
 <!ENTITY contribute.label "Adblock Plus に貢献する">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: フレームをブロック">
 <!ENTITY blocked.tooltip "このページでブロック中の項目:">
-<!ENTITY hideplaceholders.label "ブロックした場所に残る空きスペースを詰める(&amp;L)">
+<!ENTITY counthits.label "フィルタのヒット数を数える(&amp;H)">
 <!ENTITY showinstatusbar.label "ステータスバーに表示(&amp;S)">
 <!ENTITY sidebar.title "このページのブロック可能項目一覧">
 <!ENTITY options.label "オプション(&amp;O)">

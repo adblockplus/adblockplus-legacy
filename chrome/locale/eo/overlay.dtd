@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Jes">
 <!ENTITY notification.button.no "&amp;Ne">
 <!ENTITY sync.label "&amp;Sinkronigi agordojn de Adblock Plus">
 <!ENTITY whitelist.site.label "Malebligi sur ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "&amp;Raporti problemon pri ĉi tiu paĝo">
 <!ENTITY whitelist.page.label "Malebligi nur sur ĉi tiu paĝo">
 <!ENTITY context.image.label "Adblock Plus: Bloki bildon">
-<!ENTITY counthits.label "&amp;Nombri filtriltrafojn">
+<!ENTITY notification.button.yes "&amp;Jes">
 <!ENTITY opensidebar.label "Malfermi &amp;blokeblajn elementojn">
 <!ENTITY notification.button.close "&amp;Fermi">
 <!ENTITY contribute.label "Kontribuu al Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Bloki kadron">
 <!ENTITY blocked.tooltip "Blokitaj elementoj sur ĉi tiu paĝo:">
-<!ENTITY hideplaceholders.label "Kaŝi &amp;lokokupilojn de blokitaj elementoj">
+<!ENTITY counthits.label "&amp;Nombri filtriltrafojn">
 <!ENTITY showinstatusbar.label "Vidi&amp;gi en statstrio">
 <!ENTITY sidebar.title "Blokeblaj elementoj sur la nuna paĝo">
 <!ENTITY options.label "&amp;Opcioj">
