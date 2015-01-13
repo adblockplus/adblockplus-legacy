@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Áno">
 <!ENTITY notification.button.no "&amp;Nie">
 <!ENTITY sync.label "Syn&amp;chronizovať nastavenia Adblock Plus">
 <!ENTITY whitelist.site.label "Vypnúť na ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "&amp;Ohlásiť problém na tejto stránke">
 <!ENTITY whitelist.page.label "Vypnúť len na tejto stránke">
 <!ENTITY context.image.label "Adblock obrázok">
-<!ENTITY counthits.label "P&amp;očítadlo">
+<!ENTITY notification.button.yes "&amp;Áno">
 <!ENTITY opensidebar.label "Otvoriť &amp;blokovateľné položky">
 <!ENTITY notification.button.close "&amp;Zatvoriť">
 <!ENTITY contribute.label "Prispieť na Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock rámec">
 <!ENTITY blocked.tooltip "Blokovať položky na tejto stránke:">
-<!ENTITY hideplaceholders.label "Sk&amp;ryť symboly blokovaných prvkov">
+<!ENTITY counthits.label "P&amp;očítadlo">
 <!ENTITY showinstatusbar.label "Zobraziť v &amp;stavovom riadku">
 <!ENTITY sidebar.title "Blokovateľné položky na aktuálnej stránke">
 <!ENTITY options.label "&amp;Možnosti">

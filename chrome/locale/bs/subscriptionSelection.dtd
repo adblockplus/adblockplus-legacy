@@ -9,4 +9,4 @@
 <!ENTITY addSubscription.label "Dodaj pretplatu">
 <!ENTITY dialog.title "Dodaj Adblock Plus pretplatu na filter">
 <!ENTITY location.label "Lokacija popisa filtera:">
-<!ENTITY fromWeb.description "Molim potvridi da želiš dodati ovu pretplatu na filter. Možeš promijeniti naslov pretplate ili lokaciju prije dodavanja.">
+<!ENTITY fromWeb.description "Molimo vas da potvrdite da želite dodati ovaj filtar pretplate. Promijenite pretplate titula ili mjesto prije dodavanja.">

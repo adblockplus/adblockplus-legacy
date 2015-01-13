@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Taip">
 <!ENTITY notification.button.no "&amp;Ne">
 <!ENTITY sync.label "Adblo&amp;ck Plus Sync nustatymai">
 <!ENTITY whitelist.site.label "Išjungti ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "P&amp;ranešti apie problemą šiame puslapyje">
 <!ENTITY whitelist.page.label "Išjungti šiam tinklalapiui">
 <!ENTITY context.image.label "„Adblock Plus“: Blokuoti paveikslėlį">
-<!ENTITY counthits.label "Sus&amp;kaičiuoti filtro blokavimus">
+<!ENTITY notification.button.yes "&amp;Taip">
 <!ENTITY opensidebar.label "Atverti &amp;blokuojamus elementus">
 <!ENTITY notification.button.close "&amp;Uždaryti">
 <!ENTITY contribute.label "Prisidėti prie Adblock Plus">
 <!ENTITY toolbarbutton.label "„Adblock Plus“">
 <!ENTITY context.frame.label "„Adblock Plus“: Blokuoti kadrą">
 <!ENTITY blocked.tooltip "Šiame tinklalapyje užblokuoti elementai:">
-<!ENTITY hideplaceholders.label "S&amp;lėpti užblokuotų elementų vietos laikiklius">
+<!ENTITY counthits.label "Sus&amp;kaičiuoti filtro blokavimus">
 <!ENTITY showinstatusbar.label "Rodyti &amp;būsenos juostoje">
 <!ENTITY sidebar.title "Blokuojami elementai dabartiniame tinklalapyje">
 <!ENTITY options.label "&amp;Pasirinktys">

@@ -25,7 +25,7 @@
 <!ENTITY domainRestriction.help "(|) एक बार ओळ विभक्त एक किंवा अधिक डोमेन निर्देशीत करण्यासाठी या पर्यायचा वापर करा. फिल्टर केवळ निवडलेले डोमेन (र्स) वर लागू होईल. डोमेन नाव आधी एक ही खूण (~) फिल्टर की डोमेनवर लागू केले जाणार नाहीत दर्शवतो.">
 <!ENTITY accept.label "फिल्टर जोडा">
 <!ENTITY options.label "पर्याय">
-<!ENTITY disabled.warning "Adblock प्लस सध्या अक्षम आहे. आपण अद्याप फिल्टर जोडू शकता परंतु आपण [दुवा] Adblock प्लस [/ दुवा] सक्षम करेपर्यंत ती लागू होणार नाही.">
+<!ENTITY disabled.warning "Adblock प्लस सध्या अक्षम आहे. आपण अद्याप फिल्टर जोडू शकता परंतु आपण [link]Adblock प्लस[/link] सक्षम करेपर्यंत ती लागू होणार नाही.">
 <!ENTITY anchor.start.flexible.label "डोमेन नाव सुरूवातीस">
 <!ENTITY collapse.no.label "नाही">
 <!ENTITY selectAllTypes.label "सर्व निवडा">

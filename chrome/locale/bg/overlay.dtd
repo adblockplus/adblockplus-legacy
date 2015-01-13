@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Да">
 <!ENTITY notification.button.no "&amp;Не">
 <!ENTITY sync.label "&amp;Сверявай настройките на Adblock Plus">
 <!ENTITY whitelist.site.label "Забрани за ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "&amp;Докладвай неизправност в страницата">
 <!ENTITY whitelist.page.label "Забрани за страницата">
 <!ENTITY context.image.label "Adblock Plus: блокирана картина">
-<!ENTITY counthits.label "Отброявай попа&amp;денията на филтъра">
+<!ENTITY notification.button.yes "&amp;Да">
 <!ENTITY opensidebar.label "Отвори &amp;блокираните елементи">
 <!ENTITY notification.button.close "&amp;Затвори">
 <!ENTITY contribute.label "Помогни на Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: блокирана рамка">
 <!ENTITY blocked.tooltip "Блокирани елементи в страницата:">
-<!ENTITY hideplaceholders.label "Скривай &amp;контейнерите на блокираните елементи">
+<!ENTITY counthits.label "Отброявай попа&amp;денията на филтъра">
 <!ENTITY showinstatusbar.label "&amp;Показвай в лентата на състоянието">
 <!ENTITY sidebar.title "Блокирани елементи в страницата">
 <!ENTITY options.label "&amp;Настройки">

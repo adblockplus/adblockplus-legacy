@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Kyllä">
 <!ENTITY notification.button.no "&amp;Ei">
 <!ENTITY sync.label "&amp;Synkronoi Adblock Plussan asetukset">
 <!ENTITY whitelist.site.label "Ei käytössä osoitteessa ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "Raportoi onge&amp;lma tällä sivulla">
 <!ENTITY whitelist.page.label "Ei käytössä tällä sivulla">
 <!ENTITY context.image.label "Adblock Plus: Estä kuva">
-<!ENTITY counthits.label "&amp;Laske suodattimen osumat">
+<!ENTITY notification.button.yes "&amp;Kyllä">
 <!ENTITY opensidebar.label "Näytä &amp;elementit">
 <!ENTITY notification.button.close "&amp;Sulje">
 <!ENTITY contribute.label "Avusta Adblock Plussaa">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Estä kehys">
 <!ENTITY blocked.tooltip "Estetyt elementit tällä sivulla:">
-<!ENTITY hideplaceholders.label "P&amp;iilota estettyjen elementtien tilanvaraajat">
+<!ENTITY counthits.label "&amp;Laske suodattimen osumat">
 <!ENTITY showinstatusbar.label "&amp;Näytä tilarivillä">
 <!ENTITY sidebar.title "Estettävät elementit tällä sivulla">
 <!ENTITY options.label "&amp;Valinnat">

@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Ja">
 <!ENTITY notification.button.no "&amp;Nee">
 <!ENTITY sync.label "Syn&amp;chroniseer Adblock Plus instellingen">
 <!ENTITY whitelist.site.label "Uitschakelen op ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "&amp;Probleem op deze pagina rapporteren">
 <!ENTITY whitelist.page.label "Alleen op deze pagina uitschakelen">
 <!ENTITY context.image.label "Adblock Plus: Afbeelding blokkeren">
-<!ENTITY counthits.label "&amp;Filtertreffers tellen">
+<!ENTITY notification.button.yes "&amp;Ja">
 <!ENTITY opensidebar.label "&amp;Blokkeerbare onderdelen openen">
 <!ENTITY notification.button.close "&amp;Sluit">
 <!ENTITY contribute.label "Draag bij aan Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Deelvenster blokkeren">
 <!ENTITY blocked.tooltip "Geblokkeerde onderdelen op deze pagina:">
-<!ENTITY hideplaceholders.label "P&amp;laatshouders van geblokkeerde elementen verbergen">
+<!ENTITY counthits.label "&amp;Filtertreffers tellen">
 <!ENTITY showinstatusbar.label "In &amp;statusbalk weergeven">
 <!ENTITY sidebar.title "Blokkeerbare onderdelen op deze pagina">
 <!ENTITY options.label "&amp;Opties">

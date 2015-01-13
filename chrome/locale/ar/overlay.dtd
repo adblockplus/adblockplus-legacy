@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;نعم">
 <!ENTITY notification.button.no "&amp;لا">
 <!ENTITY sync.label "م&amp;زامنة إعدادات آدبلوك بلس">
 <!ENTITY whitelist.site.label "تعطيل في ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "ال&amp;تبليغ عن خطأ في هذه الصفحة">
 <!ENTITY whitelist.page.label "تعطيل في هذه الصفحة فقط">
 <!ENTITY context.image.label "آدبلوك بلس : حجب صورة">
-<!ENTITY counthits.label "تعداد اصابات الفلترة (&amp;إ)">
+<!ENTITY notification.button.yes "&amp;نعم">
 <!ENTITY opensidebar.label "فتح العناصر المح&amp;جوبة">
 <!ENTITY notification.button.close "&amp;اغلاق">
 <!ENTITY contribute.label "شارك في آد بلُك بلَس">
 <!ENTITY toolbarbutton.label "آدبلوك بلس">
 <!ENTITY context.frame.label "آدبلوك بلس : حجب إطار">
 <!ENTITY blocked.tooltip "العناصر المحجوبة في هذه الصفحة">
-<!ENTITY hideplaceholders.label "ا&amp;خفاء ماسك المكان للعناصر الموقوفة">
+<!ENTITY counthits.label "تعداد اصابات الفلترة (&amp;إ)">
 <!ENTITY showinstatusbar.label "عرض في شريط ال&amp;حالة">
 <!ENTITY sidebar.title "العناصر المحجوبة في الصفحة الحالية">
 <!ENTITY options.label "&amp;خيارات">

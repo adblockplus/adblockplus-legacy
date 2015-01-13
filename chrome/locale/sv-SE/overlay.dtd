@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "Jag">
 <!ENTITY notification.button.no "Nej">
 <!ENTITY sync.label "Syn&amp;kronisera Adblock Plus inställningar">
 <!ENTITY whitelist.site.label "Använd inte på ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "Rapportera problem på denna sida">
 <!ENTITY whitelist.page.label "Använd inte på denna sida">
 <!ENTITY context.image.label "Adblock Plus: Blockera bild">
-<!ENTITY counthits.label "Räkna an&amp;talet filterträffar">
+<!ENTITY notification.button.yes "Jag">
 <!ENTITY opensidebar.label "Visa lista över blockerbara objekt">
 <!ENTITY notification.button.close "Sluta">
 <!ENTITY contribute.label "Bidra till Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Blockera ram">
 <!ENTITY blocked.tooltip "Blockerade objekt på denna sida:">
-<!ENTITY hideplaceholders.label "Dölj platshållare för blockerade element">
+<!ENTITY counthits.label "Räkna an&amp;talet filterträffar">
 <!ENTITY showinstatusbar.label "Visa i statusfältet">
 <!ENTITY sidebar.title "Blockerbara objekt på denna sida">
 <!ENTITY options.label "Alter&amp;nativ">

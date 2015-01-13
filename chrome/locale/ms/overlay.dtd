@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Ya">
 <!ENTITY notification.button.no "&amp;Tiada">
 <!ENTITY sync.label "Syn&amp;c tatacara Adblock Plus">
 <!ENTITY whitelist.site.label "Nyahaktifkan pada ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "&amp;Lapor isu pada laman ini">
 <!ENTITY whitelist.page.label "Nyahaktifkan pada laman ini sahaja">
 <!ENTITY context.image.label "Adblock Plus: Sekat imej">
-<!ENTITY counthits.label "&amp;Kira kiraan penapis">
+<!ENTITY notification.button.yes "&amp;Ya">
 <!ENTITY opensidebar.label "Buka &amp;item yang boleh disekat">
 <!ENTITY notification.button.close "&amp;Tutup">
 <!ENTITY contribute.label "Sumbang kepada Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Sekat bingkai">
 <!ENTITY blocked.tooltip "Item yang disekat pada laman ini:">
-<!ENTITY hideplaceholders.label "Sembun&amp;yikan placeholders elemen tersembunyi">
+<!ENTITY counthits.label "&amp;Kira kiraan penapis">
 <!ENTITY showinstatusbar.label "Papar&amp;kan di bar status">
 <!ENTITY sidebar.title "Item yang boleh disekat pada laman semasa">
 <!ENTITY options.label "Piliha&amp;n">

@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Ie">
 <!ENTITY notification.button.no "&amp;Na">
 <!ENTITY sync.label "&amp;Cysoni gosodiadau Adblock Plus">
 <!ENTITY whitelist.site.label "Analluogi ar ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "&amp;Adrodd nam ar y dudalen hon">
 <!ENTITY whitelist.page.label "Analluogi ar y dudalen hon yn unig">
 <!ENTITY context.image.label "Adblock Plus: Rhwystro llun">
-<!ENTITY counthits.label "&amp;Mesurydd yr hidlydd">
+<!ENTITY notification.button.yes "&amp;Ie">
 <!ENTITY opensidebar.label "Dangos yr eitemau y gellir &amp;rhwystro">
 <!ENTITY notification.button.close "&amp;Cau">
 <!ENTITY contribute.label "Cyfrannu i Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Rhwystro fframyn">
 <!ENTITY blocked.tooltip "Eitemau rwystrwyd ar y dudalen hon:">
-<!ENTITY hideplaceholders.label "Cuddio &amp;dalfannau'r elfennau a rwystrwyd">
+<!ENTITY counthits.label "&amp;Mesurydd yr hidlydd">
 <!ENTITY showinstatusbar.label "Dangos yn y bar &amp;statws">
 <!ENTITY sidebar.title "Eitemau gellir eu rhwystro ar y dudalen hon">
 <!ENTITY options.label "&amp;Dewisiadau">

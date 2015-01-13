@@ -10,7 +10,7 @@
 <!ENTITY match.warning "Pola yang Anda masukkan tidak lagi cocok dengan alamat yang akan diblokir/dimasukkan dalam daftar putih dan tidak akan berpengaruh sama sekali.">
 <!ENTITY anchor.start.label "pada &amp;awal alamat">
 <!ENTITY matchCase.label "&amp;Cocokkan kapitalisasi">
-<!ENTITY custom.pattern.label "Ubah sesuai">
+<!ENTITY custom.pattern.label "Kustomisasi:">
 <!ENTITY unselectAllTypes.label "Jangan pilih apapun">
 <!ENTITY type.whitelist.label "Aturan pen&amp;gecualian">
 <!ENTITY regexp.warning "Pola yang Anda masukkan akan dianggap sebagai suatu regular expression yang tidak dapat diproses secara efisien oleh Adblock Plus dan mungkin akan memperlambat peramban Anda. Jika Anda tidak berniat untuk menggunakan regular expression, tambahkan tanda bintang (*) di akhir pola.">

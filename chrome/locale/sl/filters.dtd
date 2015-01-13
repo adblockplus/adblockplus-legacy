@@ -12,9 +12,9 @@
 <!ENTITY sort.label "Raz&amp;vrsti">
 <!ENTITY subscription.source.label "Seznam filtrov">
 <!ENTITY hitcount.column "Za&amp;detki">
-<!ENTITY noFilters.text "Svojega lastnega filtra še nimaš.">
+<!ENTITY noFilters.text "Trenutno nimate filtrov po meri.">
 <!ENTITY backup.custom.title "Samo filtri po meri">
-<!ENTITY subscription.external.label "Posodobljepreko druge razširitve">
+<!ENTITY subscription.external.label "Posodobljeno preko druge razširitve">
 <!ENTITY subscription.delete.label "Izbriši">
 <!ENTITY noGroupSelected.text "Preden se filtre lahko prikaže moraš izbrati filter skupino.">
 <!ENTITY filter.cut.label "Izreži">
@@ -29,13 +29,13 @@
 <!ENTITY subscription.lastDownload.unknown "Ni na voljo">
 <!ENTITY addSubscriptionCancel.label "Prekliči">
 <!ENTITY subscription.enabled.label "Omogočeno">
-<!ENTITY noSubscriptions.text "Zaenkrat nimaš naročenega še nobenega filtra. Adblock Plus ne more
-blokirati ničesar brez filtrov, zato uporabi opcijo &quot;Dodaj naročnino za filter&quot;
-in dodaj vsaj en filter.">
+<!ENTITY noSubscriptions.text "Trenutno nimate nobenih naročnin filtrov. Adblock Plus ne more
+blokirati ničesar brez filtrov. Prosimo, izberite &quot;Dodaj naročnino filtra&quot;
+za dodajanje novega filtra.">
 <!ENTITY subscription.update.label "Posodobi filtre">
 <!ENTITY dialog.title "Nastavitve filtrov za Adblock Plus">
 <!ENTITY addFilter.label "&amp;Dodaj filter">
-<!ENTITY subscription.minVersion.warning "Ta filter potrebuje novejšo verzijo Adblock Plusa. Nadgradi Adblock plus z najnovešo različico.">
+<!ENTITY subscription.minVersion.warning "Ta filter potrebuje novejšo različico Adblock Plus. Priporočamo posodobitev Adblock Plus na najnovešo različico.">
 <!ENTITY subscription.lastDownload.invalidURL "Neuspešno, ni veljaven naslov">
 <!ENTITY backup.error "Napaka pri zapisu filtrov v datoteko. Poskrbite, da datoteka ni zaščitena pred pisanjem ali v uporabi nekega drugega programa.">
 <!ENTITY filter.moveUp.label "Premakni navzgor">

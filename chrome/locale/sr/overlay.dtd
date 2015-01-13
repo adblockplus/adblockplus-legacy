@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Да">
 <!ENTITY notification.button.no "&amp;Не">
 <!ENTITY sync.label "Поставке &amp;усклађивања Adblock Plus-а">
 <!ENTITY whitelist.site.label "Онемогући на ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "&amp;Пријави проблеме на овој страници">
 <!ENTITY whitelist.page.label "Онемогући само на овој страници">
 <!ENTITY context.image.label "Блокирај слику">
-<!ENTITY counthits.label "Бр&amp;ој поготке филтера">
+<!ENTITY notification.button.yes "&amp;Да">
 <!ENTITY opensidebar.label "О&amp;твори ставке које се могу блокирати">
 <!ENTITY notification.button.close "&amp;Затвори">
 <!ENTITY contribute.label "Допринесите Adblock Plus-у">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Блокирај оквир">
 <!ENTITY blocked.tooltip "Блокиране ставке на овој страни:">
-<!ENTITY hideplaceholders.label "Сакриј &amp;држаче елемената блокираних ставки">
+<!ENTITY counthits.label "Бр&amp;ој поготке филтера">
 <!ENTITY showinstatusbar.label "Прикажи у &amp;статусној траци">
 <!ENTITY sidebar.title "Ставке које се могу блокирати на овој страници">
 <!ENTITY options.label "Оп&amp;ције">

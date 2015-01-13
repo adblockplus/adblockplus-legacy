@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Có">
 <!ENTITY notification.button.no "&amp;Không">
 <!ENTITY sync.label "Đồng bộ thiết lập Adbl&amp;ock Plus">
 <!ENTITY whitelist.site.label "Vô hiệu hóa trên ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "&amp;Báo cáo vấn đề trên trang này">
 <!ENTITY whitelist.page.label "Chỉ vô hiệu hóa trên trang này">
 <!ENTITY context.image.label "Adblock Plus: Chặn Ảnh">
-<!ENTITY counthits.label "Đếm lượt &amp;bấm bộ lọc">
+<!ENTITY notification.button.yes "&amp;Có">
 <!ENTITY opensidebar.label "&amp;Mở các mục có thể chặn được">
 <!ENTITY notification.button.close "Đó&amp;ng">
 <!ENTITY contribute.label "Đóng góp cho Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Chặn Khung">
 <!ENTITY blocked.tooltip "Các mục bị chặn trong trang này:">
-<!ENTITY hideplaceholders.label "Ẩn &amp;chỗ giữ các yếu tố bị chặn">
+<!ENTITY counthits.label "Đếm lượt &amp;bấm bộ lọc">
 <!ENTITY showinstatusbar.label "Hiện t&amp;rong thanh trạng thái">
 <!ENTITY sidebar.title "Các mục bị chặn trên trang hiện tại">
 <!ENTITY options.label "Tù&amp;y chọn">

@@ -1,4 +1,3 @@
-<!ENTITY notification.button.yes "&amp;Иә">
 <!ENTITY notification.button.no "&amp;Жоқ">
 <!ENTITY sync.label "Adblock Plus баптауларын Sync і&amp;шіне қосу">
 <!ENTITY whitelist.site.label "Келесі үшін сөндіру: ?1?">
@@ -11,14 +10,14 @@
 <!ENTITY sendReport.label "Бұл парақтағы мәселе туралы &amp;хабарлау">
 <!ENTITY whitelist.page.label "Тек осы парақ үшін сөндіру">
 <!ENTITY context.image.label "Adblock Plus: Суретті блоктау">
-<!ENTITY counthits.label "Ф&amp;ильтрлер хиттерін санау">
+<!ENTITY notification.button.yes "&amp;Иә">
 <!ENTITY opensidebar.label "Блокталған құраманы аш&amp;у">
 <!ENTITY notification.button.close "Ж&amp;абу">
 <!ENTITY contribute.label "Adblock Plus-қа үлес қосу">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Фреймді блоктау">
 <!ENTITY blocked.tooltip "Бұл парақтағы блокталған құрама:">
-<!ENTITY hideplaceholders.label "Блокталған &amp;элементтер шектерін жасыру">
+<!ENTITY counthits.label "Ф&amp;ильтрлер хиттерін санау">
 <!ENTITY showinstatusbar.label "Қалып-&amp;күй жолағында көрсету">
 <!ENTITY sidebar.title "Ағымдағы парақ құрамасы">
 <!ENTITY options.label "&amp;Баптаулар">

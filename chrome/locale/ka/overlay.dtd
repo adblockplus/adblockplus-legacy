@@ -9,13 +9,12 @@
 <!ENTITY sendReport.label "განაცხადეთ ამ გვერდზე პრობლემის შესახებ">
 <!ENTITY whitelist.page.label "გამორთე მხოლოდ ამ ვებ-გვერდზე">
 <!ENTITY context.image.label "Adblock Plus: სურათის დაბლკვა">
-<!ENTITY counthits.label "დათვალე რამდენჯერ ამოქმედდა ფილტრი">
 <!ENTITY opensidebar.label "გახსენი ბლოკირებადი ელემენტები (&amp;И)">
 <!ENTITY contribute.label "დაეხმარეთ Adblock Plus-ს">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: ფრეიმის დაბლოკვა">
 <!ENTITY blocked.tooltip "ამ web-გვერდზე დაბლოკილი ელემენტები:">
-<!ENTITY hideplaceholders.label "დამალე დაბლოკილი ელემენტის სანაცვლო არეები">
+<!ENTITY counthits.label "დათვალე რამდენჯერ ამოქმედდა ფილტრი">
 <!ENTITY showinstatusbar.label "გამოაჩინე სტატუსის ზოლში">
 <!ENTITY sidebar.title "ამ web-გვერდის ბლოკირებადი ელემენტები">
 <!ENTITY options.label "ოფციები">

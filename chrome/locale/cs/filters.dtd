@@ -6,7 +6,7 @@
 <!ENTITY subscription.actions.label "Akce">
 <!ENTITY filter.selectAll.label "Vybrat vše">
 <!ENTITY backupButton.label "Zál&amp;ohování a obnova">
-<!ENTITY restore.minVersion.warning "Varování: Soubor byl vytvořen novější verzí Adblocku Plus. Měli byste jej aktualizovat na nějnovější verzi, než budete pokračovat.">
+<!ENTITY restore.minVersion.warning "Varování: Soubor byl vytvořen novější verzí Adblocku Plus. Než budete pokračovat, měli byste jej aktualizovat na nejnovější verzi.">
 <!ENTITY restore.error "Data ze souboru nelze zpracovat, možná nejde o zálohu filtrů Adblocku Plus?">
 <!ENTITY sort.ascending.label "Vzestupně (&amp;A-Z)">
 <!ENTITY sort.label "&amp;Seřadit podle">

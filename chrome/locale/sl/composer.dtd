@@ -30,4 +30,4 @@
 <!ENTITY collapse.no.label "Ne">
 <!ENTITY selectAllTypes.label "Izberi vse">
 <!ENTITY advanced.label "Napredni pogled">
-<!ENTITY pattern.explanation "Vzorec je lahko kateri koli del naslova; simbol * velja kot poljuben znak. Filter bo veljal le za naslove, ki ustrezajo vzorcu.">
+<!ENTITY pattern.explanation "Vzorec je lahko kateri koli del naslova, simbol * velja kot poljuben znak. Filter bo le za naslove, ki ustrezajo vzorcu.">
