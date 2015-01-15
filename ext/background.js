@@ -95,3 +95,8 @@ PageMap.prototype = {
   }
 };
 exports.PageMap = PageMap;
+
+exports.showOptions = function()
+{
+  require("ui").UI.openFiltersDialog();
+};
