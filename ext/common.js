@@ -41,7 +41,7 @@
       return origin;
     else
       return null;
-  }
+  };
 
   var MessageProxy = global.ext._MessageProxy = function(messageManager, messageTarget)
   {
@@ -54,7 +54,7 @@
     this._handleResponse = this._handleResponse.bind(this);
     this._messageManager.addMessageListener("AdblockPlus:Message", this._handleRequest);
     this._messageManager.addMessageListener("AdblockPlus:Response", this._handleResponse);
-  }
+  };
   MessageProxy.prototype = {
     _disconnect: function()
     {
