@@ -26,8 +26,20 @@ var FilterSearch =
    */
   init: function()
   {
+    let filters = E("filtersTree");
+    for (let prop in FilterSearch.fakeBrowser)
+      filters[prop] = FilterSearch.fakeBrowser[prop];
+    Object.defineProperty(filters, "_lastSearchString", {
+      get: function()
+      {
+        return this.finder.searchString;
+      },
+      enumerable: true,
+      configurable: true
+    });
+
     let findbar = E("findbar");
-    findbar.browser = FilterSearch.fakeBrowser;
+    findbar.browser = filters;
 
     findbar.addEventListener("keypress", function(event)
     {
@@ -203,57 +215,6 @@ FilterSearch.fakeBrowser =
     keyPress: function() {}
   },
 
-  get _lastSearchString()
-  {
-    return this.finder.searchString;
-  },
-
-  // This was used before Firefox 27 instead of the "finder" property.
-  fastFind:
-  {
-    get searchString()
-    {
-      return FilterSearch.fakeBrowser.finder.searchString;
-    },
-
-    set searchString(searchString)
-    {
-      FilterSearch.fakeBrowser.finder.searchString = searchString;
-    },
-
-    foundLink: null,
-    foundEditable: null,
-
-    get caseSensitive()
-    {
-      return FilterSearch.fakeBrowser.finder.caseSensitive;
-    },
-
-    set caseSensitive(caseSensitive)
-    {
-      FilterSearch.fakeBrowser.finder.caseSensitive = caseSensitive;
-    },
-
-    get currentWindow() FilterSearch.fakeBrowser.contentWindow,
-
-    find: function(searchString, linksOnly)
-    {
-      FilterSearch.fakeBrowser.finder.fastFind(searchString, linksOnly);
-      return FilterSearch.fakeBrowser.finder.lastResult;
-    },
-
-    findAgain: function(findBackwards, linksOnly)
-    {
-      FilterSearch.fakeBrowser.finder.findAgain(findBackwards, linksOnly);
-      return FilterSearch.fakeBrowser.finder.lastResult;
-    },
-
-    // Irrelevant for us
-    init: function() {},
-    setDocShell: function() {},
-    setSelectionModeAndRepaint: function() {},
-    collapseSelection: function() {}
-  },
   currentURI: Utils.makeURI("http://example.com/"),
   contentWindow:
   {
@@ -269,16 +230,7 @@ FilterSearch.fakeBrowser =
     {
       E("filtersTree").boxObject.scrollByPages(num);
     },
-  },
-
-  addEventListener: function(event, handler, capture)
-  {
-    E("filtersTree").addEventListener(event, handler, capture);
-  },
-  removeEventListener: function(event, handler, capture)
-  {
-    E("filtersTree").addEventListener(event, handler, capture);
-  },
+  }
 };
 
 window.addEventListener("load", function()
