@@ -147,7 +147,7 @@ var Templater =
 
     // Process <if> tags - remove if condition is false, replace by their children
     // if it is true
-    for each (let node in conditionals)
+    for (let node of conditionals)
     {
       let fragment = document.createDocumentFragment();
       let condition = node.getAttribute("condition");

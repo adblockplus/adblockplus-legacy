@@ -146,7 +146,7 @@ function init()
   let typeGroup = E("typeGroup");
   let defaultTypes = RegExpFilter.prototype.contentType & ~RegExpFilter.typeMap.DOCUMENT;
   let isDefaultType = (RegExpFilter.typeMap[item.typeDescr] & defaultTypes) != 0;
-  for each (let type in types)
+  for (let type of types)
   {
     if (type == Policy.type.ELEMHIDE)
       continue;

@@ -87,7 +87,7 @@ ListManager.prototype =
     let subscriptions = FilterStorage.subscriptions.filter(this._filter, this);
     if (subscriptions.length)
     {
-      for each (let subscription in subscriptions)
+      for (let subscription of subscriptions)
         this.addSubscription(subscription, null);
 
       // Make sure first list item is selected after list initialization
