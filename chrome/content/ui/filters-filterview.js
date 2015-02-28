@@ -647,9 +647,9 @@ var FilterView =
       let boolAtoms = ["selected", "dummy", "slow", "disabled"];
 
       this.atoms = {};
-      for each (let atom in stringAtoms)
+      for (let atom of stringAtoms)
         this.atoms[atom] = atomService.getAtom(atom);
-      for each (let atom in boolAtoms)
+      for (let atom of boolAtoms)
       {
         this.atoms[atom + "-true"] = atomService.getAtom(atom + "-true");
         this.atoms[atom + "-false"] = atomService.getAtom(atom + "-false");

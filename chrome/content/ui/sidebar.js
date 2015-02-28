@@ -155,12 +155,12 @@ function reloadDisabledFiltersInternal()
 
   if (Prefs.enabled)
   {
-    for each (let subscription in FilterStorage.subscriptions)
+    for (let subscription of FilterStorage.subscriptions)
     {
       if (subscription.disabled)
         continue;
 
-      for each (let filter in subscription.filters)
+      for (let filter of subscription.filters)
         if (filter instanceof RegExpFilter && filter.disabled)
           disabledMatcher.add(filter);
     }
@@ -476,7 +476,7 @@ function handleDblClick(event)
 function openInTab(item, /**Event*/ event)
 {
   let items = (item ? [item] : treeView.getAllSelectedItems());
-  for each (let item in items)
+  for (let item of items)
   {
     if (item && item.typeDescr != "ELEMHIDE")
       UI.loadInBrowser(item.location, mainWin, event);
@@ -672,7 +672,7 @@ function getItemSize(item)
   if (item.filter && !item.filter.disabled && item.filter instanceof BlockingFilter)
     return null;
 
-  for each (let node in item.nodes)
+  for (let node of item.nodes)
   {
     if (node instanceof HTMLImageElement && (node.naturalWidth || node.naturalHeight))
       return [node.naturalWidth, node.naturalHeight];
@@ -802,9 +802,9 @@ var treeView = {
     var boolAtoms = ["selected", "dummy", "filter-disabled"];
     var atomService = Cc["@mozilla.org/atom-service;1"].getService(Ci.nsIAtomService);
     this.atoms = {};
-    for each (let atom in stringAtoms)
+    for (let atom of stringAtoms)
       this.atoms[atom] = atomService.getAtom(atom);
-    for each (let atom in boolAtoms)
+    for (let atom of boolAtoms)
     {
       this.atoms[atom + "-true"] = atomService.getAtom(atom + "-true");
       this.atoms[atom + "-false"] = atomService.getAtom(atom + "-false");
@@ -1144,7 +1144,7 @@ var treeView = {
 
   updateFilters: function()
   {
-    for each (let item in this.allData)
+    for (let item of this.allData)
     {
       if (item.filter instanceof RegExpFilter && item.filter.disabled)
         delete item.filter;

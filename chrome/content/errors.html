@@ -65,7 +65,7 @@
     {
       document.write("<p>Errors related to Adblock Plus:</p>");
 
-      for each (let message in messages)
+      for (let message of messages)
       {
         let type = (message.flags & Components.interfaces.nsIScriptError.warningFlag ? "warning" : "error");
         let html = "<b>" + (type == "warning" ? "Warning:" : "Error:") + "</b><br>";
