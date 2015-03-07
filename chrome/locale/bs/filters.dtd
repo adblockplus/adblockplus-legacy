@@ -1,11 +1,30 @@
-<!ENTITY filter.edit.label "Uredi">
-<!ENTITY filter.cut.label "Izreži">
+<!ENTITY noFiltersInGroup.text "Izabrana grupa je prazna.">
+<!ENTITY subscription.actions.label "Akcije">
 <!ENTITY filter.selectAll.label "Označi sve">
+<!ENTITY subscription.source.label "Lista filtera">
+<!ENTITY filter.paste.label "Zalijepi">
+<!ENTITY viewList.label "Vidi spisak">
+<!ENTITY subscription.delete.label "Ukloni">
+<!ENTITY subscription.lastDownload.inProgress "Preuzima se…">
+<!ENTITY subscriptions.tab.label "filteri pretplate">
 <!ENTITY filter.delete.label "Izbriši">
 <!ENTITY addSubscriptionAdd.label "Dodaj">
 <!ENTITY viewMenu.label "Prikaz">
 <!ENTITY subscription.lastDownload.unknown "N/A">
-<!ENTITY addSubscriptionCancel.label "Ponistiti">
-<!ENTITY filter.paste.label "Zalijepi">
+<!ENTITY addSubscriptionCancel.label "Poništiti">
+<!ENTITY subscription.lastDownload.invalidURL "Neuspjeh, adresa nije validna">
+<!ENTITY filter.moveUp.label "Idi gore">
+<!ENTITY filter.edit.label "Uredi">
+<!ENTITY subscription.showHideFilters.label "Sakrij/prikaži filtere">
+<!ENTITY filter.cut.label "Izreži">
+<!ENTITY close.label "Zatvori">
 <!ENTITY filter.copy.label "Kopiraj">
-<!ENTITY subscriptions.tab.label "filteri pretplate">
+<!ENTITY readMore.label "Učitaj još">
+<!ENTITY subscription.moveUp.label "Idi gore">
+<!ENTITY subscription.moveDown.label "Idi dole">
+<!ENTITY subscription.lastDownload.success "Uspjeh">
+<!ENTITY subscription.lastDownload.invalidData "Neuspjeh, nije validan spisak filtera">
+<!ENTITY subscription.disabledFilters.enable "Omogući filtere koji su onemogućeni">
+<!ENTITY subscription.editTitle.label "Uredi naslov">
+<!ENTITY subscription.lastDownload.label "Posljednje preuzimanje:">
+<!ENTITY filter.column "&amp;Pravilo za filtere">

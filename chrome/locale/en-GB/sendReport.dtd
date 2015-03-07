@@ -29,7 +29,7 @@
 <!ENTITY recentReports.label "Your recently submitted reports">
 <!ENTITY typeWarning.description "You have indicated that you want to report a general issue with Adblock Plus rather than a problem with the filters. Please note that such issues are best reported in the [link]Adblock Plus forum[/link]. You should only use the issue reporter to supplement an existing discussion, as nobody will notice your report unless you provide them with the link to it. The automatically generated link will be provided after submitting the report.">
 <!ENTITY issues.disabled.description "Adblock Plus is disabled, it will not block anything in its current state.">
-<!ENTITY attachExtensions.label "Attach a list of active extensions to the report in case add-on conflict is the cause of the problem">
+<!ENTITY attachExtensions.label "Attach a list of active e&amp;xtensions to the report in case an add-on conflict is the cause of the problem">
 <!ENTITY issues.nosubscriptions.add.label "Add filter subscription">
 <!ENTITY issues.disabledfilters.enable.label "Enable filter">
 <!ENTITY issues.override.label "The configuration is correct, continue with the report">

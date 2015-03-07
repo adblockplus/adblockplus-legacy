@@ -37,7 +37,7 @@ tik papildyti esamas diskusijas, niekas nepastebės jūsų pranešimo
 nebent duosite nuorodą į jį. Automatiškai sukurta nuoroda
 bus parodyta kai išsiųsite pranešimą.">
 <!ENTITY issues.disabled.description "Adblock Plus yra išjungtas, tokioje būsenoje jis nieko neužblokuos.">
-<!ENTITY attachExtensions.label "Prie pranešimo pri&amp;segti aktyvių plėtinių sąrašą, jei kartais problema kilo dėl plėtinių nesuderinamumo">
+<!ENTITY attachExtensions.label "Jei kilo problema dėl plėtinių (add-on), praneškite problema pridėje aktyvių plėtinių sąrašą,">
 <!ENTITY issues.nosubscriptions.add.label "Pridėti filtro prenumeratą">
 <!ENTITY issues.disabledfilters.enable.label "Įjungti filtrą">
 <!ENTITY issues.override.label "Konfi&amp;gūracija teisinga, tęskite su pranešimu">

@@ -1,22 +1,72 @@
-<!ENTITY addSubscriptionAdd.label "যুক্ত করুন">
-<!ENTITY filter.selectAll.label "সব নির্বাচন">
-<!ENTITY subscription.delete.label "মুছুন">
-<!ENTITY subscription.lastDownload.inProgress "ডাউনলোড হচ্ছে…">
-<!ENTITY filter.delete.label "মুছুন">
+<!ENTITY restore.custom.warning "আপনার সকল পছন্দসই পরিশ্রুতক নির্বাচিত ফাইলের বিষয়বস্তু দ্বারা প্রতিস্থাপিত হবে। আপনি কি এগোতে চান?">
+<!ENTITY slow.column "ছাঁকনসমূহ ধীর করুন ">
 <!ENTITY enabled.column "স&amp;ক্রিয়">
+<!ENTITY subscription.lastDownload.checksumMismatch "ব্যর্থ, ত্রুটিনির্ধারক মেলেনি">
+<!ENTITY noFiltersInGroup.text "নির্বাচিত গোষ্ঠী খালি।">
+<!ENTITY subscription.actions.label "ব্যবস্থাসমুহ">
+<!ENTITY filter.selectAll.label "সব নির্বাচন">
+<!ENTITY backupButton.label "&amp;ব্যাকআপ এবং পুনঃস্থাপন">
+<!ENTITY restore.minVersion.warning "সতর্কতা: এই ফাইল  নতুন অ্যাডব্লক প্লাস সংস্করণ দ্বারা তৈরি করা হয়েছে। আপনি এই ফাইলটি পুনর্বহাল করার আগে সর্বশেষ  অ্যাডব্লক প্লাস সংস্করণটি হালনাগাদ করা উচিত।">
+<!ENTITY restore.error "ডাটা ফাইল প্রক্রিয়াজাত করা যাবে না, হয়ত এটি অ্যাডব্লক  প্লাস ব্যাকআপ ফাইল নয়?">
+<!ENTITY sort.ascending.label "&amp;এ&gt; জেড বাছাই ক্রম">
+<!ENTITY sort.label "যার দ্বারা বাছাই">
+<!ENTITY subscription.source.label "ছাঁকন তালিকা">
+<!ENTITY hitcount.column "আঘাতসমুহ">
+<!ENTITY noFilters.text "আপনার এখনো কোন সজ্জার উপযোগী ছাঁকন নেই।">
+<!ENTITY backup.custom.title "শুধুমাত্র পছন্দসই পরিশ্রুতক">
+<!ENTITY subscription.external.label "অন্য বর্ধিতাংশ দ্বারা হালনাগাদকৃত ">
+<!ENTITY subscription.delete.label "মুছুন">
+<!ENTITY noGroupSelected.text "এটির ছাঁকন সমূহ প্রদর্শিত হওয়ার আগে আপনাকে একটি ছাঁকন গোষ্ঠী নির্বাচন করতে হবে।">
+<!ENTITY filter.cut.label "বিচ্ছিন্ন করুন">
+<!ENTITY restore.default.label "? 1? এর ব্যাকআপ থেকে পুনঃস্থাপন করুন">
+<!ENTITY subscription.lastDownload.inProgress "ডাউনলোড হচ্ছে…">
+<!ENTITY subscriptions.tab.label "চুক্তিসমুহ পরিশ্রুতকরণ">
+<!ENTITY sort.descending.label "&amp; জেড&gt; এ বাছাই ক্রম">
+<!ENTITY filters.remove.warning "আপনি কি সত্যিই সকল নির্বাচিত পরিশ্রুতক অপসারণ করতে চান?">
+<!ENTITY filter.delete.label "মুছুন">
+<!ENTITY addSubscriptionAdd.label "যুক্ত করুন">
 <!ENTITY viewMenu.label "দেখুন">
 <!ENTITY subscription.lastDownload.unknown "প্রযোজ্য নয়">
 <!ENTITY addSubscriptionCancel.label "বাতিল">
 <!ENTITY subscription.enabled.label "সক্রিয় করা">
-<!ENTITY subscription.moveDown.label "নিচে সরান">
+<!ENTITY noSubscriptions.text "আপনি এখনো কোন ছাঁকন চুক্তি যুক্ত করেননি । অ্যাডব্লক প্লাস ছাঁকন ব্যতিত কিছু রুদ্ধ করবেনা, অনুগ্রহ করে কিছু যুক্ত করতে &quot; ছাঁকন চুক্তি যুক্ত করুন&quot; ব্যবহার করুন।">
+<!ENTITY subscription.update.label "ছাঁকন সমূহ হালনাগাদ করুন">
+<!ENTITY dialog.title "অ্যাডব্লক প্লাস পরিশ্রুতকের পছন্দসমূহ   ">
+<!ENTITY addFilter.label "ছাঁকন যুক্ত করুন">
+<!ENTITY subscription.minVersion.warning "ছাঁকন চুক্তির একটি নতুন অ্যাডব্লক ভার্সন দরকার, আপনার উচিত সর্বশেষ ভার্সনে হালনাগাদ হওয়া।">
+<!ENTITY subscription.lastDownload.invalidURL "ব্যর্থ, যুক্তিযুক্ত ঠিকানা নয়">
+<!ENTITY backup.error "পরিশ্রুতক ফাইলে লেখার সময় একটি ত্রুটি ছিল। নিশ্চিত হন যে ফাইল লিখন-প্রতিরোধকৃত নয় অথবা অন্য প্রয়োগ দ্বারা ব্যবহার করা হচ্ছে।">
 <!ENTITY filter.moveUp.label "উপরে সরান">
+<!ENTITY addGroup.label "ছাঁকন দল যুক্ত করুন">
 <!ENTITY filter.edit.label "সম্পাদনা">
+<!ENTITY subscription.showHideFilters.label "ছাঁকন সমূহ দেখাও/লুকাও">
+<!ENTITY acceptableAds2.label "ব্যক্তিগত গোপনীয়তা অলঙ্ঘঙ্কারী বিজ্ঞাপনকে অনুমোদন দিন">
+<!ENTITY addSubscriptionOther.label "একটি ভিন্ন চুক্তি যুক্ত করুন">
 <!ENTITY close.label "বন্ধ">
+<!ENTITY sort.none.label "অবাছাইকৃত">
+<!ENTITY filter.actions.label "ছাঁকনের ব্যবস্থাসমুহ">
+<!ENTITY filter.copy.label "অনুলিপি করুন">
 <!ENTITY filter.moveDown.label "নিচে সরান">
+<!ENTITY filter.resetHitCounts.label "আঘাত পরিসংখ্যান পুনঃচালু করুন">
 <!ENTITY readMore.label "আরো পড়ুন">
 <!ENTITY subscription.moveUp.label "উপরে সরান">
+<!ENTITY addSubscription.label "ছাঁকন চুক্তি যুক্ত করুন">
+<!ENTITY subscription.homepage.label "নীড়পাতা">
+<!ENTITY backup.complete.title "সকল পরিশ্রুতক এবং চুক্তি">
+<!ENTITY restore.own.label "নিজের অনুরক্ষণটি পুনর্বহাল করুন">
+<!ENTITY restore.complete.warning "আপনার সব ফিল্টার অগ্রাধিকার নির্বাচিত ফাইলের বিষয়বস্তু দ্বারা প্রতিস্থাপিত হবে। আপনি কি এগোতে চান?">
+<!ENTITY filters.tab.label "সজ্জার উপযোগী ছাঁকন সমূহ">
+<!ENTITY backup.label "নতুন অনুরক্ষণ তৈরি করুন">
 <!ENTITY find.label "খুঁ&amp;জুন">
+<!ENTITY subscription.moveDown.label "নিচে সরান">
+<!ENTITY subscription.lastDownload.connectionError "ব্যর্থ, নামানো ব্যর্থতা">
 <!ENTITY subscription.lastDownload.success "সফল">
+<!ENTITY subscription.lastDownload.invalidData "ব্যর্থ, একটি যুক্তিযুক্ত ছাঁকন তালিকা নয়">
+<!ENTITY filter.paste.label "ছেদাংশ যুক্ত করুন">
+<!ENTITY subscription.disabledFilters.enable "বন্ধ ছাঁকন চালু করুন">
+<!ENTITY lasthit.column "শেষ আঘাত">
 <!ENTITY subscription.editTitle.label "শিরোনাম সম্পাদনা">
-<!ENTITY subscription.lastDownload.label "সর্বশেষ ডাউনলোড:">
+<!ENTITY subscription.disabledFilters.warning "চুক্তির কিছু ছাঁকন বন্ধ আছে।">
 <!ENTITY filter.column "&amp;ফিল্টার বিধি">
+<!ENTITY subscription.lastDownload.label "সর্বশেষ ডাউনলোড:">
+<!ENTITY viewList.label "দর্শন  তালিকা">

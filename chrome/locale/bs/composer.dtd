@@ -14,7 +14,7 @@
 <!ENTITY unselectAllTypes.label "Označi ništa">
 <!ENTITY type.whitelist.label "Prav&amp;ilo iznimke">
 <!ENTITY regexp.warning "Obrazac u koji ste ušli će se tumačiti kao regularni izraz koji ne može Adblock Plus efikasno obraditi Adblock Plus i može usporiti vaše iskustvo pregledavanja. Ako ne namjeravate koristiti regularni izraz, dodajte zvjezdicu (*) na kraju obrasca.">
-<!ENTITY dialog.title "Dodaj Adblock Plus filter">
+<!ENTITY dialog.title "Dodajte pravilo filtriranja Adblock Plus">
 <!ENTITY basic.label "Početni prikaz">
 <!ENTITY type.filter.label "&amp;Blokirajući filter">
 <!ENTITY types.label "Primjeniti na vrste:">

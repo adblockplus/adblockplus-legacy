@@ -29,8 +29,7 @@
 <!ENTITY subscription.lastDownload.unknown "未知">
 <!ENTITY addSubscriptionCancel.label "取消">
 <!ENTITY subscription.enabled.label "启用">
-<!ENTITY noSubscriptions.text "您还没有添加过滤规则订阅组。Adblock Plus 没有过滤规则将无法
-进行屏蔽，请使用 “添加过滤规则订阅组” 添加过滤规则。">
+<!ENTITY noSubscriptions.text "您还没有添加过滤规则订阅组。Adblock Plus 没有过滤规则将无法进行屏蔽，请使用“添加过滤规则订阅组”添加过滤规则。">
 <!ENTITY subscription.update.label "更新过滤规则">
 <!ENTITY dialog.title "Adblock Plus 过滤规则首选项">
 <!ENTITY addFilter.label "添加过滤规则 (&amp;d)">

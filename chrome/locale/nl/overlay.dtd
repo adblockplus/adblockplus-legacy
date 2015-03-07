@@ -1,30 +1,30 @@
 <!ENTITY notification.button.no "&amp;Nee">
-<!ENTITY sync.label "Syn&amp;chroniseer Adblock Plus instellingen">
+<!ENTITY sync.label "Adblock Plus-instellingen syn&amp;chroniseren">
 <!ENTITY whitelist.site.label "Uitschakelen op ?1?">
 <!ENTITY filters.label "&amp;Filtervoorkeuren">
 <!ENTITY disable.label "Overal uitschakelen">
 <!ENTITY objecttab.title "Blokkeren">
 <!ENTITY objecttab.tooltip "Klik hier om dit object te blokkeren met Adblock Plus">
 <!ENTITY menuitem.label "&amp;Adblock Plus-voorkeuren">
-<!ENTITY objecttabs.label "&amp;Tabs weergeven op Flash en Java">
-<!ENTITY sendReport.label "&amp;Probleem op deze pagina rapporteren">
+<!ENTITY objecttabs.label "&amp;Tabs tonen bij Flash en Java">
+<!ENTITY sendReport.label "&amp;Probleem op deze pagina melden">
 <!ENTITY whitelist.page.label "Alleen op deze pagina uitschakelen">
-<!ENTITY context.image.label "Adblock Plus: Afbeelding blokkeren">
+<!ENTITY context.image.label "Adblock Plus: afbeelding blokkeren">
 <!ENTITY notification.button.yes "&amp;Ja">
-<!ENTITY opensidebar.label "&amp;Blokkeerbare onderdelen openen">
-<!ENTITY notification.button.close "&amp;Sluit">
-<!ENTITY contribute.label "Draag bij aan Adblock Plus">
+<!ENTITY opensidebar.label "&amp;Blokkeerbare items openen">
+<!ENTITY notification.button.close "&amp;Sluiten">
+<!ENTITY contribute.label "Bijdragen aan Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.frame.label "Adblock Plus: Deelvenster blokkeren">
-<!ENTITY blocked.tooltip "Geblokkeerde onderdelen op deze pagina:">
+<!ENTITY context.frame.label "Adblock Plus: deelvenster blokkeren">
+<!ENTITY blocked.tooltip "Geblokkeerde items op deze pagina:">
 <!ENTITY counthits.label "&amp;Filtertreffers tellen">
-<!ENTITY showinstatusbar.label "In &amp;statusbalk weergeven">
-<!ENTITY sidebar.title "Blokkeerbare onderdelen op deze pagina">
+<!ENTITY showinstatusbar.label "Tonen in &amp;statusbalk">
+<!ENTITY sidebar.title "Blokkeerbare items op deze pagina">
 <!ENTITY options.label "&amp;Opties">
-<!ENTITY context.object.label "Adblock Plus: Object blokkeren">
-<!ENTITY context.removeWhitelist.label "Adblock Plus: Opnieuw inschakelen op deze pagina">
+<!ENTITY context.object.label "Adblock Plus: object blokkeren">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: opnieuw inschakelen op deze pagina">
 <!ENTITY filters.tooltip "Meest actieve filters:">
-<!ENTITY closesidebar.label "&amp;Blokkeerbare onderdelen sluiten">
-<!ENTITY showintoolbar.label "In werk&amp;balk weergeven">
+<!ENTITY closesidebar.label "&amp;Blokkeerbare items sluiten">
+<!ENTITY showintoolbar.label "Tonen in werk&amp;balk">
 <!ENTITY status.tooltip "Status:">
-<!ENTITY context.media.label "Adblock Plus: Audio/video blokkeren">
+<!ENTITY context.media.label "Adblock Plus: audio/video blokkeren">
