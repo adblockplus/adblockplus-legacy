@@ -1,28 +1,28 @@
-<!ENTITY anchor.end.label "aan het e&amp;ind van het adres">
-<!ENTITY domainRestriction.label "Tot domein be&amp;perken:">
+<!ENTITY anchor.end.label "aan het ei&amp;nde van het adres">
+<!ENTITY domainRestriction.label "Beperken tot &amp;domein:">
 <!ENTITY collapse.default.no.label "Standaard gebruiken (nee)">
-<!ENTITY firstParty.label "A&amp;lleen van eigen website">
+<!ENTITY firstParty.label "Alleen van &amp;eigen website">
 <!ENTITY preferences.label "Bestaande filters &amp;weergeven…">
-<!ENTITY pattern.label "Naar patroon zoeken">
+<!ENTITY pattern.label "Zoeken naar patroon">
 <!ENTITY thirdParty.label "Alleen van &amp;derden">
-<!ENTITY filter.label "&amp;Nieuwe filter:">
-<!ENTITY collapse.label "&amp;Geblokkeerd onderdeel inklappen:">
-<!ENTITY match.warning "Het door u ingegeven patroon komt niet meer overeen met het te blokkeren/op de witte lijst te plaatsen adres en zal er geen effect op hebben.">
+<!ENTITY filter.label "&amp;Nieuw filter:">
+<!ENTITY collapse.label "&amp;Geblokkeerde samenvouwen:">
+<!ENTITY match.warning "Het door u ingevoerde patroon komt niet meer overeen met het te blokkeren / op de witte lijst te plaatsen adres en zal hier geen effect op hebben.">
 <!ENTITY anchor.start.label "aan &amp;het begin van het adres">
 <!ENTITY matchCase.label "H&amp;oofdlettergevoelig">
 <!ENTITY custom.pattern.label "&amp;Aangepast:">
 <!ENTITY unselectAllTypes.label "Niets selecteren">
 <!ENTITY type.whitelist.label "&amp;Uitzonderingsregel">
-<!ENTITY regexp.warning "Het patroon dat u heeft gegeven zal worden behandeld als een reguliere expressie. Deze kunnen niet efficiënt worden verwerkt door Adblock Plus en kunnen uw browser traag maken. Als het niet uw bedoeling was een reguliere expressie te schrijven, voeg dan een asterisk (*) aan het eind van het patroon toe.">
+<!ENTITY regexp.warning "Het patroon dat u hebt ingevoerd zal worden behandeld als een reguliere expressie. Deze kunnen niet efficiënt worden verwerkt door Adblock Plus en kunnen uw browser traag maken. Als het niet uw bedoeling was een reguliere expressie te schrijven, voeg dan een asterisk (*) aan het einde van het patroon toe.">
 <!ENTITY dialog.title "Adblock Plus-filterregel toevoegen">
 <!ENTITY basic.label "Eenvoudige weergave">
 <!ENTITY type.filter.label "&amp;Blokkeringsfilter">
-<!ENTITY types.label "Toepassen op types:">
-<!ENTITY shortpattern.warning "Het patroon dat u heeft gegeven is te kort om te worden geoptimaliseerd en kan uw browser traag maken. U kunt beter een langere regel voor dit filter kiezen, zodat Adblock Plus het filter efficiënter kan toepassen.">
+<!ENTITY types.label "Toepassen op typen:">
+<!ENTITY shortpattern.warning "Het patroon dat u hebt ingevoerd is te kort om te worden geoptimaliseerd en kan uw browser traag maken. U kunt beter een langere regel voor dit filter kiezen, zodat Adblock Plus het filter efficiënter kan verwerken.">
 <!ENTITY collapse.yes.label "Ja">
 <!ENTITY anchors.label "Alleen patronen accepteren:">
 <!ENTITY collapse.default.yes.label "Standaard gebruiken (ja)">
-<!ENTITY domainRestriction.help "Gebruik deze optie om één of meer domeinen te specificeren, gescheiden door een lijn (|). Het filter zal alleen op deze domeinen worden toegepast. Een tilde (~) voor een domein betekent dat het filter niet moet worden toegepast op dat domein.">
+<!ENTITY domainRestriction.help "Gebruik deze optie om een of meer domeinen te specificeren, gescheiden door een sluisteken (|). Het filter zal alleen op de geselecteerde domeinen worden toegepast. Een tilde (~) voor een domein betekent dat het filter niet op dat domein zal worden toegepast.">
 <!ENTITY accept.label "Filter toevoegen">
 <!ENTITY options.label "Opties">
 <!ENTITY disabled.warning "Adblock Plus is momenteel uitgeschakeld. U kunt nog wel filters toevoegen, maar ze worden niet toegepast tenzij u [link]Adblock Plus weer inschakelt[/link].">
@@ -30,4 +30,4 @@
 <!ENTITY collapse.no.label "Nee">
 <!ENTITY selectAllTypes.label "Alles selecteren">
 <!ENTITY advanced.label "Geavanceerde weergave">
-<!ENTITY pattern.explanation "Het patroon kan ieder gedeelte zijn van het adres, waarbij een asterisk (*) als wildcard geldt. Het filter wordt alleen toegepast op adressen die met het patroon overeenkomen.">
+<!ENTITY pattern.explanation "Het patroon kan een willekeurig gedeelte van het adres zijn, asterisken (*) gelden als jokertekens. Het filter wordt alleen toegepast op adressen die met het opgegeven patroon overeenkomen.">

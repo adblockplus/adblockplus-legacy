@@ -5,8 +5,8 @@
 <!ENTITY list.download.website "იხილეთ ვებგვერდი">
 <!ENTITY supplementMessage "ეს ფილტრები გამოიყენება &quot;?1?&quot;-სთან ერთად, რომელსაც თქვენ ჯერ არ იყენებთ.">
 <!ENTITY viewList.label "იხილეთ ფილტრები">
-<!ENTITY visitHomepage.label "ეწვიეთ ფილტრის ვებ-გვერდს">
-<!ENTITY addSubscription.label "გამოწერა">
-<!ENTITY dialog.title "Add Adblock Plus ფილტრის გამოწერა">
+<!ENTITY visitHomepage.label "ეწვიეთ მთავარ გვერდს">
+<!ENTITY addSubscription.label "დაამატე გამოწერა">
+<!ENTITY dialog.title "დაამატე Adblock Plus ფილტრის გამოწერა">
 <!ENTITY location.label "ფი&amp;ლტრის სიის მდებარეობა:">
 <!ENTITY fromWeb.description "გთხოვთ დაადასტუროთ, რომ გსურთ ფილტრის გამოწერა. მის დამატებამდე შეგიძლიათ გამოწერის სათაურის ან მდებარეობის შეცვლა.">

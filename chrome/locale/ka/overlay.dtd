@@ -1,3 +1,4 @@
+<!ENTITY notification.button.no "&amp;არა">
 <!ENTITY sync.label "დაასინქრონე Adblock Plus-ის პარამეტრები">
 <!ENTITY whitelist.site.label "გამორთე ––ზე">
 <!ENTITY filters.label "ფილტრის პარამეტრები">
@@ -9,7 +10,9 @@
 <!ENTITY sendReport.label "განაცხადეთ ამ გვერდზე პრობლემის შესახებ">
 <!ENTITY whitelist.page.label "გამორთე მხოლოდ ამ ვებ-გვერდზე">
 <!ENTITY context.image.label "Adblock Plus: სურათის დაბლკვა">
+<!ENTITY notification.button.yes "&amp;დიახ">
 <!ENTITY opensidebar.label "გახსენი ბლოკირებადი ელემენტები (&amp;И)">
+<!ENTITY notification.button.close "&amp;დახურვა">
 <!ENTITY contribute.label "დაეხმარეთ Adblock Plus-ს">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: ფრეიმის დაბლოკვა">

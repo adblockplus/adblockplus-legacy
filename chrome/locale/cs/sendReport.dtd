@@ -26,7 +26,7 @@
 <!ENTITY recentReports.label "Vaše nedávná hlášení">
 <!ENTITY typeWarning.description "Vybrali jste, že chcete nahlásit problém přímo v Adblocku Plus, nikoli chybu ve filtrech. Nejlepší způsob hlášení takovýchto chyb je na [link]fóru Adblocku Plus[/link]. Měli byste používat nástroj na hlášení chyb pouze jako doplněk existující diskuse na fóru, protože nikdo se nebude zabývat vaším hlášením, dokud neposkytnete odkaz na něj. Automaticky vygenerovaný odkaz bude zobrazet po odeslání hlášení.">
 <!ENTITY issues.disabled.description "Adblock Plus je zakázaný, v současném stavu nebude blokovat nic.">
-<!ENTITY attachExtensions.label "&amp;Připojit seznam aktivních rozšíření k hlášení pro případ, že problém byl způsoben konfliktem mezi doplňky">
+<!ENTITY attachExtensions.label "Připojte k hlášení seznam aktivních doplňků pro případ, že byl problém způsoben konfliktem doplňků">
 <!ENTITY issues.nosubscriptions.add.label "Přidat sadu cizích filtrů">
 <!ENTITY issues.disabledfilters.enable.label "Povolit filtr">
 <!ENTITY issues.override.label "Nastavení je v &amp;pořádku, pokračovat v hlášení problém">

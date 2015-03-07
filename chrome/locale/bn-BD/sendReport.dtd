@@ -1,5 +1,11 @@
 <!ENTITY sendPage.heading "প্রতিবেদন পাঠান">
-<!ENTITY sendButton.label "প্রতিবেদন পা&amp;ঠান">
-<!ENTITY email.label "ই&amp;মেইল:">
+<!ENTITY wizard.title "ইস্যু রিপোর্টার">
+<!ENTITY typeSelector.description "এই উইন্ডোরটি Adblock Plus এর ইস্যু রিপোর্ট করতে প্রয়োজনীয় প্রদক্ষেপগুলোর নির্দেশনা দিবে। প্রথমে অনুগ্রহপূর্বক আপনি এই পেজে যেই ধরণের ইস্যুর সম্মুখিন হচ্ছেন তার ধরণ নিধার্ণ করুন:">
+<!ENTITY dataCollector.description "অনুগ্রহপূর্বক কিছুক্ষণ অপেক্ষা করুন Adblock Plus প্রয়োজনীয় তথ্য সংরক্ষণ করছে।">
 <!ENTITY comment.label "&amp;মন্তব্য (ঐচ্ছিক):">
 <!ENTITY sendPage.retry.label "আবার পাঠান">
+<!ENTITY dataCollector.heading "ইস্যু রিপোর্টারে স্বাগতম">
+<!ENTITY email.label "ই&amp;মেইল:">
+<!ENTITY sendButton.label "প্রতিবেদন পা&amp;ঠান">
+<!ENTITY privacyPolicy.label "গোপনীয়তার নিতিমালা">
+<!ENTITY typeSelector.heading "ইস্যুর ধরণ নির্ধারণ করুন">

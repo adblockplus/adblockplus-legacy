@@ -31,7 +31,7 @@
 问题报告系统来补充一个存在的讨论，如果您不提供链接，很可能没人会
 注意到您的报告。提交报告之后会提供给您自动创建的链接。">
 <!ENTITY issues.disabled.description "Adblock Plus 已禁用，当前状态下 Adblock Plus 不会屏蔽任何元素。">
-<!ENTITY attachExtensions.label "在报告中附加激活的扩展列表，用于确定附加组件冲突导致的问题 (&amp;x)">
+<!ENTITY attachExtensions.label "在报告中附加已启用扩展的列表，用于确定附加组件冲突导致的问题 (&amp;x)">
 <!ENTITY issues.nosubscriptions.add.label "添加过滤规则订阅组">
 <!ENTITY issues.disabledfilters.enable.label "启用过滤规则">
 <!ENTITY issues.override.label "设置正确，继续报告 (&amp;c)">

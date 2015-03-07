@@ -1,5 +1,5 @@
 <!ENTITY notification.button.no "&amp;Nein">
-<!ENTITY sync.label "Adblock Plus-Einstellungen s&amp;ynchronisieren">
+<!ENTITY sync.label "Adblock-Plus-Einstellungen s&amp;ynchronisieren">
 <!ENTITY whitelist.site.label "Deaktivieren: auf ?1?">
 <!ENTITY filters.label "Filterein&amp;stellungen">
 <!ENTITY disable.label "Überall deaktivieren">

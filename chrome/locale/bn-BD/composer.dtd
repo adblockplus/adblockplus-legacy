@@ -1,14 +1,33 @@
-<!ENTITY accept.label "ফিল্টার যুক্ত করুন">
-<!ENTITY type.filter.label "আটকিয়ে রাখা ফিল্টার (&amp;ব)">
-<!ENTITY collapse.no.label "না">
-<!ENTITY disabled.warning "বর্তমানে Adblock Plus নিষ্ক্রিয় রয়েছে। আপনি এখনও ফিল্টার যুক্ত করতে পারেন কিন্তু তাদের প্রয়োগ করা সম্ভব নয় যদি না আপনি Adblock Plus[/link] [link]সক্রিয় করেন।">
-<!ENTITY custom.pattern.label "&amp;স্বনির্ধারিত:">
+<!ENTITY anchor.end.label "ঠিকানার শেষে">
+<!ENTITY domainRestriction.label "নিষিদ্ধ করা ডোমেইনঃ">
+<!ENTITY collapse.default.no.label "স্বয়ংক্রিয় (না)">
+<!ENTITY firstParty.label "শুধুমাত্র প্রথম পক্ষ">
 <!ENTITY preferences.label "&amp;বিদ্যমান ফিল্টারগুলি দেখান...">
-<!ENTITY advanced.label "উন্নত দৃশ্য">
 <!ENTITY pattern.label "প্যাটার্ন দেখুন">
-<!ENTITY selectAllTypes.label "সব নির্বাচন">
+<!ENTITY thirdParty.label "এবং শুধু তৃতীয় পক্ষ">
+<!ENTITY filter.label "নতুন &amp;ফিল্টার:">
+<!ENTITY collapse.label "অবরুদ্ধ সমুহকে ভেঙ্গে ফেলুনঃ">
+<!ENTITY match.warning "আপনি যে বিন্যাস প্রবেশ করিয়েছেন তা আর রুদ্ধ/ সাদাতালিকাকৃত ঠিকানার সাথে মেলে না এবং এটির উপর আর কোন প্রভাব নেই।">
+<!ENTITY anchor.start.label "ঠিকানার শুরুতেই">
+<!ENTITY matchCase.label "এবং কারক মেলান">
+<!ENTITY custom.pattern.label "&amp;স্বনির্ধারিত:">
+<!ENTITY unselectAllTypes.label "কিছুই নির্বাচন করবেন না">
 <!ENTITY type.whitelist.label "ব্যতিক্রম &amp;x">
+<!ENTITY regexp.warning "যে বিন্যাস আপনি প্রবেশ করিয়েছেন তা একটি নিয়মিত অভিব্যক্তি হিসেবে বোঝা হবে যা অ্যাডব্লক প্লাস দ্বারা দক্ষতার সাথে প্রক্রিয়াকরণ সম্ভব নয় এবং আপনার ব্রাউজিং অভিজ্ঞতা ধীর হয়ে যেতে পারে। যদি আপনি  নিয়মিত অভিব্যক্তি ব্যবহার করতে আগ্রহী না থাকেন, তাহলে বিন্যাসের শেষে একটি তারকা চিহ্ন(*) যোগ করুন।">
 <!ENTITY dialog.title "Adblock Plus ফিল্টার বিধি যুক্ত করুন">
 <!ENTITY basic.label "মৌলিক দৃশ্য">
-<!ENTITY filter.label "নতুন &amp;ফিল্টার:">
+<!ENTITY type.filter.label "আটকিয়ে রাখা ফিল্টার (&amp;ব)">
+<!ENTITY types.label "যে ধরনে প্রয়োগ করবেনঃ">
+<!ENTITY shortpattern.warning "আপনি যে বিন্যাস প্রবেশ করিয়েছেন তা এতই ছোট যে তার সর্বোত্তম ব্যবহার সম্ভব নয় এবং আপনার ব্রাউসিং অভিজ্ঞতা ধীর করে ফেলতে পারে। পরামর্শ দেয়া হচ্ছে যে , আপনি একটি বড় শিকল পছন্দ করুন এই ছাঁকনের জন্য যেন অ্যাডব্লক প্লাস ছাঁকনটিকে আরও দক্ষতার সাথে প্রক্রিয়াকরণ করতে পারে ।">
 <!ENTITY collapse.yes.label "হ্যাঁ">
+<!ENTITY anchors.label "শুধুমাত্র বিন্যাস গ্রহণ করঃ">
+<!ENTITY collapse.default.yes.label "স্বয়ংক্রিয় (হ্যাঁ)">
+<!ENTITY domainRestriction.help "এই অপশনটি একটি বার লাইন(।) দ্বারা বিচ্ছিন্ন এক বা একাধিক ডোমেইন কে বিশেষায়িত করতে ব্যবহার করুন। এই ছাঁকন শুধুমাত্র বাছাইকৃত ডোমেইনের উপর প্রয়োগ করা যাবে।   ডোমেইন নামের আগে একটি (~) চিহ্ন বোঝায় যে ছাঁকনটি ডোমেইনের উপর প্রয়োগ করা যাবে না। ">
+<!ENTITY accept.label "ফিল্টার যুক্ত করুন">
+<!ENTITY options.label "বিকল্পসমূহ">
+<!ENTITY disabled.warning "বর্তমানে Adblock Plus নিষ্ক্রিয় রয়েছে। আপনি এখনও ফিল্টার যুক্ত করতে পারেন কিন্তু তাদের প্রয়োগ করা সম্ভব নয় যদি না আপনি Adblock Plus[/link] [link]সক্রিয় করেন।">
+<!ENTITY anchor.start.flexible.label "ডোমেইনের নামের শুরুতেই">
+<!ENTITY collapse.no.label "না">
+<!ENTITY selectAllTypes.label "সব নির্বাচন">
+<!ENTITY advanced.label "উন্নত দৃশ্য">
+<!ENTITY pattern.explanation "বিন্যাস ঠিকানাগুলোর যেকোনো অংশ হতে পারে; তারকাচিহ্ন (*) ভবিষ্যৎবাণীর অযোগ্য হিসেবে কাজ করে । ঠিকানা সমূহ যা প্রদত্ত বিন্যাসের সাথে মিলে, ছাঁকন সেখানেই শুধুমাত্র প্রয়োগ হবে।">

@@ -26,7 +26,7 @@
 <!ENTITY recentReports.label "Seus relatórios enviados recentemente">
 <!ENTITY typeWarning.description "Você indicou que deseja comunicar um erro geral no Adblock Plus em vez de um problema com os filtros. Por favor, note que problemas desse tipo devem ser tratados no [link]fórum do Adblock Plus[/link]. Envie um relatório apenas para complementar uma discussão existente no fórum, pois ninguém vai notá-lo a menos que você informe o endereço do relatório. O endereço gerado automaticamente será apresentado após o envio do relatório.">
 <!ENTITY issues.disabled.description "O Adblock Plus está desativado; ele não vai bloquear nada no seu estado atual.">
-<!ENTITY attachExtensions.label "Ane&amp;xar ao relatório uma lista de extensões ativas caso haja um conflito entre elas">
+<!ENTITY attachExtensions.label "Anexar uma lista das extensões ativas ao relatório caso um conflito de complementos é a causa do problema">
 <!ENTITY issues.nosubscriptions.add.label "Adicionar inscrição de filtros">
 <!ENTITY issues.disabledfilters.enable.label "Ativar filtro">
 <!ENTITY issues.override.label "A &amp;configuração está correta, continue com o relatório">
