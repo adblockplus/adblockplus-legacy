@@ -3,4 +3,5 @@ syntax: glob
 *.xpi
 *.zip
 *.pyc
+*.pyo
 *.sh
