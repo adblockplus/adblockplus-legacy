@@ -36,3 +36,4 @@ pref("extensions.adblockplus.notificationurl", "https://notification.adblockplus
 pref("extensions.adblockplus.notificationdata", {});
 pref("extensions.adblockplus.subscriptions_antiadblockurl", "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt");
 pref("extensions.adblockplus.please_kill_startup_performance", false);
+pref("extensions.adblockplus.suppress_first_run_page", false);
