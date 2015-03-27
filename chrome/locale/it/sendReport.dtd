@@ -38,7 +38,7 @@
 		una segnalazione priva di relativo link alla pagina web dove si verifica appunto il problema.
 		Il link generato automaticamente verrà fornito dopo l'invio della segnalazione">
 <!ENTITY issues.disabled.description "Adblock Plus è attualmente disattivata e quindi non bloccherà alcun elemento">
-<!ENTITY attachExtensions.label "Allegare una lista di estensioni attive al report nel caso in cui un add-on in conflitto è la causa del problema">
+<!ENTITY attachExtensions.label "A&amp;llegare una lista di estensioni attive al report nel caso in cui un add-on in conflitto è la causa del problema">
 <!ENTITY issues.nosubscriptions.add.label "Aggiungi una sottoscrizione di filtri…">
 <!ENTITY issues.disabledfilters.enable.label "Attiva i filtri">
 <!ENTITY issues.override.label "&amp;Le impostazioni di Adblock Plus sono corrette, proseguire con la raccolta dei dati per la segnalazione">

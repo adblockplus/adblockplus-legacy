@@ -3,13 +3,13 @@
 <!ENTITY context.open.label "Abrir em novo separador">
 <!ENTITY type.label "Tipo">
 <!ENTITY tooltip.filterSource.label "Origem do filtro:">
-<!ENTITY noitems.label "Nenhum item bloqueável">
+<!ENTITY noitems.label "Sem itens bloqueáveis">
 <!ENTITY filter.label "Filtro">
 <!ENTITY tooltip.size.label "Tamanho:">
-<!ENTITY reattach.label "Recoloque">
+<!ENTITY reattach.label "Reancorar">
 <!ENTITY search.label "&amp;Procurar:">
 <!ENTITY docDomain.thirdParty "(terceiros)">
-<!ENTITY filterSource.label "Fonte do filtro">
+<!ENTITY filterSource.label "Código fonte do filtro">
 <!ENTITY tooltip.docDomain.label "Origem do documento:">
 <!ENTITY context.copy.label "Copiar endereço do item">
 <!ENTITY tooltip.type.label "Tipo:">
@@ -17,10 +17,10 @@
 <!ENTITY context.copyFilter.label "Copiar filtro">
 <!ENTITY context.block.label "Bloquear este item">
 <!ENTITY context.enablefilter.label "Reativar filtro ?1?">
-<!ENTITY detach.label "Separar">
-<!ENTITY whitelisted.label "Página em lista branca">
+<!ENTITY detach.label "Desancorar">
+<!ENTITY whitelisted.label "Página permitida">
 <!ENTITY context.disablefilteronsite.label "Desativar este filtro em ?1?">
-<!ENTITY detached.title "Itens bloqueáveis (destacado)">
+<!ENTITY detached.title "Itens bloqueáveis (desancorada)">
 <!ENTITY docDomain.firstParty "(primeira parte)">
 <!ENTITY tooltip.type.whitelisted "(permitido)">
 <!ENTITY tooltip.filter.label "Filtro ativo:">
@@ -31,5 +31,5 @@
 <!ENTITY context.whitelist.label "Adicionar exceção para o item">
 <!ENTITY context.selectAll.label "Selecionar tudo">
 <!ENTITY state.label "Estado">
-<!ENTITY docDomain.label "Documento de Origem">
+<!ENTITY docDomain.label "Origem do documento">
 <!ENTITY tooltip.address.label "Endereço:">

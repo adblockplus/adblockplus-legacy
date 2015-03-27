@@ -5,7 +5,7 @@
 <!ENTITY noFiltersInGroup.text "De geselecteerde groep is leeg.">
 <!ENTITY subscription.actions.label "Acties">
 <!ENTITY filter.selectAll.label "Alles selecteren">
-<!ENTITY backupButton.label "&amp;Back-up en herstel">
+<!ENTITY backupButton.label "Ba&amp;ck-up en herstel">
 <!ENTITY restore.minVersion.warning "Waarschuwing: het bestand is gemaakt met een nieuwere versie van Adblock Plus. U dient Adblock Plus bij te werken naar de nieuwste versie voordat u iets vanuit dit bestand kunt terugzetten.">
 <!ENTITY restore.error "De gegevens in het bestand konden niet worden verwerkt; wellicht is het geen back-upbestand van Adblock Plus?">
 <!ENTITY sort.ascending.label "Sorteervolgorde &amp;A &gt; Z">
@@ -36,7 +36,7 @@
 <!ENTITY subscription.minVersion.warning "Dit filterabonnement vereist een nieuwere versie van Adblock Plus; u dient Adblock Plus bij te werken naar de nieuwste versie.">
 <!ENTITY subscription.lastDownload.invalidURL "Mislukt, geen geldig adres">
 <!ENTITY backup.error "Er is een fout opgetreden bij het wegschrijven van de filters. Zorg ervoor dat het bestand niet tegen schrijven is beveiligd of door een andere toepassing wordt gebruikt.">
-<!ENTITY filter.moveUp.label "Omhoog">
+<!ENTITY filter.moveUp.label "Omhoog verplaatsen">
 <!ENTITY addGroup.label "&amp;Filtergroep toevoegen">
 <!ENTITY filter.edit.label "Bewerken">
 <!ENTITY subscription.showHideFilters.label "Filters tonen/verbergen">
@@ -46,10 +46,10 @@
 <!ENTITY sort.none.label "&amp;Ongesorteerd">
 <!ENTITY filter.actions.label "Filteracties">
 <!ENTITY filter.copy.label "Kopiëren">
-<!ENTITY filter.moveDown.label "Omlaag">
+<!ENTITY filter.moveDown.label "Omlaag verplaatsen">
 <!ENTITY filter.resetHitCounts.label "Trefferstatistieken opnieuw instellen">
 <!ENTITY readMore.label "Meer lezen">
-<!ENTITY subscription.moveUp.label "Omhoog">
+<!ENTITY subscription.moveUp.label "Omhoog verplaatsen">
 <!ENTITY addSubscription.label "&amp;Filterabonnement toevoegen">
 <!ENTITY subscription.homepage.label "Startpagina">
 <!ENTITY backup.complete.title "Alle filters en abonnementen">
@@ -58,7 +58,7 @@
 <!ENTITY filters.tab.label "Aangepaste filters">
 <!ENTITY backup.label "Nieuwe back-up maken">
 <!ENTITY find.label "&amp;Zoeken">
-<!ENTITY subscription.moveDown.label "Omlaag">
+<!ENTITY subscription.moveDown.label "Omlaag verplaatsen">
 <!ENTITY subscription.lastDownload.connectionError "Mislukt, downloadprobleem">
 <!ENTITY subscription.lastDownload.success "Gelukt">
 <!ENTITY subscription.lastDownload.invalidData "Mislukt, geen geldige filterlijst">

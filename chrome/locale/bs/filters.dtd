@@ -1,9 +1,10 @@
+<!ENTITY subscription.lastDownload.checksumMismatch "Nije uspjelo, nepodudarnost checksum-a">
 <!ENTITY noFiltersInGroup.text "Izabrana grupa je prazna.">
 <!ENTITY subscription.actions.label "Akcije">
 <!ENTITY filter.selectAll.label "Označi sve">
 <!ENTITY subscription.source.label "Lista filtera">
 <!ENTITY filter.paste.label "Zalijepi">
-<!ENTITY viewList.label "Vidi spisak">
+<!ENTITY subscription.external.label "Nadograđeno od strane druge ekstenzije">
 <!ENTITY subscription.delete.label "Ukloni">
 <!ENTITY subscription.lastDownload.inProgress "Preuzima se…">
 <!ENTITY subscriptions.tab.label "filteri pretplate">
@@ -12,19 +13,31 @@
 <!ENTITY viewMenu.label "Prikaz">
 <!ENTITY subscription.lastDownload.unknown "N/A">
 <!ENTITY addSubscriptionCancel.label "Poništiti">
+<!ENTITY subscription.enabled.label "Omogućeno">
+<!ENTITY noSubscriptions.text "Niste dodali ni jednu filter pretplatu. Adblock Plus neće blokirati bez filtera, molimo koristite &quot;Dodajte filter pretplatu&quot; da biste dodali filter.">
+<!ENTITY subscription.update.label "Nadogradite filtere">
+<!ENTITY dialog.title "Adblock Plus Filter Postavke">
+<!ENTITY subscription.minVersion.warning "Ova filter pretplata zahtijeva noviju verziju Adblock Plus, trebali biste nadograditi Adblock Plus.">
 <!ENTITY subscription.lastDownload.invalidURL "Neuspjeh, adresa nije validna">
 <!ENTITY filter.moveUp.label "Idi gore">
 <!ENTITY filter.edit.label "Uredi">
 <!ENTITY subscription.showHideFilters.label "Sakrij/prikaži filtere">
 <!ENTITY filter.cut.label "Izreži">
+<!ENTITY addSubscriptionOther.label "Dodajte drugačiju pretplatu">
 <!ENTITY close.label "Zatvori">
 <!ENTITY filter.copy.label "Kopiraj">
 <!ENTITY readMore.label "Učitaj još">
 <!ENTITY subscription.moveUp.label "Idi gore">
+<!ENTITY addSubscription.label "Dodaj i Filtriraj Pretplata">
+<!ENTITY subscription.homepage.label "Početna stranica">
+<!ENTITY filters.tab.label "Prilagođeni filteri">
 <!ENTITY subscription.moveDown.label "Idi dole">
+<!ENTITY subscription.lastDownload.connectionError "Nije uspjelo, download neuspjeh">
 <!ENTITY subscription.lastDownload.success "Uspjeh">
 <!ENTITY subscription.lastDownload.invalidData "Neuspjeh, nije validan spisak filtera">
 <!ENTITY subscription.disabledFilters.enable "Omogući filtere koji su onemogućeni">
 <!ENTITY subscription.editTitle.label "Uredi naslov">
-<!ENTITY subscription.lastDownload.label "Posljednje preuzimanje:">
+<!ENTITY subscription.disabledFilters.warning "Neki filteri u ovoj pretplati su onemogućeni.">
 <!ENTITY filter.column "&amp;Pravilo za filtere">
+<!ENTITY subscription.lastDownload.label "Posljednje preuzimanje:">
+<!ENTITY viewList.label "Vidi spisak">

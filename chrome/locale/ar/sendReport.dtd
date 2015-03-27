@@ -26,7 +26,7 @@
 <!ENTITY recentReports.label "تقاريرك المرسلة مؤخرا">
 <!ENTITY typeWarning.description "لقد أشرت إلى رغبتك بالتبليغ عن مشكلة في آدبلوك بلس نفسه وليس بالفلاتر. الرجاء الانتباه إلى أنه من الأفضل التبليغ عن مثل هذه المشاكل في  [link]منتدى آدبلوك بلس[/link]. يجب استعمال مبلغ المشاكل فقط للإضافة إلى مناقشة جارية أصلا لأن أحداً لن يلاحظ تقريرك إن لم تقم بوضع رابط إليه. سيتم إظهار رابط مولد لتقريرك بمجرد أن تقوم بإرسال التقرير.">
 <!ENTITY issues.disabled.description "آدبلوك بلس معطل ولن يقوم بحجب أي شيء في هذه الحالة">
-<!ENTITY attachExtensions.label "إرف&amp;اق قائمة بالإضافات الفعالة مع التقرير">
+<!ENTITY attachExtensions.label "إرفق قائمة الملحقات النشطة للتقرير في حالة كون خطأ في أحد إضافات سبب المشكلة">
 <!ENTITY issues.nosubscriptions.add.label "إضافة اشتراك فلتر">
 <!ENTITY issues.disabledfilters.enable.label "تفعيل فلتر">
 <!ENTITY issues.override.label "ال&amp;إعدادات معطلة، المتابعة بالتقرير">

@@ -19,6 +19,7 @@
 <!ENTITY context.enablefilter.label "¿Reactivar filtro?">
 <!ENTITY detach.label "Separar">
 <!ENTITY whitelisted.label "Página de lista blanca">
+<!ENTITY context.disablefilteronsite.label "Desactivar este filtro en ?1?">
 <!ENTITY detached.title "Adblock Plus: Artículos bloqueable (desprendidos)">
 <!ENTITY docDomain.firstParty "(primera parte)">
 <!ENTITY tooltip.type.whitelisted "(en lista blanca)">
@@ -28,6 +29,7 @@
 <!ENTITY tooltip.type.blocked "(bloqueado)">
 <!ENTITY size.label "Tamaño">
 <!ENTITY context.whitelist.label "Añadir regla de excepción para el elemento">
+<!ENTITY context.selectAll.label "Seleccionar todo">
 <!ENTITY state.label "Estado">
 <!ENTITY docDomain.label "Origen del documento">
 <!ENTITY tooltip.address.label "Dirección:">

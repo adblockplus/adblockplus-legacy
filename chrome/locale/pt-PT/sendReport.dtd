@@ -17,7 +17,7 @@
 <!ENTITY anonymous.label "Submissão &amp;anónima">
 <!ENTITY reloadButton.label "&amp;Recarregar página">
 <!ENTITY recentReports.clear.label "&amp;Remover todos os relatórios">
-<!ENTITY typeSelector.description "Esta janela guiá-lo-à através dos passos necessários para submeter o relatório de erros. Por favor selecione o tipo de erro que está a ocorrer nesta página:">
+<!ENTITY typeSelector.description "Esta janela guiá-lo-à através dos passos necessários para submeter o relatório de erros. Em primeiro lugar, selecione o tipo de erro que está a ocorrer nesta página:">
 <!ENTITY screenshot.remove.label "&amp;Remover informação sensível">
 <!ENTITY issues.ownfilters.description "Alguns dos filtros aplicados nesta página são definidos pelo utilizador. Por favor desative os filtros que poderão estar a causar o problema:">
 <!ENTITY update.inProgress.description "O Adblock Plus necessita de atualizar as subscrições de filtros para se certificar que o problema não foi resolvido. Por favor aguarde...">
@@ -48,7 +48,7 @@
 <!ENTITY screenshot.attach.label "Anexar uma imagem ao rela&amp;tório">
 <!ENTITY issues.whitelist.description "O Adblock Plus está inativo na página sobre a qual está a reportar. Por favor reative-o e recarregue a página antes de submeter um relatório para ajudar a analisar este problema.">
 <!ENTITY typeSelector.falseNegative.label "O Adblock Plus não bloqueia um anú&amp;ncio">
-<!ENTITY typeSelector.heading "Selecione o tipo de erro">
+<!ENTITY typeSelector.heading "Seleccione o tipo de problema">
 <!ENTITY anonymity.warning "Desta forma, não o poderemos contactar e o mais provável é que lhe iremos dar uma prioridade baixa.">
 <!ENTITY wizard.title "Comunicação de erros">
 <!ENTITY issues.ownfilters.disable.label "Desativar filtro">

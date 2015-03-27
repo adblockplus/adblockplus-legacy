@@ -26,7 +26,7 @@
 <!ENTITY recentReports.label "Viimeksi lähettämäsi raportit">
 <!ENTITY typeWarning.description "Olet ilmoittanut haluavasi raportoida yleisestä Adblock Plussaan suodattimien sijaan liittyvästä ongelmasta. Huomaa, että tällaiset raportit olisi parasta jättää [link]Adblock Plussan foorumille[/link]. Ongelmanraportointia tulisi käyttää vain olemassa olevan keskustelun täydennykseksi, sillä kukaan ei huomioi raporttiasi, jos et anna linkkiä siihen. Linkki luodaan automaattisesti jätettyäsi raportin.">
 <!ENTITY issues.disabled.description "Adblock Plus ei ole käytössä eikä estä mitään tässä tilassa.">
-<!ENTITY attachExtensions.label "Liitä raporttiin lista käytössä olevista lisäosista siltä varalta, että jokin niistä on ongelman aiheuttaja">
+<!ENTITY attachExtensions.label "L&amp;iitä raporttiin lista käytössä olevista lisäosista siltä varalta, että jokin niistä on ongelman aiheuttaja">
 <!ENTITY issues.nosubscriptions.add.label "Lisää suodatintilaus">
 <!ENTITY issues.disabledfilters.enable.label "Ota suodatin käyttöön">
 <!ENTITY issues.override.label "Asetukset ovat oikein, &amp;jatka raportoimista">

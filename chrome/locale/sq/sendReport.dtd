@@ -18,7 +18,7 @@ raportonin. Ju lutemi të rifreskoni faqen dhe rigjykuar, goditi Raporto përsë
 Problemi mbetet.">
 <!ENTITY anonymous.label "&amp; Publikime anonime">
 <!ENTITY reloadButton.label "&amp;Ringarko faqen">
-<!ENTITY recentReports.clear.label "Hiq gjithe &amp;raportimet">
+<!ENTITY recentReports.clear.label "&amp;Hiq te gjithe raportimet">
 <!ENTITY typeSelector.description "Kjo dritare do ju udhezoje neper gjithe hapat e nevojshem per dergimin e raportit te problemeve me Adblock Plus. Si fillim, ju lutem zgjidhni tipin e problemit qe ju vereni me kete faqe:">
 <!ENTITY screenshot.remove.label "Hiqni te dhenat pe&amp;rsonale">
 <!ENTITY issues.ownfilters.description "Disa nga filtrat e aplikuar ne kete faqe jane te percaktuar nga perdoruesi. Ju lutem bllokoni filtrat te cilet mund te kene shkaktuar kete problem:">
@@ -29,13 +29,13 @@ Problemi mbetet.">
 <!ENTITY recentReports.label "Raportimet tuaja me te fundit">
 <!ENTITY typeWarning.description "Ju keni treguar se deshironi te raportoni nje problem te pergjithshem me Adblock Plus ne vend te nje problemi me filtrat. Ju lutem kini parasysh se keto probleme raportohen me mire ne [link]forumin Adblock Plus[/link]. Ju duhet te perdorni raportimin e problemeve vetem si shtese te nje diskutimi ekzistues, sepse askush nuk do ta vere re raportimin tuaj, vetem nese ju jepni nje adrese te problemit. Adrese e krijuar automatikisht do ju jepet pasi ju te keni derguar raportin.">
 <!ENTITY issues.disabled.description "Adblock Plus eshte jo-aktiv, ai nuk do te bllokoje asnje gje ne gjendjen aktuale.">
-<!ENTITY attachExtensions.label "Bashkangjisni nje liste te prapashtesave aktive ne raportim, ne rast se shkaku i problemit eshte nje konflikt ndermjet moduleve. (&amp;x)">
+<!ENTITY attachExtensions.label "&amp;Bashkangjisni nje liste te prapashtesave aktive ne raportim, ne rast se shkaku i problemit eshte nje konflikt ndermjet moduleve">
 <!ENTITY issues.nosubscriptions.add.label "Shto abonim ne filtra">
 <!ENTITY issues.disabledfilters.enable.label "Aktivizo filtrin">
 <!ENTITY issues.override.label "Konfigurimi eshte i sakte, vazhdoni me raportimin (&amp;c)">
 <!ENTITY issues.nosubscriptions.description "Duket sikur ju nuk keni asnje abonim ne filtrat e gatshem te cilet heqin automatikisht permbajtjen e padeshiruar nga faqet web.">
 <!ENTITY typeSelector.falsePositive.description "Zgjidhni kete mundesi nese faqes i mungon permbajtja e rendesishme, shfaqet gabim ose nuk funksionon ne rregull. Ju mund te percaktoni nese problemi eshte Adblock Plus duke e fikur ate perkohesisht.">
-<!ENTITY typeSelector.other.label "Problem &amp;tjeter">
+<!ENTITY typeSelector.other.label "Problemi tj&amp;eter">
 <!ENTITY emailComment.label "Ne ju inkurajojmë që të vendosni një adresë te vlefshme email në mënyrë që ne mund të lidhen me ju nëse ka pyetje
 në lidhje me raportin tuaj. Ai gjithashtu do të na lejojë për të njohur kontributet tuaja dhe për të përcaktuar përparësitë e tyre më të larta.">
 <!ENTITY issues.whitelist.remove.label "Ri-aktivizo Adblock Plus ne kete faqe">
@@ -53,7 +53,7 @@ javë. Ju lutemi të rinovuar këto abonimet para dorëzimit të raportit,
 <!ENTITY screenshot.description "E njejta faqe mund te duket ndryshe per njerez te ndryshem. Mund te na ndihmoje ne kuptimin e problemit nese ju bashkangjisni nje foto raportimit tuaj. Ju mund te hiqni ose mbuloni fusha te cilat permbajne informacion te rendesishem dhe personal dhe gjithashtu mund te shenoni zonat ku eshte i dukshem problemi. Per te bere kete klikoni butonin e duhur dhe zgjidhni nje zone te fotos me mausin tuaj.">
 <!ENTITY screenshot.attach.label "Bashkangji&amp;t nje faqe me imazh ketij raportimi">
 <!ENTITY issues.whitelist.description "Adblock Plus eshte aktualisht jo-aktiv ne faqen ne te cilen ju po raportoni. Ju lutem ri-aktivizojeni ate dhe ringarkoni faqen perpara se te dergoni raportin i cili do te ndihmoje ne hetimin e metejshem te ketij problemi.">
-<!ENTITY typeSelector.falseNegative.label "Adblock Plus nuk po bllokon nje reklame (&amp;v)">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus nuk bllokon nje rreklame">
 <!ENTITY typeSelector.heading "Lloji i problemit">
 <!ENTITY anonymity.warning "Ne nuk do të jetë në gjendje për të ardhur tek ju dhe do të ngjarë prioritet raporti më i ulët.">
 <!ENTITY wizard.title "Raportuesi i problemeve">
