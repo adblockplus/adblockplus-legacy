@@ -26,7 +26,7 @@
 <!ENTITY recentReports.label "Vos signalements récemment soumis">
 <!ENTITY typeWarning.description "Vous avez indiqué que vous voulez signaler un problème général concernant Adblock Plus plutôt qu'un problème de filtres. Veuillez prendre note que ce type de problèmes est plutôt signalé dans le [link]forum d'Adblock Plus[/link]. Vous devriez utiliser la soumission de signalement uniquement pour ajouter un point à une discussion existante, puisque personne n'en prendra connaissance à moins que vous leur fournissiez le lien pointant vers la discussion. Le lien automatiquement généré sera fourni après la soumission du signalement.">
 <!ENTITY issues.disabled.description "Adblock Plus est désactivée, elle ne bloquera rien dans cet état.">
-<!ENTITY attachExtensions.label "Joindre une liste d'extensions actives au rapport au cas où il y aurait un problème de conflit d'extension">
+<!ENTITY attachExtensions.label "Joindre une liste d'e&amp;xtensions actives au rapport au cas où il y aurait un problème de conflit d'extension">
 <!ENTITY issues.nosubscriptions.add.label "Ajouter un abonnement">
 <!ENTITY issues.disabledfilters.enable.label "Activer le filtre">
 <!ENTITY issues.override.label "La &amp;configuration est correcte, poursuivre le signalement">

@@ -26,7 +26,7 @@
 <!ENTITY recentReports.label "Twoje ostatnio wysłane zgłoszenia">
 <!ENTITY typeWarning.description "Chcesz zgłosić ogólny problem dotyczący Adblock Plusa, a nie problem z filtrami. Tego rodzaju problemy najlepiej jest zgłaszać na [link]forum Adblock Plusa[/link]. Reportera błędów powinno się używać do uzupełnienia dyskusji na forum, ponieważ nikt nie zauważy zgłoszenia, chyba że dołączysz do niego odnośnik. Automatycznie generowany odnośnik zostanie dołączony po wysłaniu zgłoszenia.">
 <!ENTITY issues.disabled.description "Adblock Plus jest wyłączony. Obecnie nic nie będzie blokował.">
-<!ENTITY attachExtensions.label "Dołącz do zgłoszenia listę aktywnych &amp;rozszerzeń, gdy przyczyną problemu jest konflikt z innym rozszerzeniem.">
+<!ENTITY attachExtensions.label "Dołącz do zgłoszenia listę aktywnych &amp;rozszerzeń, gdy przyczyną problemu jest konflikt z innym rozszerzeniem">
 <!ENTITY issues.nosubscriptions.add.label "Subskrybuj filtry">
 <!ENTITY issues.disabledfilters.enable.label "Włącz filtr">
 <!ENTITY issues.override.label "&amp;Konfiguracja jest prawidłowa – kontynuuj zgłoszenie">

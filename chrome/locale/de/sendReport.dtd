@@ -31,8 +31,8 @@
 <!ENTITY issues.ownfilters.description "Einige der Filter, die auf dieser Seite angewandt wurden, sind benutzerdefiniert.
   Bitte deaktivieren Sie Filter, die das Problem verursacht haben könnten:">
 <!ENTITY update.inProgress.description "Adblock Plus muss Ihre Filterabonnements aktualisieren, um sicherzustellen,
-  dass das Problem nicht bereits gelöst ist. Bitte warten Sie ...">
-<!ENTITY sendPage.retry.label "Noch einmal senden">
+  dass das Problem nicht bereits behoben ist. Bitte warten Sie ...">
+<!ENTITY sendPage.retry.label "Erneut senden">
 <!ENTITY data.label "Bericht&amp;daten:">
 <!ENTITY recentReports.label "Ihre zuletzt gesendeten Fehlerberichte">
 <!ENTITY typeWarning.description "Sie haben angedeutet, dass Sie ein allgemeines Problem mit Adblock Plus melden wollen
@@ -45,14 +45,14 @@
 <!ENTITY attachExtensions.label "Liste aktiver Er&amp;weiterungen anhängen für den Fall, dass das Problem von einer anderen Erweiterung verursacht wird">
 <!ENTITY issues.nosubscriptions.add.label "Filterabonnement hinzufügen">
 <!ENTITY issues.disabledfilters.enable.label "Filter aktivieren">
-<!ENTITY issues.override.label "Die Einstellungen sind so &amp;korrekt, mit dem Fehlerbericht fortfahren">
+<!ENTITY issues.override.label "Die Einstellungen sind &amp;korrekt, mit dem Fehlerbericht fortfahren">
 <!ENTITY issues.nosubscriptions.description "Es scheint, dass Sie keine der fertigen Filterlisten abonniert haben. Ein solches
   kostenloses Abonnement ist jedoch erforderlich, um automatisch Werbung zu entfernen.">
 <!ENTITY typeSelector.falsePositive.description "Wählen Sie diese Option, falls auf der Seite wichtige Inhalte fehlen, die Seite
   falsch angezeigt wird oder nicht korrekt funktioniert. Sie können feststellen,
   ob Adblock Plus das Problem verursacht, indem Sie es vorübergehend deaktivieren.">
 <!ENTITY typeSelector.other.label "An&amp;derer Fehler">
-<!ENTITY emailComment.label "Wir empfehlen Ihnen, eine gültige e-Mail-Adresse einzugeben, damit wir Sie kontaktieren können, falls es Fragen zu Ihrem Bericht gibt. Es erlaubt uns, Ihre Beiträge zu erkennen und diesen höhere Prioritäten beizumessen.">
+<!ENTITY emailComment.label "Wir empfehlen Ihnen, eine gültige E-Mail-Adresse einzugeben, damit wir Sie kontaktieren können, falls es Fragen zu Ihrem Bericht gibt. Es erlaubt uns, Ihre Beiträge zu erkennen und diesen höhere Prioritäten beizumessen.">
 <!ENTITY issues.whitelist.remove.label "Adblock Plus auf dieser Seite wieder aktivieren">
 <!ENTITY outdatedSubscriptions.description "Die folgenden Filterabonnements wurden mindesten zwei Wochen lang nicht
   aktualisiert. Bitte aktualisieren Sie diese, bevor Sie einen Fehlerbericht

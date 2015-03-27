@@ -60,7 +60,7 @@
 <!ENTITY backup.label "Neue Sicherung erstellen">
 <!ENTITY find.label "Filter durch&amp;suchen">
 <!ENTITY subscription.moveDown.label "Nach unten verschieben">
-<!ENTITY subscription.lastDownload.connectionError "Fehler, Herunterladen fehlgeschlagen">
+<!ENTITY subscription.lastDownload.connectionError "Fehler, Download fehlgeschlagen">
 <!ENTITY subscription.lastDownload.success "Erfolgreich">
 <!ENTITY subscription.lastDownload.invalidData "Fehler, keine gültige Filterliste">
 <!ENTITY filter.paste.label "Einfügen">

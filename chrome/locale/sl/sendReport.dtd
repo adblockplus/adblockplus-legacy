@@ -29,7 +29,7 @@ da problem ni bil že rešen. Prosim počakajte ...">
 <!ENTITY recentReports.label "Vaša nedavno poslana poročila">
 <!ENTITY typeWarning.description "Nakazali ste, da želite poročati o splošni težavi z Adblock Plus, ne pa o težavi s filtri. Upoštevajte, da je o takšnih težavah najbolje poročati na [link]forumu Adblock Plus[/link]. Poročanje o težavah uporabite le za podporo obstoječe razprave, saj sicer nihče ne bo opazil vašega poročila, razen če ne podate povezavo nanj. Samodejno ustvarjena povezava bo na voljo po pošiljanju poročila.">
 <!ENTITY issues.disabled.description "Adblock Plus je onemogočen, v trenutnem stanju ne blokira ničesar.">
-<!ENTITY attachExtensions.label "Poročilu priložite seznam aktivnih razširitev, če je vzrok težave spor z dodatkom">
+<!ENTITY attachExtensions.label "Poroči&amp;lu priložite seznam aktivnih razširitev, če je vzrok težave spor z dodatkom">
 <!ENTITY issues.nosubscriptions.add.label "Dodaj naročnino na filter">
 <!ENTITY issues.disabledfilters.enable.label "Omogoči filter">
 <!ENTITY issues.override.label "Kon&amp;figuracija je pravilna, nadaljuj s poročilom">

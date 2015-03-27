@@ -7,7 +7,7 @@
 <!ENTITY issues.openPreferences.label "Filtervoorkeuren openen">
 <!ENTITY sendPage.confirmation "Uw rapport is opgeslagen. U kunt het vinden op het volgende adres:">
 <!ENTITY copyLink.label "Rapport&amp;koppeling kopiëren">
-<!ENTITY issues.nofilters.description "Adblock Plus blokkeert niets op de huidige pagina. Het door u ervaren probleem hangt hoogstwaarschijnlijk niet samen met Adblock Plus.">
+<!ENTITY issues.nofilters.description "Adblock Plus blokkeert niets op de huidige pagina. Het door u ervaren probleem heeft zeer waarschijnlijk niets met Adblock Plus te maken.">
 <!ENTITY sendPage.knownIssue "Het door u gemelde probleem is waarschijnlijk al bekend. Meer informatie:">
 <!ENTITY typeSelector.other.description "Selecteer deze optie als u een probleem met Adblock Plus zelf vermoedt in plaats van met de filters.">
 <!ENTITY issues.disabledgroups.enable.label "Filterabonnement / filtergroep inschakelen">
@@ -47,7 +47,7 @@
 <!ENTITY screenshot.description "Dezelfde pagina kan er voor verschillende personen anders uitzien. We begrijpen het probleem misschien beter als u een schermafbeelding aan uw rapport toevoegt. Secties met gevoelige informatie kunt u verwijderen en gebieden waar het probleem merkbaar is kunt u markeren. Klik op de bijbehorende knop om dit te doen en selecteer een gedeelte van de afbeelding met uw muis.">
 <!ENTITY screenshot.attach.label "Een pagina-afbeelding bij het rapport &amp;bijvoegen">
 <!ENTITY issues.whitelist.description "Adblock Plus is momenteel uitgeschakeld op de door u gerapporteerde pagina. Schakel het weer in en laad de pagina opnieuw voordat u het rapport indient om dit probleem te helpen onderzoeken.">
-<!ENTITY typeSelector.falseNegative.label "Adblock Plus blokk&amp;eert een advertentie niet">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus blokkeert een advertentie &amp;niet">
 <!ENTITY typeSelector.heading "Probleemtype selecteren">
 <!ENTITY anonymity.warning "We zullen geen contact met u kunnen opnemen en het rapport waarschijnlijk een lagere prioriteit geven.">
 <!ENTITY wizard.title "Probleemrapportage">

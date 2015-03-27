@@ -1,27 +1,49 @@
 <!ENTITY slow.column "&amp;Удаан шүүлтүүрүүд">
 <!ENTITY subscription.lastDownload.checksumMismatch "Бүтэлгүйтлээ, шалгалт таарсангүй">
+<!ENTITY subscription.actions.label "Ажиллагаа">
 <!ENTITY lasthit.column "&amp;Сүүлийн хандалт">
 <!ENTITY sort.ascending.label "&amp;А &gt; Я эрэмбэлэх">
 <!ENTITY sort.label "&amp;Эрэмбэлэх нь">
-<!ENTITY filter.paste.label "Тавих">
+<!ENTITY subscription.source.label "Хамгаалалтын жагсаалт">
+<!ENTITY hitcount.column "&amp;Хандалт">
+<!ENTITY noFilters.text "Танд одоогоор ямар нэгэн өөрчилөн тохируулсан хамгаалалт байхгүй байна.">
+<!ENTITY subscription.external.label "Өөр өргөтгөл шинэчлэгдсэн">
+<!ENTITY filter.cut.label "Хайчлах">
 <!ENTITY subscription.lastDownload.inProgress "Татаж байна...">
 <!ENTITY subscriptions.tab.label "шүүлтүүр захиалгын">
+<!ENTITY sort.descending.label "&amp;Я &gt; А эрэмбэлэх">
 <!ENTITY filter.delete.label "Устгах">
 <!ENTITY enabled.column "&amp;Идэвхтэй">
 <!ENTITY viewMenu.label "Харах">
+<!ENTITY noSubscriptions.text "Танд одоогоор ямар нэгэн захиалагт хамгаалаль алга байна. ">
+<!ENTITY subscription.update.label "хамгаалалтын шинэчлэлт">
 <!ENTITY dialog.title "Adblock Plus шүүлтүүр Тохиргоо">
+<!ENTITY addFilter.label "Шүүлт нэмэх">
+<!ENTITY subscription.minVersion.warning "Энд хамгаалалтын  шинэ   Adblock Plus хувилбарыг шинэчлэх хэрэгтэй. Та хамгийн сүүлийн үеийн Adblock Plus хувилбар руу шинэчлэнэ үү">
 <!ENTITY subscription.lastDownload.invalidURL "Бүтэлгүйтэв, буруу хаяг">
-<!ENTITY hitcount.column "&amp;Хандалт">
-<!ENTITY filter.cut.label "Хайчлах">
+<!ENTITY addGroup.label "Хамгаалалт нэмэх бас групп">
+<!ENTITY subscription.showHideFilters.label "Харагдуулах/хамгаалалтыг нуух">
+<!ENTITY acceptableAds2.label "Зарим нэг сурталчилгааг түр идэвхитэй байлгах">
 <!ENTITY addSubscriptionOther.label "Өөр мэдээлэгч нэмэх">
 <!ENTITY sort.none.label "Эрэмбэ &amp;үгүй">
+<!ENTITY filter.actions.label "хамгаалалтын үйл ажиллагаа">
 <!ENTITY filter.copy.label "Хуулах">
+<!ENTITY filter.resetHitCounts.label "
+бүртгэсэн статистикыг  тохируулгыг  дахин эхлүүлэх">
+<!ENTITY readMore.label "цааш нь унших">
+<!ENTITY subscription.moveUp.label "дээшлүүлэх">
 <!ENTITY addSubscription.label "Шүүлтүүр мэдээлэгч нэмэх">
+<!ENTITY subscription.homepage.label "Нүүр хуудас">
+<!ENTITY filters.tab.label "Custom filters хэрэглэгчийн өөрчилсөн хамгаалалт">
 <!ENTITY find.label "Хайх">
-<!ENTITY sort.descending.label "&amp;Я &gt; А эрэмбэлэх">
+<!ENTITY subscription.moveDown.label "доошлуулах">
 <!ENTITY subscription.lastDownload.connectionError "Бүтэлгүйтэв, таталтын бүтэлгүйтэл">
 <!ENTITY subscription.lastDownload.success "Амжилттай">
 <!ENTITY subscription.lastDownload.invalidData "Бүтэлгүйтэв, буруу шүүлтүүрийн жагсаалт">
-<!ENTITY addFilter.label "Шүүлт нэмэх">
-<!ENTITY subscription.lastDownload.label "Сүүлийн таталт:">
+<!ENTITY filter.paste.label "Тавих">
+<!ENTITY subscription.disabledFilters.enable "Идэвхигүй болсон хамгаалалтыг идэвхижүүлэх">
+<!ENTITY subscription.editTitle.label "Гарчигыг өөрчлөх">
+<!ENTITY subscription.disabledFilters.warning "Зарим хамгаалалтын захиалга идэвхигүй болсон байна">
 <!ENTITY filter.column "&amp;Шүүх дүрэм">
+<!ENTITY subscription.lastDownload.label "Сүүлийн таталт:">
+<!ENTITY viewList.label "Харагдацын жагсаалт">
