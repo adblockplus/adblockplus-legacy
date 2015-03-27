@@ -14,6 +14,7 @@ import errno
 import logging
 import subprocess
 import urlparse
+import argparse
 
 from collections import OrderedDict
 from ConfigParser import RawConfigParser
@@ -186,7 +187,11 @@ def ensure_repo(parentrepo, target, roots, sourcename):
   if type is None:
     raise Exception("No valid source found to create %s" % target)
 
-  url = urlparse.urljoin(roots[type], sourcename)
+  if os.path.exists(roots[type]):
+    url = os.path.join(roots[type], sourcename)
+  else:
+    url = urlparse.urljoin(roots[type], sourcename)
+
   logging.info("Cloning repository %s into %s" % (url, target))
   repo_types[type].clone(url, target)
 
@@ -278,8 +283,17 @@ def _ensure_line_exists(path, pattern):
 
 if __name__ == "__main__":
   logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
-  repos = sys.argv[1:]
+
+  parser = argparse.ArgumentParser(description="Verify dependencies for a set of repositories, by default the repository of this script.")
+  parser.add_argument("repos", metavar="repository", type=str, nargs="*", help="Repository path")
+  parser.add_argument("-q", "--quiet", action="store_true", help="Suppress informational output")
+  args = parser.parse_args()
+
+  if args.quiet:
+    logging.disable(logging.INFO)
+
+  repos = args.repos
   if not len(repos):
-    repos = [os.getcwd()]
+    repos = [os.path.dirname(__file__)]
   for repo in repos:
     resolve_deps(repo)
