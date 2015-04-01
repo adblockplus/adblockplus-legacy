@@ -167,7 +167,7 @@ ListManager.prototype =
   _onChange: function(action, item, param1, param2)
   {
     if ((action == "subscription.added" || action == "subscription.removed") && item.url == Prefs.subscriptions_exceptionsurl)
-      E("acceptableAds").checked = FilterStorage.subscriptions.some(function(s) s.url == Prefs.subscriptions_exceptionsurl);
+      E("acceptableAds").checked = FilterStorage.subscriptions.some(s => s.url == Prefs.subscriptions_exceptionsurl);
 
     if (action == "filter.disabled")
     {
@@ -287,13 +287,13 @@ ListManager.init = function()
 {
   new ListManager(E("subscriptions"),
                   E("subscriptionTemplate"),
-                  function(s) s instanceof RegularSubscription && !(ListManager.acceptableAdsCheckbox && s.url == Prefs.subscriptions_exceptionsurl),
+                  s => s instanceof RegularSubscription && !(ListManager.acceptableAdsCheckbox && s.url == Prefs.subscriptions_exceptionsurl),
                   SubscriptionActions.updateCommands);
   new ListManager(E("groups"),
                   E("groupTemplate"),
-                  function(s) s instanceof SpecialSubscription,
+                  s => s instanceof SpecialSubscription,
                   SubscriptionActions.updateCommands);
-  E("acceptableAds").checked = FilterStorage.subscriptions.some(function(s) s.url == Prefs.subscriptions_exceptionsurl);
+  E("acceptableAds").checked = FilterStorage.subscriptions.some(s => s.url == Prefs.subscriptions_exceptionsurl);
   E("acceptableAds").parentNode.hidden = !ListManager.acceptableAdsCheckbox;
 };
 

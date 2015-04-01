@@ -395,7 +395,7 @@ function fillInContext(/**Event*/ e)
     menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/\?1\?/, filter.text));
     menuItem.hidden = false;
 
-    if (filter instanceof ActiveFilter && !filter.disabled && filter.subscriptions.length && !filter.subscriptions.some(function(subscription) !(subscription instanceof SpecialSubscription)))
+    if (filter instanceof ActiveFilter && !filter.disabled && filter.subscriptions.length && !filter.subscriptions.some(subscription => !(subscription instanceof SpecialSubscription)))
     {
       let domain = null;
       try {
@@ -526,7 +526,7 @@ function disableOnSite()
 {
   let item = treeView.getSelectedItem();
   let filter = item.filter;
-  if (!(filter instanceof ActiveFilter) || filter.disabled || !filter.subscriptions.length || filter.subscriptions.some(function(subscription) !(subscription instanceof SpecialSubscription)))
+  if (!(filter instanceof ActiveFilter) || filter.disabled || !filter.subscriptions.length || filter.subscriptions.some(subscription => !(subscription instanceof SpecialSubscription)))
     return;
 
   let domain;
@@ -552,7 +552,7 @@ function disableOnSite()
         let match = /^DOMAIN=(.*)/.exec(options[i]);
         if (match)
         {
-          let domains = match[1].split("|").filter(function(d) d != domain && d != "~" + domain && (d.length <= domain.length || d.lastIndexOf("." + domain) != d.length - domain.length - 1));
+          let domains = match[1].split("|").filter(d => d != domain && d != "~" + domain && (d.length <= domain.length || d.lastIndexOf("." + domain) != d.length - domain.length - 1));
           domains.push("~" + domain);
           options[i] = "DOMAIN=" + domains.join("|");
           found = true;
@@ -573,7 +573,7 @@ function disableOnSite()
     if (match)
     {
       let selector = match[2];
-      let domains = match[1].toUpperCase().split(",").filter(function(d) d != domain && (d.length <= domain.length || d != "~" + domain && d.lastIndexOf("." + domain) != d.length - domain.length - 1));
+      let domains = match[1].toUpperCase().split(",").filter(d => d != domain && (d.length <= domain.length || d != "~" + domain && d.lastIndexOf("." + domain) != d.length - domain.length - 1));
       domains.push("~" + domain);
       text = domains.join(",").toLowerCase() + selector;
     }
@@ -591,7 +591,7 @@ function disableOnSite()
   else if (!newFilter.subscriptions.length)
   {
     newFilter.disabled = false;
-    let subscription = filter.subscriptions.filter(function(s) s instanceof SpecialSubscription)[0];
+    let subscription = filter.subscriptions.filter(s => s instanceof SpecialSubscription)[0];
     if (subscription)
       FilterStorage.addFilter(newFilter, subscription, subscription.filters.indexOf(filter));
   }
@@ -749,8 +749,8 @@ function compareDocDomain(item1, item2)
 
 function compareFilterSource(item1, item2)
 {
-  let subs1 = item1.filter ? item1.filter.subscriptions.map(function(s) s.title).join(", ") : "";
-  let subs2 = item2.filter ? item2.filter.subscriptions.map(function(s) s.title).join(", ") : "";
+  let subs1 = item1.filter ? item1.filter.subscriptions.map(s => s.title).join(", ") : "";
+  let subs2 = item2.filter ? item2.filter.subscriptions.map(s => s.title).join(", ") : "";
   if (subs1 < subs2)
     return -1;
   else if (subs1 > subs2)
@@ -880,7 +880,7 @@ var treeView = {
         if (!this.data[row].filter)
           return "";
 
-        return this.data[row].filter.subscriptions.filter(function(s) !s.disabled).map(function(s) s.title).join(", ");
+        return this.data[row].filter.subscriptions.filter(s => !s.disabled).map(s => s.title).join(", ");
       }
       else
         return this.data[row].location;

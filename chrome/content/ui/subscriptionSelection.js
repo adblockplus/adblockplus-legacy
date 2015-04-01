@@ -217,7 +217,7 @@ function setCustomSubscription(title, url, mainSubscriptionTitle, mainSubscripti
     let link = document.createElement("label");
     link.className = "text-link";
     link.setAttribute("tooltiptext", mainSubscriptionURL);
-    link.addEventListener("click", function() UI.loadInBrowser(mainSubscriptionURL), false);
+    link.addEventListener("click", () => UI.loadInBrowser(mainSubscriptionURL), false);
     link.textContent = mainSubscriptionTitle;
     messageElement.appendChild(link);
     messageElement.appendChild(document.createTextNode(afterLink));
@@ -304,5 +304,5 @@ function doAddSubscription(/**String*/ url, /**String*/ title)
 
 function hasSubscription(url)
 {
-  return FilterStorage.subscriptions.some(function(subscription) subscription instanceof DownloadableSubscription && subscription.url == url);
+  return FilterStorage.subscriptions.some(subscription => subscription instanceof DownloadableSubscription && subscription.url == url);
 }

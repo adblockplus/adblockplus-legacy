@@ -263,7 +263,7 @@ let filtersDataSource =
         let hitCount = wndStats.filters[f];
         appendElement(filters, "filter", {
           text: filter.text,
-          subscriptions: filter.subscriptions.filter(subscriptionsDataSource.subscriptionFilter).map(function(s) s.url).join(" "),
+          subscriptions: filter.subscriptions.filter(subscriptionsDataSource.subscriptionFilter).map(s => s.url).join(" "),
           hitCount: hitCount
         });
         this.origFilters.push(filter);
@@ -296,7 +296,7 @@ let subscriptionsDataSource =
 
       let subscriptionXML = appendElement(subscriptions, "subscription", {
         id: subscription.url,
-        disabledFilters: subscription.filters.filter(function(filter) filter instanceof ActiveFilter && filter.disabled).length
+        disabledFilters: subscription.filters.filter(filter => filter instanceof ActiveFilter && filter.disabled).length
       });
       if (subscription.version)
         subscriptionXML.setAttribute("version", subscription.version);
@@ -818,7 +818,7 @@ let subscriptionUpdateDataSource =
         let filtersRemoved = false;
         let requests = requestsDataSource.origRequests;
         for (let i = 0; i < requests.length; i++)
-          if (requests[i].filter && !requests[i].filter.subscriptions.filter(function(s) !s.disabled).length)
+          if (requests[i].filter && !requests[i].filter.subscriptions.filter(s => !s.disabled).length)
             filtersRemoved = true;
 
         if (filtersRemoved)
@@ -970,7 +970,7 @@ let issuesDataSource =
           continue;
 
         this.numAppliedFilters++;
-        if (filter.subscriptions.some(function(subscription) subscription instanceof SpecialSubscription))
+        if (filter.subscriptions.some(subscription => subscription instanceof SpecialSubscription))
           this.ownFilters.push(filter);
       }
     }
