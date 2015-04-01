@@ -90,7 +90,7 @@ var FilterSearch =
     // Now go through the other subscriptions
     let result = Ci.nsITypeAheadFind.FIND_FOUND;
     let subscriptions = FilterStorage.subscriptions.slice();
-    subscriptions.sort(function(s1, s2) (s1 instanceof SpecialSubscription) - (s2 instanceof SpecialSubscription));
+    subscriptions.sort((s1, s2) => (s1 instanceof SpecialSubscription) - (s2 instanceof SpecialSubscription));
     let current = subscriptions.indexOf(FilterView.subscription);
     direction = direction || 1;
     for (let i = current + direction; ; i+= direction)

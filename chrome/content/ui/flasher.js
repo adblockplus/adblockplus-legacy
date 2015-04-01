@@ -28,7 +28,7 @@ var flasher = {
   {
     this.stop();
     if (nodes)
-      nodes = nodes.filter(function(node) node.nodeType == Node.ELEMENT_NODE);
+      nodes = nodes.filter(node => node.nodeType == Node.ELEMENT_NODE);
     if (!nodes || !nodes.length)
       return;
 

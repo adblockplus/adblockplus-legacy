@@ -49,7 +49,7 @@ var SubscriptionActions =
     let node = null;
     let tabIndex = -1;
     let subscriptions = filter.subscriptions.slice();
-    subscriptions.sort(function(s1, s2) s1.disabled - s2.disabled);
+    subscriptions.sort((s1, s2) => s1.disabled - s2.disabled);
     for (let i = 0; i < subscriptions.length; i++)
     {
       let subscription = subscriptions[i];

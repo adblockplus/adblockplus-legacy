@@ -502,7 +502,7 @@ var FilterView =
     let oldCount = this.rowCount;
     if (this._subscription && this._subscription.filters.length)
     {
-      this.data = this._subscription.filters.map(function(f, i) ({index: i, filter: f}));
+      this.data = this._subscription.filters.map((f, i) => ({index: i, filter: f}));
       if (this.sortProc)
       {
         // Hide comments in the list, they should be sorted like the filter following them
@@ -830,20 +830,20 @@ var FilterView =
       filter.disabled = !filter.disabled;
   },
 
-  isContainer: function(row) false,
-  isContainerOpen: function(row) false,
-  isContainerEmpty: function(row) true,
-  getLevel: function(row) 0,
-  getParentIndex: function(row) -1,
-  hasNextSibling: function(row, afterRow) false,
-  toggleOpenState: function(row) {},
-  getProgressMode: function() null,
-  getImageSrc: function() null,
-  isSeparator: function() false,
-  performAction: function() {},
-  performActionOnRow: function() {},
-  performActionOnCell: function() {},
-  getCellValue: function() null,
-  setCellValue: function() {},
-  selectionChanged: function() {},
+  isContainer: row => false,
+  isContainerOpen: row => false,
+  isContainerEmpty: row => true,
+  getLevel: row => 0,
+  getParentIndex: row => -1,
+  hasNextSibling: (row, afterRow) => false,
+  toggleOpenState: row => {},
+  getProgressMode: () => null,
+  getImageSrc: () => null,
+  isSeparator: () => false,
+  performAction: () => {},
+  performActionOnRow: () => {},
+  performActionOnCell: () => {},
+  getCellValue: () => null,
+  setCellValue: () => {},
+  selectionChanged: () => {}
 };

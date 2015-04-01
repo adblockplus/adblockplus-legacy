@@ -162,7 +162,7 @@ function init()
 
     if (item.type == type)
       typeNode.setAttribute("disabled", "true");
-    typeNode.addEventListener("command", function() checkboxUpdated(this), false);
+    typeNode.addEventListener("command", () => checkboxUpdated(typeNode), false);
     typeGroup.appendChild(typeNode);
   }
 
@@ -255,8 +255,8 @@ function updateFilter()
 
     if (options.length)
     {
-      options.sort(function(a, b) a[0] - b[0]);
-      filter += "$" + options.map(function(o) o[1]).join(",");
+      options.sort((a, b) => a[0] - b[0]);
+      filter += "$" + options.map(o => o[1]).join(",");
     }
   }
   else

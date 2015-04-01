@@ -193,7 +193,7 @@ var Backup =
 
             if (Utils.confirm(window, warning, E("backupButton").getAttribute("_restoreDialogTitle")))
             {
-              let subscriptions = FilterStorage.subscriptions.filter(function(s) s instanceof SpecialSubscription);
+              let subscriptions = FilterStorage.subscriptions.filter(s => s instanceof SpecialSubscription);
               for (let i = 0; i < subscriptions.length; i++)
                 FilterStorage.removeSubscription(subscriptions[i]);
 
@@ -290,7 +290,7 @@ var Backup =
    */
   backupCustomFilters: function(/**nsIFile*/ file)
   {
-    let subscriptions = FilterStorage.subscriptions.filter(function(s) s instanceof SpecialSubscription);
+    let subscriptions = FilterStorage.subscriptions.filter(s => s instanceof SpecialSubscription);
     let minVersion = "2.0"
     let list = [];
     for (let i = 0; i < subscriptions.length; i++)
