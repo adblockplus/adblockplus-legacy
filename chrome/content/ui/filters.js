@@ -24,7 +24,7 @@ function init()
   {
     let filter = window.arguments[0].wrappedJSObject;
     if (filter instanceof Filter)
-      Utils.runAsync(SubscriptionActions.selectFilter, SubscriptionActions, filter);
+      Utils.runAsync(() => SubscriptionActions.selectFilter(filter));
   }
 }
 

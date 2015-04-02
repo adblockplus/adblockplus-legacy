@@ -383,7 +383,7 @@
       _backupError="&backup.error;" _restoreError="&restore.error;"
       _restoreCompleteWarning="&restore.complete.warning;" _restoreCustomWarning="&restore.custom.warning;"
       _restoreVersionWarning="&restore.minVersion.warning;"
-      oncommand="if (event.target == this) Utils.runAsync(function() this.open = true, this);">
+      oncommand="if (event.target == this) Utils.runAsync(() => this.open = true);">
     <menupopup onpopupshowing="Backup.fillRestorePopup();">
       <menuitem id="backup" key="backup-key" label="&backup.label;…" oncommand="Backup.backupToFile();"/>
       <menuseparator/>

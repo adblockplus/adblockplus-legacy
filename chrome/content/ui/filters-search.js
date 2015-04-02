@@ -127,10 +127,10 @@ var FilterSearch =
           if (oldFocus)
           {
             oldFocus.focus();
-            Utils.runAsync(oldFocus.focus, oldFocus);
+            Utils.runAsync(() => oldFocus.focus());
           }
 
-          Utils.runAsync(findText, null, text, direction, direction == 1 ? -1 : subscription.filters.length);
+          Utils.runAsync(() => findText(text, direction, direction == 1 ? -1 :  subscription.filters.length));
           return result;
         }
       }
