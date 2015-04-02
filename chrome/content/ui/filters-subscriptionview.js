@@ -91,10 +91,7 @@ ListManager.prototype =
         this.addSubscription(subscription, null);
 
       // Make sure first list item is selected after list initialization
-      Utils.runAsync(function()
-      {
-        this._list.selectItem(this._list.getItemAtIndex(this._list.getIndexOfFirstVisibleRow()));
-      }, this);
+      Utils.runAsync(() => this._list.selectItem(this._list.getItemAtIndex(this._list.getIndexOfFirstVisibleRow())));
     }
 
     this._deck.selectedIndex = (subscriptions.length ? 1 : 0);
@@ -177,7 +174,7 @@ ListManager.prototype =
       if (this._scheduledUpdateDisabled == null)
       {
         this._scheduledUpdateDisabled = Object.create(null);
-        Utils.runAsync(this.updateDisabled, this);
+        Utils.runAsync(() => this.updateDisabled());
       }
       for (let i = 0; i < item.subscriptions.length; i++)
         this._scheduledUpdateDisabled[item.subscriptions[i].url] = true;
@@ -274,7 +271,7 @@ ListManager.prototype =
         if (this._scheduledUpdateDisabled == null)
         {
           this._scheduledUpdateDisabled = Object.create(null);
-          Utils.runAsync(this.updateDisabled, this);
+          Utils.runAsync(() => this.updateDisabled());
         }
         this._scheduledUpdateDisabled[item.url] = true;
         break;

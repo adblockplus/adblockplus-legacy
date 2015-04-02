@@ -68,7 +68,7 @@ var SubscriptionActions =
         node.parentNode.selectItem(node);
         if (!FilterActions.visible)
           E("subscription-showHideFilters-command").doCommand();
-        Utils.runAsync(FilterView.selectFilter, FilterView, filter);
+        Utils.runAsync(() => FilterView.selectFilter(filter));
       });
     }
   },
@@ -538,7 +538,7 @@ var SelectSubscription =
       // Show panel and focus list
       let position = (Utils.versionComparator.compare(Utils.platformVersion, "2.0") < 0 ? "after_end" : "bottomcenter topleft");
       panel.openPopup(E("selectSubscriptionButton"), position, 0, 0, false, false, event);
-      Utils.runAsync(list.focus, list);
+      Utils.runAsync(() => list.focus());
     };
     request.send();
   },
