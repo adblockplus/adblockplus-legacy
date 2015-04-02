@@ -325,13 +325,7 @@ var Backup =
     if (checksum)
       list.splice(1, 0, "! Checksum: " + checksum);
 
-    function* generator()
-    {
-      for (let i = 0; i < list.length; i++)
-        yield list[i];
-    }
-
-    IO.writeToFile(file, generator(), function(e)
+    IO.writeToFile(file, list, function(e)
     {
       if (e)
       {
