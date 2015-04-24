@@ -41,7 +41,7 @@
                 url="https://easylist-downloads.adblockplus.org/easylistchina+easylist.txt"
                 homepage="http://abpchina.org/forum/"
                 prefixes="zh"
-                author="John, Li, Jiefei"/>
+                author="John, Li"/>
   <subscription title="EasyList Czech and Slovak+EasyList"
                 specialization="čeština, slovenčina"
                 url="https://easylist-downloads.adblockplus.org/easylistczechslovak+easylist.txt"
