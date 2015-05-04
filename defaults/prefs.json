@@ -37,5 +37,6 @@
     "subscriptions_antiadblockurl": "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt",
     "please_kill_startup_performance": false,
     "suppress_first_run_page": false
-  }
+  },
+  "preconfigurable": ["suppress_first_run_page"]
 }
