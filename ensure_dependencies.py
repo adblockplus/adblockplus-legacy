@@ -79,6 +79,9 @@ class Mercurial():
       module = os.path.relpath(target, repo)
       _ensure_line_exists(ignore_path, module)
 
+  def postprocess_url(self, url):
+    return url
+
 class Git():
   def istype(self, repodir):
     return os.path.exists(os.path.join(repodir, ".git"))
@@ -103,6 +106,12 @@ class Git():
     module = os.path.relpath(target, repo)
     exclude_file = os.path.join(repo, ".git", "info", "exclude")
     _ensure_line_exists(exclude_file, module)
+
+  def postprocess_url(self, url):
+    # Handle alternative syntax of SSH URLS
+    if "@" in url and ":" in url and not urlparse.urlsplit(url).scheme:
+      return "ssh://" + url.replace(":", "/", 1)
+    return url
 
 repo_types = OrderedDict((
   ("hg", Mercurial()),
@@ -187,10 +196,14 @@ def ensure_repo(parentrepo, target, roots, sourcename):
   if type is None:
     raise Exception("No valid source found to create %s" % target)
 
-  if os.path.exists(roots[type]):
-    url = os.path.join(roots[type], sourcename)
+  postprocess_url = repo_types[type].postprocess_url
+  root = postprocess_url(roots[type])
+  sourcename = postprocess_url(sourcename)
+
+  if os.path.exists(root):
+    url = os.path.join(root, sourcename)
   else:
-    url = urlparse.urljoin(roots[type], sourcename)
+    url = urlparse.urljoin(root, sourcename)
 
   logging.info("Cloning repository %s into %s" % (url, target))
   repo_types[type].clone(url, target)
