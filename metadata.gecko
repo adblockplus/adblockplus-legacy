@@ -34,6 +34,7 @@ fennec2=29.0/41.0
 thunderbird=29.0/41.0
 seamonkey=2.26/2.38
 toolkit=29.0/41.0
+adblockbrowser=1.0/1.0
 
 [mapping]
 chrome/content/ui/firstRun.html = adblockplusui/firstRun.html
