@@ -29,11 +29,11 @@ zh-CN=https://adblockplus.org/zh_CN/
 zh-TW=https://adblockplus.org/zh_TW/
 
 [compat]
-firefox=29.0/39.0
-fennec2=29.0/39.0
-thunderbird=29.0/39.0
-seamonkey=2.26/2.36
-toolkit=29.0/39.0
+firefox=29.0/41.0
+fennec2=29.0/41.0
+thunderbird=29.0/41.0
+seamonkey=2.26/2.38
+toolkit=29.0/41.0
 
 [mapping]
 chrome/content/ui/firstRun.html = adblockplusui/firstRun.html
