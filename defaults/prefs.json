@@ -36,7 +36,9 @@
     "notificationdata": {},
     "subscriptions_antiadblockurl": "https://easylist-downloads.adblockplus.org/antiadblockfilters.txt",
     "please_kill_startup_performance": false,
-    "suppress_first_run_page": false
+    "suppress_first_run_page": false,
+    "notifications_showui": false,
+    "notifications_ignoredcategories": []
   },
   "preconfigurable": ["suppress_first_run_page"]
 }
