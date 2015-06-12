@@ -81,7 +81,7 @@
   <subscription title="Latvian List+EasyList"
                 specialization="latviešu valoda"
                 url="https://easylist-downloads.adblockplus.org/latvianlist+easylist.txt"
-                homepage="http://latvian-list.site11.com/"
+                homepage="https://notabug.org/latvian-list/adblock-latvian"
                 prefixes="lv"
                 author="anonymous74100"/>
   <subscription title="Liste AR+Liste FR+EasyList"
