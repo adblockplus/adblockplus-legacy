@@ -6,7 +6,7 @@ Building
 
 ### Requirements
 
-- [Python 2.x](https://www.python.org)
+- [Python 2.7](https://www.python.org)
 - [The Jinja2 module](http://jinja.pocoo.org/docs)
 
 ### Building the extension
