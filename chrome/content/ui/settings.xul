@@ -31,6 +31,7 @@
   <setting pref="extensions.adblockplus.frameobjects" type="bool" title="&objecttabs.label;"/>
   <setting id="adblockplus-savestats" type="bool" title="&counthits.label;"/>
   <setting id="adblockplus-sync" type="bool" title="&sync.label;"/>
+  <setting id="adblockplus-shownotifications" type="bool" title="&shownotifications.label;"/>
   <setting id="adblockplus-showintoolbar" type="bool" title="&showintoolbar.label;"/>
   <setting id="adblockplus-showinstatusbar" pref="extensions.adblockplus.showinstatusbar" type="bool" title="&showinstatusbar.label;"/>
 </window>

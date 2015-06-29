@@ -148,7 +148,9 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
     visibility: visible !important;
 }
 
-#abp-bottombar-close {
+#abp-bottombar-close,
+#abp-notification-close
+{
   padding: 4px 2px;
   border-style: none !important;
   -moz-user-focus: normal;
@@ -157,11 +159,15 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
   -moz-image-region: rect(0px, 14px, 14px, 0px);
 }
 
-#abp-bottombar-close:hover {
+#abp-bottombar-close:hover,
+#abp-notification-close:hover
+{
   -moz-image-region: rect(0px, 28px, 14px, 14px);
 }
 
-#abp-bottombar-close:hover:active {
+#abp-bottombar-close:hover:active,
+#abp-notification-close:hover:active
+{
   -moz-image-region: rect(0px, 42px, 14px, 28px);
 }
 
@@ -223,4 +229,15 @@ toolbar[mode="full"] #abp-toolbarbutton[type="menu"]
 #abp-notification html|a:hover
 {
   text-decoration: underline;
+}
+
+#abp-notification.abp-closing #abp-notification-content,
+#abp-notification:not(.abp-closing) #abp-notification-close-content
+{
+  display: none;
+}
+
+#abp-notification-close-content toolbarbutton label
+{
+  text-align: left;
 }
