@@ -105,7 +105,7 @@
   <subscription title="RuAdList+EasyList"
                 specialization="русский, українська"
                 url="https://easylist-downloads.adblockplus.org/ruadlist+easylist.txt"
-                homepage="https://code.google.com/p/ruadlist/"
+                homepage="https://forums.lanik.us/viewforum.php?f=102"
                 prefixes="ru,uk"
                 author="Lain_13"/>
   </subscriptions>
