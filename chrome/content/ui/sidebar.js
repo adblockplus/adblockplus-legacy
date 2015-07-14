@@ -1094,7 +1094,7 @@ var treeView = {
 
     // Show disabled filters if no other filter applies
     if (!item.filter)
-      item.filter = disabledMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
+      item.filter = disabledMatcher.matchesAny(item.location, RegExpFilter.typeMap[item.typeDescr], item.docDomain, item.thirdParty);
 
     if (!this.matchesFilter(item))
       return;
@@ -1149,7 +1149,7 @@ var treeView = {
       if (item.filter instanceof RegExpFilter && item.filter.disabled)
         delete item.filter;
       if (!item.filter)
-        item.filter = disabledMatcher.matchesAny(item.location, item.typeDescr, item.docDomain, item.thirdParty);
+        item.filter = disabledMatcher.matchesAny(item.location, RegExpFilter.typeMap[item.typeDescr], item.docDomain, item.thirdParty);
     }
     this.refilter();
   },
