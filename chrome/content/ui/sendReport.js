@@ -927,7 +927,7 @@ let issuesDataSource =
         if (request.filter)
           continue;
 
-        let filter = disabledMatcher.matchesAny(request.location, request.typeDescr, request.docDomain, request.thirdParty);
+        let filter = disabledMatcher.matchesAny(request.location, RegExpFilter.typeMap[request.typeDescr], request.docDomain, request.thirdParty);
         if (filter && !(filter.text in seenFilters))
         {
           this.disabledFilters.push(filter);
@@ -952,7 +952,7 @@ let issuesDataSource =
           if (request.filter)
             continue;
 
-          let filter = disabledMatcher.matchesAny(request.location, request.typeDescr, request.docDomain, request.thirdParty);
+          let filter = disabledMatcher.matchesAny(request.location, RegExpFilter.typeMap[request.typeDescr], request.docDomain, request.thirdParty);
           if (filter && !(subscription.url in seenSubscriptions))
           {
             this.disabledSubscriptions.push(subscription);

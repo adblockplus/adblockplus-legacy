@@ -279,7 +279,7 @@ function updateFilter()
   }
   E("shortpatternWarning").hidden = !isSlow;
 
-  E("matchWarning").hidden = compiledFilter instanceof RegExpFilter && compiledFilter.matches(item.location, item.typeDescr, item.docDomain, item.thirdParty);
+  E("matchWarning").hidden = compiledFilter instanceof RegExpFilter && compiledFilter.matches(item.location, RegExpFilter.typeMap[item.typeDescr], item.docDomain, item.thirdParty);
 
   E("filter").value = filter;
 }
@@ -318,7 +318,7 @@ function updatePatternSelection()
 
   function testFilter(/**String*/ filter) /**Boolean*/
   {
-    return RegExpFilter.fromText(filter + "$" + item.typeDescr).matches(item.location, item.typeDescr, item.docDomain, item.thirdParty);
+    return RegExpFilter.fromText(filter + "$" + item.typeDescr).matches(item.location, RegExpFilter.typeMap[item.typeDescr], item.docDomain, item.thirdParty);
   }
 
   let anchorStartCheckbox = E("anchorStart");
