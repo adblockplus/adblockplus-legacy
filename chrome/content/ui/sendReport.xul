@@ -215,8 +215,11 @@
     <label id="emailLabel" control="email" value="&email.label;"/>
     <textbox id="email" type="email" persist="value" flex="1" maxlength="200" oninput="updateEmail();"/>
   </hbox>
-  <checkbox id="anonymousCheckbox" label="&anonymous.label;" oncommand="updateEmail();"/>
-  <description id="anonymityWarning" visible="false">&anonymity.warning;</description>
+  <hbox align="center">
+    <checkbox id="anonymousCheckbox" label="&anonymous.label;" oncommand="updateEmail();"/>
+    <spacer flex="1"/>
+    <description id="anonymityWarning" visible="false">&anonymity.warning;</description>
+  </hbox>
 
   <description class="topLabel">&commentPage.description;</description>
   <label class="topLabel" control="comment" value="&comment.label;"/>
