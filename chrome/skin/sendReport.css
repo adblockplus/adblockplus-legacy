@@ -94,6 +94,11 @@ radio, checkbox, .topLabel, #dataDeck
   overflow-y: scroll;
 }
 
+#anonymousCheckbox, #extensionsCheckbox
+{
+  margin-top: 0px;
+}
+
 #commentLengthWarning, #anonymityWarning
 {
   color: red;
@@ -102,6 +107,11 @@ radio, checkbox, .topLabel, #dataDeck
 #commentLengthWarning[visible="false"], #anonymityWarning[visible="false"]
 {
   visibility: hidden;
+}
+
+#data
+{
+  min-height: 50px;
 }
 
 /*
