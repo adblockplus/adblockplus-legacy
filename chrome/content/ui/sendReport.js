@@ -733,7 +733,7 @@ let subscriptionUpdateDataSource =
   type: null,
   outdated: null,
   needUpdate: null,
-  
+
   subscriptionFilter: function(s)
   {
     if (s instanceof DownloadableSubscription)
@@ -1557,6 +1557,9 @@ function reportSent(event)
 
 function processLinkClick(event)
 {
+  if (event.button != 0)
+    return;
+
   event.preventDefault();
 
   let link = event.target;
