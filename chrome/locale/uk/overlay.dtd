@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "&amp;Ні">
 <!ENTITY sync.label "Синхроні&amp;зувати налаштування Адблоку">
 <!ENTITY whitelist.site.label "Вимкнути: на ?1?">
+<!ENTITY notification.closing.button.hide "&amp;Закрити це повідомлення">
 <!ENTITY filters.label "&amp;Налаштування фільтрів">
 <!ENTITY disable.label "Вимкнути всюди">
 <!ENTITY objecttab.title "Заблокувати">
@@ -13,10 +14,12 @@
 <!ENTITY notification.button.yes "&amp;Так">
 <!ENTITY opensidebar.label "Відкрити с&amp;писок елементів">
 <!ENTITY notification.button.close "&amp;Закрити">
+<!ENTITY shownotifications.label "Показувати корисні &amp;повідомлення">
 <!ENTITY contribute.label "Допомогти Адблоку">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: заблокувати фрейм">
 <!ENTITY blocked.tooltip "Заблоковані елементи на цій сторінці:">
+<!ENTITY notification.closing.button.optout "З&amp;аборонити показ повідомлень">
 <!ENTITY counthits.label "&amp;Рахувати хіти фільтрів">
 <!ENTITY showinstatusbar.label "Показувати в рядку &amp;стану">
 <!ENTITY sidebar.title "Елементи відкритої сторінки">

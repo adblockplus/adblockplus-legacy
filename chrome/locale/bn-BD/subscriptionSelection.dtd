@@ -1,5 +1,12 @@
-<!ENTITY list.download.website "ওয়েবসাইট দেখুন">
+<!ENTITY addMain.label "পরিশ্রুতক এবং সদস্যতা &quot;?1?&quot; যুক্ত করুন">
+<!ENTITY list.download.failed "অ্যাডব্লক প্লাস গ্রাহকনামার তালিকা হাতিয়ে নিতে ব্যর্থ।">
 <!ENTITY list.download.retry "আবার চেষ্টা করুন">
+<!ENTITY title.label "সদস্যতার শিরোনাম:">
+<!ENTITY list.download.website "ওয়েবসাইট দেখুন">
+<!ENTITY supplementMessage "এই ফিল্টার সদস্যতা ফিল্টার সদস্যতা &quot;? 1?  দ্বারা ব্যবহার করা হচ্ছে বলে মনে হচ্ছে যা আপ্ব্বনি এখনো ব্যবহার করছেন না।">
 <!ENTITY viewList.label "ফিল্টার দেখুন">
 <!ENTITY visitHomepage.label "প্রধান পৃষ্ঠাটি দেখুন">
 <!ENTITY addSubscription.label "সদস্যতা যোগ">
+<!ENTITY dialog.title "অ্যাডব্লক প্লাস পরিশ্রুতক  গ্রাহকনামা">
+<!ENTITY location.label "ছাঁকনি তালিকার অবস্থান:">
+<!ENTITY fromWeb.description "অনুগ্রহ করে এই ফিল্টার সদস্যতা যুক্ত করতে চান তা নিশ্চিত করুন। আপনার অবস্থান বা সদস্যতা শিরোনাম যুক্ত করার আগে পরিবর্তন করতে পারেন।">

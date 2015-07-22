@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "&amp;Tidak">
 <!ENTITY sync.label "&amp;Sinkronkan pengaturan Adblock Plus">
 <!ENTITY whitelist.site.label "Nonaktifkan pada ?1?">
+<!ENTITY notification.closing.button.hide "Tutup pemberitahuan">
 <!ENTITY filters.label "&amp;Preferensi penyaring">
 <!ENTITY disable.label "Nonaktifkan di semua tempat">
 <!ENTITY objecttab.title "Cekal">
@@ -13,10 +14,12 @@
 <!ENTITY notification.button.yes "&amp;Ya">
 <!ENTITY opensidebar.label "Buka &amp;butir yang dapat dicekal">
 <!ENTITY notification.button.close "&amp;Tutup">
+<!ENTITY shownotifications.label "Tampilkan pemberitahuan yang berguna">
 <!ENTITY contribute.label "Kontribusi untuk Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Cekal bingkai">
 <!ENTITY blocked.tooltip "Butir yang dicekal pada halaman ini:">
+<!ENTITY notification.closing.button.optout "Berhenti menampilkan pemberitahuan">
 <!ENTITY counthits.label "Hitung &amp;kunjungan penyaring">
 <!ENTITY showinstatusbar.label "Tampilkan pada bilah &amp;status">
 <!ENTITY sidebar.title "Butir yang dapat dicekal pada halaman ini">

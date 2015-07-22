@@ -3,10 +3,10 @@
 <!ENTITY collapse.default.no.label "Përdor të parazgjedhurën (jo):">
 <!ENTITY firstParty.label "Vetëm të parët">
 <!ENTITY preferences.label "Trego filtrin ekzistues...">
-<!ENTITY pattern.label "Kërko për motivin">
+<!ENTITY pattern.label "Shiko për model">
 <!ENTITY thirdParty.label "Vetëm të tretët">
 <!ENTITY filter.label "Filtër i ri:">
-<!ENTITY collapse.label "Shkatërro te bllokuarat:">
+<!ENTITY collapse.label "Shkurto të bllokuarat:">
 <!ENTITY match.warning "Motivi që dhatë nuk përputhet më me adresat e bllokuara/lejuara dhe nuk ka më efekt mbi to.">
 <!ENTITY anchor.start.label "në fillim të adresës">
 <!ENTITY matchCase.label "Përputh shembullin">
@@ -28,6 +28,6 @@
 <!ENTITY disabled.warning "Adblock Plus nuk punon për momentin. Mund të shtoni filtra por nuk do të funksionojnë nëse ju nuk [link]mundësoni Adblock Plus[/link].">
 <!ENTITY anchor.start.flexible.label "në fillim të domain name">
 <!ENTITY collapse.no.label "Jo">
-<!ENTITY selectAllTypes.label "Përzgjidhi krejt">
+<!ENTITY selectAllTypes.label "Zgjidh të gjitha">
 <!ENTITY advanced.label "Pamje e avancuar">
 <!ENTITY pattern.explanation "Motivi mund të jetë çdo pjesë e adresës; simboli (*) vepron si xhoker. Filtri do të zbatohet vetëm në adresat që i përshtaten motivit të dhënë.">

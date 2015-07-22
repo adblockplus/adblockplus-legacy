@@ -7,9 +7,12 @@ en esta página:">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus está bloqueando demasiado">
 <!ENTITY typeSelector.falsePositive.description "Seleccione esta opción si la pagina carece de contenido importante, se muestra de forma incorrecta o deja de funcionar correctamente. Puede determinar si Adblock Plus es la causa del problema desactivandolo temporalmente.">
 <!ENTITY dataCollector.description "Favor espere un momento mientras Adblock Plus reúne los datos necesarios.">
+<!ENTITY update.inProgress.description "Adblock Plus necesita actualizar sus suscripciones de filtros para asegurarse de que el problema aún no se ha resuelto. Espere, por favor…">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus no bloquea un anuncio">
 <!ENTITY dataCollector.heading "Bienvenido al creador de informes de errores">
 <!ENTITY typeSelector.falseNegative.description "Seleccione esta opción si se muestra un anuncio a pesar de que Adblock Plus está activado.">
 <!ENTITY typeSelector.other.description "Seleccione esta opción si cree que es un problema con Adblock Plus, y no de sus filtros.">
+<!ENTITY recentReports.label "Informes más recientes">
+<!ENTITY recentReports.clear.label "Eliminar todos los informes">
 <!ENTITY privacyPolicy.label "Política de privacidad">
 <!ENTITY typeSelector.heading "Elegir el tipo de error">

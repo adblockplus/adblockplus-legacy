@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "&amp;Ne">
 <!ENTITY sync.label "Sin&amp;hroniziraj nastavitve Adblock Plus">
 <!ENTITY whitelist.site.label "Onemogoči na ?1?">
+<!ENTITY notification.closing.button.hide "Zapri t&amp; njegovo obvestilo">
 <!ENTITY filters.label "Nastavitve &amp;filtra">
 <!ENTITY disable.label "Onemogoči povsod">
 <!ENTITY objecttab.title "Blokiraj">
@@ -13,10 +14,12 @@
 <!ENTITY notification.button.yes "&amp;Da">
 <!ENTITY opensidebar.label "Odpri &amp;elemente blokad">
 <!ENTITY notification.button.close "&amp;Zapri">
+<!ENTITY shownotifications.label "Prikaži koristno &amp; obvestila">
 <!ENTITY contribute.label "Prispevajte k Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock - okviri">
 <!ENTITY blocked.tooltip "Blokirani elementi na tej strani:">
+<!ENTITY notification.closing.button.optout "&amp; Ustavi prikazovanje obvestil">
 <!ENTITY counthits.label "Štej za&amp;detke filtra">
 <!ENTITY showinstatusbar.label "Pokaži &amp;v vrstici stanja">
 <!ENTITY sidebar.title "Elementi blokad na trenutni strani">

@@ -6,7 +6,7 @@
 <!ENTITY pattern.label "প্যাটার্ন দেখুন">
 <!ENTITY thirdParty.label "এবং শুধু তৃতীয় পক্ষ">
 <!ENTITY filter.label "নতুন &amp;ফিল্টার:">
-<!ENTITY collapse.label "অবরুদ্ধ সমুহকে ভেঙ্গে ফেলুনঃ">
+<!ENTITY collapse.label "&amp;অবরুদ্ধগুলি সংকোচন করুন:">
 <!ENTITY match.warning "আপনি যে বিন্যাস প্রবেশ করিয়েছেন তা আর রুদ্ধ/ সাদাতালিকাকৃত ঠিকানার সাথে মেলে না এবং এটির উপর আর কোন প্রভাব নেই।">
 <!ENTITY anchor.start.label "ঠিকানার শুরুতেই">
 <!ENTITY matchCase.label "এবং কারক মেলান">

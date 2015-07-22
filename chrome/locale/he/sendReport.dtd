@@ -26,7 +26,7 @@
 <!ENTITY recentReports.label "דיווחים אחרונים שלך שנשלחו">
 <!ENTITY typeWarning.description "ציינתם שאתם מעוניינים לדווח על בעיה כללית עם Adblock Plus מאשר בעיה עם המסננים. שימו לב שבעיות כאלו עדיף לדווח ב[link]פורום Adblock Plus[/link].  יש להשתמש במדווח הבעיות רק בנוסף לדיון קיים, כיוון שאף אחד לא ישים לב לדיווח שלכם אלא אם יסופק קישור אליו. הקישור שנוצר אוטומטית יסופק לאחר הזנת הדיווח.">
 <!ENTITY issues.disabled.description "Adblock Plus מנוטרל, זה לא יחסום דבר במצב הנוכחי.">
-<!ENTITY attachExtensions.label "סיפוח רשימת &amp;ההרחבות הפעילות אל הדיווח במקרה וניגוד תוספות הוא הגורם לבעיה">
+<!ENTITY attachExtensions.label "צירוף רשימת ההרחבות הפעילות אל הדיווח במקרה ובעיה עם התוספות היא הגורם לבעיה">
 <!ENTITY issues.nosubscriptions.add.label "הוספת הרשמת מסנן">
 <!ENTITY issues.disabledfilters.enable.label "אפשור מסנן">
 <!ENTITY issues.override.label "&amp;התצורה נכונה, אפשר להמשיך עם הדיווח">

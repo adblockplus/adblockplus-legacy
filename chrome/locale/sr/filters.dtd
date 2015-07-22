@@ -1,7 +1,7 @@
 <!ENTITY restore.custom.warning "Сви ваши прилагођени филтери ће бити замењени са онима из изабрање датотеке. Желите ли да наставите?">
 <!ENTITY slow.column "Спор&amp;и филтери">
 <!ENTITY enabled.column "Омогуће&amp;н">
-<!ENTITY subscription.lastDownload.checksumMismatch "Неуспело, неслагање извештаја">
+<!ENTITY subscription.lastDownload.checksumMismatch "Грешка: неслагање контролног збира">
 <!ENTITY noFiltersInGroup.text "Изабрана група је празна.">
 <!ENTITY subscription.actions.label "Радње">
 <!ENTITY filter.selectAll.label "Изабери све">
@@ -34,7 +34,7 @@
 <!ENTITY dialog.title "Подешавања Adblock Plus филтера">
 <!ENTITY addFilter.label "&amp;Додај филтер">
 <!ENTITY subscription.minVersion.warning "Ова претплата на филтер захтева новију верзију додатка Adblock Plus. Молимо вас да унапредите додатак.">
-<!ENTITY subscription.lastDownload.invalidURL "Неуспело, неисправна адреса">
+<!ENTITY subscription.lastDownload.invalidURL "Грешка: неисправна адреса">
 <!ENTITY backup.error "Дошло је до грешке приликом чувања филтера у датотеку. Проверите да датотека није само за читање или је не корити нека друга апликација.">
 <!ENTITY filter.moveUp.label "Помери нагоре">
 <!ENTITY addGroup.label "Додај &amp;групу филтера">
@@ -59,9 +59,9 @@
 <!ENTITY backup.label "Направи нову резервну копију">
 <!ENTITY find.label "Прона&amp;ђи">
 <!ENTITY subscription.moveDown.label "Помери надоле">
-<!ENTITY subscription.lastDownload.connectionError "Неуспело, грешка у преузимању">
+<!ENTITY subscription.lastDownload.connectionError "Грешка при преузимању">
 <!ENTITY subscription.lastDownload.success "Успешно">
-<!ENTITY subscription.lastDownload.invalidData "Неуспело, није листа филтера">
+<!ENTITY subscription.lastDownload.invalidData "Грешка: неисправан формат списка филтера">
 <!ENTITY filter.paste.label "Налепи">
 <!ENTITY subscription.disabledFilters.enable "Омогући онемогућене филтере">
 <!ENTITY lasthit.column "Пос&amp;ледњи погодак">

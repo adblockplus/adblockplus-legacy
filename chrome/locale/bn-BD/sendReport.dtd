@@ -1,11 +1,66 @@
-<!ENTITY sendPage.heading "প্রতিবেদন পাঠান">
-<!ENTITY wizard.title "ইস্যু রিপোর্টার">
-<!ENTITY typeSelector.description "এই উইন্ডোরটি Adblock Plus এর ইস্যু রিপোর্ট করতে প্রয়োজনীয় প্রদক্ষেপগুলোর নির্দেশনা দিবে। প্রথমে অনুগ্রহপূর্বক আপনি এই পেজে যেই ধরণের ইস্যুর সম্মুখিন হচ্ছেন তার ধরণ নিধার্ণ করুন:">
-<!ENTITY dataCollector.description "অনুগ্রহপূর্বক কিছুক্ষণ অপেক্ষা করুন Adblock Plus প্রয়োজনীয় তথ্য সংরক্ষণ করছে।">
-<!ENTITY comment.label "&amp;মন্তব্য (ঐচ্ছিক):">
-<!ENTITY sendPage.retry.label "আবার পাঠান">
-<!ENTITY dataCollector.heading "ইস্যু রিপোর্টারে স্বাগতম">
+<!ENTITY screenshot.undo.label "&amp;পূর্বাবস্থায় ফিরুন">
+<!ENTITY issues.disabledgroups.description "নিচের ফিল্টার গ্রাহক / ফিল্টার গোষ্ঠী ফিল্টার নিষ্ক্রিয়, কিন্তু এখন পর্যন্ত এই পৃষ্ঠায় তাদের প্রভাব থাকতে পারে:">
+<!ENTITY showData.label "রিপোর্টের ডাটা দেখান">
+<!ENTITY typeSelector.falsePositive.label "অ্যাডব্লক প্লাস অনেক বেশি অবরুদ্ধ করেছে">
+<!ENTITY issues.change.description "আপনার কনফিগারেশন পরিবর্তন করা হয়েছে। অনুগ্রহ করে পরিবর্তন পরীক্ষা করতে পাতাটি পুনঃলোড করুন এবং যদি বিকল্প দ্বারা সমস্যাটি সমাধান না হয় তাহলে পুনঃরিপোর্ট করুন।">
 <!ENTITY email.label "ই&amp;মেইল:">
+<!ENTITY issues.openPreferences.label "ফিল্টার পছন্দসমূহ খুলুন">
+<!ENTITY sendPage.confirmation "আপনার প্রতিবেদন সংরক্ষণ করা হয়েছে। আপনি এটি নিচের ঠিকানায় দেখতে পারেন:">
+<!ENTITY copyLink.label "&amp;রিপোর্টের লিঙ্ক অনুলিপি করুন">
+<!ENTITY issues.nofilters.description "Adblock Plus বর্তমান পাতায় কোন কিছু অবরুদ্ধ করছে না। আপনি যে সমস্যাটি পর্যবেক্ষন করছেন সেটি সম্ভবত Adblock Plus সম্পর্কিত নয়।">
+<!ENTITY sendPage.knownIssue "আপনার রিপোর্টকৃত সমস্যাটি হয়তো ইতিমধ্যে জানা। আরও তথ্য:">
+<!ENTITY typeSelector.other.description "এই অপশন নির্বাচন করুন যদি আপনি সন্দেহ করেন যে সমস্যাটি Adblock Plus-এর ফিল্টার নয় বরং এটি এর নিজের কারণেই হচ্ছে।">
+<!ENTITY issues.disabledgroups.enable.label "ফিল্টার গোষ্ঠী / ফিল্টার সদস্যতা সক্রিয় করুন">
+<!ENTITY typeWarning.override.label "আমি বুঝেছি&amp; এবং যেকোনভাবেই রিপোর্ট জমা দিতে চাই">
+<!ENTITY issues.disabled.enable.label "অ্যাডব্লক প্লাস সক্রিয় করুন">
+<!ENTITY update.fixed.description "আপনার ফিল্টার সদস্যতা হালনাগাদে সম্ভবত আপনার উল্লেখ করা সমস্যার সমাধান আছে। দয়া করে পাতাটি পুনঃলোড করুন ও পুনঃচেষ্টা করুন, যদি সমস্যা রয়ে যায় তাহলে পুনঃরিপোর্ট করুন।">
+<!ENTITY anonymous.label "&amp;নামবিহীন জমা">
+<!ENTITY reloadButton.label "&amp;পাতা পুনঃলোড করুন">
+<!ENTITY recentReports.clear.label "&amp; সব রিপোর্ট অপসারণ করুন">
+<!ENTITY typeSelector.description "এই উইন্ডোটি Adblock Plus এর ইস্যু রিপোর্ট করতে প্রয়োজনীয় প্রদক্ষেপগুলোর নির্দেশনা দিবে। প্রথমে, আপনি এই পাতায় যেই ধরণের ইস্যুর সম্মুখিন হচ্ছেন অনুগ্রহপূর্বক তার ধরণ নির্বাচন করুন:">
+<!ENTITY screenshot.remove.label "&amp;সংবেদনশীল ডাটা সরান">
+<!ENTITY issues.ownfilters.description "এই পাতায় প্রয়োগকৃত কিছু ফিল্টার ব্যবহারকারী-বর্ণিত। দয়া করে ফিল্টার নিষ্ক্রিয় করুন যেটি কারণে হয়তো এই সমস্যাটি হচ্ছে:">
+<!ENTITY update.inProgress.description "সমস্যাটি ইতিমধ্যেই সমাধান করা হয়েছে নিশ্চিত করতে Adblock প্লাসের
+  আপনার ফিল্টার গ্রাহক হালনাগাদ করা প্রয়োজন। অনুগ্রহ করে অপেক্ষা করুন...">
+<!ENTITY sendPage.retry.label "আবার পাঠান">
+<!ENTITY data.label "রিপো&amp;র্টের ডাটা">
+<!ENTITY recentReports.label "আপনার সম্প্রতি জমা দেয়া রিপোর্ট">
+<!ENTITY typeWarning.description "আপনি ইঙ্গিত করেছেন যে আপনি ফিল্টারসহ একটি সমস্যার বদলে Adblock Plusসহ একটি সাধারণ সমস্যা রিপোর্ট করতে চান। দয়া করে খেয়াল করুন এই রকম বিষয় রিপোর্ট করার সেরা জায়গা হল [link]Adblock Plus ফোরাম[/link]। শুধুমাত্র একটি বিদ্যমান আলোচনার সম্পূরক হিসাবে আপনার ইস্যু রিপোর্টার ব্যবহার করা উচিত, যেহেতু আপনার রিপোর্ট কেউ লক্ষ্য নাও করতে পারে যদিনা আপনি একটি লিঙ্কসহ তাদের এটা প্রদান না করেন। রিপোর্ট জমা দেওয়ার পরে লিঙ্ক স্বয়ংক্রিয়ভাবে উপলব্ধ হবে।">
+<!ENTITY issues.disabled.description "Adblock Plus নিষ্ক্রিয় করা, এটি বর্তমান অবস্থায় কোন কিছু অবরুদ্ধ করবে না।">
+<!ENTITY attachExtensions.label "অ্যাড-অন দ্বন্দ্বের কারণে সমস্যা হচ্ছে কিনা পরীক্ষা করতে রিপোর্টে সক্রিয় এক্সটেনশনের একটি তালিকা সংযুক্ত করুন">
+<!ENTITY issues.nosubscriptions.add.label "ছাঁকনি সদস্যতা যুক্ত করুন">
+<!ENTITY issues.disabledfilters.enable.label "ফিল্টার সক্রিয় করুন">
+<!ENTITY issues.override.label "&amp;কনফিগারেশন সঠিক, রিপোর্ট করতে অগ্রসর হোন">
+<!ENTITY issues.nosubscriptions.description "আপনাকে কোন প্রাক-তৈরিকৃত ফিল্টারের গ্রাহক বলে মনে হচ্ছে না যা ওয়েবসাইট থেকে অবাঞ্ছিত বিষয়বস্তু স্বয়ংক্রিয়ভাবে অপসারণ করে।">
+<!ENTITY typeSelector.falsePositive.description "এই অপশনটি নির্বাচন করুন যদি পাতাটিতে  গুরুত্বপূর্ণ বিষয়বস্তুর অভাব, ভুলভাবে প্রদর্শন করা বা সঠিকরূপে চালাতে ব্যর্থ হয়। এই সমস্যা Adblock Plus-এর কারণে হয়েছি কিনা তা আপনি এটি সাময়িকভাবে নিষ্ক্রিয় করে নির্ধারণ করতে পারবেন।">
+<!ENTITY typeSelector.other.label "&amp;অন্যান্য সমস্যা">
+<!ENTITY emailComment.label "আমরা আপনাকে একটি বৈধ ই-মেইল ঠিকানা প্রবেশ করাতে উত্সাহিত করছি তাহলে আমরা আপনার সাথে যোগাযোগ করতে পারবো যদি আপনার রিপোর্ট সম্পর্কে কোন প্রশ্ন থাকে। ছাড়াও এটি আমাদের আপনার অবদান স্বীকৃতি এবং তাঁদের উচ্চ অগ্রাধিকার দিতে মঞ্জুরি দেয়।">
+<!ENTITY issues.whitelist.remove.label "এই পাতায় Adblock Plus পুনঃসক্রিয় করুন">
+<!ENTITY outdatedSubscriptions.description "অন্তত দুই সপ্তাহের জন্য নিম্নলিখিত ফিল্টার গ্রাহক হালনাগাদ করা হয়নি। অনুগ্রহ করে প্রতিবেদন দাখিল করার আগে এই সদস্যতাগুলি হালনাগাদ করুন, বিষয়টি ইতিমধ্যে সমাধান করা হতেও পারে।">
+<!ENTITY dataCollector.description "অনুগ্রহপূর্বক কিছুক্ষণ অপেক্ষা করুন Adblock Plus প্রয়োজনীয় তথ্য সংরক্ষণ করছে।">
 <!ENTITY sendButton.label "প্রতিবেদন পা&amp;ঠান">
-<!ENTITY privacyPolicy.label "গোপনীয়তার নিতিমালা">
+<!ENTITY comment.label "&amp;মন্তব্য (ঐচ্ছিক):">
+<!ENTITY sendPage.errorMessage "ত্রুটি কোড &quot;?1?&quot; সহ রিপোর্ট প্রেরণ করার চেষ্টা ব্যর্থ হয়েছে। অনুগ্রহ করে নিশ্চিত করুন  আপনার ইন্টারনেট সংযোগ আছে এবং পুনঃচেষ্টা করুন। যদি সমস্যাটি থেকে যায়, তাহলে দয়া করে [link]Adblock Plus ফোরামে[/link] সহায়তার অনুরোধ করুন।">
+<!ENTITY showRecentReports.label "সম্প্রতি জমা দেয়া রিপোর্ট দেখান">
+<!ENTITY commentPage.heading "মন্তব্য লিখুন">
+<!ENTITY update.start.label "এখন হালনাগাদ শুরু করুন">
+<!ENTITY issues.disabledfilters.description "নিচের ফিল্টার নিষ্ক্রিয় করা, কিন্তু এখন পর্যন্ত এই পৃষ্ঠায় তাদের প্রভাব থাকতে পারে:">
+<!ENTITY screenshot.description "একই পাতা বিভিন্ন জনের জন্য বিভিন্ন রকম দেখাতে পারে। এটা আপনি আপনার রিপোর্টে একটি স্ক্রিনশট সংযুক্ত করতে সমস্যাটি বুঝতে তা আমাদের সাহায্য করবে। আপনি সংবেদনশীল তথ্য অপসারণ করতে পারেন সেইসাথে সমস্যা লক্ষণীয় স্থান চিহ্নিত করতে পারেন। তা করার জন্য সংশ্লিষ্ট বাটন ক্লিক করুন এবং আপনার মাউস দিয়ে একটি চিত্র নির্বাচন করুন।">
+<!ENTITY screenshot.attach.label "রিপোর্টে একটি চিত্র সংযুক্ত করুন">
+<!ENTITY issues.whitelist.description "Adblock Plus বর্তমানে এই পাতায় নিষ্ক্রিয় করা যেটি আপনি রিপোর্ট করছেন। দয়া করে এটি পুনঃসক্রিয় করুন এবং এই সমস্যার তদন্তে সহায়তা করার আগে পাতা পুনঃলোড করুন।">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus বিজ্ঞাপন অবরুদ্ধ করেনি">
 <!ENTITY typeSelector.heading "ইস্যুর ধরণ নির্ধারণ করুন">
+<!ENTITY anonymity.warning "আমরা আপনার কাছে ফিরে আসতে সক্ষম না এবং সম্ভাবত রিপোর্টের অগ্রাধিকার কম দেয়া হবে।">
+<!ENTITY wizard.title "ইস্যু রিপোর্টার">
+<!ENTITY issues.ownfilters.disable.label "ফিল্টার অক্ষম করুন">
+<!ENTITY commentPage.description "নিচের লেখার ক্ষেত্রটি আপনাকে মন্তব্য লিখতে দিবে যা আমাদের সমস্যাটি বুঝতে সাহায্য করবে। এই ধাপটি ঐচ্ছিক কিন্তু সুপারিশকৃত যদি সমস্যাটি প্রকট হয়।  এছাড়া আপনি এটি প্রেরণ করা পূর্বে প্রতিবেদনের উপাত্ত পর্যালোচনা করতে পারেন।">
+<!ENTITY comment.lengthWarning "আপনার মন্তব্যের দৈর্ঘ্য ১০০০ অক্ষর অতিক্রম করেছেন। শুধুমাত্র প্রথম ১০০০ অক্ষর প্রেরণ করা হবে।">
+<!ENTITY typeSelector.falseNegative.description "এই অপশন নির্বাচন করুন যদি Adblock Plus সক্রিয় থাকা সত্ত্বেও বিজ্ঞাপন প্রদর্শিত হয়।">
+<!ENTITY sendPage.waitMessage "Adblock প্লাস আপনার প্রতিবেদন দাখিল করা পর্যন্ত দয়া করে অপেক্ষা করুন।">
+<!ENTITY dataCollector.heading "ইস্যু রিপোর্টারে স্বাগতম">
+<!ENTITY screenshot.heading "স্ক্রিনশর্ট সংযুক্ত করুন">
+<!ENTITY sendPage.heading "প্রতিবেদন পাঠান">
+<!ENTITY issues.subscriptionCount.description "মনে হচ্ছে আপনি অনেকগুলি ফিল্টার সদস্যতার গ্রাহক হয়েছেন। এই সেটআপ সুপারিশকৃত নয় কারণ এটা সমস্যাকে অনেক উচ্চ করে তুলতে পারে। এছাড়া আমরা আপনার সমস্যার প্রতিবেদনও গ্রহণ করব না কারণ এটি স্পষ্ট নয় যে ফিল্টার সদস্যতার লেখকে পদক্ষেপ নিতে হবে। দয়া করে প্রয়োজনীয় ফিল্টার সদস্যতা রেখে বাকিগুলি সরিয়ে ফেলুন ও সমস্যাটি আছে কিনা তা পরীক্ষা করুন।">
+<!ENTITY screenshot.mark.label "&amp;সমস্যা চিহ্নিত করুন">
+<!ENTITY privacyPolicy.label "গোপনীয়তার নীতি">
+<!ENTITY issues.description "Adblock Plus আপনার কনফিগারেশনে সমস্যা সনাক্ত করেছে যা এই সমস্যার জন্য দায়ী হতে পারে বা বা কঠিন অনুসন্ধানী রিপোর্ট করতে হবে।">

@@ -1,0 +1,7 @@
+<!ENTITY filter.cut.label "Cortar">
+<!ENTITY filter.delete.label "Borrar">
+<!ENTITY addSubscriptionAdd.label "Añader">
+<!ENTITY viewMenu.label "Ver">
+<!ENTITY filter.copy.label "Copiar">
+<!ENTITY filter.paste.label "Apegar">
+<!ENTITY subscription.lastDownload.inProgress "Descargando…">

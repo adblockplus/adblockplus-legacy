@@ -26,7 +26,7 @@
 <!ENTITY recentReports.label "Sus informes más recientes">
 <!ENTITY typeWarning.description "Usted ha indicado que quiere informar de un problema atribuible a Adblock Plus y no a los filtros utilizados. Tenga en cuenta que suele ser mejor informar de este tipo de problemas en el [link]foro de Adblock Plus[/link], y utilizar el generador de informes de problemas sólo como añadido en una discusión ya existente, puesto que nadie se apercibirá de su informe a menos que aporte un enlace al mismo. Tras enviar el informe se le mostrará el enlace generado automáticamente.">
 <!ENTITY issues.disabled.description "Adblock Plus está desactivado, no bloqueará nada en este estado.">
-<!ENTITY attachExtensions.label "Adjuntar una lista de e&amp;xtensiones activas al informe por si la causa del problema es un conflicto entre extensiones">
+<!ENTITY attachExtensions.label "Adjuntar al informe una lista de extensiones activas por si la causa del problema fuera un conflicto entre ellas">
 <!ENTITY issues.nosubscriptions.add.label "Añadir suscripción de filtros">
 <!ENTITY issues.disabledfilters.enable.label "Activar filtro">
 <!ENTITY issues.override.label "La &amp;configuración es correcta, puede seguir con el informe">

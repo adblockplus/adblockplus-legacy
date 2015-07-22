@@ -1,4 +1,4 @@
-<!ENTITY context.flash.label "Рамка для Flash об'єктів">
+<!ENTITY context.flash.label "Границі Flash елемента">
 <!ENTITY address.label "Адреса">
 <!ENTITY context.open.label "Відкрити в новій вкладці">
 <!ENTITY type.label "Тип">
@@ -22,14 +22,14 @@
 <!ENTITY context.disablefilteronsite.label "Вимкнути цей фільтр на ?1?">
 <!ENTITY detached.title "Adblock Plus: елементи відкритої сторінки (від’єднані)">
 <!ENTITY docDomain.firstParty "(запит з того ж сайта)">
-<!ENTITY tooltip.type.whitelisted "(дозволений)">
+<!ENTITY tooltip.type.whitelisted "(в білому списку)">
 <!ENTITY tooltip.filter.label "Застосований фільтр:">
 <!ENTITY tooltip.filter.disabled "(вимкнено)">
 <!ENTITY context.editfilter.label "Відредагувати застосований фільтр">
 <!ENTITY tooltip.type.blocked "(заблокований)">
 <!ENTITY size.label "Розмір">
 <!ENTITY context.whitelist.label "Вказати елемент як виняток">
-<!ENTITY context.selectAll.label "Вибрати все">
+<!ENTITY context.selectAll.label "Вибрати всі">
 <!ENTITY state.label "Статус">
 <!ENTITY docDomain.label "Джерело документа">
 <!ENTITY tooltip.address.label "Адреса:">

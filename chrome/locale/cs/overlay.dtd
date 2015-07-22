@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "&amp;Ne">
 <!ENTITY sync.label "Na&amp;stavení synchronizace Adblocku Plus">
 <!ENTITY whitelist.site.label "Vypnout na ?1?">
+<!ENTITY notification.closing.button.hide "&amp;Zavřít toto upozornění">
 <!ENTITY filters.label "&amp;Předvolby filtrů">
 <!ENTITY disable.label "Zakázat všude">
 <!ENTITY objecttab.title "Blokovat">
@@ -13,10 +14,12 @@
 <!ENTITY notification.button.yes "&amp;Ano">
 <!ENTITY opensidebar.label "Zo&amp;brazit blokovatelné objekty">
 <!ENTITY notification.button.close "&amp;Zavřít">
+<!ENTITY shownotifications.label "Zobrazovat užitečná &amp;upozornění">
 <!ENTITY contribute.label "Přispět Adblocku Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Blokovat rámec">
 <!ENTITY blocked.tooltip "Blokované prvky na této stránce:">
+<!ENTITY notification.closing.button.optout "&amp;Nezobrazovat upozornění">
 <!ENTITY counthits.label "Počítat &amp;zásahy filtrů">
 <!ENTITY showinstatusbar.label "Zob&amp;razit ve stavovém řádku">
 <!ENTITY sidebar.title "Adblock Plus: Blokovatelné objekty na zobrazené stránce">

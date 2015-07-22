@@ -12,7 +12,7 @@
 <!ENTITY matchCase.label "&amp;Учитывать регистр букв">
 <!ENTITY custom.pattern.label "&amp;Другой:">
 <!ENTITY unselectAllTypes.label "Убрать все">
-<!ENTITY type.whitelist.label "Ис&amp;ключение">
+<!ENTITY type.whitelist.label "&amp;Исключение">
 <!ENTITY regexp.warning "Введенный шаблон будет понят как регулярное выражение. Большое количество регулярных выражений может отрицательно сказаться на быстродействии вашего браузера. Если вы не собирались использовать регулярные выражения, то просто добавьте звездочку в конце шаблона.">
 <!ENTITY dialog.title "Составление фильтра для Adblock Plus">
 <!ENTITY basic.label "Стандартный вид">

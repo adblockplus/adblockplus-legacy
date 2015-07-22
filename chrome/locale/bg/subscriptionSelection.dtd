@@ -6,7 +6,7 @@
 <!ENTITY supplementMessage "Абонирането за филтъра изисква абонамент за „?1?“, който още не ползвате.">
 <!ENTITY viewList.label "Покажи филтрите">
 <!ENTITY visitHomepage.label "Посети началната страница">
-<!ENTITY addSubscription.label "Добави абонамент">
+<!ENTITY addSubscription.label "Добави абонамента">
 <!ENTITY dialog.title "Абониране за филтър в Adblock Plus">
 <!ENTITY location.label "&amp;Местоположение на филтъра:">
 <!ENTITY fromWeb.description "Моля, потвърдете абонирането за филтъра. Можете да промените заглавието или местоположението на абонамента, преди да го добавите.">

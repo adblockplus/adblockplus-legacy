@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "否(&amp;N)">
 <!ENTITY sync.label "同步 Adblo&amp;ck Plus 设置">
 <!ENTITY whitelist.site.label "在 ?1? 禁用 Adblock Plus">
+<!ENTITY notification.closing.button.hide "关闭此通知(&amp;H)">
 <!ENTITY filters.label "过滤规则首选项 (&amp;F)">
 <!ENTITY disable.label "完全禁用">
 <!ENTITY objecttab.title "屏蔽">
@@ -13,10 +14,12 @@
 <!ENTITY notification.button.yes "是(&amp;Y)">
 <!ENTITY opensidebar.label "打开可过滤项目 (&amp;b)">
 <!ENTITY notification.button.close "关闭(&amp;C)">
+<!ENTITY shownotifications.label "显示有益提示(&amp;N)">
 <!ENTITY contribute.label "助力 Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "过滤帧(Adblock Plus)">
 <!ENTITY blocked.tooltip "该页上已过滤的项目:">
+<!ENTITY notification.closing.button.optout "不再显示通知(&amp;S)">
 <!ENTITY counthits.label "统计过滤规则生效次数 (&amp;h)">
 <!ENTITY showinstatusbar.label "在状态栏显示 (&amp;s)">
 <!ENTITY sidebar.title "本页可过滤的项目">

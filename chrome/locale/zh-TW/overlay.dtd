@@ -13,6 +13,7 @@
 <!ENTITY notification.button.yes "&amp;確定">
 <!ENTITY opensidebar.label "開啟可阻擋項目 (&amp;b)">
 <!ENTITY notification.button.close "&amp;關閉">
+<!ENTITY shownotifications.label "顯示有用的通知 (&amp;n)">
 <!ENTITY contribute.label "贊助 Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus：阻擋頁框">

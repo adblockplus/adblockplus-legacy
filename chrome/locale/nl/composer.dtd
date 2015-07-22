@@ -1,8 +1,8 @@
-<!ENTITY anchor.end.label "aan het ei&amp;nde van het adres">
+<!ENTITY anchor.end.label "aan het &amp;einde van het adres">
 <!ENTITY domainRestriction.label "Beperken tot &amp;domein:">
 <!ENTITY collapse.default.no.label "Standaard gebruiken (nee)">
 <!ENTITY firstParty.label "Alleen van &amp;eigen website">
-<!ENTITY preferences.label "Bestaande filters &amp;weergeven…">
+<!ENTITY preferences.label "Bestaande filters &amp;tonen…">
 <!ENTITY pattern.label "Zoeken naar patroon">
 <!ENTITY thirdParty.label "Alleen van &amp;derden">
 <!ENTITY filter.label "&amp;Nieuw filter:">
@@ -13,7 +13,7 @@
 <!ENTITY custom.pattern.label "&amp;Aangepast:">
 <!ENTITY unselectAllTypes.label "Niets selecteren">
 <!ENTITY type.whitelist.label "&amp;Uitzonderingsregel">
-<!ENTITY regexp.warning "Het patroon dat u hebt ingevoerd zal worden behandeld als een reguliere expressie. Deze kunnen niet efficiënt worden verwerkt door Adblock Plus en kunnen uw browser traag maken. Als het niet uw bedoeling was een reguliere expressie te schrijven, voeg dan een asterisk (*) aan het einde van het patroon toe.">
+<!ENTITY regexp.warning "Het patroon dat u hebt ingevoerd zal als een reguliere expressie worden behandeld. Deze kunnen niet efficiënt door Adblock Plus worden verwerkt en kunnen uw browser traag maken. Als het niet uw bedoeling was een reguliere expressie te gebruiken, voeg dan een asterisk (*) aan het einde van het patroon toe.">
 <!ENTITY dialog.title "Adblock Plus-filterregel toevoegen">
 <!ENTITY basic.label "Eenvoudige weergave">
 <!ENTITY type.filter.label "&amp;Blokkeringsfilter">

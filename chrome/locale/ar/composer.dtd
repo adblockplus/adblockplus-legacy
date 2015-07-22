@@ -8,9 +8,9 @@
 <!ENTITY filter.label "&amp;فلتر جديد :">
 <!ENTITY collapse.label "طوي المحجوب:">
 <!ENTITY match.warning "النموذج الذي أدخلته لم يعد موافقا للعنوان الذي يجب أن يحجب أو يسمح به ولن يأثر فيه">
-<!ENTITY anchor.start.label "في ب&amp;داية العنوان">
+<!ENTITY anchor.start.label "في بداية العنوان">
 <!ENTITY matchCase.label "م&amp;طابقة الحالة">
-<!ENTITY custom.pattern.label "مخ&amp;صص:">
+<!ENTITY custom.pattern.label "مخصص:">
 <!ENTITY unselectAllTypes.label "بدون أي اختيار">
 <!ENTITY type.whitelist.label "قاعدة است&amp;ثناء">
 <!ENTITY regexp.warning "النموذج الذي أدخلته سيتم تعبيره على أنه تعبير العادي، الكثير من التعابير العادية قد تؤدي إلى بطء في التصفح. إن لم تكن تنوي استخدام التعابير العادية، قم بإضافة الرمز &quot;*&quot; إلى نهاية النموذج">
