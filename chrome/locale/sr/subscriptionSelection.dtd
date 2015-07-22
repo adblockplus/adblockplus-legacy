@@ -1,12 +1,12 @@
-<!ENTITY addMain.label "Д&amp;одај и претплату на филтер „?1?”">
-<!ENTITY list.download.failed "Adblock Plus није успео да набави нови списак претплата.">
+<!ENTITY addMain.label "&amp;Додај и пријаву „?1?“">
+<!ENTITY list.download.failed "Не могу да преузмем списак пријава.">
 <!ENTITY list.download.retry "Покушај поново">
-<!ENTITY title.label "&amp;Назив претплате:">
-<!ENTITY list.download.website "Отвори веб страницу">
-<!ENTITY supplementMessage "Ова претплата на филтер је предвиђена за коришћење са филтером „?1?” који још увек не користите.">
+<!ENTITY title.label "&amp;Назив пријаве:">
+<!ENTITY list.download.website "Отвори сајт">
+<!ENTITY supplementMessage "Ову пријаву је потребно да користите у комбинацији са пријавом „?1?“.">
 <!ENTITY viewList.label "Погледај филтере">
-<!ENTITY visitHomepage.label "Посети матичну страницу">
-<!ENTITY addSubscription.label "Додај претплату">
-<!ENTITY dialog.title "Претплата на филтере Adblock Plus-а">
+<!ENTITY visitHomepage.label "Посети почетну страницу">
+<!ENTITY addSubscription.label "Додај пријаву">
+<!ENTITY dialog.title "Додавање пријаве за Adblock Plus">
 <!ENTITY location.label "&amp;Локација списка са филтерима:">
-<!ENTITY fromWeb.description "Потврдите да желите додати претплату на овај филтер (можете променити назив или локацију претплате пре додавања).">
+<!ENTITY fromWeb.description "Потврдите да желите да се пријавите на овај списак филтера. Имајте на уму да можете променити назив или локацију пријаве.">

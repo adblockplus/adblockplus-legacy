@@ -33,7 +33,7 @@
 <!ENTITY subscription.update.label "Atjaunināt filtrus">
 <!ENTITY dialog.title "Adblock Plus filtra prioritātes">
 <!ENTITY addFilter.label "Pievienot Filtru">
-<!ENTITY subscription.minVersion.warning "Šo filtru abonēšanai nepieciešama jaunāka versija Adblock Plus, tadel jums vajadzētu atjaunināt ar jaunāko Adblock Plus versiju.">
+<!ENTITY subscription.minVersion.warning "Šo filtru abonēšanai nepieciešama jaunāka versija Adblock Plus, tādēļ jums vajadzētu atjaunināt ar jaunāko Adblock Plus versiju.">
 <!ENTITY subscription.lastDownload.invalidURL "Neizdevās, nav derīga adrese">
 <!ENTITY backup.error "Radās kļūda, ierakstot filtrus failā. Pārliecinieties, ka fails nav aizsargāts pret ierakstu vai netiek izmantots citā lietojumprogrammā.">
 <!ENTITY filter.moveUp.label "Pārvietot uz augšu">

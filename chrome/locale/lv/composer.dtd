@@ -7,7 +7,7 @@
 <!ENTITY thirdParty.label "Tikai trešās puses">
 <!ENTITY filter.label "Jauns filtrs:">
 <!ENTITY collapse.label "Bloķēts sabrukums:">
-<!ENTITY match.warning "Modeli ko jus ievadijat vairs neatbilst adresei bloketiem/baltulistetiem un neizveidos nekad effektu uz ta.">
+<!ENTITY match.warning "Paraugs ko jūs ievadījāt vairs neatbilst bloķētajai/baltās listes adresei un tam nebūs ietekmes uz to.">
 <!ENTITY anchor.start.label "adreses sākumā">
 <!ENTITY matchCase.label "Saderīgs gadījums">
 <!ENTITY custom.pattern.label "Pielāgots:">

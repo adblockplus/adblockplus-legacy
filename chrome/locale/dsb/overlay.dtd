@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "&amp;Ně">
 <!ENTITY sync.label "Nastajenja za syn&amp;chronizěrowanje Adblock Plus">
 <!ENTITY whitelist.site.label "Na ?1? znjemóžniś">
+<!ENTITY notification.closing.button.hide "Toś tu po&amp;wěźeńku zacyniś">
 <!ENTITY filters.label "&amp;Filtrowe nastajenja">
 <!ENTITY disable.label "Wšuźi znjemóžniś">
 <!ENTITY objecttab.title "Blokěrowaś">
@@ -13,10 +14,12 @@
 <!ENTITY notification.button.yes "&amp;Jo">
 <!ENTITY opensidebar.label "B&amp;lokěrujobne zapiski wócyniś">
 <!ENTITY notification.button.close "&amp;Zacyniś">
+<!ENTITY shownotifications.label "Wužytne p&amp;owěźeńki pokazaś">
 <!ENTITY contribute.label "K Adblock Plus pśinosowaś">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Wobłuk blokěrowaś">
 <!ENTITY blocked.tooltip "Blokěrowane zapiski na toś tom boku:">
+<!ENTITY notification.closing.button.optout "Powěźeńki wěcej &amp;njepokazaś">
 <!ENTITY counthits.label "Fi&amp;ltrowe trjefarje licyś">
 <!ENTITY showinstatusbar.label "W &amp;statusowej lejstwje pokazaś">
 <!ENTITY sidebar.title "Blokěrujobne zapiski na aktualnem boku">

@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "&amp;Não">
 <!ENTITY sync.label "S&amp;incronizar configurações do Adblock Plus">
 <!ENTITY whitelist.site.label "Desativar em ?1?">
+<!ENTITY notification.closing.button.hide "Fechar e&amp;sta notificação">
 <!ENTITY filters.label "Opções de &amp;filtros">
 <!ENTITY disable.label "Desativar em todas as páginas">
 <!ENTITY objecttab.title "Bloquear">
@@ -13,10 +14,12 @@
 <!ENTITY notification.button.yes "&amp;Sim">
 <!ENTITY opensidebar.label "A&amp;brir itens bloqueáveis">
 <!ENTITY notification.button.close "&amp;Fechar">
+<!ENTITY shownotifications.label "Mostrar &amp;notificações úteis">
 <!ENTITY contribute.label "Contribuir com o Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Bloquear quadro">
 <!ENTITY blocked.tooltip "Itens bloqueados nesta página:">
+<!ENTITY notification.closing.button.optout "&amp;Parar de mostrar notificações">
 <!ENTITY counthits.label "Cont&amp;ar acertos de filtros">
 <!ENTITY showinstatusbar.label "&amp;Mostrar na barra de status">
 <!ENTITY sidebar.title "Itens bloqueáveis na página atual">

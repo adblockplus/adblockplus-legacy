@@ -17,10 +17,10 @@
 <!ENTITY subscription.external.label "অন্য বর্ধিতাংশ দ্বারা হালনাগাদকৃত ">
 <!ENTITY subscription.delete.label "মুছুন">
 <!ENTITY noGroupSelected.text "এটির ছাঁকন সমূহ প্রদর্শিত হওয়ার আগে আপনাকে একটি ছাঁকন গোষ্ঠী নির্বাচন করতে হবে।">
-<!ENTITY filter.cut.label "বিচ্ছিন্ন করুন">
+<!ENTITY filter.cut.label "ছেদন">
 <!ENTITY restore.default.label "? 1? এর ব্যাকআপ থেকে পুনঃস্থাপন করুন">
 <!ENTITY subscription.lastDownload.inProgress "ডাউনলোড হচ্ছে…">
-<!ENTITY subscriptions.tab.label "চুক্তিসমুহ পরিশ্রুতকরণ">
+<!ENTITY subscriptions.tab.label "ছাঁকনি সদস্যতাসমূহ">
 <!ENTITY sort.descending.label "&amp; জেড&gt; এ বাছাই ক্রম">
 <!ENTITY filters.remove.warning "আপনি কি সত্যিই সকল নির্বাচিত পরিশ্রুতক অপসারণ করতে চান?">
 <!ENTITY filter.delete.label "মুছুন">
@@ -41,28 +41,28 @@
 <!ENTITY filter.edit.label "সম্পাদনা">
 <!ENTITY subscription.showHideFilters.label "ছাঁকন সমূহ দেখাও/লুকাও">
 <!ENTITY acceptableAds2.label "ব্যক্তিগত গোপনীয়তা অলঙ্ঘঙ্কারী বিজ্ঞাপনকে অনুমোদন দিন">
-<!ENTITY addSubscriptionOther.label "একটি ভিন্ন চুক্তি যুক্ত করুন">
+<!ENTITY addSubscriptionOther.label "একটি ভিন্ন ছাঁকনি সদস্যতা যুক্ত করুন">
 <!ENTITY close.label "বন্ধ">
 <!ENTITY sort.none.label "অবাছাইকৃত">
 <!ENTITY filter.actions.label "ছাঁকনের ব্যবস্থাসমুহ">
-<!ENTITY filter.copy.label "অনুলিপি করুন">
+<!ENTITY filter.copy.label "অনুলিপি">
 <!ENTITY filter.moveDown.label "নিচে সরান">
 <!ENTITY filter.resetHitCounts.label "আঘাত পরিসংখ্যান পুনঃচালু করুন">
 <!ENTITY readMore.label "আরো পড়ুন">
 <!ENTITY subscription.moveUp.label "উপরে সরান">
-<!ENTITY addSubscription.label "ছাঁকন চুক্তি যুক্ত করুন">
+<!ENTITY addSubscription.label "ছাঁকনি &amp;সদস্যতা যুক্ত করুন">
 <!ENTITY subscription.homepage.label "নীড়পাতা">
 <!ENTITY backup.complete.title "সকল পরিশ্রুতক এবং চুক্তি">
 <!ENTITY restore.own.label "নিজের অনুরক্ষণটি পুনর্বহাল করুন">
 <!ENTITY restore.complete.warning "আপনার সব ফিল্টার অগ্রাধিকার নির্বাচিত ফাইলের বিষয়বস্তু দ্বারা প্রতিস্থাপিত হবে। আপনি কি এগোতে চান?">
-<!ENTITY filters.tab.label "সজ্জার উপযোগী ছাঁকন সমূহ">
+<!ENTITY filters.tab.label "স্বনির্ধারিত ছাঁকনি">
 <!ENTITY backup.label "নতুন অনুরক্ষণ তৈরি করুন">
 <!ENTITY find.label "খুঁ&amp;জুন">
 <!ENTITY subscription.moveDown.label "নিচে সরান">
 <!ENTITY subscription.lastDownload.connectionError "ব্যর্থ, নামানো ব্যর্থতা">
 <!ENTITY subscription.lastDownload.success "সফল">
 <!ENTITY subscription.lastDownload.invalidData "ব্যর্থ, একটি যুক্তিযুক্ত ছাঁকন তালিকা নয়">
-<!ENTITY filter.paste.label "ছেদাংশ যুক্ত করুন">
+<!ENTITY filter.paste.label "প্রতিলেপন">
 <!ENTITY subscription.disabledFilters.enable "বন্ধ ছাঁকন চালু করুন">
 <!ENTITY lasthit.column "শেষ আঘাত">
 <!ENTITY subscription.editTitle.label "শিরোনাম সম্পাদনা">

@@ -1,0 +1,9 @@
+<!ENTITY tooltip.type.blocked "(blokirano)">
+<!ENTITY address.label "Adresa">
+<!ENTITY size.label "Veličina">
+<!ENTITY context.selectAll.label "Izaberi sve">
+<!ENTITY tooltip.type.label "Vrsta:">
+<!ENTITY state.label "Stanje">
+<!ENTITY filter.label "Filter">
+<!ENTITY context.open.label "Otvoriti novi Tab">
+<!ENTITY tooltip.address.label "Adresa:">

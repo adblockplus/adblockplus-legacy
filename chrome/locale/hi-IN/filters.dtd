@@ -1,14 +1,20 @@
+<!ENTITY subscription.lastDownload.checksumMismatch "असफल, checksum मिसमैच">
 <!ENTITY filter.selectAll.label "सभी का चयन करें">
 <!ENTITY subscription.source.label "फ़िल्टर सूची">
 <!ENTITY noFilters.text "आपका कोई कस्टम फ़िल्टर नहीं है। ">
 <!ENTITY subscription.external.label "एक अन्य एक्सटेंशन द्वारा अद्यतन किया">
 <!ENTITY subscription.delete.label "मिटाएँ">
+<!ENTITY subscription.lastDownload.inProgress "डाउनलोड हो रहा हैं">
 <!ENTITY subscriptions.tab.label "फ़िल्टर सदस्यताएँ">
 <!ENTITY filter.delete.label "मिटाएँ">
+<!ENTITY addSubscriptionAdd.label "जोड़ें">
 <!ENTITY viewMenu.label "देखें">
+<!ENTITY subscription.lastDownload.unknown "N/A">
 <!ENTITY addSubscriptionCancel.label "रद्द करें">
 <!ENTITY subscription.enabled.label "सक्षम किया गया">
+<!ENTITY noSubscriptions.text "आप किसी भी फिल्टर सदस्यताएँ अभी तक नहीं जोड़ा है। Adblock प्लस को ब्लॉक नहीं करेगा कुछ भी फिल्टर के बिना, कृपया कुछ जोड़ने के लिए &quot;जोड़ें फ़िल्टर सदस्यता&quot; का उपयोग करें।">
 <!ENTITY dialog.title "Adblock प्लस फ़िल्टर वरीयताएँ">
+<!ENTITY subscription.minVersion.warning "इस फिल्टर सदस्यता Adblock प्लस के किसी नए संस्करण की आवश्यकता है, आप नवीनतम Adblock प्लस संस्करण के लिए अद्यतन करना चाहिए।">
 <!ENTITY subscription.lastDownload.invalidURL "विफल रहा, एक मान्य पता नहीं ">
 <!ENTITY filter.moveUp.label "ऊपर जाएं">
 <!ENTITY filter.edit.label "संपादित करें">
@@ -20,14 +26,17 @@
 <!ENTITY filter.moveDown.label "नीचे जाएं">
 <!ENTITY readMore.label "और पढ़ें">
 <!ENTITY subscription.moveUp.label "ऊपर जाएं">
+<!ENTITY addSubscription.label "जोड़ें &amp; सदस्यता फ़िल्टर करें">
 <!ENTITY subscription.homepage.label "मुखपृष्ठ">
-<!ENTITY filters.tab.label "nbjh">
 <!ENTITY restore.own.label "स्वयं बैकअप पुनर्स्थापित करें">
-<!ENTITY subscription.moveDown.label "नीचे जाएं">
+<!ENTITY filters.tab.label "nbjh">
 <!ENTITY backup.label "नया बैकअप बनाएँ">
+<!ENTITY subscription.moveDown.label "नीचे जाएं">
 <!ENTITY subscription.lastDownload.connectionError "विफल रहा, डाउनलोड विफलता">
 <!ENTITY subscription.lastDownload.success "सफलता">
+<!ENTITY subscription.lastDownload.invalidData "विफल रहा, एक मान्य फ़िल्टर सूची  नहीं हैं">
 <!ENTITY filter.paste.label "चिपकाएं">
 <!ENTITY subscription.editTitle.label "शीर्षक संपादित करें">
+<!ENTITY subscription.disabledFilters.warning "कुछ फिल्टर इस सदस्यता में अक्षम हैं।">
 <!ENTITY subscription.lastDownload.label "पिछले डाउनलोड:">
 <!ENTITY viewList.label "सूची देखें">

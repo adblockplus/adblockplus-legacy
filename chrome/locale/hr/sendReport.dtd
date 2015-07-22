@@ -41,7 +41,7 @@
 	osim ako im ne date poveznicu na to izvješće. Automatski generirana poveznica
 	biti će dostupna nakon prijave izvješća.">
 <!ENTITY issues.disabled.description "Adblock Plus je onemogućen, neće ništa blokirati u ovom trenutnom stanju.">
-<!ENTITY attachExtensions.label "Dodaj popis aktivnih dodataka u izvješće u slučaju da je dodatak &amp;razlog problema">
+<!ENTITY attachExtensions.label "Priloži popis aktivnih d&amp;odataka u izvješće u slučaju da je dodatak uzrok problema">
 <!ENTITY issues.nosubscriptions.add.label "Dodaj pretplatu filtera">
 <!ENTITY issues.disabledfilters.enable.label "Omogući filter">
 <!ENTITY issues.override.label "P&amp;ostavke su ispravne, nastavi s podnošenjem izvješća">

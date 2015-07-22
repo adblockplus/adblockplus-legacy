@@ -4,7 +4,7 @@
 <!ENTITY title.label "सदस्यता शीर्षक:">
 <!ENTITY list.download.website "वेबसाइट पहा">
 <!ENTITY supplementMessage "हे फिल्टर सदस्यता फिल्टर सदस्यता सह वापरण्यासाठी तयार केलेली आहे &quot;?1?&quot; जे आपण अद्याप वापरत नाहीत.">
-<!ENTITY viewList.label "पहा फिल्टर">
+<!ENTITY viewList.label "फिल्टर पहा">
 <!ENTITY visitHomepage.label "मुख्यपृष्ठ भेट द्या">
 <!ENTITY addSubscription.label "सदस्यता जोडा">
 <!ENTITY dialog.title "Adblock प्लस फिल्टर सदस्यता जोडा">

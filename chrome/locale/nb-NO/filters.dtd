@@ -1,11 +1,11 @@
 <!ENTITY restore.custom.warning "Alle dine egenkomponerte filtre vil bli erstattet av innholdet i filen du har valgt. Vil du fortsette?">
 <!ENTITY slow.column "Trege filtre (&amp;w)">
 <!ENTITY enabled.column "Aktivert (&amp;n)">
-<!ENTITY subscription.lastDownload.checksumMismatch "Mislyktes - kontrollsummen stemmer ikke">
+<!ENTITY subscription.lastDownload.checksumMismatch "Mislyktes, kontrollsummen stemmer ikke">
 <!ENTITY noFiltersInGroup.text "Den valgte gruppen er tom.">
 <!ENTITY subscription.actions.label "Handlinger">
 <!ENTITY filter.selectAll.label "Velg alle">
-<!ENTITY backupButton.label "Sikkerhetskopier og gjenopprett (&amp;B)">
+<!ENTITY backupButton.label "&amp;Sikkerhetskopier og gjenopprett">
 <!ENTITY restore.minVersion.warning "Advarsel: Filen har blitt laget med en nyere versjon av Adblock Plus. Du bør oppdatere til nyeste versjon av Adblock Plus før du bruker denne filen.">
 <!ENTITY restore.error "Informasjonen i filen kunne ikke bli behandlet. Kanskje dette ikke er en backup-fil for Adblock Plus?">
 <!ENTITY sort.ascending.label "&amp;Sortér fra A til Å">
@@ -21,7 +21,7 @@
 <!ENTITY restore.default.label "Gjenopprett sikkerhetskopi fra ?1?">
 <!ENTITY subscription.lastDownload.inProgress "Laster ned...">
 <!ENTITY subscriptions.tab.label "Filterabonnementer">
-<!ENTITY sort.descending.label "&amp;Sortér fra Å til A">
+<!ENTITY sort.descending.label "Sortér fra &amp;Å til A">
 <!ENTITY filters.remove.warning "Ønsker du virkelig å fjerne alle valgte filtre?">
 <!ENTITY filter.delete.label "Slett">
 <!ENTITY addSubscriptionAdd.label "Legg til">
@@ -64,7 +64,7 @@
 <!ENTITY subscription.lastDownload.invalidData "Feilet, ikke en gyldig filterliste">
 <!ENTITY filter.paste.label "Lim inn">
 <!ENTITY subscription.disabledFilters.enable "Aktiver deaktiverte filtre">
-<!ENTITY lasthit.column "Siste treff (&amp;L)">
+<!ENTITY lasthit.column "&amp;Siste treff">
 <!ENTITY subscription.editTitle.label "Rediger tittel">
 <!ENTITY subscription.disabledFilters.warning "Noen filtre i dette abonnementet er deaktivert.">
 <!ENTITY filter.column "&amp;Filterregel">

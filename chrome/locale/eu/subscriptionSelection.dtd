@@ -5,7 +5,7 @@
 <!ENTITY list.download.website "Ikusi webgunea">
 <!ENTITY supplementMessage "Iragazki harpidetza hau &quot;?1?&quot; iragazki harpidetzarekin batera erabiltzekoa da eta zuk ez duzu oraindik erabiltzen.">
 <!ENTITY viewList.label "Ikusi iragazkiak">
-<!ENTITY visitHomepage.label "Bisitatu hasiera orria">
+<!ENTITY visitHomepage.label "Bisitatu webgunea">
 <!ENTITY addSubscription.label "Gehitu harpidetza">
 <!ENTITY dialog.title "Gehitu Adblock Plus iragazki harpidetza">
 <!ENTITY location.label "Iragaz&amp;ki zerrendaren kokagunea:">

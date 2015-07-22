@@ -2,7 +2,7 @@
 <!ENTITY domainRestriction.label "Ograniči na &amp;domenu:">
 <!ENTITY collapse.default.no.label "Koristi zadano(Ne)">
 <!ENTITY firstParty.label "Samo od p&amp;rve strane">
-<!ENTITY preferences.label "Prikaži po&amp;stojeće filtere...">
+<!ENTITY preferences.label "Prikaži postojeće filteri...">
 <!ENTITY pattern.label "Potraži uzorak">
 <!ENTITY thirdParty.label "Samo od &amp;treće strane">
 <!ENTITY filter.label "Novi filter:">

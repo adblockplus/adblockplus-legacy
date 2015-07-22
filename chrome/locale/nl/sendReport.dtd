@@ -1,7 +1,7 @@
 <!ENTITY screenshot.undo.label "Onge&amp;daan maken">
 <!ENTITY issues.disabledgroups.description "De volgende filterabonnementen / filtergroepen zijn uitgeschakeld, maar zijn mogelijk wel van invloed op deze pagina:">
 <!ENTITY showData.label "Rapportgegevens tonen">
-<!ENTITY typeSelector.falsePositive.label "Adblock Plus blokkeert &amp;te veel">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus blokkeert t&amp;e veel">
 <!ENTITY issues.change.description "Uw configuratie is gewijzigd. Laad de pagina opnieuw om de wijzigingen te testen en dien een rapport in als het probleem niet door de wijzigingen is verholpen.">
 <!ENTITY email.label "E-&amp;mailadres:">
 <!ENTITY issues.openPreferences.label "Filtervoorkeuren openen">

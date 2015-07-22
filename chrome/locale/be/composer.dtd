@@ -1,4 +1,34 @@
-<!ENTITY dialog.title "Дадаць правіла Adblock Plus фільтр">
-<!ENTITY advanced.label "пашыраны выгляд">
-<!ENTITY accept.label "дадаць фільтр">
-<!ENTITY basic.label "базавая выгляд">
+<!ENTITY anchor.end.label "у к&amp;анцы адраса">
+<!ENTITY domainRestriction.label "Абмежаваць да&amp;менам:">
+<!ENTITY collapse.default.no.label "Па змаўчанні (не)">
+<!ENTITY firstParty.label "Толькі з таго ж дам&amp;ена">
+<!ENTITY preferences.label "Паказаць і&amp;сныя фільтры...">
+<!ENTITY pattern.label "Шукаць шаблон">
+<!ENTITY thirdParty.label "Толькі &amp;пабочныя дамены">
+<!ENTITY filter.label "Новы &amp;фільтр:">
+<!ENTITY collapse.label "З&amp;гарнуць заблакаванае:">
+<!ENTITY match.warning "Створаны шаблон не мае ўплыву на старонку. Адрас не адпавядае прапанаванаму шаблону для блакавання\выключэнняў.">
+<!ENTITY anchor.start.label "у па&amp;чатку адраса">
+<!ENTITY matchCase.label "З &amp;улікам рэгістру">
+<!ENTITY custom.pattern.label "&amp;Уласныя:">
+<!ENTITY unselectAllTypes.label "Зняць усе">
+<!ENTITY type.whitelist.label "Вы&amp;ключэнні">
+<!ENTITY regexp.warning "Прапанаваны шаблон будзе ўспрымацца як рэгулярны выраз каторы Adblock Plus не зможа апрацаваць эфектыўна. Гэта можа замарудзіць прагляд старонак.
+Калі вы не збіраліся ўжываць рэгулярны выраз, то дадайце зорачку (*) ў канцы шаблона.">
+<!ENTITY dialog.title "Дадаць правіла ў фільтр Adblock Plus">
+<!ENTITY basic.label "Звычайны выгляд">
+<!ENTITY type.filter.label "&amp;Блакуючы фільтр">
+<!ENTITY types.label "Ужыць для тыпаў:">
+<!ENTITY shortpattern.warning "Прапанаваны шаблон занадта кароткі для аптымізацыі. Ен можа замарудзіць прагляд старонак. Каб Adblock Plus апрацоўваў фільтры эфектыўней, рэкамендуем карыстацца даўжэйшымі шаблонамі.">
+<!ENTITY collapse.yes.label "Так">
+<!ENTITY anchors.label "Прымаць толькі шаблон:">
+<!ENTITY collapse.default.yes.label "Па змаўчанні (так)">
+<!ENTITY domainRestriction.help "Каб ужыць фільтр толькі для выбраных даменаў, раздзяляйце іх адмысловым знакам (|).  Тыльда (~) перад назвай дамена паказвае, што для наступнага дамена фільтр ужываецца не павінен.">
+<!ENTITY accept.label "Дадаць фільтр">
+<!ENTITY options.label "Налады">
+<!ENTITY disabled.warning "Adblock Plus адключаны. Вы можаце дадаваць фільтры, але каб яны дзейнічалі трэба [link]ўключыць Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "у пачатку на&amp;звы дамена">
+<!ENTITY collapse.no.label "Не">
+<!ENTITY selectAllTypes.label "Вылучыць усе">
+<!ENTITY advanced.label "Пашыраны выгляд">
+<!ENTITY pattern.explanation "Шаблонам можа быць любая частка адраса, зорачка (*) падмяняе неабмежаваную колькасць знакаў. Фільтр ужываецца толькі для адпаведных адрасоў.">

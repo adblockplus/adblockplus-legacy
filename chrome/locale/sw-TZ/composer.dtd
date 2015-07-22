@@ -1,0 +1,6 @@
+<!ENTITY accept.label "Ongeza kichujio">
+<!ENTITY disabled.warning "Adblock Plus kwa sasa imesitishwa. Hata hivyo unaweza kuongeza vichujio lakini havitafanya kazi hadi [link]utakapowezesha Adblock Plus[/link].">
+<!ENTITY advanced.label "Mwonekano wa juu">
+<!ENTITY dialog.title "Ongeza kanuni ya kichujio cha Adblock Plus">
+<!ENTITY basic.label "Mwonekano wa msingi">
+<!ENTITY filter.label "Mpya &amp;kichujio:">

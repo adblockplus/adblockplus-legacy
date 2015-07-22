@@ -1,0 +1,37 @@
+<!ENTITY screenshot.undo.label "&amp;Адмяніць">
+<!ENTITY showData.label "Паказаць змесціва справаздачы">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus блакуе лішняе">
+<!ENTITY email.label "E&amp;mail:">
+<!ENTITY copyLink.label "Капіяваць спасылку на справаздачу">
+<!ENTITY typeWarning.override.label "Я разумею і ўсё адно хачу адправіць справаздачу">
+<!ENTITY issues.disabled.enable.label "Уключыць Adblock Plus">
+<!ENTITY reloadButton.label "А&amp;бнавіць старонку">
+<!ENTITY recentReports.clear.label "Выдаліць &amp;усе справаздачы">
+<!ENTITY typeSelector.description "Кіраўнік дапаможа вам стварыць справаздачу.
+Спачатку выберыце тып знойдзенай на старонцы праблемы:">
+<!ENTITY screenshot.remove.label "&amp;Выдаліць прыватныя звесткі">
+<!ENTITY sendPage.retry.label "Адправіць зноў">
+<!ENTITY data.label "Змес&amp;ціва справаздачы:">
+<!ENTITY issues.nosubscriptions.add.label "Дадаць падпіску на фільтр">
+<!ENTITY issues.disabledfilters.enable.label "Уключыць фільтр">
+<!ENTITY typeSelector.other.label "Ін&amp;шая праблема">
+<!ENTITY issues.whitelist.remove.label "Уключыць Adblock Plus на гэтай старонцы">
+<!ENTITY typeSelector.falsePositive.description "Выберыце гэты варыянт, калі на старонцы не хапае часткі неабходнага змесціва ці яно паказана няправільна. Часова адключыўшы Adblock Plus,  можна вызначыць ці ён з'яўляецца прычынай праблемы.">
+<!ENTITY dataCollector.description "Крыху пачакайце пакуль Adblock Plus збірае неабходныя звесткі.">
+<!ENTITY comment.label "Каментарый (неабавязкова):">
+<!ENTITY commentPage.heading "Каментаваць">
+<!ENTITY update.start.label "Абнавіць зараз">
+<!ENTITY issues.whitelist.description "Adblock Plus адключаны на праблемнай старонцы. Уключыце яго зноў
+  і абнавіце старонку перад тым як адпраўляць справаздачу. Гэта нам
+  дапаможа правільна апрацаваць звесткі.">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus не блакуе рэкламу">
+<!ENTITY typeSelector.heading "Выберыце тып праблемы">
+<!ENTITY wizard.title "Паведаміць пра праблему">
+<!ENTITY issues.ownfilters.disable.label "Адключыць фільтр">
+<!ENTITY issues.override.label "Канфігурацыя правільная, працягваць справаздачу">
+<!ENTITY privacyPolicy.label "Палітыка канфідэнцыяльнасці">
+<!ENTITY dataCollector.heading "Вітаем у праграме справаздач">
+<!ENTITY screenshot.heading "Здымак экрана">
+<!ENTITY sendPage.heading "Адправіць справаздачу">
+<!ENTITY sendButton.label "Адп&amp;равіць справаздачу">
+<!ENTITY typeSelector.falseNegative.description "Выберыце гэты варыянт, калі пры ўключаным Adblock Plus  на старонцы ўсё адно паказваецца рэклама.">

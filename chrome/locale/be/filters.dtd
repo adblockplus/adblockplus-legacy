@@ -1,10 +1,73 @@
-<!ENTITY hitcount.column "Хітоў">
+<!ENTITY restore.custom.warning "Усе ўласныя фільтры заменяцца дадзенымі з файла. Працягваць?">
+<!ENTITY slow.column "Па&amp;вольны фільтр">
+<!ENTITY enabled.column "У&amp;ключана">
+<!ENTITY subscription.lastDownload.checksumMismatch "Памылка: неадпаведная кантрольная сума">
+<!ENTITY noFiltersInGroup.text "Выбраная група пустая.">
+<!ENTITY subscription.actions.label "Дзеянні">
+<!ENTITY filter.selectAll.label "Вылучыць усе">
+<!ENTITY backupButton.label "Рэ&amp;зерваванне і аднаўленне">
+<!ENTITY restore.minVersion.warning "Папярэджанне: файл створаны навейшай версіяй Adblock Plus. Перад аднаўленнем дадзеных з гэтай рэзервовай копіі, вы павіны абнавіць Adblock Plus да найноўшай версіі.">
+<!ENTITY restore.error "Немагчыма апрацаваць дадзеныя. Можа гэты не рэзервовы файл Adblock Plus?">
+<!ENTITY sort.ascending.label "ад &amp;А да Я">
+<!ENTITY sort.label "Упа&amp;радкаваць">
+<!ENTITY subscription.source.label "Спіс фільтраў">
+<!ENTITY hitcount.column "Колькас&amp;ць ужыванняў">
+<!ENTITY noFilters.text "Пакуль што няма ўласных фільтраў.">
+<!ENTITY backup.custom.title "Толькі уласныя фільтры">
+<!ENTITY subscription.external.label "Абноўлена іншым пашырэннем">
+<!ENTITY subscription.delete.label "Выдаліць">
+<!ENTITY noGroupSelected.text "Каб фільтры з групы былі паказаны, патрэбна выбраць групу.">
 <!ENTITY filter.cut.label "Выразаць">
-<!ENTITY lasthit.column "Апошні">
+<!ENTITY restore.default.label "Аднавіць копію ад ?1?">
+<!ENTITY subscription.lastDownload.inProgress "Абнаўляецца…">
+<!ENTITY subscriptions.tab.label "Падпіскі на фільтры">
+<!ENTITY sort.descending.label "ад &amp;Я да А">
+<!ENTITY filters.remove.warning "Сапраўды выдаліць усе вылучаныя фільтры?">
 <!ENTITY filter.delete.label "Выдаліць">
-<!ENTITY enabled.column "Уключанае">
+<!ENTITY addSubscriptionAdd.label "Дадаць">
+<!ENTITY viewMenu.label "Выгляд">
+<!ENTITY subscription.lastDownload.unknown "невядома">
+<!ENTITY addSubscriptionCancel.label "Скасаваць">
+<!ENTITY subscription.enabled.label "Актыўная">
+<!ENTITY noSubscriptions.text "Вы не дадалі падпіскі на фільтры. Без фільтраў Adblock Plus не будзе
+  блакаваць рэкламу, націсніце кнопку &quot;Дадаць падпіску на фільтр&quot;.">
+<!ENTITY subscription.update.label "Абнавіць фільтры">
+<!ENTITY dialog.title "Налады фільтраў Adblock Plus">
+<!ENTITY addFilter.label "Дадаць &amp;фільтр">
+<!ENTITY subscription.minVersion.warning "Гэтая падпіска патрабуе больш новай версіі Adblock Plus, трэба абнавіць Adblock Plus да найноўшай версіі.">
+<!ENTITY subscription.lastDownload.invalidURL "Памылка: няправільны адрас">
+<!ENTITY backup.error "Падчас запісу файла фільтра адбылася памылка. Магчыма, файл абаронены ад запісу або выкарыстоўваецца іншай праграмай.">
+<!ENTITY filter.moveUp.label "Пасунуць вышэй">
+<!ENTITY addGroup.label "Дадаць &amp;групу фільтраў">
+<!ENTITY filter.edit.label "Рэдагаваць">
+<!ENTITY subscription.showHideFilters.label "Паказаць/схаваць фільтры">
+<!ENTITY acceptableAds2.label "Дазволіць недакучлівую р&amp;экламу">
+<!ENTITY addSubscriptionOther.label "Дадаць іншую падпіску">
+<!ENTITY close.label "Закрыць">
+<!ENTITY sort.none.label "Н&amp;еўпарадкавана">
+<!ENTITY filter.actions.label "Дзеянні з фільтрамі">
 <!ENTITY filter.copy.label "Капіяваць">
+<!ENTITY filter.moveDown.label "Пасунуць ніжэй">
+<!ENTITY filter.resetHitCounts.label "Скінуць статыстыку">
+<!ENTITY readMore.label "Даведацца больш">
+<!ENTITY subscription.moveUp.label "Пасунуць вышэй">
+<!ENTITY addSubscription.label "Да&amp;даць падпіску на фільтр">
+<!ENTITY subscription.homepage.label "Хатняя старонка">
+<!ENTITY backup.complete.title "Усе фільтры і падпіскі">
+<!ENTITY restore.own.label "Аднавіць з уласнага рэзерва">
+<!ENTITY restore.complete.warning "Усе вашы фільтры і падпіскі заменяцца дадзенымі з файла. Працягваць?">
+<!ENTITY filters.tab.label "Уласныя фільтры">
+<!ENTITY backup.label "Стварыць рэзервовую копію">
+<!ENTITY find.label "З&amp;найсці фільтр">
+<!ENTITY subscription.moveDown.label "Пасунуць ніжэй">
+<!ENTITY subscription.lastDownload.connectionError "Не атрымалася спампаваць">
+<!ENTITY subscription.lastDownload.success "Паспяхова выканана">
+<!ENTITY subscription.lastDownload.invalidData "Памылка: няправільны спіс фільтраў">
 <!ENTITY filter.paste.label "Уставіць">
-<!ENTITY addFilter.label "Дадаць фільтар">
-<!ENTITY addSubscription.label "Дадаць падпіску на фільтар">
-<!ENTITY find.label "Пошук">
+<!ENTITY subscription.disabledFilters.enable "Уключыць адключаныя фільтры">
+<!ENTITY lasthit.column "Апошняе ў&amp;жыванне">
+<!ENTITY subscription.editTitle.label "Змяніць назву">
+<!ENTITY subscription.disabledFilters.warning "Некаторыя фільтры з гэтай падпіскі адключаны.">
+<!ENTITY filter.column "&amp;Правіла">
+<!ENTITY subscription.lastDownload.label "Апошняе абнаўленне:">
+<!ENTITY viewList.label "Праглядзець спіс">

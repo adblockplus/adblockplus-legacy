@@ -44,7 +44,7 @@
 <!ENTITY acceptableAds2.label "Разре&amp;шить некоторую ненавязчивую рекламу">
 <!ENTITY addSubscriptionOther.label "Добавить другую подписку">
 <!ENTITY close.label "Закрыть">
-<!ENTITY sort.none.label "Бе&amp;з сортировки">
+<!ENTITY sort.none.label "&amp;Без сортировки">
 <!ENTITY filter.actions.label "Действия с фильтрами">
 <!ENTITY filter.copy.label "Копировать">
 <!ENTITY filter.moveDown.label "Поместить ниже">
@@ -61,7 +61,7 @@
 <!ENTITY find.label "&amp;Найти фильтр">
 <!ENTITY subscription.moveDown.label "Поместить ниже">
 <!ENTITY subscription.lastDownload.connectionError "Ошибка: невозможно загрузить">
-<!ENTITY subscription.lastDownload.success "OK">
+<!ENTITY subscription.lastDownload.success "Успешно">
 <!ENTITY subscription.lastDownload.invalidData "Ошибка: неверный формат списка фильтров">
 <!ENTITY filter.paste.label "Вставить">
 <!ENTITY subscription.disabledFilters.enable "Включить отключенные фильтры">

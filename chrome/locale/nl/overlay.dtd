@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "&amp;Nee">
 <!ENTITY sync.label "Adblock Plus-instellingen syn&amp;chroniseren">
 <!ENTITY whitelist.site.label "Uitschakelen op ?1?">
+<!ENTITY notification.closing.button.hide "D&amp;eze melding sluiten">
 <!ENTITY filters.label "&amp;Filtervoorkeuren">
 <!ENTITY disable.label "Overal uitschakelen">
 <!ENTITY objecttab.title "Blokkeren">
@@ -13,10 +14,12 @@
 <!ENTITY notification.button.yes "&amp;Ja">
 <!ENTITY opensidebar.label "&amp;Blokkeerbare items openen">
 <!ENTITY notification.button.close "&amp;Sluiten">
+<!ENTITY shownotifications.label "Nuttige &amp;meldingen tonen">
 <!ENTITY contribute.label "Bijdragen aan Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: deelvenster blokkeren">
 <!ENTITY blocked.tooltip "Geblokkeerde items op deze pagina:">
+<!ENTITY notification.closing.button.optout "Tonen van meldingen &amp;stoppen">
 <!ENTITY counthits.label "&amp;Filtertreffers tellen">
 <!ENTITY showinstatusbar.label "Tonen in &amp;statusbalk">
 <!ENTITY sidebar.title "Blokkeerbare items op deze pagina">

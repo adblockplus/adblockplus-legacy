@@ -26,7 +26,7 @@
 <!ENTITY recentReports.label "Legutóbb beküldött jelentések">
 <!ENTITY typeWarning.description "Ön azt a lehetőséget választotta, hogy a hiba az Adblock Plus-szal van és nem a szűrőkkel. Kérem vegye figyelembe, hogy az ilyen hibákat célszerűbb az [link]Adblock Plus fórumon[/link] bejelenteni. Csak akkor használja így a hibajelentőt, ha egy meglévő szálhoz szeretne hozzátenni, és a jelentésben tüntesse fel a hozzá tartozó hivatkozást is. Az automatikusan generált hivatkozás a jelentés beküldése után áll majd rendelkezésre.">
 <!ENTITY issues.disabled.description "Az Adblock Plus le van tiltva, így nem tud semmit blokkolni.">
-<!ENTITY attachExtensions.label "A kiterjesztések közti ütközésekből adódó probléma esetén, csatolja a jelentéshez az aktív k&amp;iterjesztések listáját">
+<!ENTITY attachExtensions.label "Az aktív kiterjesztések listáját csatolja a bejelentéshez abban az esetben, ha kiterjesztések ütközése folyamán probléma adódik.">
 <!ENTITY issues.nosubscriptions.add.label "Feliratkozás szűrőre">
 <!ENTITY issues.disabledfilters.enable.label "Szűrő engedélyezése">
 <!ENTITY issues.override.label "A kon&amp;figuráció megfelelő, bejelentés folytatása">

@@ -26,7 +26,7 @@
 <!ENTITY recentReports.label "Dine seneste rapporter">
 <!ENTITY typeWarning.description "Du vil indsende en rapport om generelle problemer med Adblock Plus, og ikke med filtrene. Bemærk at den slags problemer behandles bedst i [link]Adblock Plus forum[/link]. Du bør kun bruge denne problemrapport som bilag til en eksisterende diskussion, da ingen bemærker den med mindre du angiver et link. Du vil modtage et link efter afsendelse af rapporten.">
 <!ENTITY issues.disabled.description "Adblock Plus er deaktiveret og blokerer ingenting.">
-<!ENTITY attachExtensions.label "&amp;Vedhæft liste med aktive tilføjelser til konstatering af eventuelle konflikter">
+<!ENTITY attachExtensions.label "Vedhæft en liste med aktive tilføjelser til rapporten, i tilfælde af at en add-on konflikt er årsag til problemet">
 <!ENTITY issues.nosubscriptions.add.label "Tilføj filterabonnement">
 <!ENTITY issues.disabledfilters.enable.label "Aktiver filter">
 <!ENTITY issues.override.label "&amp;Indstillingen er korrekt, fortsæt rapporten">

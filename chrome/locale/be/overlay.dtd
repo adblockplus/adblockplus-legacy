@@ -1,2 +1,33 @@
+<!ENTITY notification.button.no "&amp;Не">
+<!ENTITY sync.label "Сін&amp;хранізаваць налады Adblock Plus">
+<!ENTITY whitelist.site.label "Адключыць на ?1?">
+<!ENTITY notification.closing.button.hide "Закрыць гэта апавяшчэнне">
+<!ENTITY filters.label "Налады &amp;фільтраў">
+<!ENTITY disable.label "Адключыць усюды">
+<!ENTITY objecttab.title "Заблакаваць">
+<!ENTITY objecttab.tooltip "Націсніце тут, каб Adblock Plus блакаваў гэты аб'ект">
+<!ENTITY menuitem.label "Налады Ad&amp;block Plus">
 <!ENTITY objecttabs.label "Пака&amp;зваць закладкі на Flash і Java">
-<!ENTITY options.label "На&amp;ладкі">
+<!ENTITY sendReport.label "Паведаміць пра недакладнасць на гэтай &amp;старонцы">
+<!ENTITY whitelist.page.label "Адключыць толькі для гэтай старонкі">
+<!ENTITY context.image.label "Adblock Plus: Заблакаваць выяву">
+<!ENTITY notification.button.yes "&amp;Так">
+<!ENTITY opensidebar.label "Адкрыць с&amp;піс заблакаваных элементаў">
+<!ENTITY notification.button.close "&amp;Закрыць">
+<!ENTITY shownotifications.label "Паказваць карысныя ап&amp;авяшчэнні">
+<!ENTITY contribute.label "Дапамагчы Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus: Заблакаваць фрэйм">
+<!ENTITY blocked.tooltip "Элементы заблакаваныя на гэтай старонцы:">
+<!ENTITY notification.closing.button.optout "Не паказваць апавяшч&amp;энні">
+<!ENTITY counthits.label "Лі&amp;чыць ужыванні фільтра">
+<!ENTITY showinstatusbar.label "Паказваць на панелі &amp;стану">
+<!ENTITY sidebar.title "Элементы старонкі для блакавання">
+<!ENTITY options.label "&amp;Налады">
+<!ENTITY context.object.label "Adblock Plus: Заблакаваць аб'ект">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Уключыць для гэтай старонкі">
+<!ENTITY filters.tooltip "Найчасцей ужытыя фільтры:">
+<!ENTITY closesidebar.label "Закрыць с&amp;піс заблакаваных элементаў">
+<!ENTITY showintoolbar.label "&amp;Паказваць на панелі інструментаў">
+<!ENTITY status.tooltip "Стан:">
+<!ENTITY context.media.label "Adblock Plus: Заблакаваць аўдыё/відэа">

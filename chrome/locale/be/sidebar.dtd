@@ -1,0 +1,35 @@
+<!ENTITY context.flash.label "Паказаць межы элемента">
+<!ENTITY address.label "Адрас">
+<!ENTITY context.open.label "Адкрыць у новай укладцы">
+<!ENTITY type.label "Тып">
+<!ENTITY tooltip.filterSource.label "Крыніца фільтра:">
+<!ENTITY noitems.label "Няма блакуемых элементаў">
+<!ENTITY filter.label "Фільтр">
+<!ENTITY tooltip.size.label "Памер:">
+<!ENTITY reattach.label "Падлучыць">
+<!ENTITY search.label "П&amp;ошук:">
+<!ENTITY docDomain.thirdParty "(запыт з іншага сайта)">
+<!ENTITY filterSource.label "Крыніца фільтра">
+<!ENTITY tooltip.docDomain.label "Крыніца:">
+<!ENTITY context.copy.label "Капіяваць адрас элемента">
+<!ENTITY tooltip.type.label "Тып:">
+<!ENTITY context.disablefilter.label "Адключыць фільтр ?1?">
+<!ENTITY context.copyFilter.label "Капіяваць фільтр">
+<!ENTITY context.block.label "Заблакаваць гэты элемент">
+<!ENTITY context.enablefilter.label "Зноў уключыць фільтр ?1?">
+<!ENTITY detach.label "Адлучыць">
+<!ENTITY whitelisted.label "Адключаны на гэтай старонцы">
+<!ENTITY context.disablefilteronsite.label "Адключыць фільтр на ?1?">
+<!ENTITY detached.title "Adblock Plus: блакуемыя элементы (адлучаны)">
+<!ENTITY docDomain.firstParty "(асноўны дамен)">
+<!ENTITY tooltip.type.whitelisted "(выключэнне)">
+<!ENTITY tooltip.filter.label "Ужыты фільтр:">
+<!ENTITY tooltip.filter.disabled "(адключаны)">
+<!ENTITY context.editfilter.label "Рэдагаваць ужыты фільтр">
+<!ENTITY tooltip.type.blocked "(заблакаваны)">
+<!ENTITY size.label "Памер">
+<!ENTITY context.whitelist.label "Дадаць выключэнне для элемента">
+<!ENTITY context.selectAll.label "Вылучыць усе">
+<!ENTITY state.label "Стан">
+<!ENTITY docDomain.label "Крыніца">
+<!ENTITY tooltip.address.label "Адрас:">

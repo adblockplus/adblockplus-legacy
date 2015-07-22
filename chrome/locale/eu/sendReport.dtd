@@ -3,7 +3,7 @@
 <!ENTITY showData.label "Erakutsi txostenaren informazioa">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus gehigarria behar baino gehia&amp;go blokeatzen ari da">
 <!ENTITY issues.change.description "Zure konfigurazioa aldatu da. Mesedez birkargatu orria aldaketak egiaztatzeko eta bidali txostena arazoa konpondu ez bada.">
-<!ENTITY email.label "E-&amp;Posta:">
+<!ENTITY email.label "E&amp;Posta:">
 <!ENTITY issues.openPreferences.label "Ireki iragazki hobespenak">
 <!ENTITY sendPage.confirmation "Zure txostena gorde egin da. Honako helbidean eskuratu dezakezu:">
 <!ENTITY copyLink.label "Ko&amp;piatu txostenaren lotura">
@@ -24,7 +24,7 @@
 <!ENTITY sendPage.retry.label "Bidali berriro">
 <!ENTITY data.label "Txostenaren informa&amp;zioa:">
 <!ENTITY recentReports.label "Orain dela gutxi bidalitako txostenak">
-<!ENTITY typeWarning.description "Adblock Plusen arazo orokor, baten txostena egin nahi duzula esan duzu, ez iragazkiena. Jabetu zaitez arazo horien berri emateko hobe dela [link]Adblock Plus forum[/link] foroa erabiltza. Arazoen txosten bidalketa erabili soilik badagoen eztabaida bati eransteko, inork ez duelako zure txostena ikusiko lotura bat ematen ez baduzu. Automatikoki sortutako lotura bat emango zaizu txostena bidali eta gero.">
+<!ENTITY typeWarning.description "Adblock Plusen arazo orokor baten txostena egin nahi duzula esan duzu, ez iragazkiena. Jabetu zaitez arazo horien berri emateko hobe dela [link]Adblock Plus forum[/link] foroa erabiltzea. Arazoen txosten bidalketa erabili soilik badagoen eztabaida bati eransteko, inork ez duelako zure txostena ikusiko lotura bat ematen ez baduzu. Automatikoki sortutako lotura bat emango zaizu txostena bidali eta gero.">
 <!ENTITY issues.disabled.description "Adblock Plus ezgaituta dago, ez du ezer blokeatuko oraingo egoeran.">
 <!ENTITY attachExtensions.label "Erant&amp;si gehigarri aktiboen zerrenda bat txostenera hauen arteko konfliktoak arazoa sor balezakete">
 <!ENTITY issues.nosubscriptions.add.label "Gehitu iragazki harpidetza">
@@ -51,7 +51,7 @@
 <!ENTITY typeSelector.falseNegative.label "Adblock Plusek ez du &amp;iragarki bat blokeatzen">
 <!ENTITY typeSelector.heading "Aukeratu arazo mota">
 <!ENTITY anonymity.warning "Ezin izango gara zurekin kontatuan jarri eta ziurrenez lehentasun gutxiago emango diogu txosten honi.">
-<!ENTITY wizard.title "Arazoaren txostena bidali da">
+<!ENTITY wizard.title "Arazo txostena">
 <!ENTITY issues.ownfilters.disable.label "Iragazkia ezgaitu">
 <!ENTITY commentPage.description "Beheko testu eremuak guk arazoa hobeto ulertzeko iruzkin bat sartzea baimentzen dizu.	Hau aukerazkoa da baina gomendagarria arazoa begi-bistakoa ez bada. Gainera, txostenaren informazioa gainbegiratu dezakezu bidali aurretik.">
 <!ENTITY comment.lengthWarning "Iruzkinak 1000 karaktere baino gehiago ditu. Lehen 1000 karaktereak bidaliko dira soilik.">

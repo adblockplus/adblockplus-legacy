@@ -1,7 +1,7 @@
 <!ENTITY anchor.end.label "på slutte&amp;n av adressen">
 <!ENTITY domainRestriction.label "Begrens til &amp;domene:">
 <!ENTITY collapse.default.no.label "Bruk standard (nei)">
-<!ENTITY firstParty.label "Kun elementer fra hovedsiden">
+<!ENTITY firstParty.label "Kun fø&amp;rsteparts">
 <!ENTITY preferences.label "Vi&amp;s eksisterende filtre...">
 <!ENTITY pattern.label "Se etter mønster">
 <!ENTITY thirdParty.label "Kun &amp;tredjeparts">
@@ -9,16 +9,16 @@
 <!ENTITY collapse.label "Minimer b&amp;lokkerte:">
 <!ENTITY match.warning "Mønsteret du laget stemmer ikke lenger overens med adressen som skal blokkeres/hvitelistes, og vil ikke ha noen effekt.">
 <!ENTITY anchor.start.label "på starten av adressen (&amp;g)">
-<!ENTITY matchCase.label "&amp;Ta hensyn til stor og liten forbokstav (A/a)">
+<!ENTITY matchCase.label "Ta hensyn til s&amp;må eller store bokstaver">
 <!ENTITY custom.pattern.label "Egendefinert: (&amp;C)">
 <!ENTITY unselectAllTypes.label "Velg ingen">
 <!ENTITY type.whitelist.label "Unntaksregel (&amp;x)">
-<!ENTITY regexp.warning "Mønsteret du har laget vil bli tolket som et standarduttrykk, og kan ikke behandles effektivt av Adblock Plus, som igjen vil gjøre nettleseren din tregere. Hvis du ikke hadde tenkt til å lage et standarduttrykk, kan du legge til en stjerne (*) på slutten av mønsteret.">
+<!ENTITY regexp.warning "Mønsteret du har lagt inn vil bli tolket som et regulært uttrykk som ikke kan behandles effektivt av Adblock Plus og kan gjøre nettleseren din tregere. Hvis du ikke mente å lage et regulært uttrykk, legg til en stjerne (*) på slutten av mønsteret.">
 <!ENTITY dialog.title "Legg til filtreringsregel for Adblock Plus">
 <!ENTITY basic.label "Grunnleggende visning">
 <!ENTITY type.filter.label "&amp;Blokkeringsfilter">
-<!ENTITY types.label "Bruk på:">
-<!ENTITY shortpattern.warning "Mønsteret du skrev inn er for kort til å bli optimert, og kan gjøre nettleseren din tregere. Vi anbefaler at du lager en lengre tekstsekvens for dette filteret, slik at Adblock Plus kan behandle filteret mer effektivt.">
+<!ENTITY types.label "Bruk på typer:">
+<!ENTITY shortpattern.warning "Mønsteret du skrev inn er for kort til å bli optimalisert, og kan gjøre nettleseren din tregere. Vi anbefaler at du velger en lengre tekstsekvens for dette filteret, slik at Adblock Plus kan behandle filteret mer effektivt.">
 <!ENTITY collapse.yes.label "Ja">
 <!ENTITY anchors.label "Aksepter kun mønster:">
 <!ENTITY collapse.default.yes.label "Bruk standard (ja)">

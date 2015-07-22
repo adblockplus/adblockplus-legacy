@@ -52,7 +52,7 @@
 <!ENTITY readMore.label "Gehiago irakurri">
 <!ENTITY subscription.moveUp.label "Igo">
 <!ENTITY addSubscription.label "Geh&amp;itu iragazki harpidetza">
-<!ENTITY subscription.homepage.label "Hasiera orria">
+<!ENTITY subscription.homepage.label "Webgunea">
 <!ENTITY backup.complete.title "Iragazki eta harpidetza guztiak">
 <!ENTITY restore.own.label "Segurtasun kopia propioa berrezarri">
 <!ENTITY restore.complete.warning "Zure iragazki hobespen guztiak aukeratutako fitxategiko edukiarekin ordeztuko dira. Aurrera jarraitu nahi duzu?">
@@ -68,6 +68,6 @@
 <!ENTITY lasthit.column "&amp;Azken bategitea">
 <!ENTITY subscription.editTitle.label "Editatu izenburua">
 <!ENTITY subscription.disabledFilters.warning "Harpidetza honetako iragazki batzuk desgaituta daude.">
-<!ENTITY filter.column "&amp;Iragazki araua">
+<!ENTITY filter.column "&amp;Iragazki-araua">
 <!ENTITY subscription.lastDownload.label "Azken deskarga:">
 <!ENTITY viewList.label "Ikusi zerrenda">

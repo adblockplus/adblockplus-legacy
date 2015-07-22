@@ -26,7 +26,7 @@
 <!ENTITY recentReports.label "最近送信した不具合報告">
 <!ENTITY typeWarning.description "フィルタについてではなく Adblock Plus 全般の不具合を報告しようとしています。このような不具合は通常 [link]Adblock Plus フォーラム[/link] で報告されています。また、不具合報告へのリンクを自ら提供しない限りフォーラムの誰もあなたの不具合報告の存在に気付けないので、既存の議論を補完するためだけに使用してください。不具合報告へのリンクはレポート送信後に提供されます。">
 <!ENTITY issues.disabled.description "Adblock Plus が無効なので、何もブロックされていません">
-<!ENTITY attachExtensions.label "アドオンの競合が不具合の原因である場合があるので、動作しているアドオンのリストを不具合報告に添付する(&amp;X)">
+<!ENTITY attachExtensions.label "アドオンの競合が不具合の原因かもしれないので、現在有効になっているアドオンのリストを不具合報告に添付する(&amp;X)">
 <!ENTITY issues.nosubscriptions.add.label "購読するフィルタを追加">
 <!ENTITY issues.disabledfilters.enable.label "フィルタを有効化">
 <!ENTITY issues.override.label "設定に間違いはなかったので報告を続けます(&amp;C)">

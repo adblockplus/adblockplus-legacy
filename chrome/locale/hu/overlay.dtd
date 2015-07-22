@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "&amp;Nem">
 <!ENTITY sync.label "Adblock Plus beállítások s&amp;zinkronizálása">
 <!ENTITY whitelist.site.label "Szűrés tiltása itt: ?1?">
+<!ENTITY notification.closing.button.hide "Értesítés bezárása">
 <!ENTITY filters.label "Szűrő &amp;beállítások">
 <!ENTITY disable.label "Letiltás mindenhol">
 <!ENTITY objecttab.title "Blokkolás">
@@ -13,10 +14,12 @@
 <!ENTITY notification.button.yes "&amp;Igen">
 <!ENTITY opensidebar.label "Blokkolható ob&amp;jektumok megjelenítése">
 <!ENTITY notification.button.close "&amp;Bezárás">
+<!ENTITY shownotifications.label "Hasznos értesítések megjelenítése">
 <!ENTITY contribute.label "Közreműködés az Adblock Plus-hoz">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Keret blokkolása">
 <!ENTITY blocked.tooltip "Blokkolt objektumok ezen az oldalon:">
+<!ENTITY notification.closing.button.optout "Ne jelenjenek meg értesítések">
 <!ENTITY counthits.label "&amp;Szűrő találati statisztika mentése">
 <!ENTITY showinstatusbar.label "Megje&amp;lenítés az állapotsoron">
 <!ENTITY sidebar.title "Blokkolható objektumok">

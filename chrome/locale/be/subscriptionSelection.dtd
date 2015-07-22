@@ -1,2 +1,12 @@
+<!ENTITY addMain.label "&amp;Дадаць падпіску «?1?»">
+<!ENTITY list.download.failed "Adblock Plus не змог атрымаць спіс падпісак.">
+<!ENTITY list.download.retry "Паспрабуйце зноў">
 <!ENTITY title.label "&amp;Назва падпіскі:">
-<!ENTITY location.label "Ме&amp;сцазнаходжанне спіса сітаў:">
+<!ENTITY list.download.website "Глядзец на сайце">
+<!ENTITY supplementMessage "Гэты фільтр працуе ў звязе з падпіскай «?1?», якая не ўсталявана.">
+<!ENTITY viewList.label "Праглядзець фільтры">
+<!ENTITY visitHomepage.label "Наведаць хатнюю старонку">
+<!ENTITY addSubscription.label "Дадаць падпіску">
+<!ENTITY dialog.title "Даданне падпіскі на фільтр Adblock Plus">
+<!ENTITY location.label "Р&amp;азмяшчэнне спіса фільтраў:">
+<!ENTITY fromWeb.description "Пацвердзіце, што вы сапраўды хаціце дадаць гэту падпіску. Перад даданнем можна змяніць назву і размяшчэнне.">
