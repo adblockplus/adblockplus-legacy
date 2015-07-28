@@ -230,6 +230,41 @@ FilterSearch.fakeBrowser =
     {
       E("filtersTree").boxObject.scrollByPages(num);
     },
+  },
+
+  messageManager:
+  {
+    _messageMap: {
+      "Findbar:Mouseup": "mouseup",
+      "Findbar:Keypress": "keypress"
+    },
+
+    _messageFromEvent: function(event)
+    {
+      for (let message in this._messageMap)
+        if (this._messageMap[message] == event.type)
+          return {target: event.currentTarget, name: message, data: event};
+      return null;
+    },
+
+    addMessageListener: function(message, listener)
+    {
+      if (!this._messageMap.hasOwnProperty(message))
+        return;
+
+      if (!("_ABPHandler" in listener))
+        listener._ABPHandler = (event) => listener.receiveMessage(this._messageFromEvent(event));
+
+      E("filtersTree").addEventListener(this._messageMap[message], listener._ABPHandler, false);
+    },
+
+    removeMessageListener: function(message, listener)
+    {
+      if (this._messageMap.hasOwnProperty(message) && listener._ABPHandler)
+        E("filtersTree").removeEventListener(this._messageMap[message], listener._ABPHandler, false);
+    },
+
+    sendAsyncMessage: function() {}
   }
 };
 
