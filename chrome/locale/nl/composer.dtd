@@ -25,7 +25,7 @@
 <!ENTITY domainRestriction.help "Gebruik deze optie om een of meer domeinen te specificeren, gescheiden door een sluisteken (|). Het filter zal alleen op de geselecteerde domeinen worden toegepast. Een tilde (~) voor een domein betekent dat het filter niet op dat domein zal worden toegepast.">
 <!ENTITY accept.label "Filter toevoegen">
 <!ENTITY options.label "Opties">
-<!ENTITY disabled.warning "Adblock Plus is momenteel uitgeschakeld. U kunt nog wel filters toevoegen, maar ze worden niet toegepast tenzij u [link]Adblock Plus weer inschakelt[/link].">
+<!ENTITY disabled.warning "Adblock Plus is momenteel uitgeschakeld. U kunt nog wel filters toevoegen, maar deze worden niet toegepast, tenzij u [link]Adblock Plus weer inschakelt[/link].">
 <!ENTITY anchor.start.flexible.label "aan &amp;het begin van de domeinnaam">
 <!ENTITY collapse.no.label "Nee">
 <!ENTITY selectAllTypes.label "Alles selecteren">

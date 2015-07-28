@@ -32,7 +32,7 @@
 <!ENTITY noSubscriptions.text "U hebt nog geen filterabonnementen toegevoegd. Adblock Plus blokkeert niets zonder filters; gebruik ‘Filterabonnement toevoegen’ om er enkele toe te voegen.">
 <!ENTITY subscription.update.label "Filters bijwerken">
 <!ENTITY dialog.title "Adblock Plus-filtervoorkeuren">
-<!ENTITY addFilter.label "Fil&amp;ter toevoegen">
+<!ENTITY addFilter.label "Filter &amp;toevoegen">
 <!ENTITY subscription.minVersion.warning "Dit filterabonnement vereist een nieuwere versie van Adblock Plus; u dient Adblock Plus bij te werken naar de nieuwste versie.">
 <!ENTITY subscription.lastDownload.invalidURL "Mislukt, geen geldig adres">
 <!ENTITY backup.error "Er is een fout opgetreden bij het wegschrijven van de filters. Zorg ervoor dat het bestand niet tegen schrijven is beveiligd of door een andere toepassing wordt gebruikt.">

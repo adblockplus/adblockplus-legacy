@@ -1,5 +1,7 @@
+<!ENTITY notification.button.no "&amp;Ei">
 <!ENTITY sync.label "Sün&amp;kroniseeri Adblock Plus sätted">
 <!ENTITY whitelist.site.label "Keela domeenis ?1?">
+<!ENTITY notification.closing.button.hide "Sulge &amp;teade">
 <!ENTITY filters.label "Filtrite sätted">
 <!ENTITY disable.label "Keela kõikjal">
 <!ENTITY objecttab.title "Blokeeri">
@@ -9,11 +11,15 @@
 <!ENTITY sendReport.label "&amp;Teata probleemist antud lehel">
 <!ENTITY whitelist.page.label "Keela ainult antud lehel">
 <!ENTITY context.image.label "Adblock Plus: Blokeeri pilt">
+<!ENTITY notification.button.yes "&amp;Jah">
 <!ENTITY opensidebar.label "Ava blokeeritavad elemendid">
+<!ENTITY notification.button.close "&amp;Sulge">
+<!ENTITY shownotifications.label "Näita &amp;kasulikke teateid">
 <!ENTITY contribute.label "Toeta Adblock Plus'i">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Blokeeri raam">
 <!ENTITY blocked.tooltip "Blokeeritud elemendid antud lehel:">
+<!ENTITY notification.closing.button.optout "E&amp;nam ei näidata teateid">
 <!ENTITY counthits.label "Loenda &amp;filtrite tabamusi">
 <!ENTITY showinstatusbar.label "Näita &amp;olekuribal">
 <!ENTITY sidebar.title "Blokeeritavad elemendid antud lehel">

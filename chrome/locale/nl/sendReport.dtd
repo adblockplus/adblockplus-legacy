@@ -6,7 +6,7 @@
 <!ENTITY email.label "E-&amp;mailadres:">
 <!ENTITY issues.openPreferences.label "Filtervoorkeuren openen">
 <!ENTITY sendPage.confirmation "Uw rapport is opgeslagen. U kunt het vinden op het volgende adres:">
-<!ENTITY copyLink.label "Rapport&amp;koppeling kopiëren">
+<!ENTITY copyLink.label "Rapportkoppeling &amp;kopiëren">
 <!ENTITY issues.nofilters.description "Adblock Plus blokkeert niets op de huidige pagina. Het door u ervaren probleem heeft zeer waarschijnlijk niets met Adblock Plus te maken.">
 <!ENTITY sendPage.knownIssue "Het door u gemelde probleem is waarschijnlijk al bekend. Meer informatie:">
 <!ENTITY typeSelector.other.description "Selecteer deze optie als u een probleem met Adblock Plus zelf vermoedt in plaats van met de filters.">
