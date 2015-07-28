@@ -1,7 +1,35 @@
+<!ENTITY context.flash.label "फ्लैश चिज की सीमा">
+<!ENTITY address.label "पता">
+<!ENTITY context.open.label "नए टैब में खोलें">
+<!ENTITY type.label "प्रकार">
+<!ENTITY tooltip.filterSource.label "फ़िल्टर स्रोत:">
+<!ENTITY noitems.label "कोई अवरोधयोग्य चिज नहीं">
+<!ENTITY filter.label "फिल्टर">
+<!ENTITY tooltip.size.label "आकार:">
 <!ENTITY reattach.label "पुनः जोड़िए">
 <!ENTITY search.label "खोजे: (&amp;S)">
-<!ENTITY address.label "पता">
-<!ENTITY size.label "साइज़">
-<!ENTITY type.label "प्रकार">
-<!ENTITY filter.label "फिल्टर">
+<!ENTITY docDomain.thirdParty "(तृतीय पक्ष)">
+<!ENTITY filterSource.label "फ़िल्टर स्रोत">
+<!ENTITY tooltip.docDomain.label "दस्तावेज़ स्रोत:">
+<!ENTITY context.copy.label "चिजों के पते की प्रतिलिपि बनाएँ">
+<!ENTITY tooltip.type.label "प्रकार:">
+<!ENTITY context.disablefilter.label "फ़िल्टर अक्षम करें ?1?">
+<!ENTITY context.copyFilter.label "प्रतिलिपि फ़िल्टर">
+<!ENTITY context.block.label "इस चिज को अवरुद्ध करें">
+<!ENTITY context.enablefilter.label "फ़िल्टर को पुन: सक्षम करें ?1?">
 <!ENTITY detach.label "अलग करें">
+<!ENTITY whitelisted.label "सफेदसूचिबद्ध पृष्ठ">
+<!ENTITY context.disablefilteronsite.label "यह फ़िल्टर को ?1? पर अक्षम करें">
+<!ENTITY detached.title "Adblock प्लस: अवरोधयोग्य चिजें (पृथक)">
+<!ENTITY docDomain.firstParty "(पहली पार्टी)">
+<!ENTITY tooltip.type.whitelisted "(सफेदसूचिबद्ध)">
+<!ENTITY tooltip.filter.label "प्रभाव में फ़िल्टर:">
+<!ENTITY tooltip.filter.disabled "(अक्षम)">
+<!ENTITY context.editfilter.label "लागू फ़िल्टर को संपादित करें">
+<!ENTITY tooltip.type.blocked "(अवरुद्ध)">
+<!ENTITY size.label "साइज़">
+<!ENTITY context.whitelist.label "चिज के लिए अपवाद नियम जोड़ें">
+<!ENTITY context.selectAll.label "सभी का चयन करें">
+<!ENTITY state.label "राज्य">
+<!ENTITY docDomain.label "दस्तावेज़ स्रोत">
+<!ENTITY tooltip.address.label "पता:">

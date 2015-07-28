@@ -1,1 +1,10 @@
+<!ENTITY wizard.title "मुद्दा रिपोर्टर">
+<!ENTITY typeSelector.description "यह विंडो आपको Adblock प्लस मुद्दा रिपोर्ट को 
+  जमा करने के लिए मार्गदर्शन करेगा। पहले, कृपया किस तरह के मुद्दों का आप इस पृष्ठ पर सामना कर रहे हैं 
+  का चयन करें:">
+<!ENTITY typeSelector.falsePositive.label "Adblock प्लस बहुत &amp; ज्यादा अवरुद्ध कर रहा है">
+<!ENTITY dataCollector.description "कृपया कुछ पल प्रतीक्षा करें जब तक Adblock प्लस आवश्यक डेटा इकट्ठा कर रहा हो।">
+<!ENTITY dataCollector.heading "मुद्दा रिपोर्टर में स्वागत है">
 <!ENTITY commentPage.heading "टिप्पणी दर्ज करें">
+<!ENTITY privacyPolicy.label "गोपनीयता नीति">
+<!ENTITY typeSelector.heading "समस्या प्रकार का चयन करें">
