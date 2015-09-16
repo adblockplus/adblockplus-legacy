@@ -29,11 +29,11 @@
 <!ENTITY subscription.lastDownload.unknown "N/A">
 <!ENTITY addSubscriptionCancel.label "Hủy">
 <!ENTITY subscription.enabled.label "Đã được bật">
-<!ENTITY noSubscriptions.text "Bạn chưa chọn bất kì bộ lọc nào ! AdBlock Plus không thể hoạt động nếu không có một bộ lọc, xin hãy sử dụng &quot;Đăng ký bộ lọc&quot; để thêm bộ lọc cho mình .">
+<!ENTITY noSubscriptions.text "Bạn chưa chọn bất kì bộ lọc nào ! Adblock Plus không thể hoạt động nếu không có một bộ lọc, xin hãy sử dụng &quot;Đăng ký bộ lọc&quot; để thêm bộ lọc cho mình .">
 <!ENTITY subscription.update.label "Cập nhập bộ lọc">
-<!ENTITY dialog.title "Tùy chọn bộ lọc AdBlock Plus">
+<!ENTITY dialog.title "Tùy chọn bộ lọc Adblock Plus">
 <!ENTITY addFilter.label "&amp;Thêm bộ lọc">
-<!ENTITY subscription.minVersion.warning "Bộ lọc này cần có phiên bản Adblock Plus mới hơn, bạn cần phải cập nhập lên phiên bản mới nhất của AdBlock Plus .">
+<!ENTITY subscription.minVersion.warning "Bộ lọc này cần có phiên bản Adblock Plus mới hơn, bạn cần phải cập nhập lên phiên bản mới nhất của Adblock Plus .">
 <!ENTITY subscription.lastDownload.invalidURL "Thất bại, không phải là địa chỉ hợp lệ">
 <!ENTITY backup.error "Có vấn đề khi ghi bộ lọc vào tập tin. Hãy chắc chắn rằng tập tin không bị bảo vệ ghi hoặc bị sử dụng bởi một ứng dụng khác.">
 <!ENTITY filter.moveUp.label "Di chuyển lên">

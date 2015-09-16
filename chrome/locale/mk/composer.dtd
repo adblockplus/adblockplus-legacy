@@ -18,14 +18,14 @@
 <!ENTITY basic.label "Едноставен поглед">
 <!ENTITY type.filter.label "&amp;Блокирачки филтер">
 <!ENTITY types.label "Примени на типови:">
-<!ENTITY shortpattern.warning "Шемата која ја избравте е прекратка да биде оптимизирана и може да го успори вашиот пребарувач. Препорачано е да користите подолг извод за овој филтер за да му дозволите на AdBlock Plus да го процесира поефикасно.">
+<!ENTITY shortpattern.warning "Шемата која ја избравте е прекратка да биде оптимизирана и може да го успори вашиот пребарувач. Препорачано е да користите подолг извод за овој филтер за да му дозволите на Adblock Plus да го процесира поефикасно.">
 <!ENTITY collapse.yes.label "Да">
 <!ENTITY anchors.label "Прифати шема само:">
 <!ENTITY collapse.default.yes.label "Користи стандардно (да)">
 <!ENTITY domainRestriction.help "Користете ја оваа опција за да одредите еден или повеќе домени одделени со вертикална линија (|). Филтерот ќе биде применет само на одредениот домен/домени. Тилда (~) пред доменот кажува дека филтерот нема да се примени на тој домен.">
 <!ENTITY accept.label "Додај филтер">
 <!ENTITY options.label "Опции">
-<!ENTITY disabled.warning "AdBlock Plus е моментално исклучен. Можете сеуште да додавате филтери но тие нема да се користат. [link]Вклучи AdBlock Plus. [/link]">
+<!ENTITY disabled.warning "Adblock Plus е моментално исклучен. Можете сеуште да додавате филтери но тие нема да се користат. [link]Вклучи Adblock Plus. [/link]">
 <!ENTITY anchor.start.flexible.label "на почетокот на домен (&amp;г)">
 <!ENTITY collapse.no.label "Не">
 <!ENTITY selectAllTypes.label "Одбери сите">

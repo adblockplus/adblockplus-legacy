@@ -6,8 +6,8 @@
 <!ENTITY subscription.actions.label "Accions">
 <!ENTITY filter.selectAll.label "Selecciona-ho tot">
 <!ENTITY backupButton.label "Fe&amp;s una còpia de seguretat i restaura">
-<!ENTITY restore.minVersion.warning "Atenció : El fitxer ha estat creat amb una versió més nova d'AdBlock Plus. Hauries d'actualitzar a l'última versió de l'Adblock Plus abans de restaurar des d'aquest fitxer.">
-<!ENTITY restore.error "Les dades del fitxer no s'han pogut processar, potser aquest no és un fitxer de còpia de Seguretat de l'AdBlock Plus ?">
+<!ENTITY restore.minVersion.warning "Atenció: El fitxer ha estat creat amb una versió més nova d'Adblock Plus. Hauries d'actualitzar a l'última versió de l'Adblock Plus abans de restaurar des d'aquest fitxer.">
+<!ENTITY restore.error "Les dades del fitxer no s'han pogut processar, potser aquest no és un fitxer de còpia de Seguretat de l'Adblock Plus?">
 <!ENTITY sort.ascending.label "Ordre &amp;A &gt; Z">
 <!ENTITY sort.label "&amp;Ordena per">
 <!ENTITY subscription.source.label "Llista de filtres">
@@ -29,9 +29,9 @@
 <!ENTITY subscription.lastDownload.unknown "N/D">
 <!ENTITY addSubscriptionCancel.label "Cancel·la">
 <!ENTITY subscription.enabled.label "Activat">
-<!ENTITY noSubscriptions.text "Encara no heu afegit cap subscripció de filtre; l'AdBlock Plus no blocarà res sense filtres. Utilitzeu l'opció &quot;Afegeix el filtre&quot; per afegir-ne.">
+<!ENTITY noSubscriptions.text "Encara no heu afegit cap subscripció de filtre; l'Adblock Plus no blocarà res sense filtres. Utilitzeu l'opció &quot;Afegeix el filtre&quot; per afegir-ne.">
 <!ENTITY subscription.update.label "Actualitza els Filtres">
-<!ENTITY dialog.title "Preferències de filtre de l'AdBlock Plus">
+<!ENTITY dialog.title "Preferències de filtre de l'Adblock Plus">
 <!ENTITY addFilter.label "Afegeix un filt&amp;re">
 <!ENTITY subscription.minVersion.warning "Aquesta subscripció de filtre requereix una versió recent. Heu d'actualitzar l'Adblock Plus.">
 <!ENTITY subscription.lastDownload.invalidURL "Error, no és una adreça vàlida">

@@ -1,5 +1,5 @@
 <!ENTITY notification.button.no "&amp;No">
-<!ENTITY sync.label "&amp;Sincronitza la configuració de l'AdBlock Plus">
+<!ENTITY sync.label "&amp;Sincronitza la configuració de l'Adblock Plus">
 <!ENTITY whitelist.site.label "Inhabilita l'Adblock Plus a ?1?">
 <!ENTITY notification.closing.button.hide "Tanca a&amp;questa notificació">
 <!ENTITY filters.label "&amp;Preferències del filtre">
@@ -25,9 +25,9 @@
 <!ENTITY sidebar.title "Elements blocables a la pàgina actual">
 <!ENTITY options.label "&amp;Opcions">
 <!ENTITY context.object.label "Adblock Plus: bloca l'objecte">
-<!ENTITY context.removeWhitelist.label "Adblock Plus:Rehabilita aquesta pàgina">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: rehabilita aquesta pàgina">
 <!ENTITY filters.tooltip "Filtres més actius:">
 <!ENTITY closesidebar.label "Tanca els elements &amp;blocables">
 <!ENTITY showintoolbar.label "Mostra a la &amp;barra d'eines">
 <!ENTITY status.tooltip "Estat:">
-<!ENTITY context.media.label "Adblock Plus: Bloqueja àudio/vídeo">
+<!ENTITY context.media.label "Adblock Plus: bloqueja àudio/vídeo">

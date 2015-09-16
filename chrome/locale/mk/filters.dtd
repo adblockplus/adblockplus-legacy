@@ -29,11 +29,11 @@
 <!ENTITY subscription.lastDownload.unknown "Ништо">
 <!ENTITY addSubscriptionCancel.label "Откажи">
 <!ENTITY subscription.enabled.label "Вклучено">
-<!ENTITY noSubscriptions.text "Немате додадено филтери. AdBlock неможе да блокира реклами без филтери, ве молиме притиснете “Додади Филтери“ да додадете филтери.">
+<!ENTITY noSubscriptions.text "Немате додадено филтери. Adblock неможе да блокира реклами без филтери, ве молиме притиснете “Додади Филтери“ да додадете филтери.">
 <!ENTITY subscription.update.label "Надгради филтери">
 <!ENTITY dialog.title "Филтерски Подесувања">
 <!ENTITY addFilter.label "Додај филтер">
-<!ENTITY subscription.minVersion.warning "За овој филтер е потребна понова верзија на AdBlock Plus. Треба да го надградите софтверот на најновата верзија.">
+<!ENTITY subscription.minVersion.warning "За овој филтер е потребна понова верзија на Adblock Plus. Треба да го надградите софтверот на најновата верзија.">
 <!ENTITY subscription.lastDownload.invalidURL "Неуспешно, адресата не е валидна">
 <!ENTITY backup.error "Имаше грешка кога се запишуваа филтрите. Осигурајте се дека датотеката не е во употреба од друга апликација.">
 <!ENTITY filter.moveUp.label "Помести нагоре">

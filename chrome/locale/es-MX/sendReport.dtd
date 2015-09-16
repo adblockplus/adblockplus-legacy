@@ -20,7 +20,7 @@
 <!ENTITY typeSelector.description "Esta ventana lo guiará por pasos, necesarios para el envio de un reporte de problemas de Adblock Plus. Primero, por favor seleccione el tipo de problema que esta experimentando en esta página:">
 <!ENTITY screenshot.remove.label "Q&amp;uitar datos sensitivos/privados">
 <!ENTITY issues.ownfilters.description "Alguno de los filtros aplicados en esta página se encuentran definidos por el usuarios. Por favor desactive los filtros que pueden causar el problema:">
-<!ENTITY update.inProgress.description "AdBlock Plus necesita actualizar sus suscripciones de filtro para asegurarse de que el problema no ha sido resuelto ya. Por favor, espere...">
+<!ENTITY update.inProgress.description "Adblock Plus necesita actualizar sus suscripciones de filtro para asegurarse de que el problema no ha sido resuelto ya. Por favor, espere...">
 <!ENTITY sendPage.retry.label "Enviar otra vez">
 <!ENTITY data.label "Da&amp;tos de Reporte">
 <!ENTITY recentReports.label "Tus reportes recientemente enviados">
