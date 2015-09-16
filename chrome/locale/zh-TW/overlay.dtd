@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "&amp;取消">
 <!ENTITY sync.label "同步 Adblo&amp;ck Plus 設定值">
 <!ENTITY whitelist.site.label "在 ?1? 停用">
+<!ENTITY notification.closing.button.hide "關閉此通知">
 <!ENTITY filters.label "條件偏好設定 (&amp;F)">
 <!ENTITY disable.label "完全停用">
 <!ENTITY objecttab.title "阻擋">
@@ -18,6 +19,7 @@
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus：阻擋頁框">
 <!ENTITY blocked.tooltip "此頁已阻擋項目:">
+<!ENTITY notification.closing.button.optout "停止顯示通知">
 <!ENTITY counthits.label "計算條件命中次數 (&amp;h)">
 <!ENTITY showinstatusbar.label "在狀態列顯示 (&amp;s)">
 <!ENTITY sidebar.title "本頁可阻擋項目">

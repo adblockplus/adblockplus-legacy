@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "&amp;Nei">
 <!ENTITY sync.label "Sa&amp;mstilla Adblock Plus stillingar">
 <!ENTITY whitelist.site.label "Gera óvirkt á ?1?">
+<!ENTITY notification.closing.button.hide "Loka &amp;þessari tilkynningu">
 <!ENTITY filters.label "&amp;Síu stillingar">
 <!ENTITY disable.label "Slökkva á allstaðar">
 <!ENTITY objecttab.title "Loka á">
@@ -13,10 +14,12 @@
 <!ENTITY notification.button.yes "&amp;Já">
 <!ENTITY opensidebar.label "Skoða h&amp;luti">
 <!ENTITY notification.button.close "&amp;Loka">
+<!ENTITY shownotifications.label "Sýna gagnlegar tilky&amp;nningar">
 <!ENTITY contribute.label "Taka þátt í Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Loka auglýsingaramma">
 <!ENTITY blocked.tooltip "Lokaðir hlutir á þessari síðu:">
+<!ENTITY notification.closing.button.optout "Hætta að &amp;sýna tilkynningar">
 <!ENTITY counthits.label "Telja síu &amp;notkun">
 <!ENTITY showinstatusbar.label "&amp;Sýna í stöðuslá">
 <!ENTITY sidebar.title "Hlutir á núverandi síðu sem hægt er að loka á">

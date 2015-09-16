@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "ไ&amp;ม่ใช่">
 <!ENTITY sync.label "เชื่อ&amp;มข้อมูลการตั้งค่า Adblock Plus">
 <!ENTITY whitelist.site.label "ปิดการใช้งาน ?1?">
+<!ENTITY notification.closing.button.hide "ปิดการแจ้งเตือนนี้">
 <!ENTITY filters.label "ตั้งค่าตัวกร&amp;อง">
 <!ENTITY disable.label "ปิดการใช้งานทุกที่">
 <!ENTITY objecttab.title "บล็อก">
@@ -13,10 +14,12 @@
 <!ENTITY notification.button.yes "ใ&amp;ช่">
 <!ENTITY opensidebar.label "เปิดราย&amp;การที่บล็อกได้">
 <!ENTITY notification.button.close "&amp;ปิด">
+<!ENTITY shownotifications.label "แสดงการแจ้งเตือนที่เป็นประโยชน์">
 <!ENTITY contribute.label "เข้ามีส่วนร่วมกับ Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock เฟรม">
 <!ENTITY blocked.tooltip "สิ่งที่บล็อกในหน้านี้:">
+<!ENTITY notification.closing.button.optout "หยุดแสดงการแจ้งเตือน">
 <!ENTITY counthits.label "นับจำนวนตัว&amp;กรองฮิต">
 <!ENTITY showinstatusbar.label "แ&amp;สดงในแถบสถานะ">
 <!ENTITY sidebar.title "รายการที่บล็อกได้ในหน้าล่าสุด">

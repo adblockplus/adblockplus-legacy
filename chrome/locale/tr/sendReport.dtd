@@ -15,7 +15,7 @@
 <!ENTITY issues.disabled.enable.label "Adblock Plus'ı etkinleştir">
 <!ENTITY update.fixed.description "Süzgeç aboneliklerinize yapılan güncellemeler muhtemelen bildirmek istediğiniz sorunu giderdi. Sayfayı tekrar yükleyip bir daha deneyin, hâlâ sorun varsa bildirin.">
 <!ENTITY anonymous.label "&amp;Anonim gönder">
-<!ENTITY reloadButton.label "Sayfayı tazele">
+<!ENTITY reloadButton.label "Sayfayı &amp;tazele">
 <!ENTITY recentReports.clear.label "Tüm bildi&amp;rimleri sil">
 <!ENTITY typeSelector.description "Bu pencere Adblock Plus sorun bildirimi göndermek için gerekli adımların atılmasında size rehberlik edecek. Önce bu sayfada ne tür sorun yaşadığınızı seçin:">
 <!ENTITY screenshot.remove.label "Hassas &amp;veriyi sil">
@@ -26,10 +26,10 @@
 <!ENTITY recentReports.label "Yakında gönderdiğiniz bildirimler">
 <!ENTITY typeWarning.description "Süzgeçlerle ilgili bir sorun değil de Adblock Plus ile ilgili genel bir sorun bildiriminde bulunmak istediğinizi belirttiniz. Lütfen böyle sorunların en iyi bildirim yerinin [link]Adblock Plus forumu[/link] olduğu aklınızda olsun. Siz bağlantı vermediğiniz sürece kimse bildiriminizi görmeyeceği için sorun bildiriciyi sadece mevcut bir tartışmaya katkı sağlamak için kullanmalısınız.">
 <!ENTITY issues.disabled.description "Adblock Plus devre dışı ve şu anki durumunda hiçbir şeyi engellemeyecek.">
-<!ENTITY attachExtensions.label "Sor&amp;un kaynağının eklenti uyumsuzluğu olması durumunda bildirime etkin eklentilerin listesini ekle">
+<!ENTITY attachExtensions.label "Sor&amp;un kaynağının eklenti uyumsuzluğu olup olmadığının belirlenmesi için etkin eklentilerin listesini bildirime ekle">
 <!ENTITY issues.nosubscriptions.add.label "Süzgeç aboneliği ekle">
-<!ENTITY issues.disabledfilters.enable.label "Süzgeci etkinleştir">
-<!ENTITY issues.override.label "Yapılandırma doğru, bildirime devam et">
+<!ENTITY issues.disabledfilters.enable.label "Süzgeci devreye sok">
+<!ENTITY issues.override.label "Yapılan&amp;dırma doğru, bildirime devam et">
 <!ENTITY issues.nosubscriptions.description "Sitelerdeki istenmeyen içeriği yok eden önceden hazırlanmış süzgeç listelerinden herhangi birine abone olmuş değilsiniz.">
 <!ENTITY typeSelector.falsePositive.description "Sayfanın önemli içeriği hiç görünmüyorsa, yanlış görünüyorsa veya sayfa düzgün işlemiyorsa bu seçeneği seçin. Sorun kaynağının Adblock Plus olup olmadığını eklentiyi geçici olarak devre dışı bırakıp belirleyebilirsiniz.">
 <!ENTITY typeSelector.other.label "&amp;Başka bir sorun">
@@ -59,7 +59,7 @@
 <!ENTITY dataCollector.heading "Sorun bildiriciye hoş geldiniz">
 <!ENTITY screenshot.heading "Ekran görüntüsü ekle">
 <!ENTITY sendPage.heading "Bildirimi gönder">
-<!ENTITY issues.subscriptionCount.description "Çok fazla süzgeç listesine abone olduğunuz görülüyor. Böyle yapmanız tavsiye edilmez çünkü bu, sorun çıkma olasılığını daha da arttırır. Ayrıca hangi süzgeç aboneliği yazarının hatayı düzeltmesi gerektiği belirsiz olduğundan hata bildiriminizi kabul edemeyiz. Sadece gerçekten gerekli olan süzgeç abonelikleri dışında kalanlardan çıkın ve sorunun hâlâ yaşanıp yaşanmadığına tekrar bakın.">
+<!ENTITY issues.subscriptionCount.description "Çok fazla süzgeç listesine abone olduğunuz görülüyor. Böyle yapmanız tavsiye edilmez çünkü bu, sorun çıkma olasılığını daha da arttırır. Ayrıca hangi süzgeç aboneliği yazarının hatayı düzeltmesi gerektiği belirsiz olduğundan hata bildiriminizi kabul edemeyiz. Sadece gerçekten gerekli olan süzgeç abonelikleri dışında kalanlardan çıkın ve sorunun hâlâ yaşanıp yaşanmadığına bakın.">
 <!ENTITY screenshot.mark.label "Sorunu iş&amp;aretle">
 <!ENTITY privacyPolicy.label "Gizlilik politikası">
 <!ENTITY issues.description "Adblock Plus yapılandırmanızda bu sorunun nedeni olabilecek veya bildirimi incelemeyi güçleştirecek sorunlar keşfetti.">

@@ -1,24 +1,24 @@
-<!ENTITY anchor.end.label "पत्ता ओवरनंतर">
-<!ENTITY domainRestriction.label "डोमेन वर प्रतिबंधित करा:">
+<!ENTITY anchor.end.label "&amp;nपत्ता ओवरनंतर">
+<!ENTITY domainRestriction.label "&amp;dडोमेन वर प्रतिबंधित करा:">
 <!ENTITY collapse.default.no.label "डीफॉल्ट वापरा (नाही)">
-<!ENTITY firstParty.label "प्रथम पक्ष केवळ">
-<!ENTITY preferences.label "अस्तित्वातील फिल्टर दर्शवा ...">
+<!ENTITY firstParty.label "&amp;rप्रथम पक्ष केवळ">
+<!ENTITY preferences.label "&amp;Show विद्यमान फिल्टर...">
 <!ENTITY pattern.label "नमुना पहा">
-<!ENTITY thirdParty.label "&amp; तृतीय पक्षीय केवळ">
-<!ENTITY filter.label "नवीन &amp;फिल्टर:">
-<!ENTITY collapse.label "संकुचित अवरोधित:">
+<!ENTITY thirdParty.label "&amp;tतृतीय पक्षीय केवळ">
+<!ENTITY filter.label "&amp;fनवीन फिल्टर:">
+<!ENTITY collapse.label "&amp;lसंकुचित अवरोधित:">
 <!ENTITY match.warning "आपण यापुढे प्रविष्ट नमुना श्वेतसूचीबद्ध / अवरोधित करणे पत्त्याशी जुळत आहे आणि त्यावर कुठलाही प्रभाव पडणार नाही.">
-<!ENTITY anchor.start.label "पत्ता सुरूवातीस">
-<!ENTITY matchCase.label "&amp; मॅच केस">
-<!ENTITY custom.pattern.label "सानुकूल:">
+<!ENTITY anchor.start.label "&amp;gपत्ता सुरूवातीस">
+<!ENTITY matchCase.label "&amp;mमॅच केस">
+<!ENTITY custom.pattern.label "&amp;cसानुकूल:">
 <!ENTITY unselectAllTypes.label "काहीही निवडा">
-<!ENTITY type.whitelist.label "अपवाद नियम">
-<!ENTITY regexp.warning "आपण प्रविष्ट नमुना कार्यक्षमतेने Adblock प्लस द्वारे प्रक्रिया करणे शक्य नाही आणि आपला ब्राउझिंग अनुभव खाली धीमा शकते जे नियमित अभिव्यक्ती म्हणून स्पष्टीकरण दिले जाईल. आपण नियमित अभिव्यक्ती वापर करण्याचा आपला हेतू नसेल तर, नमुना शेवटी फुली (*) जोडा.">
-<!ENTITY dialog.title "Adblock प्लस गाळणी नियम जोडा">
-<!ENTITY basic.label "मूळ दृश्य">
-<!ENTITY type.filter.label "&amp; फिल्टर अवरोधित">
+<!ENTITY type.whitelist.label "अपवाद&amp;x नियम">
+<!ENTITY regexp.warning "आपण प्रविष्ट नमुना कार्यक्षमतेने एडब्लॉक प्लस प्रक्रिया केली जाऊ शकत नाही आणि आपला ब्राउझिंग अनुभव खाली धीमा शकते जे नियमित अभिव्यक्ती म्हणून स्पष्टीकरण दिले जाईल. आपण नियमित अभिव्यक्ती वापरण्याची इच्छा नसेल तर, नमुना शेवटी एक तारा (*) जोडा.">
+<!ENTITY dialog.title "एडब्लॉक प्लस फिल्टर नियम जोडा">
+<!ENTITY basic.label "मूलभूत दृश्य">
+<!ENTITY type.filter.label "&amp;Bफिल्टर अवरोधित करते">
 <!ENTITY types.label "प्रकारच्या लागू:">
-<!ENTITY shortpattern.warning "आपण प्रविष्ट नमुना अनुकूलित करण्यासाठी फारच लहान आहे आणि आपला ब्राउझिंग अनुभव खाली धीमा शकते. आपण Adblock प्लस अधिक कार्यक्षमतेने फिल्टर प्रक्रिया करण्याची परवानगी या फिल्टर करीता यापुढे स्ट्रिंग निवडा शिफारसीय आहे.">
+<!ENTITY shortpattern.warning "आपण प्रविष्ट नमुना अनुकूल खूप कमी आहे आणि आपला ब्राउझिंग अनुभव खाली धीमा शकते. आपण एडब्लॉक प्लस अधिक कार्यक्षमतेने फिल्टर प्रक्रिया करण्याची परवानगी या फिल्टर साठी दीर्घ स्ट्रिंग निवडा शिफारसीय आहे की.">
 <!ENTITY collapse.yes.label "होय">
 <!ENTITY anchors.label "नमुना केवळ स्वीकारा:">
 <!ENTITY collapse.default.yes.label "डीफॉल्ट वापरा (होय)">
@@ -26,8 +26,8 @@
 <!ENTITY accept.label "फिल्टर जोडा">
 <!ENTITY options.label "पर्याय">
 <!ENTITY disabled.warning "Adblock प्लस सध्या अक्षम आहे. आपण अद्याप फिल्टर जोडू शकता परंतु आपण [link]Adblock प्लस[/link] सक्षम करेपर्यंत ती लागू होणार नाही.">
-<!ENTITY anchor.start.flexible.label "डोमेन नाव सुरूवातीस">
+<!ENTITY anchor.start.flexible.label "&amp;gडोमेन नाव सुरूवातीस">
 <!ENTITY collapse.no.label "नाही">
 <!ENTITY selectAllTypes.label "सर्व निवडा">
 <!ENTITY advanced.label "प्रगत दृश्य">
-<!ENTITY pattern.explanation "नमुना पत्ता कोणताही भाग असू शकते; वाइल्डकार्ड म्हणून अस्टेरिस्क (*) अधिनियम. फिल्टर केवळ प्रदान नमुना जुळणारे पत्ते लागू केली जाईल.">
+<!ENTITY pattern.explanation "नमुना पत्ता काही भाग असू शकते; चौफुली (*) हे वाइल्डकार्ड म्हणून कार्य करते. फिल्टर केवळ प्रदान शैलीशी जुळणाऱ्या पत्ते लागू करण्यात येणार आहे.">

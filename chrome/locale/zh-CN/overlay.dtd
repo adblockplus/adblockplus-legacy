@@ -17,7 +17,7 @@
 <!ENTITY shownotifications.label "显示有益提示(&amp;N)">
 <!ENTITY contribute.label "助力 Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
-<!ENTITY context.frame.label "过滤帧(Adblock Plus)">
+<!ENTITY context.frame.label "过滤框架(Adblock Plus)">
 <!ENTITY blocked.tooltip "该页上已过滤的项目:">
 <!ENTITY notification.closing.button.optout "不再显示通知(&amp;S)">
 <!ENTITY counthits.label "统计过滤规则生效次数 (&amp;h)">

@@ -1,10 +1,33 @@
-<!ENTITY accept.label "පෙරුමක් එකතු කරන්න">
-<!ENTITY type.filter.label "&amp;වලකාලීමේ පෙරුම්">
-<!ENTITY disabled.warning "Adblock Plus ක්‍රියා විරහිත කර ඇත. ඔබ විසින් එකතු කරන පෙරුම් සියල්ලක්ම Adblock Plus [link]නැවත සක්‍රීය[/link] කරන තුරු සක්‍රීව නොවේ.">
-<!ENTITY preferences.label "&amp;දැනටමත් ඇති පෙරුම් පෙන්වන්න...">
-<!ENTITY advanced.label "ඉහළ දැක්ම">
+<!ENTITY anchor.end.label "යොමුවේ අවසානයේ(&amp;n)">
+<!ENTITY domainRestriction.label "වසමට සීමා කරන්න:">
+<!ENTITY collapse.default.no.label "පුරුද්ද භාවිතා කරන්න (නැත)">
+<!ENTITY firstParty.label "පළමු පාර්ශවය පමණි(&amp;r)">
+<!ENTITY preferences.label "දැනටමත් ඇති පෙරුම් පෙන්වන්න(&amp;S)...">
 <!ENTITY pattern.label "රටා සඳහා පිරික්සන්න">
-<!ENTITY type.whitelist.label "E&amp;හැරදැමීමේ පෙරුම්">
+<!ENTITY thirdParty.label "තුන්වන පාර්ශවය පමණි(&amp;T)">
+<!ENTITY filter.label "නව පෙරුම්(&amp;f):">
+<!ENTITY collapse.label "ඇකිලීම අවහිර කර ඇත(&amp;l):">
+<!ENTITY match.warning "ඔබ ඇතුලත් කල රටාව තවදුරටත් අවහිර / අවසරලත් කිරීමට අවශ්‍ය යොමුවට නොගැලපෙන බැවින් කිසිඳු බලපෑමක් ඒ මත සිදු නොවේ.">
+<!ENTITY anchor.start.label "යොමුවේ මුල(&amp;g)">
+<!ENTITY matchCase.label "විෂය සීහුම් කරන්න(&amp;M)">
+<!ENTITY custom.pattern.label "රීතිය(&amp;C):">
+<!ENTITY unselectAllTypes.label "කිසිවක් වරණය නොකරන්න">
+<!ENTITY type.whitelist.label "හැරදැමීමේ පෙරුම්(E&amp;)">
+<!ENTITY regexp.warning "ඔබ ඇතුලත් කල රටාව Adblock Plus කාර්යක්ෂම ලෙස සැකසිය නොහැකි ඔබගේ උඩමතු බැලීමේ අත්දැකීම 
+මන්දගාමී කළහැකි විදිමත් පදයක් (regex) ලෙස හඳුනාගැනේ. ඔබ විදිමත් පදයක් (regex) භාවිතා කිරීමට අදහස් නොකරයි නම් රටාවේ අවසානයට තරු ලකුණ (*) යොදන්න.">
 <!ENTITY dialog.title "Adblock Plus පෙරුම් නීතියක් එකතු කරන්න">
 <!ENTITY basic.label "මූලික දැක්ම">
-<!ENTITY filter.label "නව &amp;පෙරුම්:">
+<!ENTITY type.filter.label "වලකාලීමේ පෙරුම්(&amp;B)">
+<!ENTITY types.label "වර්ග සඳහා යොදන්න:">
+<!ENTITY shortpattern.warning "ඔබ ඇතුලත් කල රටාව වැඩ යහපත් කිරීමට නොහැකි තරම් කෙටි වන අතර එමගින් ඔබගේ උඩමතු අත්දැකීම මන්දගාමී විය හැක. නිර්දේශයනම් මෙම පෙරහන සඳහා දිගු තන්තුවක් තේරීමෙන් Adblock Plus වලට මෙම පෙරනය කාර්යක්ෂම ලෙස සැකසීමට ඉඩ ලබාදීමයි.">
+<!ENTITY collapse.yes.label "ඔව්">
+<!ENTITY anchors.label "රටාව පමණක් පිළිගන්න:">
+<!ENTITY collapse.default.yes.label "පුරුද්ද භාවිතා කරන්න (ඔව්)">
+<!ENTITY accept.label "පෙරුමක් එකතු කරන්න">
+<!ENTITY options.label "මනාප">
+<!ENTITY disabled.warning "Adblock Plus ක්‍රියා විරහිත කර ඇත. ඔබ විසින් එකතු කරන පෙරුම් සියල්ලක්ම Adblock Plus [link]නැවත සක්‍රීය[/link] කරන තුරු සක්‍රීව නොවේ.">
+<!ENTITY anchor.start.flexible.label "වසම් නාමයේ මුල(&amp;g)">
+<!ENTITY collapse.no.label "නැත">
+<!ENTITY selectAllTypes.label "සියල්ල වරණය කරන්න">
+<!ENTITY advanced.label "ඉහළ දැක්ම">
+<!ENTITY pattern.explanation "රටාව යොමුවේ ඕනෑම කොටසක් විය හැක; තරු ලකුණ (*) අව්‍යවස්ථිත කාඩ්පතක් ලෙස හැසිරේ. පෙරහන යෙදෙනුයේ, රටාව ට ගැලපෙන යොමු සඳහා පමණකි.">

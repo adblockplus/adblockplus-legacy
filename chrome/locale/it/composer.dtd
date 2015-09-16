@@ -1,10 +1,10 @@
-<!ENTITY anchor.end.label "alla fine dell'indirizzo">
+<!ENTITY anchor.end.label "alla fi&amp;ne dell'indirizzo">
 <!ENTITY domainRestriction.label "Limita al &amp;dominio:">
 <!ENTITY collapse.default.no.label "Utilizza predefiniti (no)">
 <!ENTITY firstParty.label "Solo dominii di p&amp;rimo livello">
 <!ENTITY preferences.label "&amp;Mostra i filtri esistenti…">
 <!ENTITY pattern.label "Modelli">
-<!ENTITY thirdParty.label "Solo terze parti">
+<!ENTITY thirdParty.label "Solo &amp;terze parti">
 <!ENTITY filter.label "&amp;Nuovo filtro:">
 <!ENTITY collapse.label "&amp;Contrai bloccati:">
 <!ENTITY match.warning "Il modello inserito non corrisponde più all'indirizzo web da bloccare/permettere e non avrà quindi alcun effetto">

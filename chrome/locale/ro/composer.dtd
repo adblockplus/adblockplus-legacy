@@ -5,7 +5,7 @@
 <!ENTITY preferences.label "&amp;Arată filtrele existente...">
 <!ENTITY pattern.label "Model de căutare pentru potrivire adrese">
 <!ENTITY thirdParty.label "La &amp;pagini partener (3rd party)">
-<!ENTITY filter.label "Fil&amp;tru nou:">
+<!ENTITY filter.label "&amp;Filtru nou:">
 <!ENTITY collapse.label "Eliberează &amp;spaţiul blocat:">
 <!ENTITY match.warning "Modelul introdus nu mai corespunde adresei care trebuie blocată/deblocată şi de aceea nu va avea nici un efect asupra paginii curente.">
 <!ENTITY anchor.start.label "la î&amp;nceputul adresei">

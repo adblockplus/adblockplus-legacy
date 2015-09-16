@@ -14,12 +14,12 @@
 <!ENTITY notification.button.yes "&amp;Áno">
 <!ENTITY opensidebar.label "Otvoriť &amp;blokovateľné položky">
 <!ENTITY notification.button.close "&amp;Zatvoriť">
-<!ENTITY shownotifications.label "Zobraziť užitočné a oznámenia">
+<!ENTITY shownotifications.label "Zobraziť užitočné položky a oznámenia">
 <!ENTITY contribute.label "Prispieť na Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Blokovať rámec">
 <!ENTITY blocked.tooltip "Blokovaných položiek na tejto stránke:">
-<!ENTITY notification.closing.button.optout "&amp;Prestať zobrazovať upozornenia">
+<!ENTITY notification.closing.button.optout "&amp;Zrušiť zobrazovanie upozornení">
 <!ENTITY counthits.label "P&amp;očítadlo">
 <!ENTITY showinstatusbar.label "Zobraziť v &amp;stavovom riadku">
 <!ENTITY sidebar.title "Blokovateľné položky na aktuálnej stránke">

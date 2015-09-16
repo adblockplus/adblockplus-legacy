@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "&amp;Ոչ">
 <!ENTITY sync.label "&amp;Սինքրոնացնել Adblock Plus-ի նախընտրանքները">
 <!ENTITY whitelist.site.label "Անջատել ?1?-ում">
+<!ENTITY notification.closing.button.hide "փակել այս ծանուցում">
 <!ENTITY filters.label "Ֆիլտրերի կարգավորում (&amp;F)">
 <!ENTITY disable.label "Անջատել ամենուր">
 <!ENTITY objecttab.title "Ֆիլտրել">
@@ -13,10 +14,13 @@
 <!ENTITY notification.button.yes "&amp;Այո">
 <!ENTITY opensidebar.label "Բացել ֆիլ&amp;տրվող տարրերը">
 <!ENTITY notification.button.close "&amp;Փակել">
+<!ENTITY shownotifications.label "
+Դիտել օգտակար ծանուցումները">
 <!ENTITY contribute.label "Աջակցել Adblock Plus-ին">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock` Ֆիլտրել Ֆրեյմը">
 <!ENTITY blocked.tooltip "Այս էջի ֆիլտրված տարրերը`">
+<!ENTITY notification.closing.button.optout "&amp;Չցուցադրել տեղեկացումներ">
 <!ENTITY counthits.label "Հաշվել ֆիլտրի ստատիստիկան (&amp;h)">
 <!ENTITY showinstatusbar.label "Ցույց տալ &amp;վիճակի տողում">
 <!ENTITY sidebar.title "Այս էջի ֆիլտրվող տարրերը">

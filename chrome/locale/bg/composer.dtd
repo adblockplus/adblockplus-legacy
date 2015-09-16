@@ -18,7 +18,7 @@
 <!ENTITY basic.label "Основен изглед">
 <!ENTITY type.filter.label "&amp;Блокиращ филтър">
 <!ENTITY types.label "Прилагай:">
-<!ENTITY shortpattern.warning "Въведеният модел е твърде къс за оптимизиране и вероятно ще бави работата с браузъра. Препоръчва се да посочите по-дълъг низ за филтъра, за да позволите на Adblock Plus да го обработва по-ефективно.">
+<!ENTITY shortpattern.warning "Въведеният модел е твърде къс за оптимизиране и вероятно ще бави работата с браузъра. Препоръчва се да посочите по-дълъг низ за филтъра за по ефективното му ползване от Adblock Plus.">
 <!ENTITY collapse.yes.label "Да">
 <!ENTITY anchors.label "Приемай модела:">
 <!ENTITY collapse.default.yes.label "Ползвай по подразбиране (да)">

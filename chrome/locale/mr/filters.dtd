@@ -1,15 +1,19 @@
-<!ENTITY slow.column "स्लो फिल्टर">
-<!ENTITY enabled.column "सक्षम">
+<!ENTITY restore.custom.warning "आपले सर्व इच्छिक फिल्टर निवडलेले फाइल सामुग्री द्वारे बदलविले जाईल. तुम्हाला नक्की पुढे जायचे का?">
+<!ENTITY slow.column "स्लो(&amp;w) फिल्टर">
+<!ENTITY enabled.column "सक्षम(&amp;n)">
 <!ENTITY subscription.lastDownload.checksumMismatch "अयशस्वी, चेकसम जुळत नाही">
 <!ENTITY noFiltersInGroup.text "नीवडलेल्या ग्रूप रिक्त आहे.">
 <!ENTITY subscription.actions.label "क्रिया">
 <!ENTITY filter.selectAll.label "सर्व निवडा">
 <!ENTITY backupButton.label "बॅकअप आणि पुनर्संचयित">
+<!ENTITY restore.minVersion.warning "चेतावणी: फाइल एक नवीन एडब्लॉक प्लस आवृत्ती तयार केले गेले आहे. आपण या फाइल पासून पुन्हा आधी नवीनतम एडब्लॉक प्लस आवृत्तीवर अद्ययावतीत केले पाहिजे.">
+<!ENTITY restore.error "फाइल डेटा कदाचित हे एक एडब्लॉक प्लस बॅकअप फाइल नाही? प्रक्रिया होऊ शकली नाही.">
 <!ENTITY sort.ascending.label "चढता क्रम">
-<!ENTITY sort.label "या क्रमानुसार लावा">
+<!ENTITY sort.label "या क्रमानुसार लावा(&amp;s)">
 <!ENTITY subscription.source.label "फिल्टर यादी">
-<!ENTITY hitcount.column "हिट">
+<!ENTITY hitcount.column "हिट्स(&amp;h)">
 <!ENTITY noFilters.text "आपण अद्याप कोणतीही इच्छिक फिल्टर जोडलेले नाही.">
+<!ENTITY backup.custom.title "सानुकूल फिल्टर केवळ">
 <!ENTITY subscription.external.label "दुसऱ्या extension ने अपडेट केले">
 <!ENTITY subscription.delete.label "कडून टाका">
 <!ENTITY noGroupSelected.text "फिल्टर दाखवण्या पूर्वी फिल्टर ग्रोउप निवडा.">
@@ -25,40 +29,46 @@
 <!ENTITY subscription.lastDownload.unknown "N / A">
 <!ENTITY addSubscriptionCancel.label "रद्द करा">
 <!ENTITY subscription.enabled.label "चालू आहे">
-<!ENTITY noSubscriptions.text "आपण अद्याप कोणत्याही फिल्टर सदस्यता जोडलेल्या नाहीत. एडब्लॉक काही ब्लोक करणार नाही कृपया &quot;Adblock प्लस फिल्टर सदस्यता जोडा&quot;वापरा.">
+<!ENTITY noSubscriptions.text "आपण अद्याप कोणत्याही फिल्टर सदस्यता जोडलेल्या नाहीत. एडब्लॉक प्लस बाधा येणार नाही
+   फिल्टर काहीही, ते &quot;फिल्टर सदस्यता जोडा&quot; वापरा
+   काही जोडा.">
 <!ENTITY subscription.update.label "फिल्टरस अपडेट करा">
 <!ENTITY dialog.title "एडब्लॉक प्लस फिल्टर प्राधान्ये">
-<!ENTITY addFilter.label "फिल्टर जोडा">
+<!ENTITY addFilter.label "फिल्टर जोडा(&amp;d)">
 <!ENTITY subscription.minVersion.warning "या फिल्टर सदस्यतासाठी नवीन एडब्लॉक प्लस आवृत्ती पाहिजे. कृपया एडब्लॉक प्लस अपडेट करा.">
 <!ENTITY subscription.lastDownload.invalidURL "अयशस्वी, वैध पत्ता नाही">
+<!ENTITY backup.error "फाइल फिल्टर लिहिण्यासाठी एक त्रुटी आली. फाइल सुरक्षित लेखन नाही आहे याची खात्री किंवा अन्य अनुप्रयोगाची वापरात करा.">
 <!ENTITY filter.moveUp.label "वर हलवा">
-<!ENTITY addGroup.label "फिल्टर गट जोडा">
+<!ENTITY addGroup.label "फिल्टर गट(&amp;g) जोडा">
 <!ENTITY filter.edit.label "संपादित करा">
 <!ENTITY subscription.showHideFilters.label "फिल्टर दर्शवा / लपवा">
-<!ENTITY acceptableAds2.label "काही गैर-अनाहुत जाहिराताना  परवानगी द्या">
+<!ENTITY acceptableAds2.label "काही गैर-अनाहुत(&amp;i) जाहिराताना  परवानगी द्या">
 <!ENTITY addSubscriptionOther.label "दुसरा सदस्यता जोडा">
-<!ENTITY sort.none.label "विनाक्रम">
+<!ENTITY close.label "बंद करा">
+<!ENTITY sort.none.label "विनाक्रम(&amp;u)">
 <!ENTITY filter.actions.label "फिल्टर क्रिया">
 <!ENTITY filter.copy.label "कॉपी">
 <!ENTITY filter.moveDown.label "खाली हलवा">
 <!ENTITY filter.resetHitCounts.label "आकडेवारी रीसेट करा">
 <!ENTITY readMore.label "अधिक वाचा">
 <!ENTITY subscription.moveUp.label "वर हलवा">
-<!ENTITY addSubscription.label "नवीन सदस्यता आणि फिल्टर जोडा">
+<!ENTITY addSubscription.label "नवीन सदस्यता आणि फिल्टर(&amp;f) जोडा">
 <!ENTITY subscription.homepage.label "मुख्यपृष्ठ">
 <!ENTITY backup.complete.title "सर्व फिल्टर आणि सदस्यता">
 <!ENTITY restore.own.label "स्वत: च्या बॅकअप पुनर्संचयित करा">
+<!ENTITY restore.complete.warning "आपले सर्व फिल्टर प्राधान्ये निवडलेले फाइल सामुग्री द्वारे बदलविले जाईल. तुम्हाला नक्की पुढे जायचे का?">
 <!ENTITY filters.tab.label "तुमचे फिल्टर">
 <!ENTITY backup.label "नवीन बॅकअप तयार करा">
+<!ENTITY find.label "शोधा(&amp;n)">
 <!ENTITY subscription.moveDown.label "खाली हलवा">
 <!ENTITY subscription.lastDownload.connectionError "अयशस्वी, डाउनलोड अयशस्वी">
 <!ENTITY subscription.lastDownload.success "यशस्वी">
 <!ENTITY subscription.lastDownload.invalidData "अयशस्वी, वैध फिल्टर यादी नाही">
 <!ENTITY filter.paste.label "पेस्ट">
 <!ENTITY subscription.disabledFilters.enable "अक्षम फिल्टर सक्षम करा">
-<!ENTITY lasthit.column "गेल्या हिट्स">
+<!ENTITY lasthit.column "गेल्या(&amp;l) हिट्स">
 <!ENTITY subscription.editTitle.label "शीर्षक संपादित करा">
-<!ENTITY subscription.disabledFilters.warning "या सदस्यता काही फिल्टर बंद केले आहे.">
-<!ENTITY filter.column "फिल्टर नियम">
+<!ENTITY subscription.disabledFilters.warning "या सदस्यता काही फिल्टर अक्षम केले आहेत.">
+<!ENTITY filter.column "फिल्टर(&amp;f) नियम">
 <!ENTITY subscription.lastDownload.label "शेवटचे डाउनलोड:">
 <!ENTITY viewList.label "सूची पहा">

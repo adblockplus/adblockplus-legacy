@@ -3,10 +3,10 @@
 <!ENTITY list.download.retry "Опитай отново">
 <!ENTITY title.label "&amp;Заглавие на абонамента:">
 <!ENTITY list.download.website "Покажи сайта">
-<!ENTITY supplementMessage "Абонирането за филтъра изисква абонамент за „?1?“, който още не ползвате.">
+<!ENTITY supplementMessage "Абонаментът изисква за „?1?“, който още не използвате.">
 <!ENTITY viewList.label "Покажи филтрите">
 <!ENTITY visitHomepage.label "Посети началната страница">
 <!ENTITY addSubscription.label "Добави абонамента">
 <!ENTITY dialog.title "Абониране за филтър в Adblock Plus">
 <!ENTITY location.label "&amp;Местоположение на филтъра:">
-<!ENTITY fromWeb.description "Моля, потвърдете абонирането за филтъра. Можете да промените заглавието или местоположението на абонамента, преди да го добавите.">
+<!ENTITY fromWeb.description "Моля, потвърдете абонамента за филтъра. Можете да промените заглавието или местоположението му, преди да го добавите.">

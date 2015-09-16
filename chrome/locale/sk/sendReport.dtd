@@ -26,7 +26,7 @@
 <!ENTITY recentReports.label "Vaše nedávno potvrdené správy">
 <!ENTITY typeWarning.description "Naznačili ste, že chcete ohlásiť všeobecný problém s Adblock Plus radšej ako problém s filtrami. Všimnite si, že tieto otázky sa lepšie riešia na [link]fórume Adblock Plus[/link]. Mali by ste použiť reportér problémov pre doplnenie  existujúcej diskusie, inak si nikto nevšimne vašu správu skôr, než ju poskytnete na danom odkaze. Automaticky vygenerovaný odkaz bude poskytnutý po potvrdení správy.">
 <!ENTITY issues.disabled.description "Adblock Plus je vypnutý, v danom stave nebude nič blokovať.">
-<!ENTITY attachExtensions.label "Priložiť &amp;zoznam aktívnych rozšírení k tejto správe pre prípad, že rozšírenie spôsobuje tento problém">
+<!ENTITY attachExtensions.label "Priložiť zoznam aktívnych &amp;rozšírení k tejto správe pre prípad, že rozšírenie spôsobuje tento problém">
 <!ENTITY issues.nosubscriptions.add.label "Pridať odber filtra">
 <!ENTITY issues.disabledfilters.enable.label "Zapnúť filter">
 <!ENTITY issues.override.label "Nasta&amp;venie je správne, pokračovať so správou">

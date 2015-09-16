@@ -16,7 +16,7 @@
 <!ENTITY regexp.warning "Pola yang Anda masukkan akan dianggap sebagai suatu regular expression yang tidak dapat diproses secara efisien oleh Adblock Plus dan mungkin akan memperlambat peramban Anda. Jika Anda tidak berniat untuk menggunakan regular expression, tambahkan tanda bintang (*) di akhir pola.">
 <!ENTITY dialog.title "Tambah aturan penyaring Adblock Plus">
 <!ENTITY basic.label "Tampilan dasar">
-<!ENTITY type.filter.label "&amp;Penyaring pencekalan">
+<!ENTITY type.filter.label "&amp;Saring pemblokiran">
 <!ENTITY types.label "Terapkan untuk jenis:">
 <!ENTITY shortpattern.warning "Pola yang Anda masukkan terlalu pendek untuk dapat dioptimalkan dan mungkin akan memperlambat peramban Anda. Kami menyarankan agar Anda memilih kata yang lebih panjang untuk penyaring ini sehingga memungkinkan Adblock Plus memproses penyaring tersebut dengan lebih efisien.">
 <!ENTITY collapse.yes.label "Ya">

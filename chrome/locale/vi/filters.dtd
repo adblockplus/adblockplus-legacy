@@ -55,7 +55,7 @@
 <!ENTITY backup.complete.title "Tất cả các bộ lọc và mục đăng ký">
 <!ENTITY restore.own.label "Khôi phục riêng">
 <!ENTITY restore.complete.warning "Tất cả tùy chỉnh bộ lọc của bạn sẽ được thay thế bởi nội dung của tập tin được chọn. Bạn có muốn thực hiện?">
-<!ENTITY filters.tab.label "Bộ lọc tùy biến">
+<!ENTITY filters.tab.label "Bộ lọc cá nhân">
 <!ENTITY backup.label "Tạo sao lưu mới">
 <!ENTITY find.label "&amp;Tìm">
 <!ENTITY subscription.moveDown.label "Chuyển xuống dưới">

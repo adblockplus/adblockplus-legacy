@@ -14,12 +14,12 @@
 <!ENTITY notification.button.yes "Sì">
 <!ENTITY opensidebar.label "Apri l'elenco degli elementi &amp;bloccabili">
 <!ENTITY notification.button.close "Chiudi">
-<!ENTITY shownotifications.label "Mostra &amp;notifiche utili">
+<!ENTITY shownotifications.label "Visualizza notifiche utili">
 <!ENTITY contribute.label "Contribuisci ad Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Blocca riquadro con Adblock Plus">
 <!ENTITY blocked.tooltip "Elementi attualmente bloccati">
-<!ENTITY notification.closing.button.optout "&amp;Interrompere la visualizzazione delle notifiche">
+<!ENTITY notification.closing.button.optout "Interrompi la visualizzazione delle notifiche">
 <!ENTITY counthits.label "&amp;Effettua le statistiche di accesso">
 <!ENTITY showinstatusbar.label "Vi&amp;sualizza nella barra di stato">
 <!ENTITY sidebar.title "Elenco degli elementi bloccabili con Adblock Plus">

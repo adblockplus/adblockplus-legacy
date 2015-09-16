@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "&amp;نه">
 <!ENTITY sync.label "همگام سازی تن&amp;ظیمات Adblock Plus">
 <!ENTITY whitelist.site.label "غیرفعال در ?1?">
+<!ENTITY notification.closing.button.hide "بستن این اعلان">
 <!ENTITY filters.label "&amp; تنظیمات فیلتر">
 <!ENTITY disable.label "غیر فعال کردن در همه جا">
 <!ENTITY objecttab.title "مسدود کردن">
@@ -13,10 +14,12 @@
 <!ENTITY notification.button.yes "ب&amp;له">
 <!ENTITY opensidebar.label "باز کردن موارد &amp;قابل مسدود سازی">
 <!ENTITY notification.button.close "&amp;بستن">
+<!ENTITY shownotifications.label "نمایش اعلان های مفید">
 <!ENTITY contribute.label "کمک کردن به Adblock Plus">
 <!ENTITY toolbarbutton.label "فوق تبلیغ شکن یا Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus:سد قابک">
 <!ENTITY blocked.tooltip "موارد رد شده در این صفحه:">
+<!ENTITY notification.closing.button.optout "عدم نمایش اعلان ها">
 <!ENTITY counthits.label "شمارش &amp;تعداد فیلتر شده ها">
 <!ENTITY showinstatusbar.label "نمایش در ن&amp;وار وضعیت">
 <!ENTITY sidebar.title "موارد قابل مسدود شدن در صفحه جاری">
