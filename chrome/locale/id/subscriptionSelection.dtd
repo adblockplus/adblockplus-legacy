@@ -4,7 +4,7 @@
 <!ENTITY title.label "&amp;Judul langganan:">
 <!ENTITY list.download.website "Tampilkan situs web">
 <!ENTITY supplementMessage "Penyaring langganan ini dimaksudkan untuk digunakan bersamaan dengan penyaring langganan &quot;?1?&quot; yang tidak Anda gunakan saat ini.">
-<!ENTITY viewList.label "Tampilkan penyaringbrothers">
+<!ENTITY viewList.label "Tampilkan penyaring">
 <!ENTITY visitHomepage.label "Kunjungi beranda">
 <!ENTITY addSubscription.label "Tambah langganan">
 <!ENTITY dialog.title "Tambah penyaring langganan Adblock Plus">
