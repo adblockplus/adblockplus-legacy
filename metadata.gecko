@@ -47,6 +47,7 @@ chrome/content/ui/skin/background.png = adblockplusui/skin/background.png
 chrome/content/ui/skin/background-main.png = adblockplusui/skin/background-main.png
 chrome/content/ui/skin/background-share.png = adblockplusui/skin/background-share.png
 chrome/content/ui/skin/donate.png = adblockplusui/skin/donate.png
+chrome/content/ui/skin/abb-logo.png = adblockplusui/skin/abb-logo.png
 chrome/content/ui/skin/features/malware.png = adblockplusui/skin/features/malware.png
 chrome/content/ui/skin/features/social.png = adblockplusui/skin/features/social.png
 chrome/content/ui/skin/features/tracking.png = adblockplusui/skin/features/tracking.png
