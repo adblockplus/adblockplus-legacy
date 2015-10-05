@@ -206,6 +206,12 @@ FilterSearch.fakeBrowser =
         this._resultListeners.splice(index, 1);
     },
 
+    getInitialSelection: function()
+    {
+      for (let listener of this._resultListeners)
+        listener.onCurrentSelection(null, true);
+    },
+
     // Irrelevant for us
     requestMatchesCount: function(searchString, matchLimit, linksOnly) {},
     highlight: function(highlight, word) {},
