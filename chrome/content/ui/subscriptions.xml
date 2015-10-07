@@ -70,7 +70,7 @@
   <subscription title="EasyList Hebrew+EasyList"
                 specialization="עברית"
                 url="https://easylist-downloads.adblockplus.org/israellist+easylist.txt"
-                homepage="https://github.com/AdBlockPlusIsrael/EasyListHebrew"
+                homepage="https://github.com/ABPIsrael/EasyListHebrew"
                 prefixes="he"
                 author="BsT"
                 type="ads"/>
