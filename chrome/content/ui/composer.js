@@ -119,18 +119,9 @@ function init()
     E("patternGroup").focus();
 
   let types = [];
-  for (let type in Policy.localizedDescr)
-  {
-    types.push(parseInt(type));
-  }
-  types.sort(function(a, b) {
-    if (a < b)
-      return -1;
-    else if (a > b)
-      return 1;
-    else
-      return 0;
-  });
+  for (let type of Policy.localizedDescr.keys())
+    types.push(type);
+  types.sort();
 
   let docDomain = item.docDomain;
   let thirdParty = item.thirdParty;
@@ -148,14 +139,14 @@ function init()
   let isDefaultType = (RegExpFilter.typeMap[item.typeDescr] & defaultTypes) != 0;
   for (let type of types)
   {
-    if (type == Policy.type.ELEMHIDE)
+    if (type == "ELEMHIDE")
       continue;
 
     let typeNode = document.createElement("checkbox");
-    typeNode.setAttribute("value", Policy.typeDescr[type].toLowerCase().replace(/\_/g, "-"));
-    typeNode.setAttribute("label", Policy.localizedDescr[type].toLowerCase());
+    typeNode.setAttribute("value", type.toLowerCase().replace(/\_/g, "-"));
+    typeNode.setAttribute("label", Policy.localizedDescr.get(type).toLowerCase());
 
-    let typeMask = RegExpFilter.typeMap[Policy.typeDescr[type]];
+    let typeMask = RegExpFilter.typeMap[type];
     typeNode._defaultType = (typeMask & defaultTypes) != 0;
     if ((isDefaultType && typeNode._defaultType) || (!isDefaultType && item.type == type))
       typeNode.setAttribute("checked", "true");
