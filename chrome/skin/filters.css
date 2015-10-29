@@ -153,10 +153,11 @@ tree
  * Force left-to-right for filter text but not comments
  */
 treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-invalid),
+treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-blocking),
 treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-whitelist),
-treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-filterlist),
 treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-elemhide),
-treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-elemhideexception)
+treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-elemhideexception),
+treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-cssproperty)
 {
   direction: ltr;
   text-align: end;
@@ -173,7 +174,8 @@ treechildren::-moz-tree-cell-text(col-filter, type-elemhideexception, selected-f
   color: #008000;
 }
 
-treechildren::-moz-tree-cell-text(col-filter, type-elemhide, selected-false)
+treechildren::-moz-tree-cell-text(col-filter, type-elemhide, selected-false),
+treechildren::-moz-tree-cell-text(col-filter, type-cssproperty, selected-false)
 {
   color: #000080;
 }
