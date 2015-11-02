@@ -491,9 +491,6 @@ function editFilter()
   if (!("filter" in item) || !item.filter)
     return;
 
-  if (!("location") in item)
-    item.location = undefined
-
   UI.openFiltersDialog(item.filter);
 }
 
