@@ -423,22 +423,6 @@ function fillInContext(/**Event*/ e)
 }
 
 /**
- * Resets context menu data once the context menu is closed.
- */
-function clearContextMenu(/**Event*/ event)
-{
-  if (event.eventPhase != event.AT_TARGET)
-    return;
-
-  {
-    let menuItem = E("contextDisableOnSite");
-    menuItem.item = item;
-    menuItem.filter = filter;
-    menuItem.domain = domain;
-  }
-}
-
-/**
  * Processed mouse clicks on the item list.
  * @param {Event} event
  */
