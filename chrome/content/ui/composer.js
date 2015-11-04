@@ -15,9 +15,9 @@
  * along with Adblock Plus.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-let nodes = null;
-let item = null;
-let advancedMode = false;
+var nodes = null;
+var item = null;
+var advancedMode = false;
 
 function init()
 {
