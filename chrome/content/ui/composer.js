@@ -118,9 +118,7 @@ function init()
   else
     E("patternGroup").focus();
 
-  let types = [];
-  for (let type of Policy.localizedDescr.keys())
-    types.push(type);
+  let types = Array.from(Policy.contentTypes);
   types.sort();
 
   let docDomain = item.docDomain;
@@ -144,7 +142,7 @@ function init()
 
     let typeNode = document.createElement("checkbox");
     typeNode.setAttribute("value", type.toLowerCase().replace(/\_/g, "-"));
-    typeNode.setAttribute("label", Policy.localizedDescr.get(type).toLowerCase());
+    typeNode.setAttribute("label", Utils.getString("type_label_" + type.toLowerCase()));
 
     let typeMask = RegExpFilter.typeMap[type];
     typeNode._defaultType = (typeMask & defaultTypes) != 0;

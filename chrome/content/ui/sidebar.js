@@ -33,6 +33,9 @@ var disabledMatcher = new CombinedMatcher();
 var docDomainThirdParty = null;
 var docDomainFirstParty = null;
 
+// Localized type names
+var localizedTypes = new Map();
+
 function init() {
   docDomainThirdParty = document.documentElement.getAttribute("docDomainThirdParty");
   docDomainFirstParty = document.documentElement.getAttribute("docDomainFirstParty");
@@ -101,6 +104,9 @@ function init() {
   // Install a progress listener to catch location changes
   if (addBrowserLocationListener)
     addBrowserLocationListener(mainWin, handleLocationChange, true);
+
+  for (let type of Policy.contentTypes)
+    localizedTypes.set(type, Utils.getString("type_label_" + type.toLowerCase()));
 }
 
 // To be called for a detached window when the main window has been closed
@@ -258,7 +264,7 @@ function fillInTooltip(e) {
     E("tooltipAddress").parentNode.hidden = (item.typeDescr == "ELEMHIDE");
     setMultilineContent(E("tooltipAddress"), item.location);
 
-    var type = item.localizedDescr;
+    var type = localizedTypes.get(item.type);
     if (filter && filter instanceof WhitelistFilter)
       type += " " + E("tooltipType").getAttribute("whitelisted");
     else if (filter && item.typeDescr != "ELEMHIDE")
@@ -314,7 +320,7 @@ function fillInTooltip(e) {
       else
         cacheStorage = Services.cache.createSession("HTTP", Ci.nsICache.STORE_ANYWHERE, true);
     }
-    
+
     let showTooltipPreview = function ()
     {
       E("tooltipPreview").setAttribute("src", item.location);
@@ -678,9 +684,11 @@ function sortByAddressDesc(item1, item2) {
 }
 
 function compareType(item1, item2) {
-  if (item1.localizedDescr < item2.localizedDescr)
+  let type1 = localizedTypes.get(item1.type);
+  let type2 = localizedTypes.get(item2.type);
+  if (type1 < type2)
     return -1;
-  else if (item1.localizedDescr > item2.localizedDescr)
+  else if (type1 > type2)
     return 1;
   else
     return 0;
@@ -846,7 +854,7 @@ var treeView = {
       if (row >= this.data.length)
         return "";
       if (col == "type")
-        return this.data[row].localizedDescr;
+        return localizedTypes.get(this.data[row].type);
       else if (col == "filter")
         return (this.data[row].filter ? this.data[row].filter.text : "");
       else if (col == "size")
@@ -1161,7 +1169,7 @@ var treeView = {
     return (item.location.toLowerCase().indexOf(this.filter) >= 0 ||
             (item.filter && item.filter.text.toLowerCase().indexOf(this.filter) >= 0) ||
             item.typeDescr.toLowerCase().indexOf(this.filter.replace(/-/g, "_")) >= 0 ||
-            item.localizedDescr.toLowerCase().indexOf(this.filter) >= 0 ||
+            localizedTypes.get(item.type).toLowerCase().indexOf(this.filter) >= 0 ||
             (item.docDomain && item.docDomain.toLowerCase().indexOf(this.filter) >= 0) ||
             (item.docDomain && item.thirdParty && docDomainThirdParty.toLowerCase().indexOf(this.filter) >= 0) ||
             (item.docDomain && !item.thirdParty && docDomainFirstParty.toLowerCase().indexOf(this.filter) >= 0));
