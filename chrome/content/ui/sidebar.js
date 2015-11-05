@@ -261,13 +261,13 @@ function fillInTooltip(e) {
     E("tooltipDummy").setAttribute("value", item.tooltip);
   else
   {
-    E("tooltipAddress").parentNode.hidden = (item.typeDescr == "ELEMHIDE");
+    E("tooltipAddress").parentNode.hidden = (item.type == "ELEMHIDE");
     setMultilineContent(E("tooltipAddress"), item.location);
 
     var type = localizedTypes.get(item.type);
     if (filter && filter instanceof WhitelistFilter)
       type += " " + E("tooltipType").getAttribute("whitelisted");
-    else if (filter && item.typeDescr != "ELEMHIDE")
+    else if (filter && item.type != "ELEMHIDE")
       type += " " + E("tooltipType").getAttribute("filtered");
     E("tooltipType").setAttribute("value", type);
 
@@ -300,7 +300,7 @@ function fillInTooltip(e) {
   }
 
   var showPreview = Prefs.previewimages && !("tooltip" in item);
-  showPreview = showPreview && item.typeDescr == "IMAGE";
+  showPreview = showPreview && item.type == "IMAGE";
   showPreview = showPreview && (!item.filter || item.filter.disabled || item.filter instanceof WhitelistFilter);
   E("tooltipPreviewBox").hidden = true;
   if (showPreview)
@@ -417,12 +417,12 @@ function fillInContext(/**Event*/ e)
     }
   }
 
-  E("contextWhitelist").hidden = ("tooltip" in item || !item.filter || item.filter.disabled || item.filter instanceof WhitelistFilter || item.typeDescr == "ELEMHIDE");
+  E("contextWhitelist").hidden = ("tooltip" in item || !item.filter || item.filter.disabled || item.filter instanceof WhitelistFilter || item.type == "ELEMHIDE");
   E("contextBlock").hidden = !E("contextWhitelist").hidden;
   E("contextBlock").setAttribute("disabled", "filter" in item && item.filter && !item.filter.disabled);
   E("contextEditFilter").setAttribute("disabled", !("filter" in item && item.filter));
-  E("contextOpen").setAttribute("disabled", "tooltip" in item || item.typeDescr == "ELEMHIDE");
-  E("contextFlash").setAttribute("disabled", "tooltip" in item || !(item.typeDescr in visual) || (item.filter && !item.filter.disabled && !(item.filter instanceof WhitelistFilter)));
+  E("contextOpen").setAttribute("disabled", "tooltip" in item || item.type == "ELEMHIDE");
+  E("contextFlash").setAttribute("disabled", "tooltip" in item || !(item.type in visual) || (item.filter && !item.filter.disabled && !(item.filter instanceof WhitelistFilter)));
   E("contextCopyFilter").setAttribute("disabled", !allItems.some(function(item) {return "filter" in item && item.filter}));
 
   return true;
@@ -468,14 +468,14 @@ function openInTab(item, /**Event*/ event)
   let items = (item ? [item] : treeView.getAllSelectedItems());
   for (let item of items)
   {
-    if (item && item.typeDescr != "ELEMHIDE")
+    if (item && item.type != "ELEMHIDE")
       UI.loadInBrowser(item.location, mainWin, event);
   }
 }
 
 function doBlock() {
   var item = treeView.getSelectedItem();
-  if (!item || item.typeDescr == "ELEMHIDE")
+  if (!item || item.type == "ELEMHIDE")
     return;
 
   var filter = null;
@@ -1083,7 +1083,7 @@ var treeView = {
 
     // Show disabled filters if no other filter applies
     if (!item.filter)
-      item.filter = disabledMatcher.matchesAny(item.location, RegExpFilter.typeMap[item.typeDescr], item.docDomain, item.thirdParty);
+      item.filter = disabledMatcher.matchesAny(item.location, RegExpFilter.typeMap[item.type], item.docDomain, item.thirdParty);
 
     if (!this.matchesFilter(item))
       return;
@@ -1138,7 +1138,7 @@ var treeView = {
       if (item.filter instanceof RegExpFilter && item.filter.disabled)
         delete item.filter;
       if (!item.filter)
-        item.filter = disabledMatcher.matchesAny(item.location, RegExpFilter.typeMap[item.typeDescr], item.docDomain, item.thirdParty);
+        item.filter = disabledMatcher.matchesAny(item.location, RegExpFilter.typeMap[item.type], item.docDomain, item.thirdParty);
     }
     this.refilter();
   },
@@ -1168,7 +1168,7 @@ var treeView = {
 
     return (item.location.toLowerCase().indexOf(this.filter) >= 0 ||
             (item.filter && item.filter.text.toLowerCase().indexOf(this.filter) >= 0) ||
-            item.typeDescr.toLowerCase().indexOf(this.filter.replace(/-/g, "_")) >= 0 ||
+            item.type.toLowerCase().indexOf(this.filter.replace(/-/g, "_")) >= 0 ||
             localizedTypes.get(item.type).toLowerCase().indexOf(this.filter) >= 0 ||
             (item.docDomain && item.docDomain.toLowerCase().indexOf(this.filter) >= 0) ||
             (item.docDomain && item.thirdParty && docDomainThirdParty.toLowerCase().indexOf(this.filter) >= 0) ||

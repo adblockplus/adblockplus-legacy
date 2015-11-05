@@ -201,7 +201,7 @@ let requestsDataSource =
   {
     if (entry)
     {
-      let key = entry.location + " " + entry.typeDescr + " " + entry.docDomain;
+      let key = entry.location + " " + entry.type + " " + entry.docDomain;
       let requestXML;
       if (key in this.nodeByKey)
       {
@@ -212,7 +212,7 @@ let requestsDataSource =
       {
         requestXML = this.nodeByKey[key] = appendElement(this.requests, "request", {
           location: censorURL(entry.location),
-          type: entry.typeDescr,
+          type: entry.type,
           docDomain: entry.docDomain,
           thirdParty: entry.thirdParty,
           count: 1
@@ -927,7 +927,7 @@ let issuesDataSource =
         if (request.filter)
           continue;
 
-        let filter = disabledMatcher.matchesAny(request.location, RegExpFilter.typeMap[request.typeDescr], request.docDomain, request.thirdParty);
+        let filter = disabledMatcher.matchesAny(request.location, RegExpFilter.typeMap[request.type], request.docDomain, request.thirdParty);
         if (filter && !(filter.text in seenFilters))
         {
           this.disabledFilters.push(filter);
@@ -952,7 +952,7 @@ let issuesDataSource =
           if (request.filter)
             continue;
 
-          let filter = disabledMatcher.matchesAny(request.location, RegExpFilter.typeMap[request.typeDescr], request.docDomain, request.thirdParty);
+          let filter = disabledMatcher.matchesAny(request.location, RegExpFilter.typeMap[request.type], request.docDomain, request.thirdParty);
           if (filter && !(subscription.url in seenSubscriptions))
           {
             this.disabledSubscriptions.push(subscription);

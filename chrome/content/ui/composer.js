@@ -134,7 +134,7 @@ function init()
 
   let typeGroup = E("typeGroup");
   let defaultTypes = RegExpFilter.prototype.contentType & ~RegExpFilter.typeMap.DOCUMENT;
-  let isDefaultType = (RegExpFilter.typeMap[item.typeDescr] & defaultTypes) != 0;
+  let isDefaultType = (RegExpFilter.typeMap[item.type] & defaultTypes) != 0;
   for (let type of types)
   {
     if (type == "ELEMHIDE")
@@ -251,9 +251,9 @@ function updateFilter()
   else
   {
     let defaultTypes = RegExpFilter.prototype.contentType & ~RegExpFilter.typeMap.DOCUMENT;
-    let isDefaultType = (RegExpFilter.typeMap[item.typeDescr] & defaultTypes) != 0;
+    let isDefaultType = (RegExpFilter.typeMap[item.type] & defaultTypes) != 0;
     if (!isDefaultType)
-      filter += "$" + item.typeDescr.toLowerCase().replace(/\_/g, "-");
+      filter += "$" + item.type.toLowerCase().replace(/\_/g, "-");
   }
 
   filter = Filter.normalize(filter);
@@ -268,7 +268,7 @@ function updateFilter()
   }
   E("shortpatternWarning").hidden = !isSlow;
 
-  E("matchWarning").hidden = compiledFilter instanceof RegExpFilter && compiledFilter.matches(item.location, RegExpFilter.typeMap[item.typeDescr], item.docDomain, item.thirdParty);
+  E("matchWarning").hidden = compiledFilter instanceof RegExpFilter && compiledFilter.matches(item.location, RegExpFilter.typeMap[item.type], item.docDomain, item.thirdParty);
 
   E("filter").value = filter;
 }
@@ -307,7 +307,7 @@ function updatePatternSelection()
 
   function testFilter(/**String*/ filter) /**Boolean*/
   {
-    return RegExpFilter.fromText(filter + "$" + item.typeDescr).matches(item.location, RegExpFilter.typeMap[item.typeDescr], item.docDomain, item.thirdParty);
+    return RegExpFilter.fromText(filter + "$" + item.type).matches(item.location, RegExpFilter.typeMap[item.type], item.docDomain, item.thirdParty);
   }
 
   let anchorStartCheckbox = E("anchorStart");
