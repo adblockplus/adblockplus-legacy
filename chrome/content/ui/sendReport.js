@@ -70,27 +70,27 @@ function serializeReportData()
   return result;
 }
 
-let (element = reportElement("adblock-plus"))
 {
+  let element = reportElement("adblock-plus");
   let {addonVersion} = require("info");
   element.setAttribute("version", addonVersion);
   element.setAttribute("locale", Utils.appLocale);
-};
-let (element = reportElement("application"))
+}
 {
+  let element = reportElement("application");
   element.setAttribute("name", Services.appinfo.name);
   element.setAttribute("vendor", Services.appinfo.vendor);
   element.setAttribute("version", Services.appinfo.version);
   element.setAttribute("userAgent", window.navigator.userAgent);
-};
-let (element = reportElement("platform"))
+}
 {
+  let element = reportElement("platform");
   element.setAttribute("name", "Gecko");
   element.setAttribute("version", Services.appinfo.platformVersion);
   element.setAttribute("build", Services.appinfo.platformBuildID);
 };
-let (element = reportElement("options"))
 {
+  let element = reportElement("options");
   appendElement(element, "option", {id: "enabled"}, Prefs.enabled);
   appendElement(element, "option", {id: "objecttabs"}, Prefs.frameobjects);
   appendElement(element, "option", {id: "collapse"}, !Prefs.fastcollapse);
