@@ -37,7 +37,7 @@ var {Policy} = require("contentPolicy");
 var {Filter, InvalidFilter, CommentFilter, ActiveFilter, RegExpFilter,
      BlockingFilter, WhitelistFilter, ElemHideBase, ElemHideFilter, ElemHideException} = require("filterClasses");
 var {FilterNotifier} = require("filterNotifier");
-var {FilterStorage, PrivateBrowsing} = require("filterStorage");
+var {FilterStorage} = require("filterStorage");
 var {IO} = require("io");
 var {defaultMatcher, Matcher, CombinedMatcher} = require("matcher");
 var {Prefs} = require("prefs");

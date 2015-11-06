@@ -19,8 +19,9 @@
 // Report data template, more data will be added during data collection
 //
 
-Cu.import("resource://gre/modules/Services.jsm");
-Cu.import("resource://gre/modules/FileUtils.jsm");
+let {Services} = Cu.import("resource://gre/modules/Services.jsm", {});
+let {FileUtils} = Cu.import("resource://gre/modules/FileUtils.jsm", {});
+let {PrivateBrowsingUtils} = Cu.import("resource://gre/modules/PrivateBrowsingUtils.jsm", {});
 
 const MILLISECONDS_IN_SECOND = 1000;
 const SECONDS_IN_MINUTE = 60;
@@ -94,7 +95,7 @@ let (element = reportElement("options"))
   appendElement(element, "option", {id: "enabled"}, Prefs.enabled);
   appendElement(element, "option", {id: "objecttabs"}, Prefs.frameobjects);
   appendElement(element, "option", {id: "collapse"}, !Prefs.fastcollapse);
-  appendElement(element, "option", {id: "privateBrowsing"}, PrivateBrowsing.enabledForWindow(contentWindow) || PrivateBrowsing.enabled);
+  appendElement(element, "option", {id: "privateBrowsing"}, PrivateBrowsingUtils.isContentWindowPrivate(contentWindow));
   appendElement(element, "option", {id: "subscriptionsAutoUpdate"}, Prefs.subscriptions_autoupdate);
   appendElement(element, "option", {id: "javascript"}, Services.prefs.getBoolPref("javascript.enabled"));
   appendElement(element, "option", {id: "cookieBehavior"}, Services.prefs.getIntPref("network.cookie.cookieBehavior"));
@@ -193,11 +194,14 @@ let requestsDataSource =
 
   collectData: function(wnd, windowURI, callback)
   {
+    let outerWindowID = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
+                           .getInterface(Ci.nsIDOMWindowUtils)
+                           .outerWindowID;
     this.callback = callback;
-    this.requestNotifier = new RequestNotifier(wnd, this.onRequestFound, this);
+    this.requestNotifier = new RequestNotifier(outerWindowID, this.onRequestFound, this);
   },
 
-  onRequestFound: function(frame, node, entry, scanComplete)
+  onRequestFound: function(entry, scanComplete)
   {
     if (entry)
     {
@@ -217,24 +221,15 @@ let requestsDataSource =
           thirdParty: entry.thirdParty,
           count: 1
         });
-      }
 
-      // Location is meaningless for element hiding hits
-      if (entry.filter && entry.filter instanceof ElemHideBase)
-        requestXML.removeAttribute("location");
+        // Location is meaningless for element hiding hits
+        if (requestXML.getAttribute("location")[0] == "#")
+          requestXML.removeAttribute("location");
+      }
 
       if (entry.filter)
-        requestXML.setAttribute("filter", entry.filter.text);
+        requestXML.setAttribute("filter", entry.filter);
 
-      if (node instanceof Element)
-      {
-        requestXML.setAttribute("node", (node.namespaceURI ? node.namespaceURI + "#" : "") + node.localName);
-
-        try
-        {
-          requestXML.setAttribute("size", node.offsetWidth + "x" + node.offsetHeight);
-        } catch(e) {}
-      }
       this.origRequests.push(entry);
     }
 
@@ -253,23 +248,28 @@ let filtersDataSource =
 
   collectData: function(wnd, windowURI, callback)
   {
-    let wndStats = RequestNotifier.getWindowStatistics(wnd);
-    if (wndStats)
+    let outerWindowID = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
+                           .getInterface(Ci.nsIDOMWindowUtils)
+                           .outerWindowID;
+    RequestNotifier.getWindowStatistics(outerWindowID, (wndStats) =>
     {
-      let filters = reportElement("filters");
-      for (let f in wndStats.filters)
+      if (wndStats)
       {
-        let filter = Filter.fromText(f)
-        let hitCount = wndStats.filters[f];
-        appendElement(filters, "filter", {
-          text: filter.text,
-          subscriptions: filter.subscriptions.filter(subscriptionsDataSource.subscriptionFilter).map(s => s.url).join(" "),
-          hitCount: hitCount
-        });
-        this.origFilters.push(filter);
+        let filters = reportElement("filters");
+        for (let f in wndStats.filters)
+        {
+          let filter = Filter.fromText(f)
+          let hitCount = wndStats.filters[f];
+          appendElement(filters, "filter", {
+            text: filter.text,
+            subscriptions: filter.subscriptions.filter(subscriptionsDataSource.subscriptionFilter).map(s => s.url).join(" "),
+            hitCount: hitCount
+          });
+          this.origFilters.push(filter);
+        }
       }
-    }
-    callback();
+      callback();
+    });
   }
 };
 
@@ -1544,7 +1544,7 @@ function reportSent(event)
       button.setAttribute("url", link);
       button.removeAttribute("disabled");
 
-      if (!PrivateBrowsing.enabledForWindow(contentWindow) && !PrivateBrowsing.enabled)
+      if (!PrivateBrowsingUtils.isContentWindowPrivate(contentWindow))
         reportsListDataSource.addReport(framesDataSource.site, link);
     } catch (e) {}
     E("copyLinkBox").hidden = false;
