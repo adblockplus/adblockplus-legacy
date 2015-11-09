@@ -662,6 +662,12 @@ var FilterView =
 
       this.refresh(true);
     }
+
+    // Stop propagation of keypress events so that these aren't intercepted by
+    // the findbar.
+    this.treeElement.inputField.addEventListener("keypress", event => {
+      event.stopPropagation();
+    }, false);
   },
 
   selection: null,
