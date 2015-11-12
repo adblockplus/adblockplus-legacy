@@ -503,7 +503,13 @@ function doBlock() {
   if (filter && !filter.disabled && filter instanceof WhitelistFilter)
     return;
 
-  openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", item.nodes, item.orig);
+  if (requestNotifier)
+  {
+    requestNotifier.storeNodesForEntries(item.ids, (nodesID) =>
+    {
+      UI.blockItem(window, nodesID, item.orig);
+    });
+  }
 }
 
 function editFilter()
@@ -1126,7 +1132,7 @@ var treeView = {
 
     // Add new item to the list
     // Store original item in orig property - reading out prototype is messed up in Gecko 1.9.2
-    item = {__proto__: item, orig: item, nodes: [], ids: [item.id]};
+    item = {__proto__: item, orig: item, ids: [item.id]};
     this.allData.push(item);
     this.dataMap[key] = item;
 
