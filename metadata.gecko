@@ -39,8 +39,10 @@ adblockbrowser=1.0/1.0
 [mapping]
 chrome/content/ui/firstRun.html = adblockplusui/firstRun.html
 chrome/content/ui/firstRun.js = adblockplusui/firstRun.js
+chrome/content/ui/common.js = adblockplusui/common.js
 chrome/content/ui/i18n.js = adblockplusui/i18n.js
 chrome/content/ui/skin/firstRun.css = adblockplusui/skin/firstRun.css
+chrome/content/ui/skin/common.css = adblockplusui/skin/common.css
 chrome/content/ui/skin/abp-128.png = adblockplusui/skin/abp-128.png
 chrome/content/ui/skin/ajax-loader.gif = adblockplusui/skin/ajax-loader.gif
 chrome/content/ui/skin/background.png = adblockplusui/skin/background.png
