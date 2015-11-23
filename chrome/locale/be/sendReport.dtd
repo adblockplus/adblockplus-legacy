@@ -5,6 +5,7 @@
 <!ENTITY copyLink.label "Капіяваць спасылку на справаздачу">
 <!ENTITY typeWarning.override.label "Я разумею і ўсё адно хачу адправіць справаздачу">
 <!ENTITY issues.disabled.enable.label "Уключыць Adblock Plus">
+<!ENTITY anonymous.label "&amp;Адправіць ананімна">
 <!ENTITY reloadButton.label "А&amp;бнавіць старонку">
 <!ENTITY recentReports.clear.label "Выдаліць &amp;усе справаздачы">
 <!ENTITY typeSelector.description "Кіраўнік дапаможа вам стварыць справаздачу.
@@ -12,6 +13,7 @@
 <!ENTITY screenshot.remove.label "&amp;Выдаліць прыватныя звесткі">
 <!ENTITY sendPage.retry.label "Адправіць зноў">
 <!ENTITY data.label "Змес&amp;ціва справаздачы:">
+<!ENTITY issues.disabled.description "Adblock Plus адключаны, цяпер ён нічога не будзе блакаваць.">
 <!ENTITY issues.nosubscriptions.add.label "Дадаць падпіску на фільтр">
 <!ENTITY issues.disabledfilters.enable.label "Уключыць фільтр">
 <!ENTITY typeSelector.other.label "Ін&amp;шая праблема">
@@ -26,12 +28,15 @@
   дапаможа правільна апрацаваць звесткі.">
 <!ENTITY typeSelector.falseNegative.label "Adblock Plus не блакуе рэкламу">
 <!ENTITY typeSelector.heading "Выберыце тып праблемы">
-<!ENTITY wizard.title "Паведаміць пра праблему">
+<!ENTITY wizard.title "Паведаміць аб праблеме">
 <!ENTITY issues.ownfilters.disable.label "Адключыць фільтр">
+<!ENTITY comment.lengthWarning "Даўжыня вашага каментарыя перавышае ліміт у 1000 сімвалаў. 
+Будзе адпраўлена толькі першая тысяча сімвалаў.">
 <!ENTITY issues.override.label "Канфігурацыя правільная, працягваць справаздачу">
 <!ENTITY privacyPolicy.label "Палітыка канфідэнцыяльнасці">
 <!ENTITY dataCollector.heading "Вітаем у праграме справаздач">
 <!ENTITY screenshot.heading "Здымак экрана">
 <!ENTITY sendPage.heading "Адправіць справаздачу">
 <!ENTITY sendButton.label "Адп&amp;равіць справаздачу">
+<!ENTITY screenshot.mark.label "Па&amp;значыць праблему">
 <!ENTITY typeSelector.falseNegative.description "Выберыце гэты варыянт, калі пры ўключаным Adblock Plus  на старонцы ўсё адно паказваецца рэклама.">

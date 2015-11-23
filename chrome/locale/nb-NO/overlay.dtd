@@ -6,10 +6,10 @@
 <!ENTITY disable.label "Deaktiver overalt">
 <!ENTITY objecttab.title "Blokker">
 <!ENTITY objecttab.tooltip "Klikk her for å blokkere dette elementet med Adblock Plus">
-<!ENTITY menuitem.label "Adblock Plus innstillinger">
+<!ENTITY menuitem.label "Adblock Plus-innstillinger">
 <!ENTITY objecttabs.label "Vis faner på Flash og Java">
 <!ENTITY sendReport.label "&amp;Rapporter problem på denne siden">
-<!ENTITY whitelist.page.label "Deaktiv kun på denne siden">
+<!ENTITY whitelist.page.label "Deaktiver kun på denne siden">
 <!ENTITY context.image.label "Adblock Plus: Blokker bilde">
 <!ENTITY notification.button.yes "&amp;Ja">
 <!ENTITY opensidebar.label "Åpne &amp;blokkerbare elementer">
@@ -21,13 +21,13 @@
 <!ENTITY blocked.tooltip "Blokkerte elementer på denne siden:">
 <!ENTITY notification.closing.button.optout "&amp;Slutt å vise varsler">
 <!ENTITY counthits.label "Tell filtertreff (&amp;h)">
-<!ENTITY showinstatusbar.label "Vis i statuslinjen">
+<!ENTITY showinstatusbar.label "Vis på statuslinjen">
 <!ENTITY sidebar.title "Blokkerbare elementer på nåværende side">
 <!ENTITY options.label "Alternativer (&amp;O)">
 <!ENTITY context.object.label "Adblock Plus: Blokker objekt">
 <!ENTITY context.removeWhitelist.label "Reaktiver på denne siden">
 <!ENTITY filters.tooltip "Mest aktive filtre:">
-<!ENTITY closesidebar.label "Lukk &amp;blokkérbare elementer">
+<!ENTITY closesidebar.label "Lukk &amp;blokkerbare elementer">
 <!ENTITY showintoolbar.label "Vis på verktøylinje (&amp;b)">
 <!ENTITY status.tooltip "Status:">
 <!ENTITY context.media.label "Blokker lyd/video">

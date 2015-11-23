@@ -12,7 +12,7 @@
 <!ENTITY matchCase.label "В&amp;раховувати регістр">
 <!ENTITY custom.pattern.label "І&amp;нше">
 <!ENTITY unselectAllTypes.label "Скинути все">
-<!ENTITY type.whitelist.label "Пра&amp;вило виняток">
+<!ENTITY type.whitelist.label "Правило винятку">
 <!ENTITY regexp.warning "Шаблон що ви ввели буде інтерпретовано як регулярний вираз. Багато регулярних виразів можуть уповільнити перегляд сторінок. Додайте * на кінець шаблону якщо ви не збирались використовувати регулярний вираз.">
 <!ENTITY dialog.title "Додати правило фільтрування Adblock Plus">
 <!ENTITY basic.label "Простий вигляд">

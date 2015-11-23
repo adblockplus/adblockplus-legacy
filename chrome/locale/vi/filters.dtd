@@ -1,18 +1,18 @@
 <!ENTITY restore.custom.warning "Tất cả bộ lọc tùy biến của bạn sẽ được thay thế bởi nội dung của tập tin được chọn. Bạn có muốn thực hiện?">
 <!ENTITY slow.column "&amp;Bộ lọc chậm">
 <!ENTITY enabled.column "&amp;Bật">
-<!ENTITY subscription.lastDownload.checksumMismatch "Thất bại, mã băm không phù hợp">
+<!ENTITY subscription.lastDownload.checksumMismatch "Thất bại, mã kiểm tra không phù hợp">
 <!ENTITY noFiltersInGroup.text "Nhóm được chọn trống.">
 <!ENTITY subscription.actions.label "Hành động">
 <!ENTITY filter.selectAll.label "Chọn tất cả">
 <!ENTITY backupButton.label "&amp;Sao lưu và phục hồi">
-<!ENTITY restore.minVersion.warning "Cảnh báo: tập tin đã được tạo bởi phiên bản Adblock Plus mới hơn. Bạn cần cập nhập lên phiên bản mới nhất của Adblock Plus trước khi có thể khôi phục từ tập tin này.">
+<!ENTITY restore.minVersion.warning "Cảnh báo: tập tin đã được tạo bởi phiên bản Adblock Plus mới hơn. Bạn cần cập nhật lên phiên bản mới nhất của Adblock Plus trước khi có thể khôi phục từ tập tin này.">
 <!ENTITY restore.error "Dữ liệu của tập tin có thể không được xử lý, có lẽ đây không phải là một tập tin sao lưu của Adblock Plus?">
 <!ENTITY sort.ascending.label "Sắp xếp theo thứ tự &amp;A &gt;  Z">
 <!ENTITY sort.label "Sắp &amp;xếp theo">
 <!ENTITY subscription.source.label "Danh sách bộ lọc">
 <!ENTITY hitcount.column "&amp;Số lần bấm">
-<!ENTITY noFilters.text "Bạn chưa có bộ lọc tùy biến nào.">
+<!ENTITY noFilters.text "Bạn chưa có bộ lọc cá nhân nào .">
 <!ENTITY backup.custom.title "Chỉ bộ lọc tùy biến">
 <!ENTITY subscription.external.label "Được cập nhập bởi ứng dụng khác">
 <!ENTITY subscription.delete.label "Xóa">
@@ -37,22 +37,22 @@
 <!ENTITY subscription.lastDownload.invalidURL "Thất bại, không phải là địa chỉ hợp lệ">
 <!ENTITY backup.error "Có vấn đề khi ghi bộ lọc vào tập tin. Hãy chắc chắn rằng tập tin không bị bảo vệ ghi hoặc bị sử dụng bởi một ứng dụng khác.">
 <!ENTITY filter.moveUp.label "Di chuyển lên">
-<!ENTITY addGroup.label "Thêm &amp;nhóm bộ lọc">
+<!ENTITY addGroup.label "Thêm bộ lọc và nhóm">
 <!ENTITY filter.edit.label "Chỉnh sửa">
-<!ENTITY subscription.showHideFilters.label "Hiện/ẩn bộ lọc">
+<!ENTITY subscription.showHideFilters.label "Hiện/Ẩn bộ lọc">
 <!ENTITY acceptableAds2.label "Cho phép một số quảng cáo không gây hại">
 <!ENTITY addSubscriptionOther.label "Thêm bộ lọc  khác">
 <!ENTITY close.label "Đóng">
 <!ENTITY sort.none.label "&amp;Chưa sắp xếp">
 <!ENTITY filter.actions.label "Hành động cho bộ lọc">
-<!ENTITY filter.copy.label "Chép">
+<!ENTITY filter.copy.label "Sao chép">
 <!ENTITY filter.moveDown.label "Di chuyển xuống">
-<!ENTITY filter.resetHitCounts.label "Cài lại thống kê lượt bấm">
+<!ENTITY filter.resetHitCounts.label "Reset số lần hit">
 <!ENTITY readMore.label "Đọc thêm">
 <!ENTITY subscription.moveUp.label "Chuyển lên trên">
 <!ENTITY addSubscription.label "Thêm bộ lọc">
 <!ENTITY subscription.homepage.label "Trang chủ">
-<!ENTITY backup.complete.title "Tất cả các bộ lọc và mục đăng ký">
+<!ENTITY backup.complete.title "Tất cả phần tử lọc và bộ lọc">
 <!ENTITY restore.own.label "Khôi phục riêng">
 <!ENTITY restore.complete.warning "Tất cả tùy chỉnh bộ lọc của bạn sẽ được thay thế bởi nội dung của tập tin được chọn. Bạn có muốn thực hiện?">
 <!ENTITY filters.tab.label "Bộ lọc cá nhân">

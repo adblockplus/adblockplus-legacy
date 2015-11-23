@@ -1,33 +1,33 @@
 <!ENTITY notification.button.no "&amp;لا">
 <!ENTITY sync.label "م&amp;زامنة إعدادات آدبلوك بلس">
-<!ENTITY whitelist.site.label "تعطيل في ?1?">
+<!ENTITY whitelist.site.label "تعطيل على ?1?">
 <!ENTITY notification.closing.button.hide "إغلاق ه&amp;ذا التنبيه">
-<!ENTITY filters.label "ت&amp;فضيلات الفلتر">
-<!ENTITY disable.label "تعطيل في جميع الأماكن">
+<!ENTITY filters.label "&amp;تفضيلات الفلتر">
+<!ENTITY disable.label "تعطيل في كل مكان">
 <!ENTITY objecttab.title "أحجب">
 <!ENTITY objecttab.tooltip "اضغط هنا لحجب هذا العنصر بـ آدبلوك بلاس">
-<!ENTITY menuitem.label "تفضيلات آدبلوك بلس">
+<!ENTITY menuitem.label "تفضيلات آد&amp;بلوك بلس">
 <!ENTITY objecttabs.label "عرض &amp;تبويبات لفلاش و جافا">
-<!ENTITY sendReport.label "ال&amp;تبليغ عن خطأ في هذه الصفحة">
+<!ENTITY sendReport.label "&amp;التبليغ عن مشكل في هذه الصفحة">
 <!ENTITY whitelist.page.label "تعطيل في هذه الصفحة فقط">
 <!ENTITY context.image.label "آدبلوك بلس : حجب صورة">
 <!ENTITY notification.button.yes "&amp;نعم">
-<!ENTITY opensidebar.label "فتح العناصر المح&amp;جوبة">
+<!ENTITY opensidebar.label "فتح &amp;العناصر الممكن حجبها">
 <!ENTITY notification.button.close "&amp;اغلاق">
-<!ENTITY shownotifications.label "إظهار تنبيهات &amp;مفيدة">
-<!ENTITY contribute.label "شارك في آد بلُك بلَس">
+<!ENTITY shownotifications.label "إظهار التنبيهات &amp;الهامة">
+<!ENTITY contribute.label "ساهم في آدبلوك بلس">
 <!ENTITY toolbarbutton.label "آدبلوك بلس">
-<!ENTITY context.frame.label "آدبلوك بلس : حجب إطار">
-<!ENTITY blocked.tooltip "العناصر المحجوبة في هذه الصفحة">
+<!ENTITY context.frame.label "آدبلوك بلس: حجب إطار">
+<!ENTITY blocked.tooltip "العناصر المحجوبة في هذه الصفحة:">
 <!ENTITY notification.closing.button.optout "&amp;إيقاف عرض التنبيهات">
-<!ENTITY counthits.label "تعداد اصابات الفلترة (&amp;إ)">
+<!ENTITY counthits.label "حساب نتائج ال&amp;فلترة">
 <!ENTITY showinstatusbar.label "عرض في شريط ال&amp;حالة">
-<!ENTITY sidebar.title "العناصر المحجوبة في الصفحة الحالية">
+<!ENTITY sidebar.title "العناصر الممكن حجبها في الصفحة الحالية">
 <!ENTITY options.label "&amp;خيارات">
 <!ENTITY context.object.label "آدبلوك بلس : حجب عنصر">
-<!ENTITY context.removeWhitelist.label "آدبلوك بلس : إعادة التفعيل في هذه الصفحة">
-<!ENTITY filters.tooltip "المصافي الأكثر نشاط:">
-<!ENTITY closesidebar.label "إغلاق العناصر المح&amp;جوبة">
+<!ENTITY context.removeWhitelist.label "آدبلوك بلس: إعادة التفعيل في هذه الصفحة">
+<!ENTITY filters.tooltip "الفلاتر الأكثر فعالية">
+<!ENTITY closesidebar.label "إغلاق &amp;العناصر الممكن حجبها">
 <!ENTITY showintoolbar.label "عرض في &amp;شريط الأدوات">
 <!ENTITY status.tooltip "الحالات:">
-<!ENTITY context.media.label "آدبلوك بلس : حجب أوديوفيديو">
+<!ENTITY context.media.label "آدبلوك بلس: حجب الصوت/الصورة">

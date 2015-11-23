@@ -5,7 +5,7 @@
 <!ENTITY issues.change.description "Konfigurasjonene dine er endret. Last inn siden på nytt for å teste forandringene, og send inn en ny rapport hvis problemene er vedvarende.">
 <!ENTITY email.label "E-post: (&amp;m)">
 <!ENTITY issues.openPreferences.label "Åpne filterinnstillinger">
-<!ENTITY sendPage.confirmation "Rapporten er lagret. Du kan få tilgang til den ved følgende internettadresse:">
+<!ENTITY sendPage.confirmation "Rapporten er lagret. Du kan få tilgang til den på følgende internettadresse:">
 <!ENTITY copyLink.label "Kopier rapportlink (&amp;C)">
 <!ENTITY issues.nofilters.description "Adblock Plus blokkerer ingenting på denne siden. Problemer du opplever er trolig urelatert til Adblock Plus.">
 <!ENTITY sendPage.knownIssue "Problemet du rapporterte inn er allerede kjent for oss. Mer informasjon:">
@@ -53,7 +53,7 @@
 <!ENTITY wizard.title "Problemrapporterer">
 <!ENTITY issues.ownfilters.disable.label "Deaktiver filter">
 <!ENTITY commentPage.description "I tekstfeltet nedenfor kan du skrive en kommentar som kan hjelpe oss til å forstå problemet. Dette er valgfritt, men anbefalt hvis problemet ikke åpenbart. Du kan også se på rapportdataene før de sendes.">
-<!ENTITY comment.lengthWarning "Lengden på din kommentar er lenger enn 1000 bokstav. Bare de første 1000 bokstavene vil bli inkludert i rapporten.">
+<!ENTITY comment.lengthWarning "Kommentaren din er lengre enn 1000 tegn. Kun de første 1000 tegnene vil bli inkludert i rapporten.">
 <!ENTITY typeSelector.falseNegative.description "Velg dette alternativet hvis et reklameelement vises, selv om Adblock Plus er aktivert.">
 <!ENTITY sendPage.waitMessage "Vennligst vent mens Adblock Plus sender inn din rapport.">
 <!ENTITY dataCollector.heading "Velkommen til problemrapportereren">

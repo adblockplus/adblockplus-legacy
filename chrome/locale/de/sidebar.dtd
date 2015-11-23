@@ -1,6 +1,6 @@
 <!ENTITY context.flash.label "Position des Elements aufzeigen">
 <!ENTITY address.label "Adresse">
-<!ENTITY context.open.label "Adresse in neuem Tab öffnen">
+<!ENTITY context.open.label "In neuem Tab öffnen">
 <!ENTITY type.label "Typ">
 <!ENTITY tooltip.filterSource.label "Herkunft des Filters:">
 <!ENTITY noitems.label "Keine blockierbaren Elemente">

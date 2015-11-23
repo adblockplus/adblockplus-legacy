@@ -1,10 +1,29 @@
-<!ENTITY wizard.title "मुद्दा रिपोर्टर">
+<!ENTITY showData.label "रिपोर्ट डेटा दिखाएँ">
+<!ENTITY typeSelector.falsePositive.label "Adblock प्लस बहुत &amp; ज्यादा अवरुद्ध कर रहा है">
+<!ENTITY issues.openPreferences.label "खुला फ़िल्टर वरीयताएँ">
+<!ENTITY issues.disabledgroups.enable.label "फ़िल्टर सदस्यता /फ़िल्टर समूह सक्षम करें">
+<!ENTITY issues.disabled.enable.label "ऍडब्लाक प्लस को सक्षम करें">
+<!ENTITY recentReports.clear.label "सभी रिपोर्ट &amp;मिटायें">
 <!ENTITY typeSelector.description "यह विंडो आपको Adblock प्लस मुद्दा रिपोर्ट को 
   जमा करने के लिए मार्गदर्शन करेगा। पहले, कृपया किस तरह के मुद्दों का आप इस पृष्ठ पर सामना कर रहे हैं 
   का चयन करें:">
-<!ENTITY typeSelector.falsePositive.label "Adblock प्लस बहुत &amp; ज्यादा अवरुद्ध कर रहा है">
+<!ENTITY sendPage.retry.label "पुन: भेजें">
+<!ENTITY recentReports.label "अपनी हाल ही में प्रस्तुत की गयी रिपोर्ट">
+<!ENTITY issues.nosubscriptions.add.label "फ़िल्टर सदस्यता जोड़ें">
+<!ENTITY issues.disabledfilters.enable.label "फ़िल्टर सक्षम करें">
+<!ENTITY typeSelector.other.label "दूसरी समस्या">
+<!ENTITY typeSelector.falsePositive.description "इस विकल्प का चयन करें, अगर पृष्ठ में महत्वपूर्ण सामग्री का अभाव है या गलत तरीके से प्रदर्शित करता है अथवा ठीक से कार्य करने के लिए विफल रहता है । समस्या का कारण Adblock प्लस है की नही,  यह Adblock प्लस को अस्थायी रूप से अक्षम करने से है यह निर्धारित कर सकते हैं।">
 <!ENTITY dataCollector.description "कृपया कुछ पल प्रतीक्षा करें जब तक Adblock प्लस आवश्यक डेटा इकट्ठा कर रहा हो।">
-<!ENTITY dataCollector.heading "मुद्दा रिपोर्टर में स्वागत है">
+<!ENTITY showRecentReports.label "हाल ही में सबमिट किए गए रिपोर्ट दिखाएँ">
 <!ENTITY commentPage.heading "टिप्पणी दर्ज करें">
-<!ENTITY privacyPolicy.label "गोपनीयता नीति">
+<!ENTITY update.start.label "अब अद्यतन प्रारंभ करें">
+<!ENTITY issues.disabledfilters.description "निम्न फ़िल्टर अक्षम हो जाते हैं, फिर भी वे इस पृष्ठ पर एक प्रभाव हो सकता है:">
+<!ENTITY typeSelector.falseNegative.label "एडब्लॉक प्लस कोई विज्ञापन को ब्लॉक नही करता हैं">
 <!ENTITY typeSelector.heading "समस्या प्रकार का चयन करें">
+<!ENTITY wizard.title "मुद्दा रिपोर्टर">
+<!ENTITY issues.ownfilters.disable.label "फ़िल्टर को अक्षम करें">
+<!ENTITY typeSelector.falseNegative.description "यदि Adblock प्लस सक्षम किया जा रहा होने के बावजूद एक विज्ञापन प्रदर्शित किया जाता है इस विकल्प का चयन करें।">
+<!ENTITY sendPage.confirmation "आपकी रिपोर्ट सहेजी गई है। आप इसे निम्नलिखित पते पर पहुँच प्राप्त कर सकते हैं:">
+<!ENTITY dataCollector.heading "मुद्दा रिपोर्टर में स्वागत है">
+<!ENTITY sendPage.heading "रिपोर्ट भेजें">
+<!ENTITY privacyPolicy.label "गोपनीयता नीति">

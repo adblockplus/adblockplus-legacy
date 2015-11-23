@@ -1,35 +1,35 @@
-<!ENTITY context.flash.label "Flash kohteen reunoja">
-<!ENTITY address.label "Osoite">
-<!ENTITY context.open.label "Avaa uuteen välilehteen">
+<!ENTITY context.flash.label "Valaise kohteen reunoja">
+<!ENTITY address.label "osoite">
+<!ENTITY context.open.label "Avaa uudessa välilehdessä">
 <!ENTITY type.label "Tyyppi">
-<!ENTITY tooltip.filterSource.label "Suodattimen lähde:">
-<!ENTITY noitems.label "Ei estettäviä elementtejä">
-<!ENTITY filter.label "Suodatin">
+<!ENTITY tooltip.filterSource.label "Suodatin lähde:">
+<!ENTITY noitems.label "Ei estettäviä kohteita">
+<!ENTITY filter.label "Suodin">
 <!ENTITY tooltip.size.label "Koko:">
 <!ENTITY reattach.label "Kiinnitä">
-<!ENTITY search.label "&amp;Etsi:">
+<!ENTITY search.label "&amp; Etsi:">
 <!ENTITY docDomain.thirdParty "(kolmas osapuoli)">
 <!ENTITY filterSource.label "Suodattimen lähde">
-<!ENTITY tooltip.docDomain.label "Asiakirjan lähde:">
-<!ENTITY context.copy.label "Kopioi kohteen osoite">
+<!ENTITY tooltip.docDomain.label "Asiakirja lähde:">
+<!ENTITY context.copy.label "Jäljennä kohteen osoite">
 <!ENTITY tooltip.type.label "Tyyppi:">
-<!ENTITY context.disablefilter.label "Poista käytöstä suodatin: ?1?">
-<!ENTITY context.copyFilter.label "Kopioi suodatin">
-<!ENTITY context.block.label "Estä elementti">
-<!ENTITY context.enablefilter.label "Ota käyttöön suodatin: ?1?">
-<!ENTITY detach.label "Irrota">
-<!ENTITY whitelisted.label "Sallittu sivu">
-<!ENTITY context.disablefilteronsite.label "Poista tämä suodatin käytöstä osoiteessa ?1?">
-<!ENTITY detached.title "Adblock Plus: Estettävien elementtien lista (irrotettu)">
+<!ENTITY context.disablefilter.label "Estä suodatin: ?1?">
+<!ENTITY context.copyFilter.label "Kopioi suodin">
+<!ENTITY context.block.label "Estä tämä kohde">
+<!ENTITY context.enablefilter.label "Salli suodatin: ?1?">
+<!ENTITY detach.label "Valitse">
+<!ENTITY whitelisted.label "Sallituksi määritetty sivu">
+<!ENTITY context.disablefilteronsite.label "Estä tämä suodatin kohteessa ?1?">
+<!ENTITY detached.title "Adblock Plus: Estettävissä olevien kohteiden lista (valittavissa)">
 <!ENTITY docDomain.firstParty "(ensimmäinen osapuoli)">
-<!ENTITY tooltip.type.whitelisted "(sallittu)">
-<!ENTITY tooltip.filter.label "Vaikuttava suodatin:">
-<!ENTITY tooltip.filter.disabled "(poistettu käytöstä)">
-<!ENTITY context.editfilter.label "Muokkaa suodatinta">
+<!ENTITY tooltip.type.whitelisted "(Määritetty hyväksytyksi)">
+<!ENTITY tooltip.filter.label "Käytössä oleva suodatin:">
+<!ENTITY tooltip.filter.disabled "(ei käytössä)">
+<!ENTITY context.editfilter.label "Muokkaa käytössäolevaa suodatinta">
 <!ENTITY tooltip.type.blocked "(estetty)">
 <!ENTITY size.label "Koko">
-<!ENTITY context.whitelist.label "Lisää poikkeusehto">
-<!ENTITY context.selectAll.label "Valitse kaikki">
+<!ENTITY context.whitelist.label "Lisää kohteelle poikkeussääntö">
+<!ENTITY context.selectAll.label "Valitse kaikki kohteesta">
 <!ENTITY state.label "Tila">
 <!ENTITY docDomain.label "Asiakirjan lähde">
 <!ENTITY tooltip.address.label "Osoite:">

@@ -1,3 +1,4 @@
+<!ENTITY restore.custom.warning "Svi filtera preferencije će biti zamijenjen sadržaja odabrane datoteke. Želite li proceeed?">
 <!ENTITY slow.column "&amp;Spori filteri">
 <!ENTITY enabled.column "&amp;uključeno">
 <!ENTITY subscription.lastDownload.checksumMismatch "Nije uspjelo, nepodudarnost checksum-a">
@@ -6,10 +7,13 @@
 <!ENTITY filter.selectAll.label "Označi sve">
 <!ENTITY backupButton.label "&amp;Backup and Restore">
 <!ENTITY restore.minVersion.warning "Upozorenje: Filteri su stvorenje sa novium Versiom od Adblock Plus. Trebaliste Uraditi Update na naj noviu Versiu od Adblock Plus prije nego sto vratite nesto od ovog File.">
+<!ENTITY restore.error "Podaci iz datoteke se ne može obraditi, možda ovo nije Adblock Plus sigurnosnu kopiju?">
 <!ENTITY sort.ascending.label "&amp;A &gt; Z Sortinari Odrdneri">
 <!ENTITY sort.label "&amp;Sortirano od">
 <!ENTITY subscription.source.label "Lista filtera">
+<!ENTITY hitcount.column "&amp; Hits">
 <!ENTITY noFilters.text "Još nemate prilagođene &amp;filtere">
+<!ENTITY backup.custom.title "Custom filteri samo">
 <!ENTITY subscription.external.label "Nadograđeno od strane druge ekstenzije">
 <!ENTITY subscription.delete.label "Izbriši">
 <!ENTITY noGroupSelected.text "Vi morate izabrati jednu filter Gruppu prije nego sto filteri mogu biti prikazani.">
@@ -31,6 +35,7 @@
 <!ENTITY addFilter.label "&amp;Dodaj filter">
 <!ENTITY subscription.minVersion.warning "Ova filter pretplata zahtijeva noviju verziju Adblock Plus, trebali biste nadograditi Adblock Plus.">
 <!ENTITY subscription.lastDownload.invalidURL "Neuspjeh, adresa nije validna">
+<!ENTITY backup.error "Došlo je do greške pisanja filtera u datoteku . Pobrinite se da datoteka nije zaštićena od pisanja ili se koristi druga aplikacija .">
 <!ENTITY filter.moveUp.label "Idi gore">
 <!ENTITY addGroup.label "Dodaj &amp;filter ili grupu">
 <!ENTITY filter.edit.label "Uredi">
@@ -49,6 +54,7 @@
 <!ENTITY subscription.homepage.label "Početna stranica">
 <!ENTITY backup.complete.title "Svi filteri i Upisi">
 <!ENTITY restore.own.label "Vratiti svoje Backup">
+<!ENTITY restore.complete.warning "Svi filtera preferencije će biti zamijenjen sadržaja odabrane datoteke. Želite li proceeed?">
 <!ENTITY filters.tab.label "Prilagođeni filteri">
 <!ENTITY backup.label "Stvoriti novi Backup">
 <!ENTITY find.label "Fi &amp; nd">

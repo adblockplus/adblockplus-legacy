@@ -1,0 +1,17 @@
+<!ENTITY subscription.lastDownload.inProgress "Besig om af te laai…">
+<!ENTITY addSubscriptionOther.label "Voeg 'n ander subskripsie">
+<!ENTITY subscription.source.label "Filter lys">
+<!ENTITY subscription.lastDownload.invalidURL "Misluk, nie 'n geldige adres">
+<!ENTITY subscription.lastDownload.connectionError "Misluk, aflaai nie voltooi">
+<!ENTITY addSubscriptionAdd.label "Voeg by">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY addSubscriptionCancel.label "Kanselleer">
+<!ENTITY subscription.enabled.label "In staat stel">
+<!ENTITY subscription.homepage.label "Tuisblad">
+<!ENTITY noSubscriptions.text "Jy't nog nie enige filter subskrupsies bygevoeg nie. Adblock plus sal nie enigiets blokeer sonder filters nie, gebruik asseblief &quot;add filtersubskipsie&quot; om filters by te voeg.">
+<!ENTITY subscription.external.label "Bygewerk deur 'n ander uitbreiding">
+<!ENTITY addSubscription.label "Voeg by &amp; Filter Subskripsie">
+<!ENTITY dialog.title "Adblock Plus Filter Keuses">
+<!ENTITY filters.tab.label "Eie Filters">
+<!ENTITY subscription.lastDownload.label "Laaste afgelaai:">
+<!ENTITY subscriptions.tab.label "Filter subskripsies">
