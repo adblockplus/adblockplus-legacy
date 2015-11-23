@@ -1,7 +1,7 @@
 <!ENTITY anchor.end.label "am En&amp;de der Adresse">
 <!ENTITY domainRestriction.label "Auf Do&amp;main beschränken:">
 <!ENTITY collapse.default.no.label "Standardeinstellung (nein)">
-<!ENTITY firstParty.label "Nur für Elemente der Urs&amp;prungsseite">
+<!ENTITY firstParty.label "Nur für Elemente der Ursprungsseite">
 <!ENTITY preferences.label "Vorhandene Filter an&amp;zeigen…">
 <!ENTITY pattern.label "Muster suchen">
 <!ENTITY thirdParty.label "Nur für Elemen&amp;te von Drittseiten">

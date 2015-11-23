@@ -12,7 +12,7 @@
 <!ENTITY sort.label "&amp;Ordenar por">
 <!ENTITY subscription.source.label "Lista dos filtros">
 <!ENTITY hitcount.column "&amp;Veces usado">
-<!ENTITY noFilters.text "Seica aínda non tes feito ningún filtro persoalizado.">
+<!ENTITY noFilters.text "Aínda non tes filtros persoalizados.">
 <!ENTITY backup.custom.title "Só filtros persoalizados">
 <!ENTITY subscription.external.label "Actualizado por outro complemento">
 <!ENTITY subscription.delete.label "Borrar">
@@ -26,7 +26,7 @@
 <!ENTITY filter.delete.label "Borrar">
 <!ENTITY addSubscriptionAdd.label "Engadir">
 <!ENTITY viewMenu.label "Ver">
-<!ENTITY subscription.lastDownload.unknown "Non disponible">
+<!ENTITY subscription.lastDownload.unknown "Non dispoñible">
 <!ENTITY addSubscriptionCancel.label "Cancelar">
 <!ENTITY subscription.enabled.label "Activado">
 <!ENTITY noSubscriptions.text "Aínda non engadiches ningunha suscrición. O Adblock Plus non che bloqueará nada se non tes filtros, por favor dalle a &quot;Engadir suscripción ós filtros&quot; para engadir algún.">
@@ -37,10 +37,10 @@
 <!ENTITY subscription.lastDownload.invalidURL "Erro: enderezo non válido">
 <!ENTITY backup.error "Seica houbo un erro ao escribir os filtros no arquivo. Mira a ver se o arquivo non está protexido contra a escritura ou está sendo uso por outro programa.">
 <!ENTITY filter.moveUp.label "Subir para arriba">
-<!ENTITY addGroup.label "En&amp;gadir grupo de filtros">
+<!ENTITY addGroup.label "Engadir grupo de filtros">
 <!ENTITY filter.edit.label "Editar">
 <!ENTITY subscription.showHideFilters.label "Amosar/agochar os filtros">
-<!ENTITY acceptableAds2.label "Perm&amp;itir publicidade non invasiva">
+<!ENTITY acceptableAds2.label "Permite algúns anuncios non intrusivos">
 <!ENTITY addSubscriptionOther.label "Engadir outra subscrición">
 <!ENTITY close.label "Pechar">
 <!ENTITY sort.none.label "Dei&amp;xalo todo atrapallado">
@@ -51,7 +51,7 @@
 <!ENTITY readMore.label "Ler máis">
 <!ENTITY subscription.moveUp.label "Subir para arriba">
 <!ENTITY addSubscription.label "Engadir subscrición de &amp;filtros">
-<!ENTITY subscription.homepage.label "Páxina">
+<!ENTITY subscription.homepage.label "Páxina de inicio">
 <!ENTITY backup.complete.title "Tódolos filtros e suscricións">
 <!ENTITY restore.own.label "Recuperar a copia de seguridade propia">
 <!ENTITY restore.complete.warning "Tódalas as túas preferencias serán cambiadas polo contido do arquivo que seleccionaches. Estás seguro?">
@@ -69,4 +69,4 @@
 <!ENTITY subscription.disabledFilters.warning "Algúns filtros desta suscrición estanche desactivados.">
 <!ENTITY filter.column "Regra de &amp;filtro">
 <!ENTITY subscription.lastDownload.label "Baixado o:">
-<!ENTITY viewList.label "Qué publicidade?">
+<!ENTITY viewList.label "Ver listaxe">

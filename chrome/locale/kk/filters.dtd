@@ -10,7 +10,7 @@
 <!ENTITY restore.error "Файл мәліметін өңдеу мүмкін емес, мүмкін ол Adblock Plus-тің көшірме файлы емес шығар?">
 <!ENTITY sort.ascending.label "&amp;А &gt; Я сұрыптау">
 <!ENTITY sort.label "&amp;Сұрыптау">
-<!ENTITY subscription.source.label "Фильтлер тізімі">
+<!ENTITY subscription.source.label "Фильтрлер тізімі">
 <!ENTITY hitcount.column "Х&amp;иттер">
 <!ENTITY noFilters.text "Сізде әлі пайдаланушы фильтрлері жоқ.">
 <!ENTITY backup.custom.title "Тек пайланушы фильтрлері">

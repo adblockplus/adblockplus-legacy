@@ -1,7 +1,7 @@
 <!ENTITY notification.button.no "&amp;Όχι">
 <!ENTITY sync.label "Συγ&amp;χρονισμός των ρυθμίσεων του Adblock Plus">
 <!ENTITY whitelist.site.label "Απενεργοποίηση στο ?1?">
-<!ENTITY notification.closing.button.hide "Κλείσιμο τ&amp;ης ειδοποίησης">
+<!ENTITY notification.closing.button.hide "&amp;Κλείσιμο της ειδοποίησης">
 <!ENTITY filters.label "Προτιμήσεις &amp;φίλτρων">
 <!ENTITY disable.label "Απενεργοποίηση παντού">
 <!ENTITY objecttab.title "Φραγή">
