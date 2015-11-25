@@ -24,7 +24,6 @@ var mainWin = parent;
 var requestNotifier = null;
 
 var cacheStorage = null;
-var noFlash = false;
 
 // Matcher for disabled filters
 var disabledMatcher = new CombinedMatcher();
@@ -124,7 +123,6 @@ function getFilter(item)
 
 // To be called on unload
 function cleanUp() {
-  flasher.stop();
   requestNotifier.shutdown();
   FilterNotifier.removeListener(reloadDisabledFilters);
   Prefs.removeListener(onPrefChange);
@@ -198,8 +196,8 @@ function onSelectionChange() {
     treeView.itemToSelect = null;
   }
 
-  if (!noFlash)
-    flasher.flash(item ? item.nodes : null);
+  if (requestNotifier)
+    requestNotifier.flashNodes(item ? item.ids : null, Prefs.flash_scrolltoitem);
 }
 
 function handleLocationChange()
@@ -1089,6 +1087,7 @@ var treeView = {
       let existing = this.dataMap[key];
       if (item.filter)
         existing.filter = item.filter;
+      existing.ids.push(item.id);
 
       this.invalidateItem(existing);
       return;
@@ -1096,7 +1095,7 @@ var treeView = {
 
     // Add new item to the list
     // Store original item in orig property - reading out prototype is messed up in Gecko 1.9.2
-    item = {__proto__: item, orig: item, nodes: []};
+    item = {__proto__: item, orig: item, nodes: [], ids: [item.id]};
     this.allData.push(item);
     this.dataMap[key] = item;
 
