@@ -258,13 +258,11 @@ function fillInTooltip(e) {
   }
 
   let filter = getFilter(item);
-  let size = ("tooltip" in item ? null : getItemSize(item));
   let subscriptions = (filter ? filter.subscriptions.filter(function(subscription) { return !subscription.disabled; }) : []);
 
   E("tooltipDummy").hidden = !("tooltip" in item);
   E("tooltipAddressRow").hidden = ("tooltip" in item);
   E("tooltipTypeRow").hidden = ("tooltip" in item);
-  E("tooltipSizeRow").hidden = !size;
   E("tooltipDocDomainRow").hidden = ("tooltip" in item || !item.docDomain);
   E("tooltipFilterRow").hidden = !filter;
   E("tooltipFilterSourceRow").hidden = !subscriptions.length;
@@ -282,9 +280,6 @@ function fillInTooltip(e) {
     else if (filter && item.type != "ELEMHIDE")
       type += " " + E("tooltipType").getAttribute("filtered");
     E("tooltipType").setAttribute("value", type);
-
-    if (size)
-      E("tooltipSize").setAttribute("value", size.join(" x "));
 
     E("tooltipDocDomain").setAttribute("value", item.docDomain + " " + (item.thirdParty ? docDomainThirdParty : docDomainFirstParty));
   }
@@ -309,6 +304,19 @@ function fillInTooltip(e) {
       for (let i = 0; i < subscriptions.length; i++)
         setMultilineContent(sourceElement, subscriptions[i].title, true);
     }
+  }
+
+  E("tooltipSizeRow").hidden = true;
+  if (!("tooltip" in item))
+  {
+    getItemSize(item, (size) =>
+    {
+      if (size)
+      {
+        E("tooltipSizeRow").hidden = false;
+        E("tooltipSize").setAttribute("value", size.join(" x "));
+      }
+    });
   }
 
   var showPreview = Prefs.previewimages && !("tooltip" in item);
@@ -664,21 +672,35 @@ function detach(doDetach)
   myMainWin.document.getElementById("abp-command-sidebar").doCommand();
 }
 
-// Returns items size in the document if available
-function getItemSize(item)
+// Returns item's size if already known, otherwise undefined
+function getCachedItemSize(item)
 {
+  if ("size" in item)
+    return item.size;
+
   let filter = getFilter(item);
   if (filter && !filter.disabled && filter instanceof BlockingFilter)
     return null;
 
-  for (let node of item.nodes)
+  return undefined;
+}
+
+// Retrieves item's size in the document if available
+function getItemSize(item, callback)
+{
+  let size = getCachedItemSize(item);
+  if (typeof size != "undefined" || !requestNotifier)
   {
-    if (node instanceof HTMLImageElement && (node.naturalWidth || node.naturalHeight))
-      return [node.naturalWidth, node.naturalHeight];
-    else if (node instanceof HTMLElement && (node.offsetWidth || node.offsetHeight))
-      return [node.offsetWidth, node.offsetHeight];
+    callback(size);
+    return;
   }
-  return null;
+
+  requestNotifier.retrieveNodeSize(item.ids, function(size)
+  {
+    if (size)
+      item.size = size;
+    callback(size);
+  });
 }
 
 // Sort functions for the item list
@@ -728,11 +750,12 @@ function compareState(item1, item2)
   return state1 - state2;
 }
 
-function compareSize(item1, item2) {
-  var size1 = getItemSize(item1);
-  size1 = size1 ? size1[0] * size1[1] : 0;
+function compareSize(item1, item2)
+{
+  let size1 = getCachedItemSize(item1);
+  let size2 = getCachedItemSize(item2);
 
-  var size2 = getItemSize(item2);
+  size1 = size1 ? size1[0] * size1[1] : 0;
   size2 = size2 ? size2[0] * size2[1] : 0;
   return size1 - size2;
 }
@@ -876,7 +899,15 @@ var treeView = {
         return (this.data[row].filter || "");
       else if (col == "size")
       {
-        let size = getItemSize(this.data[row]);
+        let size = getCachedItemSize(this.data[row]);
+        if (typeof size == "undefined")
+        {
+          getItemSize(this.data[row], (size) =>
+          {
+            if (size)
+              this.boxObject.invalidateRow(row)
+          });
+        }
         return (size ? size.join(" x ") : "");
       }
       else if (col == "docDomain")
