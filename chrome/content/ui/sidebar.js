@@ -24,7 +24,6 @@ var mainWin = parent;
 var requestNotifier = null;
 
 var cacheStorage = null;
-var noFlash = false;
 
 // Matcher for disabled filters
 var disabledMatcher = new CombinedMatcher();
@@ -114,9 +113,16 @@ function mainUnload() {
   parent.close();
 }
 
+function getFilter(item)
+{
+  if ("filter" in item && item.filter)
+    return Filter.fromText(item.filter);
+  else
+    return null;
+}
+
 // To be called on unload
 function cleanUp() {
-  flasher.stop();
   requestNotifier.shutdown();
   FilterNotifier.removeListener(reloadDisabledFilters);
   Prefs.removeListener(onPrefChange);
@@ -190,8 +196,8 @@ function onSelectionChange() {
     treeView.itemToSelect = null;
   }
 
-  if (!noFlash)
-    flasher.flash(item ? item.nodes : null);
+  if (requestNotifier)
+    requestNotifier.flashNodes(item ? item.ids : null, Prefs.flash_scrolltoitem);
 }
 
 function handleLocationChange()
@@ -200,11 +206,17 @@ function handleLocationChange()
     requestNotifier.shutdown();
 
   treeView.clearData();
+
+  let {getBrowser, addBrowserLocationListener} = require("appSupport");
+  let browser = getBrowser(mainWin);
+  if ("selectedBrowser" in browser)
+    browser = browser.selectedBrowser;
+  let outerWindowID = browser.outerWindowID;
   treeView.itemToSelect = RequestNotifier.getSelection(window.content);
-  requestNotifier = new RequestNotifier(window.content, function(wnd, node, item, scanComplete)
+  requestNotifier = new RequestNotifier(outerWindowID, function(item, scanComplete)
   {
     if (item)
-      treeView.addItem(node, item, scanComplete);
+      treeView.addItem(item, scanComplete);
   });
   cacheStorage = null;
 }
@@ -245,14 +257,12 @@ function fillInTooltip(e) {
     return;
   }
 
-  let filter = ("filter" in item && item.filter ? item.filter : null);
-  let size = ("tooltip" in item ? null : getItemSize(item));
+  let filter = getFilter(item);
   let subscriptions = (filter ? filter.subscriptions.filter(function(subscription) { return !subscription.disabled; }) : []);
 
   E("tooltipDummy").hidden = !("tooltip" in item);
   E("tooltipAddressRow").hidden = ("tooltip" in item);
   E("tooltipTypeRow").hidden = ("tooltip" in item);
-  E("tooltipSizeRow").hidden = !size;
   E("tooltipDocDomainRow").hidden = ("tooltip" in item || !item.docDomain);
   E("tooltipFilterRow").hidden = !filter;
   E("tooltipFilterSourceRow").hidden = !subscriptions.length;
@@ -270,9 +280,6 @@ function fillInTooltip(e) {
     else if (filter && item.type != "ELEMHIDE")
       type += " " + E("tooltipType").getAttribute("filtered");
     E("tooltipType").setAttribute("value", type);
-
-    if (size)
-      E("tooltipSize").setAttribute("value", size.join(" x "));
 
     E("tooltipDocDomain").setAttribute("value", item.docDomain + " " + (item.thirdParty ? docDomainThirdParty : docDomainFirstParty));
   }
@@ -299,9 +306,22 @@ function fillInTooltip(e) {
     }
   }
 
+  E("tooltipSizeRow").hidden = true;
+  if (!("tooltip" in item))
+  {
+    getItemSize(item, (size) =>
+    {
+      if (size)
+      {
+        E("tooltipSizeRow").hidden = false;
+        E("tooltipSize").setAttribute("value", size.join(" x "));
+      }
+    });
+  }
+
   var showPreview = Prefs.previewimages && !("tooltip" in item);
   showPreview = showPreview && item.type == "IMAGE";
-  showPreview = showPreview && (!item.filter || item.filter.disabled || item.filter instanceof WhitelistFilter);
+  showPreview = showPreview && (!filter || filter.disabled || filter instanceof WhitelistFilter);
   E("tooltipPreviewBox").hidden = true;
   if (showPreview)
   {
@@ -394,9 +414,9 @@ function fillInContext(/**Event*/ e)
   E("contextDisableFilter").hidden = true;
   E("contextEnableFilter").hidden = true;
   E("contextDisableOnSite").hidden = true;
-  if ("filter" in item && item.filter)
+  let filter = getFilter(item);
+  if (filter)
   {
-    let filter = item.filter;
     let menuItem = E(filter.disabled ? "contextEnableFilter" : "contextDisableFilter");
     menuItem.setAttribute("label", menuItem.getAttribute("labeltempl").replace(/\?1\?/, filter.text));
     menuItem.hidden = false;
@@ -417,13 +437,13 @@ function fillInContext(/**Event*/ e)
     }
   }
 
-  E("contextWhitelist").hidden = ("tooltip" in item || !item.filter || item.filter.disabled || item.filter instanceof WhitelistFilter || item.type == "ELEMHIDE");
+  E("contextWhitelist").hidden = ("tooltip" in item || !filter || filter.disabled || filter instanceof WhitelistFilter || item.type == "ELEMHIDE");
   E("contextBlock").hidden = !E("contextWhitelist").hidden;
-  E("contextBlock").setAttribute("disabled", "filter" in item && item.filter && !item.filter.disabled);
-  E("contextEditFilter").setAttribute("disabled", !("filter" in item && item.filter));
+  E("contextBlock").setAttribute("disabled", filter && !filter.disabled);
+  E("contextEditFilter").setAttribute("disabled", !filter);
   E("contextOpen").setAttribute("disabled", "tooltip" in item || item.type == "ELEMHIDE");
-  E("contextFlash").setAttribute("disabled", "tooltip" in item || !(item.type in visual) || (item.filter && !item.filter.disabled && !(item.filter instanceof WhitelistFilter)));
-  E("contextCopyFilter").setAttribute("disabled", !allItems.some(function(item) {return "filter" in item && item.filter}));
+  E("contextFlash").setAttribute("disabled", "tooltip" in item || !(item.type in visual) || (filter && !filter.disabled && !(filter instanceof WhitelistFilter)));
+  E("contextCopyFilter").setAttribute("disabled", !allItems.some(getFilter));
 
   return true;
 }
@@ -437,8 +457,9 @@ function handleClick(event)
   let item = treeView.getItemAt(event.clientX, event.clientY);
   if (event.button == 0 && treeView.getColumnAt(event.clientX, event.clientY) == "state")
   {
-    if (item.filter)
-      enableFilter(item.filter, item.filter.disabled);
+    let filter = getFilter(item);
+    if (filter)
+      enableFilter(filter, filter.disabled);
     event.preventDefault();
   }
   else if (event.button == 1)
@@ -478,14 +499,17 @@ function doBlock() {
   if (!item || item.type == "ELEMHIDE")
     return;
 
-  var filter = null;
-  if (item.filter && !item.filter.disabled)
-    filter = item.filter;
-
-  if (filter && filter instanceof WhitelistFilter)
+  var filter = getFilter(item);
+  if (filter && !filter.disabled && filter instanceof WhitelistFilter)
     return;
 
-  openDialog("chrome://adblockplus/content/ui/composer.xul", "_blank", "chrome,centerscreen,resizable,dialog=no,dependent", item.nodes, item.orig);
+  if (requestNotifier)
+  {
+    requestNotifier.storeNodesForEntries(item.ids, (nodesID) =>
+    {
+      UI.blockItem(window, nodesID, item.orig);
+    });
+  }
 }
 
 function editFilter()
@@ -494,10 +518,11 @@ function editFilter()
   if (treeView.data && !treeView.data.length)
     item = treeView.getDummyTooltip();
 
-  if (!("filter" in item) || !item.filter)
+  let filter = getFilter(item);
+  if (!filter)
     return;
 
-  UI.openFiltersDialog(item.filter);
+  UI.openFiltersDialog(filter);
 }
 
 function enableFilter(filter, enable) {
@@ -512,7 +537,7 @@ function enableFilter(filter, enable) {
 function disableOnSite()
 {
   let item = treeView.getSelectedItem();
-  let filter = item.filter;
+  let filter = getFilter(item);
   if (!(filter instanceof ActiveFilter) || filter.disabled || !filter.subscriptions.length || filter.subscriptions.some(subscription => !(subscription instanceof SpecialSubscription)))
     return;
 
@@ -586,7 +611,7 @@ function disableOnSite()
 
   // Update display
   for (let i = 0; i < treeView.allData.length; i++)
-    if (treeView.allData[i].filter == filter)
+    if (getFilter(treeView.allData[i]) == filter)
       treeView.allData[i].filter = null;
   treeView.boxObject.invalidate();
 }
@@ -600,14 +625,14 @@ function copyToClipboard() {
 }
 
 function copyFilter() {
-  var items = treeView.getAllSelectedItems().filter(function(item) {return item.filter});
+  var items = treeView.getAllSelectedItems().filter(getFilter);
   if (treeView.data && !treeView.data.length)
     items = [treeView.getDummyTooltip()];
 
   if (!items.length)
     return;
 
-  Utils.clipboardHelper.copyString(items.map(function(item) {return item.filter.text}).join(IO.lineBreak));
+  Utils.clipboardHelper.copyString(items.map(function(item) {return item.filter}).join(IO.lineBreak));
 }
 
 function selectAll() {
@@ -653,20 +678,35 @@ function detach(doDetach)
   myMainWin.document.getElementById("abp-command-sidebar").doCommand();
 }
 
-// Returns items size in the document if available
-function getItemSize(item)
+// Returns item's size if already known, otherwise undefined
+function getCachedItemSize(item)
 {
-  if (item.filter && !item.filter.disabled && item.filter instanceof BlockingFilter)
+  if ("size" in item)
+    return item.size;
+
+  let filter = getFilter(item);
+  if (filter && !filter.disabled && filter instanceof BlockingFilter)
     return null;
 
-  for (let node of item.nodes)
+  return undefined;
+}
+
+// Retrieves item's size in the document if available
+function getItemSize(item, callback)
+{
+  let size = getCachedItemSize(item);
+  if (typeof size != "undefined" || !requestNotifier)
   {
-    if (node instanceof HTMLImageElement && (node.naturalWidth || node.naturalHeight))
-      return [node.naturalWidth, node.naturalHeight];
-    else if (node instanceof HTMLElement && (node.offsetWidth || node.offsetHeight))
-      return [node.offsetWidth, node.offsetHeight];
+    callback(size);
+    return;
   }
-  return null;
+
+  requestNotifier.retrieveNodeSize(item.ids, function(size)
+  {
+    if (size)
+      item.size = size;
+    callback(size);
+  });
 }
 
 // Sort functions for the item list
@@ -699,25 +739,29 @@ function compareFilter(item1, item2) {
   var hasFilter2 = (item2.filter ? 1 : 0);
   if (hasFilter1 != hasFilter2)
     return hasFilter1 - hasFilter2;
-  else if (hasFilter1 && item1.filter.text < item2.filter.text)
+  else if (hasFilter1 && item1.filter < item2.filter)
     return -1;
-  else if (hasFilter1 && item1.filter.text > item2.filter.text)
+  else if (hasFilter1 && item1.filter > item2.filter)
     return 1;
   else
     return 0;
 }
 
-function compareState(item1, item2) {
-  var state1 = (!item1.filter ? 0 : (item1.filter.disabled ? 1 : (item1.filter instanceof WhitelistFilter ? 2 : 3)));
-  var state2 = (!item2.filter ? 0 : (item2.filter.disabled ? 1 : (item2.filter instanceof WhitelistFilter ? 2 : 3)));
+function compareState(item1, item2)
+{
+  let filter1 = getFilter(item1);
+  let filter2 = getFilter(item2);
+  let state1 = (!filter1 ? 0 : (filter1.disabled ? 1 : (filter1 instanceof WhitelistFilter ? 2 : 3)));
+  let state2 = (!filter2 ? 0 : (filter2.disabled ? 1 : (filter2 instanceof WhitelistFilter ? 2 : 3)));
   return state1 - state2;
 }
 
-function compareSize(item1, item2) {
-  var size1 = getItemSize(item1);
-  size1 = size1 ? size1[0] * size1[1] : 0;
+function compareSize(item1, item2)
+{
+  let size1 = getCachedItemSize(item1);
+  let size2 = getCachedItemSize(item2);
 
-  var size2 = getItemSize(item2);
+  size1 = size1 ? size1[0] * size1[1] : 0;
   size2 = size2 ? size2[0] * size2[1] : 0;
   return size1 - size2;
 }
@@ -738,8 +782,10 @@ function compareDocDomain(item1, item2)
 
 function compareFilterSource(item1, item2)
 {
-  let subs1 = item1.filter ? item1.filter.subscriptions.map(s => s.title).join(", ") : "";
-  let subs2 = item2.filter ? item2.filter.subscriptions.map(s => s.title).join(", ") : "";
+  let filter1 = getFilter(item1);
+  let filter2 = getFilter(item2);
+  let subs1 = filter1 ? filter1.subscriptions.map(s => s.title).join(", ") : "";
+  let subs2 = filter2 ? filter2.subscriptions.map(s => s.title).join(", ") : "";
   if (subs1 < subs2)
     return -1;
   else if (subs1 > subs2)
@@ -856,20 +902,29 @@ var treeView = {
       if (col == "type")
         return localizedTypes.get(this.data[row].type);
       else if (col == "filter")
-        return (this.data[row].filter ? this.data[row].filter.text : "");
+        return (this.data[row].filter || "");
       else if (col == "size")
       {
-        let size = getItemSize(this.data[row]);
+        let size = getCachedItemSize(this.data[row]);
+        if (typeof size == "undefined")
+        {
+          getItemSize(this.data[row], (size) =>
+          {
+            if (size)
+              this.boxObject.invalidateRow(row)
+          });
+        }
         return (size ? size.join(" x ") : "");
       }
       else if (col == "docDomain")
         return this.data[row].docDomain + " " + (this.data[row].thirdParty ? docDomainThirdParty : docDomainFirstParty);
       else if (col == "filterSource")
       {
-        if (!this.data[row].filter)
+        let filter = getFilter(this.data[row])
+        if (!filter)
           return "";
 
-        return this.data[row].filter.subscriptions.filter(s => !s.disabled).map(s => s.title).join(", ");
+        return filter.subscriptions.filter(s => !s.disabled).map(s => s.title).join(", ");
       }
       else
         return this.data[row].location;
@@ -922,7 +977,7 @@ var treeView = {
     if (this.data && this.data.length) {
       list.push("dummy-false");
 
-      let filter = this.data[row].filter;
+      let filter = getFilter(this.data[row]);
       if (filter)
         list.push("filter-disabled-" + filter.disabled);
 
@@ -1059,7 +1114,7 @@ var treeView = {
     this.boxObject.rowCountChanged(0, this.rowCount);
   },
 
-  addItem: function(/**Node*/ node, /**RequestEntry*/ item, /**Boolean*/ scanComplete)
+  addItem: function(/**RequestEntry*/ item, /**Boolean*/ scanComplete)
   {
     // Merge duplicate entries
     let key = item.location + " " + item.type + " " + item.docDomain;
@@ -1069,21 +1124,25 @@ var treeView = {
       let existing = this.dataMap[key];
       if (item.filter)
         existing.filter = item.filter;
+      existing.ids.push(item.id);
 
-      existing.nodes.push(node);
       this.invalidateItem(existing);
       return;
     }
 
     // Add new item to the list
     // Store original item in orig property - reading out prototype is messed up in Gecko 1.9.2
-    item = {__proto__: item, orig: item, nodes: [node]};
+    item = {__proto__: item, orig: item, ids: [item.id]};
     this.allData.push(item);
     this.dataMap[key] = item;
 
     // Show disabled filters if no other filter applies
     if (!item.filter)
-      item.filter = disabledMatcher.matchesAny(item.location, RegExpFilter.typeMap[item.type], item.docDomain, item.thirdParty);
+    {
+      let disabledMatch = disabledMatcher.matchesAny(item.location, RegExpFilter.typeMap[item.type], item.docDomain, item.thirdParty);
+      if (disabledMatch)
+        item.filter = disabledMatch.text;
+    }
 
     if (!this.matchesFilter(item))
       return;
@@ -1135,10 +1194,15 @@ var treeView = {
   {
     for (let item of this.allData)
     {
-      if (item.filter instanceof RegExpFilter && item.filter.disabled)
+      let filter = getFilter(item);
+      if (filter instanceof RegExpFilter && filter.disabled)
         delete item.filter;
-      if (!item.filter)
-        item.filter = disabledMatcher.matchesAny(item.location, RegExpFilter.typeMap[item.type], item.docDomain, item.thirdParty);
+      if (!filter)
+      {
+        let disabledMatch = disabledMatcher.matchesAny(item.location, RegExpFilter.typeMap[item.type], item.docDomain, item.thirdParty);
+        if (disabledMatch)
+          item.filter = disabledMatch.text;
+      }
     }
     this.refilter();
   },
@@ -1167,7 +1231,7 @@ var treeView = {
       return true;
 
     return (item.location.toLowerCase().indexOf(this.filter) >= 0 ||
-            (item.filter && item.filter.text.toLowerCase().indexOf(this.filter) >= 0) ||
+            (item.filter && item.filter.toLowerCase().indexOf(this.filter) >= 0) ||
             item.type.toLowerCase().indexOf(this.filter.replace(/-/g, "_")) >= 0 ||
             localizedTypes.get(item.type).toLowerCase().indexOf(this.filter) >= 0 ||
             (item.docDomain && item.docDomain.toLowerCase().indexOf(this.filter) >= 0) ||
@@ -1246,7 +1310,7 @@ var treeView = {
 
     var filter = Policy.isWindowWhitelisted(window.content);
     if (filter)
-      return {tooltip: this.whitelistDummyTooltip, filter: filter};
+      return {tooltip: this.whitelistDummyTooltip, filter: filter.text};
     else
       return {tooltip: this.itemsDummyTooltip};
   },

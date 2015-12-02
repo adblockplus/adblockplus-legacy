@@ -15,13 +15,14 @@
  * along with Adblock Plus.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-var nodes = null;
+var nodesID = null;
 var item = null;
 var advancedMode = false;
 
 function init()
 {
-  [nodes, item] = window.arguments;
+  [nodesID, item] = window.arguments;
+  window.addEventListener("unload", () => Policy.deleteNodes(nodesID));
 
   E("filterType").value = (!item.filter || item.filter.disabled || item.filter instanceof WhitelistFilter ? "filterlist" : "whitelist");
   E("customPattern").value = item.location;
@@ -341,8 +342,8 @@ function addFilter() {
 
   FilterStorage.addFilter(filter);
 
-  if (nodes)
-    Policy.refilterNodes(nodes, item);
+  if (nodesID)
+    Policy.refilterNodes(nodesID, item);
 
   return true;
 }
