@@ -366,7 +366,14 @@ let screenshotDataSource =
     this._context.save();
     this._context.translate(this.imageOffset, this.imageOffset);
     this._context.scale(scalingFactor, scalingFactor);
-    this._context.drawWindow(wnd, copyX, copyY, copyWidth, copyHeight, "rgb(255,255,255)");
+    try
+    {
+      this._context.drawWindow(wnd, copyX, copyY, copyWidth, copyHeight, "rgb(255,255,255)");
+    }
+    catch (e)
+    {
+      Cu.reportError(e);
+    }
     this._context.restore();
 
     // Init canvas settings
