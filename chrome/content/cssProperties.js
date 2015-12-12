@@ -1,7 +1,6 @@
 function CSSPropertyFilters(window, addSelectorsFunc) {
   this.window = window;
   this.addSelectorsFunc = addSelectorsFunc;
-  this.load(this.apply.bind(this));
 }
 
 CSSPropertyFilters.prototype = {
