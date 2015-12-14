@@ -1,20 +1,28 @@
-<!ENTITY collapse.yes.label "Ja">
-<!ENTITY domainRestriction.help "Specify one or more domains separated by the symbol &quot;|&quot;, the filter will only be applied on these domains then. The symbol &quot;~&quot; before a domain name means that the filter should not be applied on that domain.">
-<!ENTITY accept.label "Legg til filter">
-<!ENTITY type.filter.label "&amp;Blokker filter">
-<!ENTITY options.label "Innstillinger">
-<!ENTITY disabled.warning "Adblock Plus er kopla ut. Du kan like vel leggje til filtre, men desse vil ikkje bli tekne i bruk dersom du ikkje [link]koplar inn Adblock Plus[/link].">
+<!ENTITY anchor.end.label "på slutten av addressa">
+<!ENTITY domainRestriction.label "Begrens til domene:">
 <!ENTITY collapse.default.no.label "Bruk standard (nei)">
 <!ENTITY preferences.label "&amp;Syn filter...">
-<!ENTITY advanced.label "Avansert vising">
-<!ENTITY pattern.label "Se etter mønster">
-<!ENTITY selectAllTypes.label "Velg alle">
+<!ENTITY pattern.label "Sjå etter mønster">
+<!ENTITY filter.label "Nytt filter:">
+<!ENTITY match.warning "Mønsteret du angav samsvarar ikkje lenger med adressa som skal bli blokkert/kvitelista, og har inga virkning på den.">
+<!ENTITY anchor.start.label "i by&amp;rjinga av adressa">
+<!ENTITY custom.pattern.label "&amp;Egendefinert:">
+<!ENTITY unselectAllTypes.label "Velg ingen">
 <!ENTITY type.whitelist.label "&amp;Unntaksregel">
-<!ENTITY collapse.no.label "Nei">
 <!ENTITY regexp.warning "Mønsteret du la inn blir tolka som eit regulært uttrykk. Å ha mange regulære uttrykk kan gjera nettlesinga treig. Dersom du ikkje har tenkt til å nytte regulære uttrykk så sett eit *-symbol sist i mønsteret.">
 <!ENTITY dialog.title "Legg til regel for Adblock Plus filter">
-<!ENTITY basic.label "Grunnleggende visning">
-<!ENTITY filter.label "Nytt filter:">
-<!ENTITY unselectAllTypes.label "Velg ingen">
+<!ENTITY basic.label "Grunnleggjande visning">
+<!ENTITY type.filter.label "&amp;Blokker filter">
+<!ENTITY shortpattern.warning "Mønsteret du angav er for kort til å vere optimalisert og kan senke nettlesaropplevinga. Det er anbefalt at du veljer ein lenger tekststreng for dette filteret for å tillate at Adblock Plus skal behandle filteret meir effektivt.">
+<!ENTITY collapse.yes.label "Ja">
+<!ENTITY anchors.label "Berre godta mønster:">
 <!ENTITY collapse.default.yes.label "Bruk standard (ja)">
+<!ENTITY domainRestriction.help "Specify one or more domains separated by the symbol &quot;|&quot;, the filter will only be applied on these domains then. The symbol &quot;~&quot; before a domain name means that the filter should not be applied on that domain.">
+<!ENTITY accept.label "Legg til filter">
+<!ENTITY options.label "Innstillinger">
+<!ENTITY disabled.warning "Adblock Plus er kopla ut. Du kan likevel leggje til filtre, men desse vil ikkje bli tekne i bruk dersom du ikkje [link]koplar inn Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "på starten av domenenamnet">
+<!ENTITY collapse.no.label "Nei">
+<!ENTITY selectAllTypes.label "Velg alle">
+<!ENTITY advanced.label "Avansert vising">
 <!ENTITY pattern.explanation "Mønsteret kan vera ein kvar del av adressa, bruk *-symbolet som jokerteikn. Filterert blir berre nytta på adressar som stemmer med mønsteret.">

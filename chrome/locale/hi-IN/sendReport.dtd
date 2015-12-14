@@ -1,6 +1,7 @@
 <!ENTITY showData.label "रिपोर्ट डेटा दिखाएँ">
 <!ENTITY typeSelector.falsePositive.label "Adblock प्लस बहुत &amp; ज्यादा अवरुद्ध कर रहा है">
 <!ENTITY issues.openPreferences.label "खुला फ़िल्टर वरीयताएँ">
+<!ENTITY typeSelector.other.description "इस विकल्प का चयन करें यदि आपको Adblock प्लस के साथ ही समस्या लगता हो बजाय उसके फ़िल्टर्स के।">
 <!ENTITY issues.disabledgroups.enable.label "फ़िल्टर सदस्यता /फ़िल्टर समूह सक्षम करें">
 <!ENTITY issues.disabled.enable.label "ऍडब्लाक प्लस को सक्षम करें">
 <!ENTITY recentReports.clear.label "सभी रिपोर्ट &amp;मिटायें">

@@ -13,8 +13,10 @@
 <!ENTITY tooltip.docDomain.label "Origen del documento:">
 <!ENTITY context.copy.label "Copiar la dirección del elemento">
 <!ENTITY tooltip.type.label "Tipo:">
+<!ENTITY context.disablefilter.label "Desactivar filtro ?1?">
 <!ENTITY context.copyFilter.label "Copiar filtro">
 <!ENTITY context.block.label "Bloquear este elemento">
+<!ENTITY context.enablefilter.label "Reactivar filtro ?1?">
 <!ENTITY detach.label "Separar">
 <!ENTITY whitelisted.label "Página de lista blanca">
 <!ENTITY context.disablefilteronsite.label "Desactivar este filtro en ?1?">

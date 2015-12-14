@@ -7,7 +7,7 @@
 <!ENTITY thirdParty.label "أطراف أ&amp;خرى فقط">
 <!ENTITY filter.label "&amp;فلتر جديد :">
 <!ENTITY collapse.label "طوي المحجوب:">
-<!ENTITY match.warning "النموذج الذي أدخلته لم يعد موافقا للعنوان الذي يجب أن يتم حجبه أو السماح به ولن يكون له أي تأثير عليه">
+<!ENTITY match.warning "النموذج الذي أدخلته لم يعد موافقا للعنوان الذي يجب أن يحجب أو يسمح به ولن يأثر فيه">
 <!ENTITY anchor.start.label "في ب&amp;داية العنوان">
 <!ENTITY matchCase.label "م&amp;طابقة الحالة">
 <!ENTITY custom.pattern.label "مخ&amp;صص:">
