@@ -633,35 +633,35 @@ var FilterView =
 
   setTree: function(boxObject)
   {
+    if (!boxObject)
+      return;
+
     this.init();
     this.boxObject = boxObject;
 
-    if (this.boxObject)
+    this.noGroupDummy = {index: 0, filter: {text: this.boxObject.treeBody.getAttribute("noGroupText"), dummy: true}};
+    this.noFiltersDummy = {index: 0, filter: {text: this.boxObject.treeBody.getAttribute("noFiltersText"), dummy: true}};
+    this.editDummy = {filter: {text: ""}};
+
+    let atomService = Cc["@mozilla.org/atom-service;1"].getService(Ci.nsIAtomService);
+    let stringAtoms = ["col-filter", "col-enabled", "col-hitcount", "col-lasthit", "type-invalid", "type-comment", "type-blocking", "type-whitelist", "type-elemhide", "type-elemhideexception", "type-cssproperty"];
+    let boolAtoms = ["selected", "dummy", "slow", "disabled"];
+
+    this.atoms = {};
+    for (let atom of stringAtoms)
+      this.atoms[atom] = atomService.getAtom(atom);
+    for (let atom of boolAtoms)
     {
-      this.noGroupDummy = {index: 0, filter: {text: this.boxObject.treeBody.getAttribute("noGroupText"), dummy: true}};
-      this.noFiltersDummy = {index: 0, filter: {text: this.boxObject.treeBody.getAttribute("noFiltersText"), dummy: true}};
-      this.editDummy = {filter: {text: ""}};
-
-      let atomService = Cc["@mozilla.org/atom-service;1"].getService(Ci.nsIAtomService);
-      let stringAtoms = ["col-filter", "col-enabled", "col-hitcount", "col-lasthit", "type-invalid", "type-comment", "type-blocking", "type-whitelist", "type-elemhide", "type-elemhideexception", "type-cssproperty"];
-      let boolAtoms = ["selected", "dummy", "slow", "disabled"];
-
-      this.atoms = {};
-      for (let atom of stringAtoms)
-        this.atoms[atom] = atomService.getAtom(atom);
-      for (let atom of boolAtoms)
-      {
-        this.atoms[atom + "-true"] = atomService.getAtom(atom + "-true");
-        this.atoms[atom + "-false"] = atomService.getAtom(atom + "-false");
-      }
-
-      let columns = this.boxObject.columns;
-      for (let i = 0; i < columns.length; i++)
-        if (columns[i].element.hasAttribute("sortDirection"))
-          this.sortBy(columns[i].id, columns[i].element.getAttribute("sortDirection"));
-
-      this.refresh(true);
+      this.atoms[atom + "-true"] = atomService.getAtom(atom + "-true");
+      this.atoms[atom + "-false"] = atomService.getAtom(atom + "-false");
     }
+
+    let columns = this.boxObject.columns;
+    for (let i = 0; i < columns.length; i++)
+      if (columns[i].element.hasAttribute("sortDirection"))
+        this.sortBy(columns[i].id, columns[i].element.getAttribute("sortDirection"));
+
+    this.refresh(true);
 
     // Stop propagation of keypress events so that these aren't intercepted by
     // the findbar.
