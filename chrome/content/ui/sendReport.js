@@ -105,7 +105,7 @@ function serializeReportData()
 // Data collectors
 //
 
-let reportsListDataSource =
+var reportsListDataSource =
 {
   list: [],
 
@@ -184,7 +184,7 @@ let reportsListDataSource =
   }
 };
 
-let requestsDataSource =
+var requestsDataSource =
 {
   requests: reportElement("requests"),
   origRequests: [],
@@ -242,7 +242,7 @@ let requestsDataSource =
   }
 };
 
-let filtersDataSource =
+var filtersDataSource =
 {
   origFilters: [],
 
@@ -273,7 +273,7 @@ let filtersDataSource =
   }
 };
 
-let subscriptionsDataSource =
+var subscriptionsDataSource =
 {
   subscriptionFilter: function(s)
   {
@@ -317,7 +317,7 @@ let subscriptionsDataSource =
   }
 };
 
-let screenshotDataSource =
+var screenshotDataSource =
 {
   imageOffset: 10,
 
@@ -570,7 +570,7 @@ let screenshotDataSource =
   }
 };
 
-let framesDataSource =
+var framesDataSource =
 {
   site: null,
 
@@ -619,7 +619,7 @@ let framesDataSource =
   }
 };
 
-let errorsDataSource =
+var errorsDataSource =
 {
   collectData: function(wnd, windowURI, callback)
   {
@@ -692,7 +692,7 @@ let errorsDataSource =
   }
 };
 
-let extensionsDataSource =
+var extensionsDataSource =
 {
   data: reportData.createElement("extensions"),
 
@@ -734,7 +734,7 @@ let extensionsDataSource =
   }
 };
 
-let subscriptionUpdateDataSource =
+var subscriptionUpdateDataSource =
 {
   contentWnd: null,
   type: null,
@@ -886,7 +886,7 @@ let subscriptionUpdateDataSource =
   }
 }
 
-let issuesDataSource =
+var issuesDataSource =
 {
   contentWnd: null,
   isEnabled: Prefs.enabled,
