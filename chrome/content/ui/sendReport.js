@@ -912,7 +912,7 @@ var issuesDataSource =
   collectData: function(wnd, windowURI, callback)
   {
     this.contentWnd = wnd;
-    this.whitelistFilter = Policy.isWindowWhitelisted(wnd);
+    this.whitelistFilter = Policy.isWhitelisted(windowURI.spec);
 
     if (!this.whitelistFilter && this.isEnabled)
     {

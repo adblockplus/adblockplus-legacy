@@ -20,6 +20,9 @@ Cu.import("resource://gre/modules/XPCOMUtils.jsm");
 // Main browser window
 var mainWin = parent;
 
+// Location of the content window that the list refers to
+var contentLocation = null;
+
 // The window handler currently in use
 var requestNotifier = null;
 
@@ -87,6 +90,7 @@ function init() {
   }
 
   let {getBrowser, addBrowserLocationListener} = require("appSupport");
+  updateContentLocation();
   Object.defineProperty(window, "content", { get: () => getBrowser(mainWin).contentWindow });
 
   // Initialize matcher for disabled filters
@@ -111,6 +115,15 @@ function init() {
 // To be called for a detached window when the main window has been closed
 function mainUnload() {
   parent.close();
+}
+
+function updateContentLocation()
+{
+  let {getCurrentLocation} = require("appSupport");
+  let location = getCurrentLocation(mainWin);
+  if (location instanceof Ci.nsIURI)
+    location = location.spec;
+  contentLocation = location;
 }
 
 function getFilter(item)
@@ -205,6 +218,7 @@ function handleLocationChange()
   if (requestNotifier)
     requestNotifier.shutdown();
 
+  updateContentLocation();
   treeView.clearData();
 
   let {getBrowser, addBrowserLocationListener} = require("appSupport");
@@ -212,7 +226,8 @@ function handleLocationChange()
   if ("selectedBrowser" in browser)
     browser = browser.selectedBrowser;
   let outerWindowID = browser.outerWindowID;
-  treeView.itemToSelect = RequestNotifier.getSelection(window.content);
+  if (window.content)
+    treeView.itemToSelect = RequestNotifier.getSelection(window.content);
   requestNotifier = new RequestNotifier(outerWindowID, function(item, scanComplete)
   {
     if (item)
@@ -934,11 +949,11 @@ var treeView = {
       if (row > 0 || (col != "address" && col != "filter"))
         return "";
       if (col == "filter") {
-        var filter = Policy.isWindowWhitelisted(window.content);
+        var filter = Policy.isWhitelisted(contentLocation);
         return filter ? filter.text : "";
       }
 
-      return (Policy.isWindowWhitelisted(window.content) ? this.whitelistDummy : this.itemsDummy);
+      return (Policy.isWhitelisted(contentLocation) ? this.whitelistDummy : this.itemsDummy);
     }
   },
 
@@ -998,7 +1013,7 @@ var treeView = {
       list.push("dummy-true");
 
       state = "state-filtered";
-      if (this.data && Policy.isWindowWhitelisted(window.content))
+      if (this.data && Policy.isWhitelisted(contentLocation))
         state = "state-whitelisted";
     }
     list.push(state);
@@ -1308,7 +1323,7 @@ var treeView = {
     if (!this.data || this.data.length)
       return null;
 
-    var filter = Policy.isWindowWhitelisted(window.content);
+    var filter = Policy.isWhitelisted(contentLocation);
     if (filter)
       return {tooltip: this.whitelistDummyTooltip, filter: filter.text};
     else
