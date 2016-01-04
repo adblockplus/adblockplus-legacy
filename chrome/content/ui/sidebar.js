@@ -89,9 +89,8 @@ function init() {
         wnd.setAttribute(attr, defaults[attr]);
   }
 
-  let {getBrowser, addBrowserLocationListener} = require("appSupport");
+  let {addBrowserLocationListener} = require("appSupport");
   updateContentLocation();
-  Object.defineProperty(window, "content", { get: () => getBrowser(mainWin).contentWindow });
 
   // Initialize matcher for disabled filters
   reloadDisabledFilters();
@@ -124,6 +123,15 @@ function updateContentLocation()
   if (location instanceof Ci.nsIURI)
     location = location.spec;
   contentLocation = location;
+}
+
+function getOuterWindowID()
+{
+  let {getBrowser} = require("appSupport");
+  let browser = getBrowser(mainWin);
+  if ("selectedBrowser" in browser)
+    browser = browser.selectedBrowser;
+  return browser.outerWindowID;
 }
 
 function getFilter(item)
@@ -202,10 +210,10 @@ function onSelectionChange() {
   else
     E("copy-command").setAttribute("disabled", "true");
 
-  if (item && window.content)
+  if (item)
   {
     let key = item.location + " " + item.type + " " + item.docDomain;
-    RequestNotifier.storeSelection(window.content, key);
+    RequestNotifier.storeWindowData(getOuterWindowID(), key);
     treeView.itemToSelect = null;
   }
 
@@ -221,14 +229,12 @@ function handleLocationChange()
   updateContentLocation();
   treeView.clearData();
 
-  let {getBrowser, addBrowserLocationListener} = require("appSupport");
-  let browser = getBrowser(mainWin);
-  if ("selectedBrowser" in browser)
-    browser = browser.selectedBrowser;
-  let outerWindowID = browser.outerWindowID;
-  if (window.content)
-    treeView.itemToSelect = RequestNotifier.getSelection(window.content);
-  requestNotifier = new RequestNotifier(outerWindowID, function(item, scanComplete)
+  let outerWindowID = getOuterWindowID();
+  RequestNotifier.retrieveWindowData(outerWindowID, key =>
+  {
+    treeView.itemToSelect = key;
+  });
+  requestNotifier = new RequestNotifier(outerWindowID, (item, scanComplete) =>
   {
     if (item)
       treeView.addItem(item, scanComplete);
