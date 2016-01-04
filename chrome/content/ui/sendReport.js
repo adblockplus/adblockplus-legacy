@@ -825,8 +825,14 @@ var subscriptionUpdateDataSource =
         let filtersRemoved = false;
         let requests = requestsDataSource.origRequests;
         for (let i = 0; i < requests.length; i++)
-          if (requests[i].filter && !requests[i].filter.subscriptions.filter(s => !s.disabled).length)
+        {
+          if (!requests[i].filter)
+            continue;
+
+          let filter = Filter.fromText(requests[i].filter);
+          if (!filter.subscriptions.some(s => !s.disabled))
             filtersRemoved = true;
+        }
 
         if (filtersRemoved)
         {
