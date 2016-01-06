@@ -138,7 +138,7 @@ function init()
   let isDefaultType = (RegExpFilter.typeMap[item.type] & defaultTypes) != 0;
   for (let type of types)
   {
-    if (type == "ELEMHIDE")
+    if (type == "ELEMHIDE" || type == "GENERICBLOCK" || type == "GENERICHIDE")
       continue;
 
     let typeNode = document.createElement("checkbox");
@@ -224,7 +224,7 @@ function updateFilter()
     for (let typeNode = E("typeGroup").firstChild; typeNode; typeNode = typeNode.nextSibling)
     {
       let value = typeNode.getAttribute("value");
-      if (value == "document" || value == "genericblock" || value == "generichide")
+      if (value == "document")
         disableElement(typeNode, type != "whitelist", "checked", false);
 
       if (!typeNode._defaultType)
