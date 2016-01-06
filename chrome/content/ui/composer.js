@@ -224,7 +224,7 @@ function updateFilter()
     for (let typeNode = E("typeGroup").firstChild; typeNode; typeNode = typeNode.nextSibling)
     {
       let value = typeNode.getAttribute("value");
-      if (value == "document")
+      if (value == "document" || value == "genericblock" || value == "generichide")
         disableElement(typeNode, type != "whitelist", "checked", false);
 
       if (!typeNode._defaultType)
