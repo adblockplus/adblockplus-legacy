@@ -119,7 +119,7 @@ function init()
   else
     E("patternGroup").focus();
 
-  let types = Array.from(Policy.contentTypes);
+  let types = Array.from(new Set(Policy.contentTypes.values()));
   types.sort();
 
   let docDomain = item.docDomain;

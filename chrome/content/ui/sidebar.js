@@ -107,7 +107,7 @@ function init() {
   if (addBrowserLocationListener)
     addBrowserLocationListener(mainWin, handleLocationChange, true);
 
-  for (let type of Policy.contentTypes)
+  for (let type of Policy.contentTypes.values())
     localizedTypes.set(type, Utils.getString("type_label_" + type.toLowerCase()));
 }
 
