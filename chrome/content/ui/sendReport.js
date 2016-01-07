@@ -321,13 +321,6 @@ var screenshotDataSource =
 {
   imageOffset: 10,
 
-  // Fields used for color reduction
-  _mapping: [0x00,  0x55,  0xAA,  0xFF],
-  _i: null,
-  _max: null,
-  _pixelData: null,
-  _callback: null,
-
   // Fields used for user interaction
   _enabled: true,
   _canvas: null,
@@ -338,78 +331,40 @@ var screenshotDataSource =
 
   collectData: function(wnd, windowURI, callback)
   {
-    this._callback = callback;
-    this._canvas = E("screenshotCanvas");
-    this._canvas.width = this._canvas.offsetWidth;
+    let outerWindowID = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
+                           .getInterface(Ci.nsIDOMWindowUtils)
+                           .outerWindowID;
+    let dataCollector = require("dataCollector");
+    let canvas = E("screenshotCanvas");
+    let screenshotWidth = canvas.offsetWidth - this.imageOffset * 2;
 
     // Do not resize canvas any more (no idea why Gecko requires both to be set)
-    this._canvas.parentNode.style.MozBoxAlign = "center";
-    this._canvas.parentNode.align = "center";
-
-    this._context = this._canvas.getContext("2d");
-    let wndWidth = wnd.document.documentElement.scrollWidth;
-    let wndHeight = wnd.document.documentElement.scrollHeight;
-
-    // Copy scaled screenshot of the webpage. We scale the webpage by width
-    // but leave 10px on each side for easier selecting.
-
-    // Gecko doesn't like sizes more than 64k, restrict to 30k to be on the safe side.
-    // Also, make sure height is at most five times the width to keep image size down.
-    let copyWidth = Math.min(wndWidth, 30000);
-    let copyHeight = Math.min(wndHeight, 30000, copyWidth * 5);
-    let copyX = Math.max(Math.min(wnd.scrollX - copyWidth / 2, wndWidth - copyWidth), 0);
-    let copyY = Math.max(Math.min(wnd.scrollY - copyHeight / 2, wndHeight - copyHeight), 0);
-
-    let scalingFactor = (this._canvas.width - this.imageOffset * 2) / copyWidth;
-    this._canvas.height = copyHeight * scalingFactor + this.imageOffset * 2;
-
-    this._context.save();
-    this._context.translate(this.imageOffset, this.imageOffset);
-    this._context.scale(scalingFactor, scalingFactor);
-    try
-    {
-      this._context.drawWindow(wnd, copyX, copyY, copyWidth, copyHeight, "rgb(255,255,255)");
-    }
-    catch (e)
-    {
-      Cu.reportError(e);
-    }
-    this._context.restore();
+    canvas.parentNode.style.MozBoxAlign = "center";
+    canvas.parentNode.align = "center";
 
     // Init canvas settings
-    this._context.fillStyle = "rgb(0, 0, 0)";
-    this._context.strokeStyle = "rgba(255, 0, 0, 0.7)";
-    this._context.lineWidth = 3;
-    this._context.lineJoin = "round";
+    let context = canvas.getContext("2d");
+    context.fillStyle = "rgb(0, 0, 0)";
+    context.strokeStyle = "rgba(255, 0, 0, 0.7)";
+    context.lineWidth = 3;
+    context.lineJoin = "round";
 
-    // Reduce colors asynchronously
-    this._pixelData = this._context.getImageData(this.imageOffset, this.imageOffset,
-                                      this._canvas.width - this.imageOffset * 2,
-                                      this._canvas.height - this.imageOffset * 2);
-    this._max = this._pixelData.width * this._pixelData.height * 4;
-    this._i = 0;
-    Utils.runAsync(this.run.bind(this));
-  },
+    this._canvas = canvas;
+    this._context = context;
 
-  run: function()
-  {
-    // Process only 5000 bytes at a time to prevent browser hangs
-    let endIndex = Math.min(this._i + 5000, this._max);
-    let i = this._i;
-    for (; i < endIndex; i++)
-      this._pixelData.data[i] = this._mapping[this._pixelData.data[i] >> 6];
-
-    if (i >= this._max)
-    {
-      // Save data back and we are done
-      this._context.putImageData(this._pixelData, this.imageOffset, this.imageOffset);
-      this._callback();
-    }
-    else
-    {
-      this._i = i;
-      Utils.runAsync(this.run.bind(this));
-    }
+    dataCollector.collectData(outerWindowID, screenshotWidth, data => {
+      if (data && data.screenshot)
+      {
+        let image = new Image();
+        image.src = data.screenshot;
+        image.addEventListener("load", () => {
+          canvas.width = image.width + this.imageOffset * 2;
+          canvas.height = image.height + this.imageOffset * 2;
+          context.drawImage(image, this.imageOffset, this.imageOffset);
+        });
+      }
+      callback();
+    });
   },
 
   get enabled() this._enabled,
