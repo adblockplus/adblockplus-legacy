@@ -27,7 +27,7 @@ const SECONDS_IN_MINUTE = 60;
 const SECONDS_IN_HOUR = 60 * SECONDS_IN_MINUTE;
 const SECONDS_IN_DAY = 24 * SECONDS_IN_HOUR;
 
-let contentWindow = window.arguments[0];
+let outerWindowID = window.arguments[0];
 let windowURI = window.arguments[1];
 if (typeof windowURI == "string")
   windowURI = Services.newURI(windowURI, null, null);
@@ -111,7 +111,7 @@ var reportsListDataSource =
 {
   list: [],
 
-  collectData: function(wnd, windowURI, browser, callback)
+  collectData: function(outerWindowID, windowURI, browser, callback)
   {
     let data = Prefs.recentReports;
     if (data && "length" in data)
@@ -194,11 +194,8 @@ var requestsDataSource =
   callback: null,
   nodeByKey: Object.create(null),
 
-  collectData: function(wnd, windowURI, browser, callback)
+  collectData: function(outerWindowID, windowURI, browser, callback)
   {
-    let outerWindowID = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
-                           .getInterface(Ci.nsIDOMWindowUtils)
-                           .outerWindowID;
     this.callback = callback;
     this.requestNotifier = new RequestNotifier(outerWindowID, this.onRequestFound, this);
   },
@@ -248,11 +245,8 @@ var filtersDataSource =
 {
   origFilters: [],
 
-  collectData: function(wnd, windowURI, browser, callback)
+  collectData: function(outerWindowID, windowURI, browser, callback)
   {
-    let outerWindowID = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
-                           .getInterface(Ci.nsIDOMWindowUtils)
-                           .outerWindowID;
     RequestNotifier.getWindowStatistics(outerWindowID, (wndStats) =>
     {
       if (wndStats)
@@ -286,7 +280,7 @@ var subscriptionsDataSource =
     return true;
   },
 
-  collectData: function(wnd, windowURI, browser, callback)
+  collectData: function(outerWindowID, windowURI, browser, callback)
   {
     let subscriptions = reportElement("subscriptions");
     let now = Math.round(Date.now() / 1000);
@@ -321,11 +315,8 @@ var subscriptionsDataSource =
 
 var remoteDataSource =
 {
-  collectData: function(wnd, windowURI, browser, callback)
+  collectData: function(outerWindowID, windowURI, browser, callback)
   {
-    let outerWindowID = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
-                           .getInterface(Ci.nsIDOMWindowUtils)
-                           .outerWindowID;
     let dataCollector = require("dataCollector");
     let screenshotWidth = screenshotDataSource.getWidth();
     dataCollector.collectData(outerWindowID, screenshotWidth, data => {
@@ -588,7 +579,7 @@ var framesDataSource =
 
 var errorsDataSource =
 {
-  collectData: function(wnd, windowURI, browser, callback)
+  collectData: function(outerWindowID, windowURI, browser, callback)
   {
     let {addonID} = require("info");
     addonID = addonID.replace(/[\{\}]/g, "");
@@ -663,7 +654,7 @@ var extensionsDataSource =
 {
   data: reportData.createElement("extensions"),
 
-  collectData: function(wnd, windowURI, browser, callback)
+  collectData: function(outerWindowID, windowURI, browser, callback)
   {
     try
     {
@@ -716,7 +707,7 @@ var subscriptionUpdateDataSource =
       return false;
   },
 
-  collectData: function(wnd, windowURI, browser, callback)
+  collectData: function(outerWindowID, windowURI, browser, callback)
   {
     this.browser = browser;
     let now = Date.now() / MILLISECONDS_IN_SECOND;
@@ -882,7 +873,7 @@ var issuesDataSource =
       return false;
   },
 
-  collectData: function(wnd, windowURI, browser, callback)
+  collectData: function(outerWindowID, windowURI, browser, callback)
   {
     this.browser = browser;
     this.whitelistFilter = Policy.isWhitelisted(windowURI.spec);
@@ -1240,7 +1231,7 @@ function initDataCollectorPage()
     let dataSource = dataCollectors.shift();
     Utils.runAsync(function()
     {
-      dataSource.collectData(contentWindow, windowURI, browser, initNextDataSource);
+      dataSource.collectData(outerWindowID, windowURI, browser, initNextDataSource);
     });
   };
 
