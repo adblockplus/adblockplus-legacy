@@ -29,7 +29,10 @@ const SECONDS_IN_HOUR = 60 * SECONDS_IN_MINUTE;
 const SECONDS_IN_DAY = 24 * SECONDS_IN_HOUR;
 
 let contentWindow = window.arguments[0];
-let windowURI = (window.arguments[1] instanceof Ci.nsIURI ? window.arguments[1] : null);
+let windowURI = window.arguments[1];
+if (typeof windowURI == "string")
+  windowURI = Services.newURI(windowURI, null, null);
+let browser = window.arguments[2];
 
 let reportData = new DOMParser().parseFromString("<report></report>", "text/xml");
 
@@ -109,7 +112,7 @@ var reportsListDataSource =
 {
   list: [],
 
-  collectData: function(wnd, windowURI, callback)
+  collectData: function(wnd, windowURI, browser, callback)
   {
     let data = Prefs.recentReports;
     if (data && "length" in data)
@@ -192,7 +195,7 @@ var requestsDataSource =
   callback: null,
   nodeByKey: Object.create(null),
 
-  collectData: function(wnd, windowURI, callback)
+  collectData: function(wnd, windowURI, browser, callback)
   {
     let outerWindowID = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
                            .getInterface(Ci.nsIDOMWindowUtils)
@@ -246,7 +249,7 @@ var filtersDataSource =
 {
   origFilters: [],
 
-  collectData: function(wnd, windowURI, callback)
+  collectData: function(wnd, windowURI, browser, callback)
   {
     let outerWindowID = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
                            .getInterface(Ci.nsIDOMWindowUtils)
@@ -284,7 +287,7 @@ var subscriptionsDataSource =
     return true;
   },
 
-  collectData: function(wnd, windowURI, callback)
+  collectData: function(wnd, windowURI, browser, callback)
   {
     let subscriptions = reportElement("subscriptions");
     let now = Math.round(Date.now() / 1000);
@@ -319,7 +322,7 @@ var subscriptionsDataSource =
 
 var remoteDataSource =
 {
-  collectData: function(wnd, windowURI, callback)
+  collectData: function(wnd, windowURI, browser, callback)
   {
     let outerWindowID = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
                            .getInterface(Ci.nsIDOMWindowUtils)
@@ -580,7 +583,7 @@ var framesDataSource =
 
 var errorsDataSource =
 {
-  collectData: function(wnd, windowURI, callback)
+  collectData: function(wnd, windowURI, browser, callback)
   {
     let {addonID} = require("info");
     addonID = addonID.replace(/[\{\}]/g, "");
@@ -655,7 +658,7 @@ var extensionsDataSource =
 {
   data: reportData.createElement("extensions"),
 
-  collectData: function(wnd, windowURI, callback)
+  collectData: function(wnd, windowURI, browser, callback)
   {
     try
     {
@@ -695,7 +698,7 @@ var extensionsDataSource =
 
 var subscriptionUpdateDataSource =
 {
-  contentWnd: null,
+  browser: null,
   type: null,
   outdated: null,
   needUpdate: null,
@@ -708,9 +711,9 @@ var subscriptionUpdateDataSource =
       return false;
   },
 
-  collectData: function(wnd, windowURI, callback)
+  collectData: function(wnd, windowURI, browser, callback)
   {
-    this.contentWnd = wnd;
+    this.browser = browser;
     let now = Date.now() / MILLISECONDS_IN_SECOND;
     let outdatedThreshold = now - 14 * SECONDS_IN_DAY;
     let needUpdateThreshold = now - 1 * SECONDS_IN_HOUR;
@@ -801,17 +804,17 @@ var subscriptionUpdateDataSource =
 
           let nextButton = document.documentElement.getButton("next");
           [nextButton.label, nextButton.accessKey] = Utils.splitLabel(E("updatePage").getAttribute("reloadButtonLabel"));
-          document.documentElement.addEventListener("wizardnext", function(event)
+          document.documentElement.addEventListener("wizardnext", event =>
           {
             event.preventDefault();
             event.stopPropagation();
             window.close();
-            this.contentWnd.location.reload();
-          }.bind(this), true);
+            this.browser.reload();
+          }, true);
         }
         else
         {
-          this.collectData(null, null, function() {});
+          this.collectData(null, null, null, function() {});
           this.needUpdate = [];
           if (this.outdated.length)
           {
@@ -853,7 +856,7 @@ var subscriptionUpdateDataSource =
 
 var issuesDataSource =
 {
-  contentWnd: null,
+  browser: null,
   isEnabled: Prefs.enabled,
   whitelistFilter: null,
   disabledFilters: [],
@@ -874,9 +877,9 @@ var issuesDataSource =
       return false;
   },
 
-  collectData: function(wnd, windowURI, callback)
+  collectData: function(wnd, windowURI, browser, callback)
   {
-    this.contentWnd = wnd;
+    this.browser = browser;
     this.whitelistFilter = Policy.isWhitelisted(windowURI.spec);
 
     if (!this.whitelistFilter && this.isEnabled)
@@ -1053,15 +1056,14 @@ var issuesDataSource =
     document.documentElement.canRewind = false;
     document.documentElement.canAdvance = true;
 
-    let contentWnd = this.contentWnd;
     let nextButton = document.documentElement.getButton("next");
     [nextButton.label, nextButton.accessKey] = Utils.splitLabel(E("updatePage").getAttribute("reloadButtonLabel"));
-    document.documentElement.addEventListener("wizardnext", function(event)
+    document.documentElement.addEventListener("wizardnext", event =>
     {
       event.preventDefault();
       event.stopPropagation();
       window.close();
-      contentWnd.location.reload();
+      this.browser.reload();
     }, true);
   },
 
@@ -1233,7 +1235,7 @@ function initDataCollectorPage()
     let dataSource = dataCollectors.shift();
     Utils.runAsync(function()
     {
-      dataSource.collectData(contentWindow, windowURI, initNextDataSource);
+      dataSource.collectData(contentWindow, windowURI, browser, initNextDataSource);
     });
   };
 
