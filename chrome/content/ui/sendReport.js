@@ -317,6 +317,23 @@ var subscriptionsDataSource =
   }
 };
 
+var remoteDataSource =
+{
+  collectData: function(wnd, windowURI, callback)
+  {
+    let outerWindowID = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
+                           .getInterface(Ci.nsIDOMWindowUtils)
+                           .outerWindowID;
+    let dataCollector = require("dataCollector");
+    let screenshotWidth = screenshotDataSource.getWidth();
+    dataCollector.collectData(outerWindowID, screenshotWidth, data => {
+      screenshotDataSource.setData(data && data.screenshot);
+      framesDataSource.setData(windowURI, data && data.opener, data && data.referrer, data && data.frames);
+      callback();
+    });
+  }
+}
+
 var screenshotDataSource =
 {
   imageOffset: 10,
@@ -329,14 +346,15 @@ var screenshotDataSource =
   _currentData: null,
   _undoQueue: [],
 
-  collectData: function(wnd, windowURI, callback)
+  getWidth: function()
   {
-    let outerWindowID = wnd.QueryInterface(Ci.nsIInterfaceRequestor)
-                           .getInterface(Ci.nsIDOMWindowUtils)
-                           .outerWindowID;
-    let dataCollector = require("dataCollector");
     let canvas = E("screenshotCanvas");
-    let screenshotWidth = canvas.offsetWidth - this.imageOffset * 2;
+    return canvas.offsetWidth - this.imageOffset * 2;
+  },
+
+  setData: function(screenshot)
+  {
+    let canvas = E("screenshotCanvas");
 
     // Do not resize canvas any more (no idea why Gecko requires both to be set)
     canvas.parentNode.style.MozBoxAlign = "center";
@@ -352,19 +370,16 @@ var screenshotDataSource =
     this._canvas = canvas;
     this._context = context;
 
-    dataCollector.collectData(outerWindowID, screenshotWidth, data => {
-      if (data && data.screenshot)
-      {
-        let image = new Image();
-        image.src = data.screenshot;
-        image.addEventListener("load", () => {
-          canvas.width = image.width + this.imageOffset * 2;
-          canvas.height = image.height + this.imageOffset * 2;
-          context.drawImage(image, this.imageOffset, this.imageOffset);
-        });
-      }
-      callback();
-    });
+    if (screenshot)
+    {
+      let image = new Image();
+      image.src = screenshot;
+      image.addEventListener("load", () => {
+        canvas.width = image.width + this.imageOffset * 2;
+        canvas.height = image.height + this.imageOffset * 2;
+        context.drawImage(image, this.imageOffset, this.imageOffset);
+      });
+    }
   },
 
   get enabled() this._enabled,
@@ -529,7 +544,7 @@ var framesDataSource =
 {
   site: null,
 
-  collectData: function(wnd, windowURI, callback)
+  setData: function(windowURI, opener, referrer, frames)
   {
     try
     {
@@ -543,33 +558,22 @@ var framesDataSource =
     }
 
     let window = reportElement("window");
-    window.setAttribute("url", censorURL(windowURI ? windowURI.spec : wnd.location.href));
-    if (wnd.opener && wnd.opener.location.href)
-      window.setAttribute("opener", censorURL(wnd.opener.location.href));
-    if (wnd.document.referrer)
-      window.setAttribute("referrer", censorURL(wnd.document.referrer));
-    this.scanFrames(wnd, window);
-
-    callback();
+    window.setAttribute("url", censorURL(windowURI.spec));
+    if (opener)
+      window.setAttribute("opener", censorURL(opener));
+    if (referrer)
+      window.setAttribute("referrer", censorURL(referrer));
+    this.addFrames(frames || [], window);
   },
 
-  scanFrames: function(wnd, xmlList)
+  addFrames: function(frames, xmlList)
   {
-    try
+    for (let frame of frames)
     {
-      for (let i = 0; i < wnd.frames.length; i++)
-      {
-        let frame = wnd.frames[i];
-        let frameXML = appendElement(xmlList, "frame", {
-          url: censorURL(frame.location.href)
-        });
-        this.scanFrames(frame, frameXML);
-      }
-    }
-    catch (e)
-    {
-      // Don't break if something goes wrong
-      Cu.reportError(e);
+      let frameXML = appendElement(xmlList, "frame", {
+        url: censorURL(frame.url)
+      });
+      this.addFrames(frame.frames, frameXML);
     }
   }
 };
@@ -1145,7 +1149,7 @@ var issuesDataSource =
 };
 
 let dataCollectors = [reportsListDataSource, requestsDataSource, filtersDataSource, subscriptionsDataSource,
-                      screenshotDataSource, framesDataSource, errorsDataSource, extensionsDataSource,
+                      remoteDataSource, errorsDataSource, extensionsDataSource,
                       subscriptionUpdateDataSource, issuesDataSource];
 
 //
