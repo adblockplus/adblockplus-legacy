@@ -349,17 +349,8 @@ function fillInTooltip(e) {
     if (!cacheStorage)
     {
       let {Services} = Cu.import("resource://gre/modules/Services.jsm", null);
-      // Cache v2 API is enabled by default starting with Gecko 32
-      if (Services.vc.compare(Utils.platformVersion, "32.0a1") >= 0)
-      {
-        let {LoadContextInfo} = Cu.import("resource://gre/modules/LoadContextInfo.jsm", null);
-        let loadContext = content.QueryInterface(Ci.nsIInterfaceRequestor)
-                                 .getInterface(Ci.nsIWebNavigation)
-                                 .QueryInterface(Ci.nsILoadContext);
-        cacheStorage = Services.cache2.diskCacheStorage(LoadContextInfo.fromLoadContext(loadContext, false), false);
-      }
-      else
-        cacheStorage = Services.cache.createSession("HTTP", Ci.nsICache.STORE_ANYWHERE, true);
+      let {LoadContextInfo} = Cu.import("resource://gre/modules/LoadContextInfo.jsm", null);
+      cacheStorage = Services.cache2.diskCacheStorage(LoadContextInfo.default, false);
     }
 
     let showTooltipPreview = function ()
@@ -369,35 +360,17 @@ function fillInTooltip(e) {
     };
     try
     {
-      if (Ci.nsICacheStorage && cacheStorage instanceof Ci.nsICacheStorage)
-      {
-        cacheStorage.asyncOpenURI(Utils.makeURI(item.location), "", Ci.nsICacheStorage.OPEN_READONLY, {
-          onCacheEntryCheck: function (entry, appCache)
-          {
-            return Ci.nsICacheEntryOpenCallback.ENTRY_WANTED;
-          },
-          onCacheEntryAvailable: function (entry, isNew, appCache, status)
-          {
-            if (!isNew)
-              showTooltipPreview();
-          }
-        });
-      }
-      else
-      {
-        cacheStorage.asyncOpenCacheEntry(item.location, Ci.nsICache.ACCESS_READ, {
-          onCacheEntryAvailable: function(descriptor, accessGranted, status)
-          {
-            if (!descriptor)
-              return;
-            descriptor.close();
+      cacheStorage.asyncOpenURI(Utils.makeURI(item.location), "", Ci.nsICacheStorage.OPEN_READONLY, {
+        onCacheEntryCheck: function (entry, appCache)
+        {
+          return Ci.nsICacheEntryOpenCallback.ENTRY_WANTED;
+        },
+        onCacheEntryAvailable: function (entry, isNew, appCache, status)
+        {
+          if (Components.isSuccessCode(status) && !isNew)
             showTooltipPreview();
-          },
-          onCacheEntryDoomed: function(status)
-          {
-          }
-        });
-      }
+        }
+      });
     }
     catch (e)
     {
