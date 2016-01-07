@@ -21,7 +21,6 @@
 
 let {Services} = Cu.import("resource://gre/modules/Services.jsm", {});
 let {FileUtils} = Cu.import("resource://gre/modules/FileUtils.jsm", {});
-let {PrivateBrowsingUtils} = Cu.import("resource://gre/modules/PrivateBrowsingUtils.jsm", {});
 
 const MILLISECONDS_IN_SECOND = 1000;
 const SECONDS_IN_MINUTE = 60;
@@ -33,6 +32,7 @@ let windowURI = window.arguments[1];
 if (typeof windowURI == "string")
   windowURI = Services.newURI(windowURI, null, null);
 let browser = window.arguments[2];
+let isPrivate = false;
 
 let reportData = new DOMParser().parseFromString("<report></report>", "text/xml");
 
@@ -98,7 +98,6 @@ function serializeReportData()
   appendElement(element, "option", {id: "enabled"}, Prefs.enabled);
   appendElement(element, "option", {id: "objecttabs"}, Prefs.frameobjects);
   appendElement(element, "option", {id: "collapse"}, !Prefs.fastcollapse);
-  appendElement(element, "option", {id: "privateBrowsing"}, PrivateBrowsingUtils.isContentWindowPrivate(contentWindow));
   appendElement(element, "option", {id: "subscriptionsAutoUpdate"}, Prefs.subscriptions_autoupdate);
   appendElement(element, "option", {id: "javascript"}, Services.prefs.getBoolPref("javascript.enabled"));
   appendElement(element, "option", {id: "cookieBehavior"}, Services.prefs.getIntPref("network.cookie.cookieBehavior"));
@@ -332,6 +331,12 @@ var remoteDataSource =
     dataCollector.collectData(outerWindowID, screenshotWidth, data => {
       screenshotDataSource.setData(data && data.screenshot);
       framesDataSource.setData(windowURI, data && data.opener, data && data.referrer, data && data.frames);
+
+      if (data && data.isPrivate)
+        isPrivate = true;
+      let element = reportElement("options");
+      appendElement(element, "option", {id: "privateBrowsing"}, isPrivate);
+
       callback();
     });
   }
@@ -1518,7 +1523,7 @@ function reportSent(event)
       button.setAttribute("url", link);
       button.removeAttribute("disabled");
 
-      if (!PrivateBrowsingUtils.isContentWindowPrivate(contentWindow))
+      if (!isPrivate)
         reportsListDataSource.addReport(framesDataSource.site, link);
     } catch (e) {}
     E("copyLinkBox").hidden = false;
