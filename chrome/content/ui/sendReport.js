@@ -359,26 +359,22 @@ var screenshotDataSource =
     canvas.parentNode.style.MozBoxAlign = "center";
     canvas.parentNode.align = "center";
 
-    // Init canvas settings
     let context = canvas.getContext("2d");
-    context.fillStyle = "rgb(0, 0, 0)";
-    context.strokeStyle = "rgba(255, 0, 0, 0.7)";
-    context.lineWidth = 3;
-    context.lineJoin = "round";
-
     this._canvas = canvas;
     this._context = context;
 
     if (screenshot)
     {
-      let image = new Image();
-      image.src = screenshot;
-      image.addEventListener("load", () => {
-        canvas.width = image.width + this.imageOffset * 2;
-        canvas.height = image.height + this.imageOffset * 2;
-        context.drawImage(image, this.imageOffset, this.imageOffset);
-      });
+      canvas.width = screenshot.width + this.imageOffset * 2;
+      canvas.height = screenshot.height + this.imageOffset * 2;
+      context.putImageData(screenshot, this.imageOffset, this.imageOffset);
     }
+
+    // Init canvas settings
+    context.fillStyle = "rgb(0, 0, 0)";
+    context.strokeStyle = "rgba(255, 0, 0, 0.7)";
+    context.lineWidth = 3;
+    context.lineJoin = "round";
   },
 
   get enabled()
