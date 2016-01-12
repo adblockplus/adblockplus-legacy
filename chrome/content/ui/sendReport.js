@@ -381,7 +381,10 @@ var screenshotDataSource =
     }
   },
 
-  get enabled() this._enabled,
+  get enabled()
+  {
+    return this._enabled;
+  },
   set enabled(enabled)
   {
     if (this._enabled == enabled)
@@ -394,7 +397,10 @@ var screenshotDataSource =
     E("screenshotUndoButton").disabled = !this._enabled || !this._undoQueue.length;
   },
 
-  get selectionType() this._selectionType,
+  get selectionType()
+  {
+    return this._selectionType;
+  },
   set selectionType(type)
   {
     if (this._selectionType == type)
