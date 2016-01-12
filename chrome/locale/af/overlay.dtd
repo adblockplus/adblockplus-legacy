@@ -1,3 +1,4 @@
+<!ENTITY notification.button.no "&amp;Nee">
 <!ENTITY whitelist.site.label "Skakel af op ?1?">
 <!ENTITY filters.label "&amp;Filter voorkeure">
 <!ENTITY disable.label "Blok orals">
@@ -6,6 +7,7 @@
 <!ENTITY sendReport.label "&amp;Rapporteer probleem op hierdie blad">
 <!ENTITY whitelist.page.label "Blok voorwerpe slegs op hierdie blad">
 <!ENTITY context.image.label "Adblock Plus: Blok prent">
+<!ENTITY notification.button.yes "&amp;Ja">
 <!ENTITY opensidebar.label "Oop &amp;blokbare voorwerpe">
 <!ENTITY contribute.label "Dra by tot Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">

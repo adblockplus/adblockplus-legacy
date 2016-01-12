@@ -1,1 +1,6 @@
+<!ENTITY tooltip.size.label "Grootte:">
+<!ENTITY address.label "Adres">
+<!ENTITY size.label "Grootte">
+<!ENTITY tooltip.type.label "Tipe:">
 <!ENTITY context.disablefilter.label "Skakel filter ?1?">
+<!ENTITY tooltip.address.label "Adres:">

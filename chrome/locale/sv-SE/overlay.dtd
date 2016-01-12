@@ -11,9 +11,9 @@
 <!ENTITY sendReport.label "Rapportera problem på denna sida">
 <!ENTITY whitelist.page.label "Använd inte på denna sida">
 <!ENTITY context.image.label "Adblock Plus: Blockera bild">
-<!ENTITY notification.button.yes "Jag">
+<!ENTITY notification.button.yes "Ja">
 <!ENTITY opensidebar.label "Visa lista över blockerbara objekt">
-<!ENTITY notification.button.close "Sluta">
+<!ENTITY notification.button.close "Stäng">
 <!ENTITY shownotifications.label "Visa användbara notifieringar">
 <!ENTITY contribute.label "Bidra till Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">

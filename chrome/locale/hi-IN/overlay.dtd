@@ -1,10 +1,17 @@
 <!ENTITY notification.button.yes "&amp; हाँ">
+<!ENTITY sidebar.title "वर्तमान पृष्ठ पर ब्लॉक योग्य आइटम्स">
+<!ENTITY context.object.label "विज्ञापन-ब्लॉक प्लस: ब्लॉक ऑब्जेक्ट">
+<!ENTITY context.media.label "विज्ञापन-ब्लॉक प्लस: ब्लॉक ऑडियो/वीडियो">
 <!ENTITY notification.button.no "&amp; नहीं">
-<!ENTITY context.image.label "ऍडब्लॉक प्लस: छवि रोकें ">
+<!ENTITY context.frame.label "ऍडब्लॉक प्लस: फ्रेम रोकें">
 <!ENTITY filters.tooltip "सबसे सक्रिय फिल्टर:">
+<!ENTITY menuitem.label "विज्ञापन &amp; ब्लॉक प्लस वरीयताएँ">
+<!ENTITY objecttab.title "रोकें">
+<!ENTITY sendReport.label "&amp; इस पन्ने पर रिपोर्ट मुद्दा">
 <!ENTITY notification.button.close "&amp; बंद करें">
 <!ENTITY toolbarbutton.label "ऍडब्लाक प्लस">
-<!ENTITY context.frame.label "ऍडब्लॉक प्लस: फ्रेम रोकें">
+<!ENTITY context.image.label "ऍडब्लॉक प्लस: छवि रोकें ">
+<!ENTITY filters.label "&amp; फ़िल्टर वरीयताएँ">
 <!ENTITY status.tooltip "स्थिति:">
 <!ENTITY blocked.tooltip "इस पृष्ठ पर ब्लॉक किए गए आइटम्स:">
-<!ENTITY objecttab.title "रोकें">
+<!ENTITY context.removeWhitelist.label "विज्ञापन-ब्लॉक प्लस: इस पृष्ठ पर पुन: सक्षम करें">

@@ -1,5 +1,41 @@
+<!ENTITY subscription.lastDownload.checksumMismatch "ವಿಫಲವಾಗಿದೆ, ಪ್ರತಿನಿಧಿಗಳನ್ನು ಅಸಾಮರಸ್ಯವು">
+<!ENTITY subscription.actions.label "ಕ್ರಿಯೆಗಳು">
+<!ENTITY filter.selectAll.label "ಎಲ್ಲಾ ಆಯ್ಕೆ">
+<!ENTITY subscription.source.label "ಶೋಧಕಗಳ ಪಟ್ಟಿ">
+<!ENTITY noFilters.text "ಇನ್ನೂ ಯಾವುದೇ ಕಸ್ಟಮ್ ಶೋಧಕಗಳು ಇಲ್ಲ.">
+<!ENTITY subscription.external.label "ಮತ್ತೊಂದು ವಿಸ್ತರಣೆ ಮೂಲಕ ಅಪ್ಡೇಟ್ಗೊಳಿಸಲಾಗಿದೆ">
+<!ENTITY subscription.delete.label "ಅಳಿಸಿ">
+<!ENTITY filter.cut.label "ಕತ್ತರಿಸು">
 <!ENTITY subscription.lastDownload.inProgress "ಡೌನ್‌ಲೋಡ್ ಆಗುತ್ತಿದೆ...">
-<!ENTITY subscription.lastDownload.label "ಹಿಂದಿನ ಡೌನ್‌ಲೋಡ್:">
+<!ENTITY subscriptions.tab.label "ಚಂದಾ ಶೋಧಕಗಳು">
+<!ENTITY filter.delete.label "ಅಳಿಸಿ">
+<!ENTITY addSubscriptionAdd.label "ಸೇರಿಸಲು">
 <!ENTITY subscription.lastDownload.unknown "ಸಂಬಂಧಪಡದ">
+<!ENTITY addSubscriptionCancel.label "ರದ್ದು">
+<!ENTITY subscription.enabled.label "ಶಕ್ತಗೊಂಡಿದೆ">
+<!ENTITY noSubscriptions.text "ಇನ್ನೂ ಯಾವುದೇ ಶೋಧಕಗಳು ಚಂದಾ ಸೇರಿಸಿಲ್ಲ. ಆಡ್ಬ್ಲಾಕ್ ಪ್ಲಸ್ ಶೋಧಕಗಳು ಇಲ್ಲದೆ ಏನು ನಿರ್ಬಂಧಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ, ಕೆಲವು ಸೇರಿಸಲು &quot; ಫಿಲ್ಟರ್ ಚಂದಾ ಸೇರಿಸಿ &quot; ದಯವಿಟ್ಟು ಬಳಸಿ.">
+<!ENTITY subscription.update.label "ಅಪ್ಡೇಟ್ ಶೋಧಕಗಳು">
+<!ENTITY addFilter.label "ಫಿಲ್ಟರ್ ಸೇರಿಸಿ">
+<!ENTITY subscription.minVersion.warning "ಈ ಶೋಧಕಗಳ ಚಂದಾ ನೀವು ಇತ್ತೀಚಿನ ಆಡ್ಬ್ಲಾಕ್ ಪ್ಲಸ್ ಆವೃತ್ತಿಗೆ ಅಪ್ಡೇಟ್ ಮಾಡಬೇಕು, ಹೊಸ ಆಡ್ಬ್ಲಾಕ್ ಪ್ಲಸ್ ಆವೃತ್ತಿಯ ಅಗತ್ಯವಿದೆ.">
+<!ENTITY subscription.lastDownload.invalidURL "ವಿಫಲವಾಗಿದೆ, ಮಾನ್ಯ ವಿಳಾಸ">
+<!ENTITY addGroup.label "ಫಿಲ್ಟರ್ &amp; ಗುಂಪು ಸೇರಿಸಿ">
+<!ENTITY filter.edit.label "ಸಂಪಾದಿಸಿ">
+<!ENTITY subscription.showHideFilters.label "ತೋರಿಸು / ಮರೆಮಾಡು ಶೋಧಕಗಳು">
+<!ENTITY acceptableAds2.label "ಕೆಲವು ಅಲ್ಲದ &amp; ಗೊಂದಲಮಯ ಜಾಹೀರಾತು ಅವಕಾಶ">
 <!ENTITY addSubscriptionOther.label "ಇನ್ನೊಂದು ಚಂದಾವನ್ನು ಸೇರಿಸಿ">
+<!ENTITY filter.actions.label "ಫಿಲ್ಟರ್ ಕ್ರಮಗಳು">
+<!ENTITY filter.copy.label "ನಕಲಿಸಿ">
+<!ENTITY readMore.label "ಮತ್ತಷ್ಟು ಓದು">
+<!ENTITY subscription.moveUp.label "ಮೇಲಕ್ಕೆ ಸರಿಸಿ">
+<!ENTITY addSubscription.label "ಸೇರಿಸಲು ಮತ್ತು ಚಂದಾ ಶೋಧಕಗಳು">
+<!ENTITY subscription.homepage.label "ಮುಖಪುಟ">
+<!ENTITY filters.tab.label "ನಿಮ್ಮ ಸ್ವಂತ ಶೋಧಕಗಳು">
+<!ENTITY subscription.moveDown.label "ಕೆಳಗೆ ಸರಿಸು">
+<!ENTITY subscription.lastDownload.connectionError "ವಿಫಲವಾಗಿದೆ, ಡೌನ್ಲೋಡ್ ವೈಫಲ್ಯ">
 <!ENTITY subscription.lastDownload.success "ಗೆಲುವು">
+<!ENTITY subscription.lastDownload.invalidData "ವಿಫಲವಾಗಿದೆ, ಮಾನ್ಯ ಶೋಧಕಗಳ ಪಟ್ಟಿ">
+<!ENTITY filter.paste.label "ಅಂಟಿಸಿ">
+<!ENTITY subscription.disabledFilters.enable "ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ ಶೋಧಕಗಳು ಸಕ್ರಿಯಗೊಳಿಸಿ">
+<!ENTITY subscription.disabledFilters.warning "ಈ ಚಂದಾದಲ್ಲಿ ಫಿಲ್ಟರ್ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ.">
+<!ENTITY subscription.lastDownload.label "ಹಿಂದಿನ ಡೌನ್‌ಲೋಡ್:">
+<!ENTITY viewList.label "ಪಟ್ಟಿಯನ್ನು ವೀಕ್ಷಿಸಿ">

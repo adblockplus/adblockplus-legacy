@@ -3,10 +3,10 @@
 <!ENTITY list.download.retry "Intente de nuevo">
 <!ENTITY title.label "&amp;Titulo de la Suscripción:">
 <!ENTITY list.download.website "Ver sitio web">
-<!ENTITY supplementMessage "Esta suscripción de filtros está orientada a ser usada con la subscripción de filtro &quot;?1?&quot; la cual aun no está usando.">
+<!ENTITY supplementMessage "Esta suscripción de filtro está destinada a ser utilizada con la suscripción de filtro &quot;?1?&quot; que no está usando todavía.">
 <!ENTITY viewList.label "Ver filtros">
 <!ENTITY visitHomepage.label "Visitar pagina principal">
 <!ENTITY addSubscription.label "Agregar subscripción">
-<!ENTITY dialog.title "Agregar subscripción de filtro de Adblock Plus">
+<!ENTITY dialog.title "Agregar suscripción de filtro de Adblock Plus">
 <!ENTITY location.label "&amp;Ubicación de la lista de filtros:">
 <!ENTITY fromWeb.description "Por favor confirme que desea agregar esta subscripción de filtro. Usted puede cambiar el titulo de la subscripción o la localización antes de agregarla.">

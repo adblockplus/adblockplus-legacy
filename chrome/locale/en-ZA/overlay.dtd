@@ -1,0 +1,33 @@
+<!ENTITY notification.button.no "&amp;No">
+<!ENTITY sync.label "Syn&amp;c Adblock Plus settings">
+<!ENTITY whitelist.site.label "Disable on ?1?">
+<!ENTITY notification.closing.button.hide "Close t&amp;his notification">
+<!ENTITY filters.label "&amp;Filter preferences">
+<!ENTITY disable.label "Disable everywhere">
+<!ENTITY objecttab.title "Block">
+<!ENTITY objecttab.tooltip "Click here to block this object with Adblock Plus">
+<!ENTITY menuitem.label "Ad&amp;block Plus Preferences">
+<!ENTITY objecttabs.label "Show &amp;tabs on Flash and Java">
+<!ENTITY sendReport.label "&amp;Report issue on this page">
+<!ENTITY whitelist.page.label "Disable on this page only">
+<!ENTITY context.image.label "Adblock Plus: Block image">
+<!ENTITY notification.button.yes "&amp;Yes">
+<!ENTITY opensidebar.label "Open &amp;blockable items">
+<!ENTITY notification.button.close "&amp;Close">
+<!ENTITY shownotifications.label "Show useful &amp;notifications">
+<!ENTITY contribute.label "Contribute to Adblock Plus">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus: Block frame">
+<!ENTITY blocked.tooltip "Blocked items on this page:">
+<!ENTITY notification.closing.button.optout "&amp;Stop showing notifications">
+<!ENTITY counthits.label "Count filter &amp;hits">
+<!ENTITY showinstatusbar.label "&amp;Show in status bar">
+<!ENTITY sidebar.title "Blockable items on current page">
+<!ENTITY options.label "&amp;Options">
+<!ENTITY context.object.label "Adblock Plus: Block object">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: Re-enable on this page">
+<!ENTITY filters.tooltip "Most active filters:">
+<!ENTITY closesidebar.label "Close &amp;blockable items">
+<!ENTITY showintoolbar.label "Show in tool&amp;bar">
+<!ENTITY status.tooltip "Status:">
+<!ENTITY context.media.label "Adblock Plus: Block audio/video">
