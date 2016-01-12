@@ -617,6 +617,11 @@ var errorsDataSource =
       } catch(e) {}
     }
 
+    function str2regexp(str, flags)
+    {
+      return new RegExp(str.replace(/\W/g, "\\$&"), flags);
+    }
+
     let errors = reportElement("errors");
     for (let i = 0; i < messages.length; i++)
     {
@@ -624,13 +629,13 @@ var errorsDataSource =
 
       let text = message.errorMessage;
       for (let path in censored)
-        text = text.replace(path, censored[path], "gi");
+        text = text.replace(str2regexp(path, "gi"), censored[path]);
       if (text.length > 256)
         text = text.substr(0, 256) + "...";
 
       let file = message.sourceName;
       for (let path in censored)
-        file = file.replace(path, censored[path], "gi");
+        file = file.replace(str2regexp(path, "gi"), censored[path]);
       if (file.length > 256)
         file = file.substr(0, 256) + "...";
 
