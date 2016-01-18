@@ -41,7 +41,7 @@
 <!ENTITY attachExtensions.label "A&amp;llegare una lista di estensioni attive al report nel caso in cui un add-on in conflitto è la causa del problema">
 <!ENTITY issues.nosubscriptions.add.label "Aggiungi una sottoscrizione di filtri…">
 <!ENTITY issues.disabledfilters.enable.label "Attiva i filtri">
-<!ENTITY issues.override.label "&amp;Le impostazioni di Adblock Plus sono corrette, proseguire con la raccolta dei dati per la segnalazione">
+<!ENTITY issues.override.label "&amp;Le impostazioni sono corrette, proseguire con la segnalazione">
 <!ENTITY issues.nosubscriptions.description "Non sembra essere attiva alcuna sottoscrizione di filtri che permette l'eliminazione
 		automatica di banner e/o pubblicità presenti nei siti web">
 <!ENTITY typeSelector.falsePositive.description "Selezionare questa opzione se nella pagina web manca parte del contenuto importante, se la pagina web viene
