@@ -339,10 +339,17 @@ var FilterActions =
       while (box.firstChild)
         box.removeChild(box.firstChild);
 
-      for (var i = 0; i < text.length; i += 80)
+      let lines = text.match(/.{1,80}/g);
+      if (lines.length > 7)
       {
-        var description = document.createElement("description");
-        description.setAttribute("value", text.substr(i, 80));
+        // Text is too long to display in full so we cut out the middle part
+        lines = lines.slice(0,3).concat("\u2026", lines.slice(-3));
+      }
+
+      for (let line of lines)
+      {
+        let description = document.createElement("description");
+        description.setAttribute("value", line);
         box.appendChild(description);
       }
     }
