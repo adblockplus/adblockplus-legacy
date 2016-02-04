@@ -13,7 +13,7 @@ optionsType=2
 4=Fabrice Desré
 5=Hubird
 6=Günther Beyer (opoloo.de)
-additional=chrome/content/ui/subscriptions.xml //subscription/@author
+additional=adblockpluscore/chrome/content/ui/subscriptions.xml //subscription/@author
 
 [homepage]
 default=http://adblockplus.org/
@@ -62,9 +62,23 @@ chrome/content/ui/skin/social/twitter.png = adblockplusui/skin/social/twitter.pn
 chrome/content/ui/skin/social/weibo.png = adblockplusui/skin/social/weibo.png
 chrome/content/ui/ext/common.js = ext/common.js
 chrome/content/ui/ext/content.js = ext/content.js
+chrome/content/ui/subscriptions.xml = adblockpluscore/chrome/content/ui/subscriptions.xml
+chrome/content/cssProperties.js = adblockpluscore/chrome/content/cssProperties.js
 lib/ext_background.js = ext/background.js
 lib/ext_common.js = ext/common.js
 lib/messageResponder.js = adblockplusui/messageResponder.js
+lib/antiadblockInit.js = adblockpluscore/lib/antiadblockInit.js
+lib/cssRules.js = adblockpluscore/lib/cssRules.js
+lib/downloader.js = adblockpluscore/lib/downloader.js
+lib/elemHide.js = adblockpluscore/lib/elemHide.js
+lib/filterClasses.js = adblockpluscore/lib/filterClasses.js
+lib/filterListener.js = adblockpluscore/lib/filterListener.js
+lib/filterNotifier.js = adblockpluscore/lib/filterNotifier.js
+lib/filterStorage.js = adblockpluscore/lib/filterStorage.js
+lib/matcher.js = adblockpluscore/lib/matcher.js
+lib/notification.js = adblockpluscore/lib/notification.js
+lib/subscriptionClasses.js = adblockpluscore/lib/subscriptionClasses.js
+lib/synchronizer.js = adblockpluscore/lib/synchronizer.js
 
 [import_locales]
 adblockplusui/locale/*/firstRun.json = *
