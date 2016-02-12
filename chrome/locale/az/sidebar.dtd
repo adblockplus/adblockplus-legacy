@@ -1,0 +1,32 @@
+<!ENTITY context.flash.label "Flash bəndin sərhədləri">
+<!ENTITY address.label "Ünvan">
+<!ENTITY context.open.label "Xüsusi pəncərədə aç">
+<!ENTITY type.label "Növ">
+<!ENTITY tooltip.filterSource.label "Filtrin mənbəyi:">
+<!ENTITY noitems.label "Blok edilə bilən bənd yoxdur">
+<!ENTITY filter.label "Filtr">
+<!ENTITY tooltip.size.label "Ölçü:">
+<!ENTITY reattach.label "Yenidən əlavə et">
+<!ENTITY search.label "&amp;Axtar:">
+<!ENTITY docDomain.thirdParty "(istehsalçıya aid olmayan)">
+<!ENTITY filterSource.label "Filtr mənbəyi">
+<!ENTITY tooltip.docDomain.label "Sənədin mənbəyi:">
+<!ENTITY context.copy.label "Bəndin ünvanının kopyala">
+<!ENTITY tooltip.type.label "Növ:">
+<!ENTITY context.copyFilter.label "Filtri kopyala">
+<!ENTITY context.block.label "Bu bəndi blok et">
+<!ENTITY detach.label "Ayır">
+<!ENTITY whitelisted.label "Ağ-list səhifəsi">
+<!ENTITY detached.title "Adblock Plus: Blok oluna bilən bəndlər (xüsusiləşmiş)">
+<!ENTITY docDomain.firstParty "(istehsalçıya aid olan)">
+<!ENTITY tooltip.type.whitelisted "(ağ-listdə)">
+<!ENTITY tooltip.filter.label "İşlək filtr:">
+<!ENTITY tooltip.filter.disabled "(deaktiv edilmiş)">
+<!ENTITY context.editfilter.label "İşlək filtri düzənlə">
+<!ENTITY tooltip.type.blocked "(blok edildi)">
+<!ENTITY size.label "Ölçü">
+<!ENTITY context.whitelist.label "Bənd üçün istisna qayda əlavə et">
+<!ENTITY context.selectAll.label "Hamısını seç">
+<!ENTITY state.label "Hal">
+<!ENTITY docDomain.label "Sənədin mənbəyi">
+<!ENTITY tooltip.address.label "Ünvan:">

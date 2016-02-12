@@ -1,0 +1,12 @@
+<!ENTITY addMain.label "&quot;?1?&quot; filtr abunəliyi də əlavə et">
+<!ENTITY list.download.failed "Adblock Plus abunəlik listini toplaya bilmədi.">
+<!ENTITY list.download.retry "Yenidən cəhd edin">
+<!ENTITY title.label "Abunəlik başlığı:">
+<!ENTITY list.download.website "Səhifəyə nəzər sal">
+<!ENTITY supplementMessage "Bu filtr sizin hələ ki istifadə etmədiyiniz &quot;?1?&quot; filtr abunəliyi ilə istifadə üçün nəzərdə tutulub.">
+<!ENTITY viewList.label "Filtrlərə bax">
+<!ENTITY visitHomepage.label "Baş səhifəni ziyarə et">
+<!ENTITY addSubscription.label "Abunəlik əlavə et">
+<!ENTITY dialog.title "Adblock Plus filtr abunəliyi əlavə et">
+<!ENTITY location.label "Filtr list saxlanma yeri:">
+<!ENTITY fromWeb.description "Lütfən filtr abunəliyi əlavə etmək istəyinizi təsdiqləyin. Abunəlik əlavə etməzdən əvvəl başlıq və saxlanma yerini dəyişə bilərsiniz.">

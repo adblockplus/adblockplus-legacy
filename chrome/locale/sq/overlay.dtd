@@ -13,6 +13,7 @@
 <!ENTITY notification.button.yes "&amp;po">
 <!ENTITY opensidebar.label "Hap elementet &amp;bllokuese">
 <!ENTITY notification.button.close "&amp;Mbyll">
+<!ENTITY shownotifications.label "Trego njoftime të dobishme">
 <!ENTITY contribute.label "Kontribut te Adblock Plus">
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Pjesët e bllokuara">

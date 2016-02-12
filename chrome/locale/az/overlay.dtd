@@ -1,0 +1,33 @@
+<!ENTITY notification.button.no "&amp;Xeyr">
+<!ENTITY sync.label "Adblock Plus parametrlərini sin&amp;xronlaşdır">
+<!ENTITY whitelist.site.label "?1? - də deaktiv edilsin?">
+<!ENTITY notification.closing.button.hide "B&amp;u xəbərdarlığı bağla">
+<!ENTITY filters.label "&amp;Filtr parametrləri">
+<!ENTITY disable.label "Hər yerdə deaktiv et">
+<!ENTITY objecttab.title "Blok et">
+<!ENTITY objecttab.tooltip "Obyekti Adblock Plus ilə blok etmək üçün bura tıklayın">
+<!ENTITY menuitem.label "Ad&amp;block Plus parametrləri">
+<!ENTITY objecttabs.label "&amp;Bölmələri Flash və Java - da göstər">
+<!ENTITY sendReport.label "&amp;Səhifədəki səhvi bildir">
+<!ENTITY whitelist.page.label "Yalnız bu səhifədə aktivləşdir">
+<!ENTITY context.image.label "Adblock Plus: Şəkili blok et">
+<!ENTITY notification.button.yes "&amp;Bəli">
+<!ENTITY opensidebar.label "&amp;Blok edilə bilən bəndləri açın">
+<!ENTITY notification.button.close "&amp;Bağla">
+<!ENTITY shownotifications.label "Lazımi &amp;xəbərdarlıqları göstər">
+<!ENTITY contribute.label "Adblock Plus - ə maddi yardım">
+<!ENTITY toolbarbutton.label "Adblock Plus">
+<!ENTITY context.frame.label "Adblock Plus: Çərçivəni blok et">
+<!ENTITY blocked.tooltip "Bu səhifədə blok edilmiş bəndlər:">
+<!ENTITY notification.closing.button.optout "Xəbərdarlıqları &amp;göstərməyi dayandır">
+<!ENTITY counthits.label "Filtr tıklamalarını say">
+<!ENTITY showinstatusbar.label "&amp;Status qutusunda göstər">
+<!ENTITY sidebar.title "Cari səhifədəki Blok edilə bilən bəndlər">
+<!ENTITY options.label "&amp;Seçimlər">
+<!ENTITY context.object.label "Adblock Plus: Obyekti blok et">
+<!ENTITY context.removeWhitelist.label "Adblock Plus: bu səhifədə yenidən aktiv et">
+<!ENTITY filters.tooltip "Ən aktiv filtrlər:">
+<!ENTITY closesidebar.label "&amp;Blok edilə bilən bəndləri bağlayın">
+<!ENTITY showintoolbar.label "Alət qutusunda göstər">
+<!ENTITY status.tooltip "Status:">
+<!ENTITY context.media.label "Adblock Plus: Səs/video - nu blok et">

@@ -1,0 +1,65 @@
+<!ENTITY screenshot.undo.label "&amp;Əvvəlki hala qayıt">
+<!ENTITY issues.disabledgroups.description "Aşağıdakı filtr abunəlikləri / filtr qrupları deaktiv edilib, ancaq shifədə hələ də təsiri ola bilər:">
+<!ENTITY showData.label "Raport məzmununu göstər">
+<!ENTITY typeSelector.falsePositive.label "Adblock Plus aşırı çox blok edir">
+<!ENTITY issues.change.description "Parametrləriniz dəyişdirildi. Dəyişiklikləri yoxlamaq üçün səhifəni yenidən yükləyin, dəyişikliklərin təsiri olmadığı təqdirdə raport edin.">
+<!ENTITY email.label "E&amp;mail:">
+<!ENTITY issues.openPreferences.label "Filtr parametrlərini seçin">
+<!ENTITY sendPage.confirmation "Raportunuz yadda saxlandı. Ona aşağıdakı ünvandan keçə bilərsiniz:">
+<!ENTITY copyLink.label "&amp;Raport linkini kopyala">
+<!ENTITY issues.nofilters.description "Adblock Plus bu səhifədə heç nəyi əngəlləmir. Ehtimal ki, qarşılaşdığınız problem Adblock Plus' a aid deyil.">
+<!ENTITY sendPage.knownIssue "Bildirdiyiniz problemin səbəbi bilinir. Ətraflı:">
+<!ENTITY typeSelector.other.description "Adblock Plus' un filtrindən deyil özündən şübhələnirsinizsə bu bəndi seçin.">
+<!ENTITY issues.disabledgroups.enable.label "Filtr abunəliyini / filtr qrupunu aktivləşdir">
+<!ENTITY typeWarning.override.label "Başa düşürəm və raportu göndərmək istəyirəm">
+<!ENTITY issues.disabled.enable.label "Adblock Plus' u aktivləşdir">
+<!ENTITY update.fixed.description "Ehtimal ki, filtr abunəliyinizə edilən yeniliklər bildirdiyiniz problemi həll edib. Lütfən  səhifəni yenidən yükləyin, problem qalırsa yenidən Raport' a basın.">
+<!ENTITY anonymous.label "&amp;Anonim göndəriş">
+<!ENTITY reloadButton.label "&amp;Səhifəni yenidən yüklə">
+<!ENTITY recentReports.clear.label "&amp;Bütün raportları sil">
+<!ENTITY typeSelector.description "Bu pəncərə sizi Adblock Plus' un problemini göndərənədək sizə yardımçi olacaq. Birinci, lütfən qarşılaşdığınız problemin növünü seçin:">
+<!ENTITY screenshot.remove.label "&amp;Şəxsi məlumatı sil">
+<!ENTITY issues.ownfilters.description "Bu səhifədəki bəzi filtrlər istifadəçi-seçimidir. Lütfən problemə səbə ola biləcək filtrləri deaktiv edin:">
+<!ENTITY update.inProgress.description "Adblock Plus problemin hələ həll edilmədiyinə əmin olmaq üçün sizin filtr abunəliyinizi yeniləməlidir. Lütfən gözləyin...">
+<!ENTITY sendPage.retry.label "Yenidən göndər">
+<!ENTITY data.label "Raport məzmunu:">
+<!ENTITY recentReports.label "Təzəlikcə göndərilmiş raportlar">
+<!ENTITY typeWarning.description "Siz Adblock Plus' un filtrlərlə deyil ümumi raport növünü seçdiniz. Lütfən bilin ki, bu problem  [link]Adblock Plus forum[/link]' unda detallı raport edilib. Raportunuzu link vermədiyiniz halda heç kəs görməyəcək, buna görə də raport xəbərçisindən yalnız mövcud müzakirəyə əlavə məlumat vermək üçün istifadə edin.">
+<!ENTITY issues.disabled.description "Adblock Plus deaktiv edilib, bu halda o heç nəyi əngəlləməyəcək.">
+<!ENTITY attachExtensions.label "Problemə səbəb əlavə ziddiyəti olarsa aktiv əlavələr listini göndərin">
+<!ENTITY issues.nosubscriptions.add.label "Filtr abunəliyi əlavə et">
+<!ENTITY issues.disabledfilters.enable.label "Filtri aktivləşdir">
+<!ENTITY issues.override.label "&amp;Parametrlər düzgündür, raporta davam edin">
+<!ENTITY issues.nosubscriptions.description "Görünür səhifələrdən lazımsız məzmunu siləcək filtr listə abunə olmayıbsınız.">
+<!ENTITY typeSelector.falsePositive.description "Səhifə vacib məzmunu əskildirsə, yalnış göstərirsə, düzgün işləmirsə bu bölməni seçin. Problemin səbəbini öyrənmək üçün Adblock Plus' su müvəqqəti olaraq deaktiv edin.">
+<!ENTITY typeSelector.other.label "B&amp;aşqa problem">
+<!ENTITY emailComment.label "Raport haqqında sualımız olarkən sizinlə əlaqə saxlaya biləcəyimiz e-ünvan daxil etməyinizi xahiş edirik. Bu qatqılarınıza prioritetlik verməyimizə və onlara görə sizxatırlmağımıza kömək edəcək.">
+<!ENTITY issues.whitelist.remove.label "Adblock Plus' u bu səhifədə aktivləşdir">
+<!ENTITY outdatedSubscriptions.description "Bu filtr abunəlikləri ən azı iki həftədit ki yenilənməyib. Lütfən raportdan öncə bu abunəlikləri yeniləyin, bu probleminizi həll edə bilər.">
+<!ENTITY dataCollector.description "Lütfən Adblock Plus lazımi məlumatı toplayanadək gözləyin.">
+<!ENTITY sendButton.label "Raportu gö&amp;ndər">
+<!ENTITY comment.label "&amp;Qeyd (seçimə bağlı):">
+<!ENTITY sendPage.errorMessage "Raport göndərmə cəhdi &quot;?1?&quot; xəta səbəbi ilə uğursuz alındı. Lütfən internet əlaqənizi yoxlayın və yenidən cəhd edin. Problem hələ də qalırsa [link]Adblock Plus forum[/link] - dən kömək alın.">
+<!ENTITY showRecentReports.label "Təzəliklə göndərilmiş raportlara bax">
+<!ENTITY commentPage.heading "Qeyd əlavə et">
+<!ENTITY update.start.label "Yenilənməni indi başlat">
+<!ENTITY issues.disabledfilters.description "Aşağıdakı filtrlər deaktiv edilib, ancaq shifədə hələ də təsiri ola bilər:">
+<!ENTITY screenshot.description "Eyni səhifə fərqli istifadəçilər üçün fərqli görünə bilər. Ekran-şəkli əlavə etməyiniz bizə məsələni başa düşməyimizə kömək edə bilər. Şəxsi məlumat olan hissələri silə həmçinin problem olan sahələri haşiyəyə ala bilərsiniz. Bunun üçün uyğun düyməni basın və şəkili  siçanla seçin.">
+<!ENTITY screenshot.attach.label "Raporta səhifə şəkli əlavə edin">
+<!ENTITY issues.whitelist.description "Adblock Plus raport etmək istədiyiniz səhifədə deaktiv edilib. Lütfən məsələnin həllinə kömək olacaq raportu göndərməzdən əvvəl Adblock Plus' u aktivlşdirin.">
+<!ENTITY typeSelector.falseNegative.label "Adblock Plus re&amp;klamı blok etmir">
+<!ENTITY typeSelector.heading "Problem növünü seçin">
+<!ENTITY anonymity.warning "Sizinlə əlaqə saxlaya bilməyəcəyik və raportu çox vacib qiymətləndirə bilməyəcəyik.">
+<!ENTITY wizard.title "Problem xəbərçisi">
+<!ENTITY issues.ownfilters.disable.label "Filtri deaktiv edin">
+<!ENTITY commentPage.description "Aşağıdakı hissəyə qeydlərinizi yazaraq problemi yaxşı izah edə bilərsiniz. Bu mərhələ istəyə bağlıdır, amma problem ciddidirsə qeyd etməyiniz məsləhət bilinir. Raportu göndərməmişdən əvvəl onun məzmununa nəzər sala bilərsiniz.">
+<!ENTITY comment.lengthWarning "Daxil etdiyiniz qeyd mətni 1000 hərfi keçir. Yalnız ilk 1000 - i göndəriləcək.">
+<!ENTITY typeSelector.falseNegative.description "Adblock Plus aktiv olmasına rəğmən reklam yenə görünürsə bu bəndi seçin.">
+<!ENTITY sendPage.waitMessage "Lütfən Adblock Plus raportunuzu göndərənədək gözləyin.">
+<!ENTITY dataCollector.heading "Problem xəbərçisinə xoş gəldiniz">
+<!ENTITY screenshot.heading "Ekran-şəkli əlavə et">
+<!ENTITY sendPage.heading "Raport göndər">
+<!ENTITY issues.subscriptionCount.description "Görünür aşırı çox filtr abunəliyiniz var. Bu problemləri artıracağı üçün məsləhət görülmür. məsələnin hansı abunə müəllifinin öhdəliyində olduğunu bilmədiyimiz üçün problem raportunu qəbul edə bilmirik. Lütfən yalnız vacib filtr abunəliklərini saxlamaqla qalanlarını silin və problemin həll olub olmadığını yoxlayın.">
+<!ENTITY screenshot.mark.label "&amp;Problemi haşiyəyə al">
+<!ENTITY privacyPolicy.label "Gizlilik siyasəti">
+<!ENTITY issues.description "Adblock Plus parametrlərinizdə problemə səbəb ola biləcək və ya raport təhlilini çətinləşdirəcək aşıqlıq aşkar etdi.">

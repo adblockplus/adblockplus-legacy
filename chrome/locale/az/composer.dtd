@@ -1,0 +1,33 @@
+<!ENTITY anchor.end.label "ünvanın s&amp;onuna">
+<!ENTITY domainRestriction.label "Domenlə &amp;kifayətlən:">
+<!ENTITY collapse.default.no.label "Olduğu kimi istifadə et (xeyr)">
+<!ENTITY firstParty.label "Yalnız is&amp;tehsalçı">
+<!ENTITY preferences.label "&amp;Mövcud filtrləri göstər...">
+<!ENTITY pattern.label "Şablon axtar">
+<!ENTITY thirdParty.label "Yalnız &amp;istehsalçıya aid olmayan">
+<!ENTITY filter.label "Yeni &amp; filtr:">
+<!ENTITY collapse.label "Blok edilmişləri aradn qaldır:">
+<!ENTITY match.warning "Daxil etdiyiniz şablon artıq blok-edilmiş/ağ-listə-salınmış ünvana uyğun gəlmir və onun üərində heç bir effekti olmayacaq.">
+<!ENTITY anchor.start.label "ünvanın ə&amp;vəlinə">
+<!ENTITY matchCase.label "&amp;Uyğunluq halı">
+<!ENTITY custom.pattern.label "&amp;İstəyə uyğun:">
+<!ENTITY unselectAllTypes.label "Heç birini seçmə">
+<!ENTITY type.whitelist.label "İ&amp;stisna qayda">
+<!ENTITY regexp.warning "Sizin daxil etdiyiniz şablon Adblock Plus tərəfindən müntəzəm ifadə kimi başa düşüləcək və effektiv emal oluna bilməyəcək, bu sizin axtarış sürətinizi azalda bilər. Əgər niyyətiniz müntəzəm ifadə istifadəsi deyildirsə, şablonun sonuna ulduz (*) əlavə edin.">
+<!ENTITY dialog.title "Adblock Plus filtr qaydası əlavə et">
+<!ENTITY basic.label "Sadə görüntü">
+<!ENTITY type.filter.label "&amp;Bloklayıcı filtr">
+<!ENTITY types.label "Qəbildən olanlara tətbiq et:">
+<!ENTITY shortpattern.warning "Daxil etdiyiniz şablon optimallaşdırmaq üçün çox qısadır və sizin axtarış sürətinizi azalda bilər. Təklif edilir ki, bu filtrə daha uzun şablon daxil etməklə Adblock Plus' un filtri daha effektiv emal etməyinə şərait yaradasınız.">
+<!ENTITY collapse.yes.label "Bəli">
+<!ENTITY anchors.label "Ancaq şablonu qəbul et:">
+<!ENTITY collapse.default.yes.label "Olduğu kimi istifadə et (bəli)">
+<!ENTITY domainRestriction.help "Bu seçimdən sədd xətti (|) istifadə edərək bir və ya daha artıq domen daxil etmək üçün istifadə edə bilərsiniz. Filtr yalnız seçilmiş domen(lər)ə tətbiq olunacaq. Domendən öncə tilde(~) işarəsi filtrin bu domenə tətbiq edilməyəcəyini göstərir.">
+<!ENTITY accept.label "Filtr əlavə et">
+<!ENTITY options.label "Seçimlər">
+<!ENTITY disabled.warning "Adblock Plus hal-hazırda deaktiv vəziyyətdədir. Buna baxmayaraq siz filtr əlavə edə bilərsiniz, ancaq filtrlər [link]Adblock Plus[/link] aktiv edilənə qədər təsirsiz qalacaqlar.">
+<!ENTITY anchor.start.flexible.label "domen adının əv&amp;vəlinə">
+<!ENTITY collapse.no.label "Xeyr">
+<!ENTITY selectAllTypes.label "Hamısını seç">
+<!ENTITY advanced.label "İrəli səviyyə görüntü">
+<!ENTITY pattern.explanation "Şablon istənilən ünvanın bir hissəsi ola bilər; ulduzlar (*) təyin edilməmiş hissə rolunu oynayır. Filtr yalnız ünvanla təyin edilmiş şablon üst-üstə düşərsə işləyəcək.">

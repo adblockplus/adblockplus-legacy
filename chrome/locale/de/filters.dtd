@@ -34,7 +34,7 @@
 <!ENTITY subscription.update.label "Filter aktualisieren">
 <!ENTITY dialog.title "Filtereinstellungen von Adblock Plus">
 <!ENTITY addFilter.label "&amp;Filter hinzufügen">
-<!ENTITY subscription.minVersion.warning "Diese Filterliste benötigt eine neuere Version von Adblock Plus, Sie sollten auf die neueste Version von Adblock Plus aktualisieren.">
+<!ENTITY subscription.minVersion.warning "Diese Filterliste benötigt eine neuere Version von Adblock Plus. Sie sollten die neueste Version von Adblock Plus herunterladen.">
 <!ENTITY subscription.lastDownload.invalidURL "Fehler, ungültige Adresse">
 <!ENTITY backup.error "Beim Schreiben der Filter in die Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass die Datei nicht schreibgeschützt ist oder von einem anderen Programm verwendet wird.">
 <!ENTITY filter.moveUp.label "Nach oben verschieben">

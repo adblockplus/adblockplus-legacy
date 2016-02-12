@@ -1,0 +1,72 @@
+<!ENTITY restore.custom.warning "Sizin filtr parametrləriniz seçilmiş faylın məzmunu ilə əvəz ediləcək. Davam etmək istəyirsiniz?">
+<!ENTITY slow.column "Filtrləri ya&amp;vaşlat">
+<!ENTITY enabled.column "A&amp;ktivləşdirildi">
+<!ENTITY subscription.lastDownload.checksumMismatch "Baş tutmadı, rəqəmsal cəm uyğunlaşmadı">
+<!ENTITY noFiltersInGroup.text "Seçilmiş qrup boşdur.">
+<!ENTITY subscription.actions.label "Əməliyyatlar">
+<!ENTITY filter.selectAll.label "Hamısını seç">
+<!ENTITY backupButton.label "&amp;Yadda saxla və Bərpa et">
+<!ENTITY restore.minVersion.warning "Diqqət: fayl Adblock Plus' un yeni versiyası ilə yaradıldı. Bu fayldan bərpa etməzdən əvvəl Adblock Plus' un son versiyasına yeniləyin.">
+<!ENTITY restore.error "Fayldakı məlumat emal edilə bilmədi, bəlkə bu Adblock Plus yaddaş qutusu faylı deyil?">
+<!ENTITY sort.ascending.label "Çeşidləmə sırası &amp;A &gt; Z olsun">
+<!ENTITY sort.label "&amp;Çeşidlə">
+<!ENTITY subscription.source.label "Filtr listi">
+<!ENTITY hitcount.column "&amp;Tıklamalar">
+<!ENTITY noFilters.text "Hələki özəl filtrləriniz yoxdur.">
+<!ENTITY backup.custom.title "Yalnız özəl filtrlər">
+<!ENTITY subscription.external.label "Başqa əlavə tərəfindən yeniləndi">
+<!ENTITY subscription.delete.label "Sil">
+<!ENTITY noGroupSelected.text "Filtrlərin görünməsi üçün əvvəlcə filtr qrupu seçməlisiniz.">
+<!ENTITY filter.cut.label "Kəs">
+<!ENTITY restore.default.label "?1? yaddaş qutusundan bərpa et">
+<!ENTITY subscription.lastDownload.inProgress "Yüklənir…">
+<!ENTITY subscriptions.tab.label "Filtr abunəlikləri">
+<!ENTITY sort.descending.label "Çeşidləmə sırası &amp;A &gt; Z olsun">
+<!ENTITY filters.remove.warning "Seçilmiş bütün filtrləri silməyə əminsiniz?">
+<!ENTITY filter.delete.label "Sil">
+<!ENTITY addSubscriptionAdd.label "Əlavə et">
+<!ENTITY viewMenu.label "Bax">
+<!ENTITY subscription.lastDownload.unknown "Məlumat yoxdur">
+<!ENTITY addSubscriptionCancel.label "Ləğv et">
+<!ENTITY subscription.enabled.label "Aktiləşdirildi">
+<!ENTITY noSubscriptions.text "Siz hələ ki heç bir filtr abunəliyi əlavə etməyibsiniz. Adblock Plus filtrsiz heç nəyi əngəlləməyəcək, lütfən əlavə etmək üçün &quot;Filtr abunəliyi əlavə et&quot; dən istifadə edin.">
+<!ENTITY subscription.update.label "Filtrləri yenilə">
+<!ENTITY dialog.title "Adblock Plus filtr seçimləri">
+<!ENTITY addFilter.label "Filtr ə&amp;lavə et">
+<!ENTITY subscription.minVersion.warning "Bu filtr abunəliyi Adblock Plus' un yeni versiyasını tələb edir, ən son Adblock Plus versiyası ilə yeniləməlisiniz.">
+<!ENTITY subscription.lastDownload.invalidURL "Baş tutmadı ünvan düzgün deyil">
+<!ENTITY backup.error "Filtrləri fayla yazarkən xəta baş verdi. Lütfən faylın yazılma-mühafizəsi olmadığını və başqa proqram tərəfindən istifadə edilmədiyinə əmin olun.">
+<!ENTITY filter.moveUp.label "Yuxarı qalx">
+<!ENTITY addGroup.label "Filtr və qrup əlavə et">
+<!ENTITY filter.edit.label "Düzənlə">
+<!ENTITY subscription.showHideFilters.label "Filtrləri göstər/gizlət">
+<!ENTITY acceptableAds2.label "Bezdirici olmayan reklamların bəzilərinə icazə ver">
+<!ENTITY addSubscriptionOther.label "Fərqli abunəlik əlavə et">
+<!ENTITY close.label "Bağla">
+<!ENTITY sort.none.label "&amp;Çeşidlənməmiş">
+<!ENTITY filter.actions.label "Filtr əməliyyatları">
+<!ENTITY filter.copy.label "Kopyala">
+<!ENTITY filter.moveDown.label "Aşağı en">
+<!ENTITY filter.resetHitCounts.label "Tıklama statistikasını əvvəlki vəziyyətinə qaytar">
+<!ENTITY readMore.label "Ətraflı">
+<!ENTITY subscription.moveUp.label "Yuxarı qalx">
+<!ENTITY addSubscription.label "Abunəlik &amp;filtri əlavə et">
+<!ENTITY subscription.homepage.label "Baş səhifə">
+<!ENTITY backup.complete.title "Bütün filtr və abunəliklər">
+<!ENTITY restore.own.label "Şəxsi yaddaş qutusunu bərpa et">
+<!ENTITY restore.complete.warning "Sizin filtr parametrləriniz seçilmiş faylın məzmunu ilə əvəz ediləcək. Davam etmək istəyirsiniz?">
+<!ENTITY filters.tab.label "Özəl filtr">
+<!ENTITY backup.label "Yeni yaddaş mühafizəsi yarat">
+<!ENTITY find.label "Ta&amp;p">
+<!ENTITY subscription.moveDown.label "Aşağı düş">
+<!ENTITY subscription.lastDownload.connectionError "Baş tutmadı yükləmə uğursuz oldu">
+<!ENTITY subscription.lastDownload.success "Uğurlu alındı">
+<!ENTITY subscription.lastDownload.invalidData "Baş tutmadı filtr list düzgün deyil">
+<!ENTITY filter.paste.label "Yapışdır">
+<!ENTITY subscription.disabledFilters.enable "Deaktiv edilmiş filtrləri aktivləşdir">
+<!ENTITY lasthit.column "&amp;Son tıklama">
+<!ENTITY subscription.editTitle.label "Başlığı düzənlə">
+<!ENTITY subscription.disabledFilters.warning "Abunəlikdəki bəzi filtrlər deaktiv edildi.">
+<!ENTITY filter.column "&amp;Filtr qaydası">
+<!ENTITY subscription.lastDownload.label "Son yükləmə:">
+<!ENTITY viewList.label "Listə bax">
