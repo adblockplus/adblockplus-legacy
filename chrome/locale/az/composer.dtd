@@ -5,7 +5,7 @@
 <!ENTITY preferences.label "&amp;Mövcud filtrləri göstər...">
 <!ENTITY pattern.label "Şablon axtar">
 <!ENTITY thirdParty.label "Yalnız &amp;istehsalçıya aid olmayan">
-<!ENTITY filter.label "Yeni &amp; filtr:">
+<!ENTITY filter.label "Yeni &amp;filtr:">
 <!ENTITY collapse.label "Blok edilmişləri aradn qaldır:">
 <!ENTITY match.warning "Daxil etdiyiniz şablon artıq blok-edilmiş/ağ-listə-salınmış ünvana uyğun gəlmir və onun üərində heç bir effekti olmayacaq.">
 <!ENTITY anchor.start.label "ünvanın ə&amp;vəlinə">

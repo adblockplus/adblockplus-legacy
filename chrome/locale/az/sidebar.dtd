@@ -13,10 +13,13 @@
 <!ENTITY tooltip.docDomain.label "Sənədin mənbəyi:">
 <!ENTITY context.copy.label "Bəndin ünvanının kopyala">
 <!ENTITY tooltip.type.label "Növ:">
+<!ENTITY context.disablefilter.label "Filtr ?1? - i deaktiv et">
 <!ENTITY context.copyFilter.label "Filtri kopyala">
 <!ENTITY context.block.label "Bu bəndi blok et">
+<!ENTITY context.enablefilter.label "Filtr ?1? - i yenidən aktivləşdir">
 <!ENTITY detach.label "Ayır">
 <!ENTITY whitelisted.label "Ağ-list səhifəsi">
+<!ENTITY context.disablefilteronsite.label "Bu filtri ?1? - də deaktiv et">
 <!ENTITY detached.title "Adblock Plus: Blok oluna bilən bəndlər (xüsusiləşmiş)">
 <!ENTITY docDomain.firstParty "(istehsalçıya aid olan)">
 <!ENTITY tooltip.type.whitelisted "(ağ-listdə)">
