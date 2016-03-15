@@ -317,9 +317,11 @@ var remoteDataSource =
 {
   collectData: function(outerWindowID, windowURI, browser, callback)
   {
-    let dataCollector = require("dataCollector");
+    let {port} = require("messaging");
     let screenshotWidth = screenshotDataSource.getWidth();
-    dataCollector.collectData(outerWindowID, screenshotWidth, data => {
+    port.emitWithResponse("collectData", {outerWindowID, screenshotWidth})
+        .then(data =>
+    {
       screenshotDataSource.setData(data && data.screenshot);
       framesDataSource.setData(windowURI, data && data.opener, data && data.referrer, data && data.frames);
 
