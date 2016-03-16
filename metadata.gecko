@@ -81,4 +81,5 @@ lib/subscriptionClasses.js = adblockpluscore/lib/subscriptionClasses.js
 lib/synchronizer.js = adblockpluscore/lib/synchronizer.js
 
 [import_locales]
+adblockplusui/locale/*/common.json = *
 adblockplusui/locale/*/firstRun.json = *
