@@ -330,7 +330,7 @@ function fillInTooltip(e) {
       while (sourceElement.firstChild)
         sourceElement.removeChild(sourceElement.firstChild);
       for (let i = 0; i < subscriptions.length; i++)
-        setMultilineContent(sourceElement, subscriptions[i].title, true);
+        setMultilineContent(sourceElement, getSubscriptionTitle(subscriptions[i]), true);
     }
   }
 
@@ -785,8 +785,8 @@ function compareFilterSource(item1, item2)
 {
   let filter1 = getFilter(item1);
   let filter2 = getFilter(item2);
-  let subs1 = filter1 ? filter1.subscriptions.map(s => s.title).join(", ") : "";
-  let subs2 = filter2 ? filter2.subscriptions.map(s => s.title).join(", ") : "";
+  let subs1 = filter1 ? filter1.subscriptions.map(s => getSubscriptionTitle(s)).join(", ") : "";
+  let subs2 = filter2 ? filter2.subscriptions.map(s => getSubscriptionTitle(s)).join(", ") : "";
   if (subs1 < subs2)
     return -1;
   else if (subs1 > subs2)
@@ -925,7 +925,7 @@ var treeView = {
         if (!filter)
           return "";
 
-        return filter.subscriptions.filter(s => !s.disabled).map(s => s.title).join(", ");
+        return filter.subscriptions.filter(s => !s.disabled).map(s => getSubscriptionTitle(s)).join(", ");
       }
       else
         return this.data[row].location;

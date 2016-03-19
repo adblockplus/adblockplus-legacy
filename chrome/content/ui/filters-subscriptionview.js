@@ -113,7 +113,8 @@ ListManager.prototype =
       subscription: subscription,
       isExternal: subscription instanceof ExternalSubscription,
       downloading: Synchronizer.isExecuting(subscription.url),
-      disabledFilters: disabledFilters
+      disabledFilters: disabledFilters,
+      upgradeRequired: ListManager.isUpgradeRequired(subscription)
     });
     if (insertBefore)
       this._list.insertBefore(node, insertBefore);
@@ -252,7 +253,9 @@ ListManager.prototype =
         let subscriptionNode = Templater.getNodeForData(this._list, "subscription", item);
         if (subscriptionNode)
         {
-          Templater.getDataForNode(subscriptionNode).downloading = Synchronizer.isExecuting(item.url);
+          let data = Templater.getDataForNode(subscriptionNode);
+          data.downloading = Synchronizer.isExecuting(item.url);
+          data.upgradeRequired = ListManager.isUpgradeRequired(item);
           Templater.update(this._template, subscriptionNode);
 
           if (!document.commandDispatcher.focusedElement)
@@ -322,6 +325,21 @@ ListManager.allowAcceptableAds = function(/**Boolean*/ allow)
   }
   else
     FilterStorage.removeSubscription(subscription);
+};
+
+/**
+ * Checks whether Adblock Plus needs to be upgraded in order to support filters
+ * in a particular subscription.
+ */
+ListManager.isUpgradeRequired = function(/**Subscription*/ subscription)
+{
+  if (subscription instanceof DownloadableSubscription && subscription.requiredVersion)
+  {
+    let {addonVersion} = require("info");
+    if (Services.vc.compare(subscription.requiredVersion, addonVersion) > 0)
+      return true;
+  }
+  return false;
 };
 
 window.addEventListener("load", ListManager.init, false);

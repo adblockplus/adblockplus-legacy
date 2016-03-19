@@ -295,7 +295,7 @@ var SubscriptionActions =
 
     event.dataTransfer.addElement(node);
     event.dataTransfer.setData("text/x-moz-url", data.subscription.url);
-    event.dataTransfer.setData("text/plain", data.subscription.title);
+    event.dataTransfer.setData("text/plain", getSubscriptionTitle(data.subscription));
     this.dragSubscription = data.subscription;
     event.stopPropagation();
   },
@@ -422,7 +422,7 @@ var TitleEditor =
 
     subscriptionNode.getElementsByClassName("titleBox")[0].selectedIndex = 1;
     let editor = subscriptionNode.getElementsByClassName("titleEditor")[0];
-    editor.value = subscription.title;
+    editor.value = getSubscriptionTitle(subscription);
     editor.setSelectionRange(0, editor.value.length);
     this.subscriptionEdited = subscriptionNode;
     editor.focus();

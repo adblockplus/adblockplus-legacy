@@ -366,7 +366,7 @@ var FilterActions =
 
     E("tooltip-additional").hidden = false;
     if (item.filter instanceof InvalidFilter && item.filter.reason)
-      E("tooltip-additional").textContent = item.filter.reason;
+      E("tooltip-additional").textContent = Utils.getString(item.filter.reason);
     else if (item.filter instanceof RegExpFilter && defaultMatcher.isSlowFilter(item.filter))
       E("tooltip-additional").textContent = Utils.getString("filter_regexp_tooltip");
     else

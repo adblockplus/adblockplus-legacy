@@ -757,7 +757,7 @@ var subscriptionUpdateDataSource =
         entry.removeAttribute("hidden");
         entry.setAttribute("_url", subscription.url);
         entry.setAttribute("tooltiptext", subscription.url);
-        entry.textContent = subscription.title;
+        entry.textContent = getSubscriptionTitle(subscription);
         list.appendChild(entry);
       }
     }
@@ -996,8 +996,8 @@ var issuesDataSource =
         let element = template.cloneNode(true);
         element.removeAttribute("id");
         element.removeAttribute("hidden");
-        element.firstChild.setAttribute("value", subscription.title);
-        element.setAttribute("tooltiptext", subscription instanceof DownloadableSubscription ? subscription.url : subscription.title);
+        element.firstChild.setAttribute("value", getSubscriptionTitle(subscription));
+        element.setAttribute("tooltiptext", subscription instanceof DownloadableSubscription ? subscription.url : getSubscriptionTitle(subscription));
         element.abpSubscription = subscription;
         disabledSubscriptionsBox.appendChild(element);
       }

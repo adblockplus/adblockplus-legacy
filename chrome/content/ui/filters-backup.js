@@ -299,7 +299,7 @@ var Backup =
       let typeAddition = "";
       if (subscription.defaults)
         typeAddition = "/" + subscription.defaults.join("/");
-      list.push("! [" + subscription.title + "]" + typeAddition);
+      list.push("! [" + getSubscriptionTitle(subscription) + "]" + typeAddition);
       for (let j = 0; j < subscription.filters.length; j++)
       {
         let filter = subscription.filters[j];

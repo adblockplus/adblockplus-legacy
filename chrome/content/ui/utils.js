@@ -57,6 +57,25 @@ function E(id)
 }
 
 /**
+ * Determines subscription's title as it should be displayed in the UI.
+ * @return {String}
+ *   subscription's title or an appropriate default title if none present
+ */
+function getSubscriptionTitle(/**Subscription*/ subscription)
+{
+  if (subscription.title)
+    return subscription.title;
+
+  if (subscription instanceof DownloadableSubscription)
+    return subscription.url;
+
+  if (subscription instanceof SpecialSubscription && subscription.defaults)
+    return Utils.getString(subscription.defaults + "Group_title");
+
+  return Utils.getString("newGroup_title");
+}
+
+/**
  * Split up all labels into the label and access key portions.
  */
 document.addEventListener("DOMContentLoaded", function splitAllLabelsHandler()

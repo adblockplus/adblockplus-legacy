@@ -117,6 +117,7 @@ var Templater =
     for (let key in data)
       sandbox[key] = data[key];
     sandbox.formatTime = Utils.formatTime;
+    sandbox.getSubscriptionTitle = getSubscriptionTitle;
 
     // Clone template but remove id/hidden attributes from it
     let result = template.cloneNode(true);
