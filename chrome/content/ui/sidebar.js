@@ -455,16 +455,9 @@ function fillInContext(/**Event*/ e)
  */
 function handleClick(event)
 {
-  let item = treeView.getItemAt(event.clientX, event.clientY);
-  if (event.button == 0 && treeView.getColumnAt(event.clientX, event.clientY) == "state")
+  if (event.button == 1)
   {
-    let filter = getFilter(item);
-    if (filter)
-      enableFilter(filter, filter.disabled);
-    event.preventDefault();
-  }
-  else if (event.button == 1)
-  {
+    let item = treeView.getItemAt(event.clientX, event.clientY);
     openInTab(item, event);
     event.preventDefault();
   }
