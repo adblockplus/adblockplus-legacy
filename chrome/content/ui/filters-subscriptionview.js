@@ -249,6 +249,7 @@ ListManager.prototype =
       case "subscription.homepage":
       case "subscription.lastDownload":
       case "subscription.downloadStatus":
+      case "subscription.downloading":
       {
         let subscriptionNode = Templater.getNodeForData(this._list, "subscription", item);
         if (subscriptionNode)
