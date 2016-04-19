@@ -35,7 +35,8 @@ function require(/**String*/ module)
 
 var {Policy} = require("contentPolicy");
 var {Filter, InvalidFilter, CommentFilter, ActiveFilter, RegExpFilter,
-     BlockingFilter, WhitelistFilter, ElemHideBase, ElemHideFilter, ElemHideException} = require("filterClasses");
+     BlockingFilter, WhitelistFilter, ElemHideBase, ElemHideFilter,
+     ElemHideException, CSSPropertyFilter} = require("filterClasses");
 var {FilterNotifier} = require("filterNotifier");
 var {FilterStorage} = require("filterStorage");
 var {IO} = require("io");
