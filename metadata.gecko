@@ -71,6 +71,7 @@ lib/antiadblockInit.js = adblockpluscore/lib/antiadblockInit.js
 lib/cssRules.js = adblockpluscore/lib/cssRules.js
 lib/downloader.js = adblockpluscore/lib/downloader.js
 lib/elemHide.js = adblockpluscore/lib/elemHide.js
+lib/events.js = adblockpluscore/lib/events.js
 lib/filterClasses.js = adblockpluscore/lib/filterClasses.js
 lib/filterListener.js = adblockpluscore/lib/filterListener.js
 lib/filterNotifier.js = adblockpluscore/lib/filterNotifier.js
