@@ -4,7 +4,7 @@
 <!ENTITY firstParty.label "Solo dominii di p&amp;rimo livello">
 <!ENTITY preferences.label "&amp;Mostra i filtri esistenti…">
 <!ENTITY pattern.label "Modelli">
-<!ENTITY thirdParty.label "Solo &amp;terze parti">
+<!ENTITY thirdParty.label "&amp;Solo terze parti">
 <!ENTITY filter.label "&amp;Nuovo filtro:">
 <!ENTITY collapse.label "&amp;Contrai bloccati:">
 <!ENTITY match.warning "Il modello inserito non corrisponde più all'indirizzo web da bloccare/permettere e non avrà quindi alcun effetto">

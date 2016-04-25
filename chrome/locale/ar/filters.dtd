@@ -33,7 +33,7 @@
 أي شيء بدون هذه الفلاتر, الرجاء إختيار &quot;إشتراكات الفلاتر&quot; 
 لإضافة أحدها.">
 <!ENTITY subscription.update.label "تحدبث الفلاتر">
-<!ENTITY dialog.title "تفضيلات الفلترات لآد بلُك بلَس">
+<!ENTITY dialog.title "تفضيلات الفلترات لآدبلوك بلس">
 <!ENTITY addFilter.label "إ&amp;ضافة فلتر">
 <!ENTITY subscription.minVersion.warning "إشتراك الفلاتر هذا يتطلب إصدار آد بلُك بلَس حديث، يجب عليك التحديث إلى أحدث إصدار.">
 <!ENTITY subscription.lastDownload.invalidURL "فشل الأمر، العنوان ليس صحيح">

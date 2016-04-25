@@ -9,7 +9,7 @@
 <!ENTITY reattach.label "合体">
 <!ENTITY search.label "搜索： (&amp;S)">
 <!ENTITY docDomain.thirdParty "(第三方)">
-<!ENTITY filterSource.label "过滤规则源">
+<!ENTITY filterSource.label "源过滤规则">
 <!ENTITY tooltip.docDomain.label "文档源：">
 <!ENTITY context.copy.label "复制项目地址">
 <!ENTITY tooltip.type.label "类型:">

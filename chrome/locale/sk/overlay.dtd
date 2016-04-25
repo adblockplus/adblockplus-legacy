@@ -1,7 +1,7 @@
 <!ENTITY notification.button.no "&amp;Nie">
 <!ENTITY sync.label "Syn&amp;chronizovať nastavenia Adblock Plus">
 <!ENTITY whitelist.site.label "Vypnúť na ?1?">
-<!ENTITY notification.closing.button.hide "Zatvoriť t&amp;oto upozornenie">
+<!ENTITY notification.closing.button.hide "Zatvoriť toto upozornenie">
 <!ENTITY filters.label "&amp;Nastavenia filtrov">
 <!ENTITY disable.label "Vypnúť všade">
 <!ENTITY objecttab.title "Blokovať">
@@ -19,7 +19,7 @@
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Blokovať rámec">
 <!ENTITY blocked.tooltip "Blokovaných položiek na tejto stránke:">
-<!ENTITY notification.closing.button.optout "&amp;Zrušiť zobrazovanie upozornení">
+<!ENTITY notification.closing.button.optout "Zrušiť zobrazovanie upozornení">
 <!ENTITY counthits.label "P&amp;očítadlo">
 <!ENTITY showinstatusbar.label "Zobraziť v &amp;stavovom riadku">
 <!ENTITY sidebar.title "Blokovateľné položky na aktuálnej stránke">
