@@ -68,6 +68,7 @@ lib/ext_background.js = ext/background.js
 lib/ext_common.js = ext/common.js
 lib/messageResponder.js = adblockplusui/messageResponder.js
 lib/antiadblockInit.js = adblockpluscore/lib/antiadblockInit.js
+lib/coreUtils.js = adblockpluscore/lib/coreUtils.js
 lib/cssRules.js = adblockpluscore/lib/cssRules.js
 lib/downloader.js = adblockpluscore/lib/downloader.js
 lib/elemHide.js = adblockpluscore/lib/elemHide.js
