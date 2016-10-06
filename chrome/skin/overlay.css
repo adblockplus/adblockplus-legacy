@@ -44,14 +44,6 @@ toolbar[iconsize="small"] #abp-toolbarbutton[abpstate="whitelisted"],
   -moz-image-region: rect(16px, 16px, 32px, 0px);
 }
 
-toolbar[iconsize="small"] #abp-toolbarbutton .toolbarbutton-icon,
-#PersonalToolbar #abp-toolbarbutton .toolbarbutton-icon,
-#header-view-toolbar > #abp-toolbarbutton .toolbarbutton-icon
-{
-  width: 16px;
-  height: 16px;
-}
-
 @media screen and (min-resolution: 1.5dppx)
 {
   toolbar[iconsize="small"] #abp-toolbarbutton,
