@@ -217,7 +217,50 @@ treechildren::-moz-tree-image(col-slow, slow-true)
   list-style-image: url(slow.png);
 }
 
-.findbar-highlight
+/* Findbar */
+
+#findbar-closebutton
 {
-  display: none;
+  list-style-image: url(close.png);
+  -moz-image-region: rect(0px, 14px, 14px, 0px);
+}
+
+#findbar-closebutton:hover
+{
+  -moz-image-region: rect(0px, 28px, 14px, 14px);
+}
+
+#findbar-closebutton:active
+{
+  -moz-image-region: rect(0px, 42px, 14px, 28px);
+}
+
+#findbar[data-status="notFound"] > #findbar-textbox
+{
+  /* We cannot change background color because of -moz-appearance but a red */
+  /* shadow works. */
+  box-shadow: 0 0 1.5px 1px red;
+}
+
+#findbar[data-status="notFound"] > #findbar-textbox[focused="true"]
+{
+  box-shadow: 0 0 2px 2px rgba(255, 0, 0, 0.4);
+}
+
+#findbar[data-os="darwin"] > #findbar-case-sensitive[checked="true"]
+{
+  /* Firefox on Mac doesn't indicate checked buttons, do it ourselves */
+  filter: brightness(70%);
+}
+
+.findbar-status
+{
+  font-size: 80%;
+}
+
+#findbar:not([data-status="wrappedStart"]) #findbar-status-wrappedStart,
+#findbar:not([data-status="wrappedEnd"]) #findbar-status-wrappedEnd,
+#findbar:not([data-status="notFound"]) #findbar-status-notFound
+{
+  visibility: hidden;
 }

@@ -90,3 +90,10 @@
 
 <!ENTITY find.label                           "Fi&amp;nd">
 <!ENTITY close.label                          "Close">
+
+<!ENTITY findbar.placeholder                  "Find filter">
+<!ENTITY findbar.close                        "Close find bar">
+<!ENTITY findbar.caseSensitive                "Match Case">
+<!ENTITY findbar.statusWrappedStart           "Reached top, continuing from bottom">
+<!ENTITY findbar.statusWrappedEnd             "Reached bottom, continuing from top">
+<!ENTITY findbar.statusNotFound               "Phrase not found">
