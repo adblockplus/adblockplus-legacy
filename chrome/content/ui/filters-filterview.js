@@ -462,14 +462,22 @@ var FilterView =
 
   /**
    * Selects a row in the tree and makes sure it is visible.
+   * @param {number} row
+   *   row index
+   * @param {boolean} [scrollToTop]
+   *   if true, the selected row should become the top row of the list if
+   *   possible, otherwise the list is only scrolled if the row isn't visible.
    */
-  selectRow: function(row)
+  selectRow: function(row, scrollToTop)
   {
     if (this.selection)
     {
       row = Math.min(Math.max(row, 0), this.data.length - 1);
       this.selection.select(row);
-      this.boxObject.ensureRowIsVisible(row);
+      if (scrollToTop)
+        this.boxObject.scrollToRow(row);
+      else
+        this.boxObject.ensureRowIsVisible(row);
     }
   },
 
@@ -489,7 +497,7 @@ var FilterView =
     }
     if (index >= 0)
     {
-      this.selectRow(index);
+      this.selectRow(index, true);
       this.treeElement.focus();
     }
   },

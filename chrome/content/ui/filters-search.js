@@ -94,10 +94,9 @@ var FilterSearch =
       direction = (text == this.lastSearchString ? 1 : 0);
     this.lastSearchString = text;
 
-    function normalizeString(string)
-    {
-      return caseSensitive ? string : string.toLowerCase();
-    }
+    let normalizeString = (caseSensitive ?
+                           string => string :
+                           string => string.toLowerCase());
 
     function findText(startIndex)
     {
@@ -109,7 +108,7 @@ var FilterSearch =
         let filter = normalizeString(list.view.getCellText(i, col));
         if (filter.indexOf(text) >= 0)
         {
-          FilterView.selectRow(i);
+          FilterView.selectRow(i, true);
           return true;
         }
       }

@@ -219,6 +219,11 @@ treechildren::-moz-tree-image(col-slow, slow-true)
 
 /* Findbar */
 
+#findbar
+{
+  border-top: 1px solid #888;
+}
+
 #findbar-closebutton
 {
   list-style-image: url(close.png);
