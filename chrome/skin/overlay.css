@@ -107,6 +107,42 @@ toolbarpaletteitem[place="palette"] > #abp-toolbarbutton[abpstate="whitelisted"]
   -moz-image-region: rect(32px, 32px, 64px, 0px);
 }
 
+@media screen and (min-resolution: 1.5dppx)
+{
+  #abp-toolbarbutton[cui-areatype="menu-panel"],
+  toolbarpaletteitem[place="palette"] > #abp-toolbarbutton
+  {
+    list-style-image: url("abp-status-48.png");
+    -moz-image-region: rect(0px, 48px, 48px, 0px);
+  }
+
+  #abp-toolbarbutton[cui-areatype="menu-panel"][abpstate="disabled"],
+  toolbarpaletteitem[place="palette"] > #abp-toolbarbutton[abpstate="disabled"],
+  #abp-toolbarbutton[cui-areatype="menu-panel"][abpstate="whitelisted"],
+  toolbarpaletteitem[place="palette"] > #abp-toolbarbutton[abpstate="whitelisted"]
+  {
+    -moz-image-region: rect(48px, 48px, 96px, 0px);
+  }
+}
+
+@media screen and (min-resolution: 2dppx)
+{
+  #abp-toolbarbutton[cui-areatype="menu-panel"],
+  toolbarpaletteitem[place="palette"] > #abp-toolbarbutton
+  {
+    list-style-image: url("abp-status-64.png");
+    -moz-image-region: rect(0px, 64px, 64px, 0px);
+  }
+
+  #abp-toolbarbutton[cui-areatype="menu-panel"][abpstate="disabled"],
+  toolbarpaletteitem[place="palette"] > #abp-toolbarbutton[abpstate="disabled"],
+  #abp-toolbarbutton[cui-areatype="menu-panel"][abpstate="whitelisted"],
+  toolbarpaletteitem[place="palette"] > #abp-toolbarbutton[abpstate="whitelisted"]
+  {
+    -moz-image-region: rect(64px, 64px, 128px, 0px);
+  }
+}
+
 #abp-toolbar-popup {
   list-style-image: none;
   -moz-image-region: rect(0px, 0px, 0px, 0px);
