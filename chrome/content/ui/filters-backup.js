@@ -319,6 +319,13 @@ var Backup =
 
         if (filter instanceof CSSPropertyFilter && Services.vc.compare(minVersion, "2.7.3") < 0)
           minVersion = "2.7.3";
+
+        if (filter instanceof RegExpFilter &&
+            (filter.contentType & RegExpFilter.typeMap.WEBSOCKET) &&
+            Services.vc.compare(minVersion, "2.8"))
+        {
+          minVersion = "2.8";
+        }
       }
     }
     list.unshift("[Adblock Plus " + minVersion + "]");
