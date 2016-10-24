@@ -9,7 +9,7 @@
 <!ENTITY collapse.label "З&amp;гортати заблоковане:">
 <!ENTITY match.warning "Вказаний шаблон не відповідає адресі, для якої ви створюєте правило, і ніяк на неї не вплине.">
 <!ENTITY anchor.start.label "на &amp;початку адреси">
-<!ENTITY matchCase.label "В&amp;раховувати регістр">
+<!ENTITY matchCase.label "Враховувати регістр">
 <!ENTITY custom.pattern.label "І&amp;нше">
 <!ENTITY unselectAllTypes.label "Скинути виділення">
 <!ENTITY type.whitelist.label "Правило винятку">

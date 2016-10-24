@@ -1,3 +1,14 @@
-<!ENTITY collapse.yes.label "ಹೌದು">
-<!ENTITY basic.label "ಸಾಮಾನ್ಯವಾದ ನೂಟ">
+<!ENTITY accept.label "ಶೋಧಕವನ್ನು ಸೇರಿಸಿ">
+<!ENTITY type.filter.label "&amp;ನಿರ್ಬಂಧಿಸುವ ಶೋಧಕ">
+<!ENTITY options.label "ಆಯ್ಕೆಗಳು">
+<!ENTITY disabled.warning "ಆಡ್ ಬ್ಲಾಕ್ ಪ್ಲಸ್ ಪ್ರಸ್ತುತವಾಗಿ ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ. ನೀವು ಇನ್ನೂ ಶೋಧಕಗಳನ್ನು ಸೇರಿಸಬಹುದು ಆದರೆ ಅವು [link]ಆಡ್ ಬ್ಲಾಕ್ ಪ್ಲಸ್ ಸಕ್ರಿಯ[/link] ಮಾಡದ ಹೊರತು ಅನ್ವಯವಾಗದು.">
+<!ENTITY preferences.label "&amp;ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಶೋಧಕಗಳನ್ನು ತೋರಿಸಿ...">
+<!ENTITY advanced.label "ಸುಧಾರಿತ ನೋಟ">
+<!ENTITY pattern.label "ಮಾದರಿಗಾಗಿ ನೋಡಿ">
+<!ENTITY type.whitelist.label "ಹೊರತುಪಡಿಸಿದ ನಿಯಮ">
 <!ENTITY collapse.no.label "ಇಲ್ಲ">
+<!ENTITY dialog.title "ಆಡ್ ಬ್ಲಾಕ್ ಪ್ಲಸ್ ಶೋಧಕ ನಿಯಮವನ್ನು ಸೇರಿಸಿ">
+<!ENTITY basic.label "ಸಾಮಾನ್ಯವಾದ ನೂಟ">
+<!ENTITY filter.label "ಹೊಸ &amp;ಶೋಧಕ:">
+<!ENTITY collapse.yes.label "ಹೌದು">
+<!ENTITY pattern.explanation "ಈ ಮಾದರಿಯು ಯಾವುದೇ ವಿಳಾಸದ ಭಾಗವಾಗಿರಬಹುದು. ನಕ್ಷತ್ರಾಕಾರದ ಚುಕ್ಕೆಗಳು(*) ವೈಲ್ಡ್ ಕಾರ್ಡ್ ಆಗುವುದು. ಒದಗಿಸಿದ ಮಾದರಿಯನ್ನು ಹೊಂದುವ ವಿಳಾಸಗಳಿಗೆ ಮಾತ್ರ ಶೋಧಕವು ಅನ್ವಯಿಹಿಸುವುದು.">

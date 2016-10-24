@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Позволи определени &amp;ненатрапчиви реклами">
 <!ENTITY addSubscriptionOther.label "Добави друг абонамент">
 <!ENTITY close.label "Затвори">
+<!ENTITY findbar.caseSensitive "с точно изписване">
 <!ENTITY sort.none.label "&amp;Неподредено">
 <!ENTITY filter.actions.label "Действия за филтър">
 <!ENTITY filter.copy.label "Копирай">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "&amp;Намери">
 <!ENTITY subscription.moveDown.label "Премести надолу">
 <!ENTITY subscription.lastDownload.connectionError "Провален — провалено изтегляне">
+<!ENTITY findbar.statusWrappedStart "Търсенето е в началото и ще продължи от края.">
 <!ENTITY subscription.lastDownload.success "Изправен">
+<!ENTITY findbar.placeholder "Намиране на филтър">
 <!ENTITY subscription.lastDownload.invalidData "Провален — недействителен абонамент">
+<!ENTITY findbar.close "Затваряне на лентата">
 <!ENTITY filter.paste.label "Постави">
 <!ENTITY subscription.disabledFilters.enable "Разреши забранените филтри">
 <!ENTITY lasthit.column "&amp;Последно попадение">
+<!ENTITY findbar.statusWrappedEnd "Търсенето е в края и ще продължи от началото.">
 <!ENTITY subscription.editTitle.label "Редактирай заглавието">
+<!ENTITY findbar.statusNotFound "Изразът не е намерен.">
 <!ENTITY subscription.disabledFilters.warning "Някой филтри от абонамента са забранени.">
 <!ENTITY filter.column "Правило за &amp;филтър">
 <!ENTITY subscription.lastDownload.label "Изтеглен:">

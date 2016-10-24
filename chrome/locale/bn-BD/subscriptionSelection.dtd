@@ -3,7 +3,7 @@
 <!ENTITY list.download.retry "আবার চেষ্টা করুন">
 <!ENTITY title.label "সদস্যতার শিরোনাম:">
 <!ENTITY list.download.website "ওয়েবসাইট দেখুন">
-<!ENTITY supplementMessage "এই ফিল্টার সদস্যতা ফিল্টার সদস্যতা &quot;? 1?  দ্বারা ব্যবহার করা হচ্ছে বলে মনে হচ্ছে যা আপ্ব্বনি এখনো ব্যবহার করছেন না।">
+<!ENTITY supplementMessage "এই ফিল্টার সদস্যতা ফিল্টার সদস্যতা &quot;?1?&quot; দ্বারা ব্যবহার করা হচ্ছে বলে মনে হচ্ছে যা আপ্ব্বনি এখনো ব্যবহার করছেন না।">
 <!ENTITY viewList.label "ফিল্টার দেখুন">
 <!ENTITY visitHomepage.label "প্রধান পৃষ্ঠাটি দেখুন">
 <!ENTITY addSubscription.label "সদস্যতা যোগ">

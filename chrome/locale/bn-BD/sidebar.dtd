@@ -13,13 +13,10 @@
 <!ENTITY tooltip.docDomain.label "নথির উৎস:">
 <!ENTITY context.copy.label "আইটেমের ঠিকানা অনুলিপি করুন">
 <!ENTITY tooltip.type.label "ধরন:">
-<!ENTITY context.disablefilter.label "ছাঁকন বন্ধ করতে চান?১?">
 <!ENTITY context.copyFilter.label "ফিল্টার কপি করুন">
 <!ENTITY context.block.label "এই আইটেমটি অবরুদ্ধ করুন">
-<!ENTITY context.enablefilter.label "ছাঁকন পুনরায় চালু করতে চান?১?">
 <!ENTITY detach.label "বিচ্ছিন্ন করুন">
 <!ENTITY whitelisted.label "সাদাতালিকা পাতা">
-<!ENTITY context.disablefilteronsite.label "এই ছাঁকন যার উপর বন্ধ রাখতে চান?">
 <!ENTITY detached.title "Adblcok Plus: ব্লকযোগ্য আইটেমসমূহ (বিচ্ছিন্ন)">
 <!ENTITY docDomain.firstParty "(প্রথম পক্ষ)">
 <!ENTITY tooltip.type.whitelisted "(সাদা তালিকাভূক্ত)">

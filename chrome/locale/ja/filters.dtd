@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "控えめな広告を許可(&amp;I)">
 <!ENTITY addSubscriptionOther.label "別の購読するフィルタを追加">
 <!ENTITY close.label "閉じる">
+<!ENTITY findbar.caseSensitive "大文字小文字を区別">
 <!ENTITY sort.none.label "ソートしない(&amp;U)">
 <!ENTITY filter.actions.label "フィルタアクション">
 <!ENTITY filter.copy.label "コピー">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "検索(&amp;N)">
 <!ENTITY subscription.moveDown.label "下に移動">
 <!ENTITY subscription.lastDownload.connectionError "更新失敗: 接続エラー">
+<!ENTITY findbar.statusWrappedStart "先頭に達したので末尾から続行します">
 <!ENTITY subscription.lastDownload.success "更新成功">
+<!ENTITY findbar.placeholder "フィルタを検索">
 <!ENTITY subscription.lastDownload.invalidData "更新失敗: フィルタリスト無効">
+<!ENTITY findbar.close "検索バーを閉じる">
 <!ENTITY filter.paste.label "貼り付け">
 <!ENTITY subscription.disabledFilters.enable "無効になっているフィルタを有効化">
 <!ENTITY lasthit.column "最終ヒット日時(&amp;L)">
+<!ENTITY findbar.statusWrappedEnd "末尾に達したので先頭から続行します">
 <!ENTITY subscription.editTitle.label "タイトルを編集">
+<!ENTITY findbar.statusNotFound "見つかりませんでした">
 <!ENTITY subscription.disabledFilters.warning "購読しているフィルタの一部が無効化されています">
 <!ENTITY filter.column "フィルタ(&amp;F)">
 <!ENTITY subscription.lastDownload.label "更新日時:">

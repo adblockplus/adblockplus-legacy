@@ -45,6 +45,7 @@
 <!ENTITY acceptableAds2.label "Leyfa auglýs&amp;ingar sem eru ekki uppáþrengjandi">
 <!ENTITY addSubscriptionOther.label "Bæta við öðruvísi áskrift">
 <!ENTITY close.label "Loka">
+<!ENTITY findbar.caseSensitive "Passa við stafstöðu">
 <!ENTITY sort.none.label "Ó&amp;raðað">
 <!ENTITY filter.actions.label "Síu aðgerðir">
 <!ENTITY filter.copy.label "Afrita">
@@ -62,12 +63,17 @@
 <!ENTITY find.label "&amp;Leita">
 <!ENTITY subscription.moveDown.label "Færa niður">
 <!ENTITY subscription.lastDownload.connectionError "Mistókst, gat ekki niðurhalað">
+<!ENTITY findbar.statusWrappedStart "Leitaði alveg upp, held áfram að leita neðan frá">
 <!ENTITY subscription.lastDownload.success "Tókst">
+<!ENTITY findbar.placeholder "Leita að síu">
 <!ENTITY subscription.lastDownload.invalidData "Mistókst, ekki gildur síulisti">
+<!ENTITY findbar.close "Loka leitarslánni">
 <!ENTITY filter.paste.label "Líma">
 <!ENTITY subscription.disabledFilters.enable "Virkja óvirkar síur">
 <!ENTITY lasthit.column "Seinast &amp;heimsótt">
+<!ENTITY findbar.statusWrappedEnd "Leitaði alveg niður, held áfram að leita ofan frá">
 <!ENTITY subscription.editTitle.label "Breyta titli">
+<!ENTITY findbar.statusNotFound "Fann ekki leitarstreng">
 <!ENTITY subscription.disabledFilters.warning "Sumar síur í þessari áskrift eru óvirkar.">
 <!ENTITY filter.column "Síu re&amp;gla">
 <!ENTITY subscription.lastDownload.label "Seinasta niðurhal:">

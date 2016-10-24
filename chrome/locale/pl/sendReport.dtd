@@ -39,7 +39,7 @@
 <!ENTITY dataCollector.description "Poczekaj chwilę, aż Adblock Plus zbierze wymagane dane.">
 <!ENTITY sendButton.label "&amp;Wyślij zgłoszenie">
 <!ENTITY comment.label "O&amp;bjaśnienia (opcjonalne):">
-<!ENTITY sendPage.errorMessage "Próba wysłania zgłoszenia nie powiodła się z powodu „?1?” Sprawdź połączenie z Internetem i ponów próbę. Jeśli problem będzie nadal występował, poproś o pomoc na [link]forum Adblock Plusa[/link].">
+<!ENTITY sendPage.errorMessage "Próba wysłania zgłoszenia nie powiodła się z powodu „?1?”. Sprawdź połączenie z Internetem i ponów próbę. Jeśli problem będzie nadal występował, poproś o pomoc na [link]forum Adblock Plusa[/link].">
 <!ENTITY showRecentReports.label "Wyświetl ostatnio wysłane zgłoszenia">
 <!ENTITY commentPage.heading "Dodaj objaśnienie">
 <!ENTITY update.start.label "Aktualizuj teraz">

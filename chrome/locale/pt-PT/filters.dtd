@@ -45,6 +45,7 @@ adicionar um filtro.">
 <!ENTITY acceptableAds2.label "Perm&amp;itir alguns anúncios não incómodos">
 <!ENTITY addSubscriptionOther.label "Adicionar uma subscrição diferente">
 <!ENTITY close.label "Fechar">
+<!ENTITY findbar.caseSensitive "Maiúsculas/ minúsculas">
 <!ENTITY sort.none.label "&amp;Não ordenar">
 <!ENTITY filter.actions.label "Ações de filtros">
 <!ENTITY filter.copy.label "Copiar">
@@ -62,12 +63,17 @@ adicionar um filtro.">
 <!ENTITY find.label "Enco&amp;ntrar">
 <!ENTITY subscription.moveDown.label "Mover para baixo">
 <!ENTITY subscription.lastDownload.connectionError "Falhou, transferência inválida">
+<!ENTITY findbar.statusWrappedStart "Início atingido, continua no fim">
 <!ENTITY subscription.lastDownload.success "Bem sucedido">
+<!ENTITY findbar.placeholder "Pesquisa">
 <!ENTITY subscription.lastDownload.invalidData "Falhou, não é uma lista de filtros válida">
+<!ENTITY findbar.close "Fechar">
 <!ENTITY filter.paste.label "Colar">
 <!ENTITY subscription.disabledFilters.enable "Ativar filtros desativados">
 <!ENTITY lasthit.column "Última &amp;utilização">
+<!ENTITY findbar.statusWrappedEnd "Chegou ao fim, voltar ao topo">
 <!ENTITY subscription.editTitle.label "Editar título">
+<!ENTITY findbar.statusNotFound "Frase não encontrada">
 <!ENTITY subscription.disabledFilters.warning "Alguns filtros desta subscrição estão desativados.">
 <!ENTITY filter.column "Regra de &amp;filtro">
 <!ENTITY subscription.lastDownload.label "Última atualização:">

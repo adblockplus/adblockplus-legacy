@@ -45,6 +45,7 @@
 <!ENTITY acceptableAds2.label "Зиянке&amp;с емес кейбір жарнаманы іске қосу">
 <!ENTITY addSubscriptionOther.label "Басқа жазылуды қосу">
 <!ENTITY close.label "Жабу">
+<!ENTITY findbar.caseSensitive "Регистрді ескеру">
 <!ENTITY sort.none.label "Сұрыптаусы&amp;з">
 <!ENTITY filter.actions.label "Фильтр әрекеттері">
 <!ENTITY filter.copy.label "Көшіру">
@@ -62,12 +63,17 @@
 <!ENTITY find.label "І&amp;здеу">
 <!ENTITY subscription.moveDown.label "Төмен жылжыту">
 <!ENTITY subscription.lastDownload.connectionError "Қате, жүктеу мүмкін емес">
+<!ENTITY findbar.statusWrappedStart "Үстіне жеттік, астынан жалғастырамыз">
 <!ENTITY subscription.lastDownload.success "Сәтті аяқталды">
+<!ENTITY findbar.placeholder "Сүзгіні табу">
 <!ENTITY subscription.lastDownload.invalidData "Қате, дұрыс сүзгілер файлы емес">
+<!ENTITY findbar.close "Табу панелін жабу">
 <!ENTITY filter.paste.label "Кірістіру">
 <!ENTITY subscription.disabledFilters.enable "Сөндірулі фильтрлерді іске қосу">
 <!ENTITY lasthit.column "Соңғ&amp;ы хит">
+<!ENTITY findbar.statusWrappedEnd "Төменге жеттік, үстінен жалғастырамыз">
 <!ENTITY subscription.editTitle.label "Атауын түзету">
+<!ENTITY findbar.statusNotFound "Фраза табылмады">
 <!ENTITY subscription.disabledFilters.warning "Бұл жазылудағы кейбір фильтрлер сөндірулі.">
 <!ENTITY filter.column "Фильтр &amp;ережесі:">
 <!ENTITY subscription.lastDownload.label "Соңғы жаңарту:">

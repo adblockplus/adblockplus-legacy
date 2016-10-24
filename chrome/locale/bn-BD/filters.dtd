@@ -18,7 +18,7 @@
 <!ENTITY subscription.delete.label "মুছুন">
 <!ENTITY noGroupSelected.text "এটির ছাঁকন সমূহ প্রদর্শিত হওয়ার আগে আপনাকে একটি ছাঁকন গোষ্ঠী নির্বাচন করতে হবে।">
 <!ENTITY filter.cut.label "ছেদন">
-<!ENTITY restore.default.label "? 1? এর ব্যাকআপ থেকে পুনঃস্থাপন করুন">
+<!ENTITY restore.default.label "?1? এর ব্যাকআপ থেকে পুনঃস্থাপন করুন">
 <!ENTITY subscription.lastDownload.inProgress "ডাউনলোড হচ্ছে…">
 <!ENTITY subscriptions.tab.label "ছাঁকনি সদস্যতাসমূহ">
 <!ENTITY sort.descending.label "&amp; জেড&gt; এ বাছাই ক্রম">

@@ -61,11 +61,13 @@
 <!ENTITY subscription.moveDown.label "Зсунути вниз">
 <!ENTITY subscription.lastDownload.connectionError "Помилка, неможливо викачати">
 <!ENTITY subscription.lastDownload.success "Успіх">
+<!ENTITY findbar.placeholder "Знайти фільтр">
 <!ENTITY subscription.lastDownload.invalidData "Помилка, не правильний список фільтрів">
 <!ENTITY filter.paste.label "Вставити">
 <!ENTITY subscription.disabledFilters.enable "Увімкнути вимкнені фільтри">
 <!ENTITY lasthit.column "&amp;Останнє попадання">
 <!ENTITY subscription.editTitle.label "Редагувати назву">
+<!ENTITY findbar.statusNotFound "Фразу не знайдено">
 <!ENTITY subscription.disabledFilters.warning "Деякі фільтри у цій підписці вимкнено.">
 <!ENTITY filter.column "Правило &amp;фільтрування">
 <!ENTITY subscription.lastDownload.label "Останнє оновлення:">

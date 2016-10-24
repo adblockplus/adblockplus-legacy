@@ -1,5 +1,5 @@
 <!ENTITY addMain.label "Исто така додај филтерска претплата &quot;?1?&quot;">
-<!ENTITY list.download.failed "Adblock Plus не можеше да ја преземи листата на филтери.">
+<!ENTITY list.download.failed "Adblock Plus не можеше да ја преземе листата на филтери.">
 <!ENTITY list.download.retry "Обиди се повторно">
 <!ENTITY title.label "Име на фил&amp;тер:">
 <!ENTITY list.download.website "Види вебстрана">

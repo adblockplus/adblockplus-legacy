@@ -2,21 +2,21 @@
 <!ENTITY domainRestriction.label "Behein ta do&amp;mein">
 <!ENTITY collapse.default.no.label "Brûk standert (nee)">
 <!ENTITY firstParty.label "Allinnich earst diel">
-<!ENTITY preferences.label "&amp;Toan besteande filters...">
+<!ENTITY preferences.label "&amp;Besteande filters toane...">
 <!ENTITY pattern.label "Sykje nei patroan">
 <!ENTITY thirdParty.label "&amp;Allinnich tredde diel">
-<!ENTITY filter.label "Nije filter:">
+<!ENTITY filter.label "Nije &amp;filter:">
 <!ENTITY collapse.label "Blokkearre ynklappe:">
-<!ENTITY match.warning "It patroan dy't jo opjûn hawwe is net lyk oan it adres om te blokkearjen/wytlisten en sil gjin effekt op it hawwe.">
+<!ENTITY match.warning "It patroan dy’t jo opjûn hawwe is net lyk oan it adres om te blokkearjen/wytlisten en sil gjin effekt op it hawwe.">
 <!ENTITY anchor.start.label "oan it begjin fan it adres">
 <!ENTITY matchCase.label "&amp;Haadlettergefoelich">
 <!ENTITY custom.pattern.label "&amp;Oanpast:">
 <!ENTITY unselectAllTypes.label "Selektearje neat">
 <!ENTITY type.whitelist.label "&amp;Utsûnderingsrigel">
-<!ENTITY regexp.warning "It patroan dy't jo opjûn hawwe sil ynterpretearre wurde as reguliere ekspresje. In protte reguliere ekspresjes kinne it sneupjen fertrage. As jo net fan plan wienen om reguliere ekspresje te brûken, foegje in symboal * ta oan it ein fan it patroan.">
-<!ENTITY dialog.title "Foegje Adblock Plus filterrigel ta">
+<!ENTITY regexp.warning "It patroan dy’t jo opjûn hawwe sil ynterpretearre wurde as reguliere ekspresje. In protte reguliere ekspresjes kinne it sneupjen fertrage. As jo net fan plan wiene om reguliere ekspresje te brûken, foegje in symboal * ta oan it ein fan it patroan.">
+<!ENTITY dialog.title "Adblock Plus-filterrigel tafoegje">
 <!ENTITY basic.label "Basisbyld">
-<!ENTITY type.filter.label "Blokkearfilter">
+<!ENTITY type.filter.label "&amp;Blokkearfilter">
 <!ENTITY types.label "Tapasse op types:">
 <!ENTITY shortpattern.warning "It patroan dy't jo opjûn hawwe is te koart om te optimalisearjen, in protte reguliere ekspresje kinne it sneupjen fertrage. It wurdt oanret dat jo in langere útdrukking kieze foar dit filter.">
 <!ENTITY collapse.yes.label "Ja">

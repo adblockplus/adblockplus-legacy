@@ -19,7 +19,7 @@
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: חסימת מסגרת (פריים)">
 <!ENTITY blocked.tooltip "פריטים חסומים בעמוד זה:">
-<!ENTITY notification.closing.button.optout "הפסקת הצגת התראות">
+<!ENTITY notification.closing.button.optout "הפסק להציג התראות">
 <!ENTITY counthits.label "מנה &amp;לחיצות מסנן">
 <!ENTITY showinstatusbar.label "&amp;הצגה בשורת המצב">
 <!ENTITY sidebar.title "פריטים לחסימה בעמוד הנוכחי">

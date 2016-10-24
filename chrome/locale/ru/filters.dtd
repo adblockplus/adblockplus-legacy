@@ -19,7 +19,7 @@
 <!ENTITY noGroupSelected.text "Нужно выбрать группу, чтобы показать ее фильтры.">
 <!ENTITY filter.cut.label "Вырезать">
 <!ENTITY restore.default.label "Восстановить копию от ?1?">
-<!ENTITY subscription.lastDownload.inProgress "сейчас...">
+<!ENTITY subscription.lastDownload.inProgress "Загрузка...">
 <!ENTITY subscriptions.tab.label "Подписки">
 <!ENTITY sort.descending.label "В об&amp;ратном порядке">
 <!ENTITY filters.remove.warning "Вы действительно хотите удалить все отмеченные фильтры?">
@@ -44,6 +44,7 @@
 <!ENTITY acceptableAds2.label "Разре&amp;шить некоторую ненавязчивую рекламу">
 <!ENTITY addSubscriptionOther.label "Добавить другую подписку">
 <!ENTITY close.label "Закрыть">
+<!ENTITY findbar.caseSensitive "Учитывать регистр букв">
 <!ENTITY sort.none.label "&amp;Без сортировки">
 <!ENTITY filter.actions.label "Действия с фильтрами">
 <!ENTITY filter.copy.label "Копировать">
@@ -61,12 +62,17 @@
 <!ENTITY find.label "&amp;Найти фильтр">
 <!ENTITY subscription.moveDown.label "Поместить ниже">
 <!ENTITY subscription.lastDownload.connectionError "Ошибка: невозможно загрузить">
+<!ENTITY findbar.statusWrappedStart "Достигнув начала, продолжать с конца">
 <!ENTITY subscription.lastDownload.success "Успешно">
+<!ENTITY findbar.placeholder "Поиск фильтра">
 <!ENTITY subscription.lastDownload.invalidData "Ошибка: неверный формат списка фильтров">
+<!ENTITY findbar.close "Закрыть строку поиска">
 <!ENTITY filter.paste.label "Вставить">
 <!ENTITY subscription.disabledFilters.enable "Включить отключенные фильтры">
 <!ENTITY lasthit.column "Пос&amp;леднее срабатывание">
+<!ENTITY findbar.statusWrappedEnd "Достигнув конца, продолжать с начала">
 <!ENTITY subscription.editTitle.label "Переименовать">
+<!ENTITY findbar.statusNotFound "Фраза не найдена">
 <!ENTITY subscription.disabledFilters.warning "Некоторые фильтры в этой подписке отключены.">
 <!ENTITY filter.column "&amp;Правило">
 <!ENTITY subscription.lastDownload.label "Последнее обновление:">

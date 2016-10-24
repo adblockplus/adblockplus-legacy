@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "اجازه دادن به تبلیغات ناخواسته (&amp;i)">
 <!ENTITY addSubscriptionOther.label "یک اشتراک ديگر اضافه کنید">
 <!ENTITY close.label "بستن">
+<!ENTITY findbar.caseSensitive "مطابقت حالت حروف">
 <!ENTITY sort.none.label "نا م&amp;رتب">
 <!ENTITY filter.actions.label "اقدامات فیلتر">
 <!ENTITY filter.copy.label "رونوشت">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "یافتن (&amp;n)">
 <!ENTITY subscription.moveDown.label "حرکت به پایین">
 <!ENTITY subscription.lastDownload.connectionError "ناموفق، فرآیند دریافت شکست خورد">
+<!ENTITY findbar.statusWrappedStart "به ابتدا رسید، ادامه از انتها">
 <!ENTITY subscription.lastDownload.success "موفق">
+<!ENTITY findbar.placeholder "سرند کردن یافته ها">
 <!ENTITY subscription.lastDownload.invalidData "ناموفق، فهرست پالایه ها نامعتبر است">
+<!ENTITY findbar.close "بستن میله‎ی جستجو">
 <!ENTITY filter.paste.label "جای گذاری">
 <!ENTITY subscription.disabledFilters.enable "فعال کردن فیلتر های غیر فعال">
 <!ENTITY lasthit.column "آخرین برخ&amp;ورد">
+<!ENTITY findbar.statusWrappedEnd "به انتها رسید، ادامه از ابتدا">
 <!ENTITY subscription.editTitle.label "ویرایش عنوان">
+<!ENTITY findbar.statusNotFound "عبارت پیدا نشد">
 <!ENTITY subscription.disabledFilters.warning "برخی از فیلترها برای این اشتراک غیر فعال می باشد.">
 <!ENTITY filter.column "&amp;قواعد فیلتر">
 <!ENTITY subscription.lastDownload.label "آخرین دریافت:">

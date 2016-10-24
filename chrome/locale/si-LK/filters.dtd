@@ -1,9 +1,33 @@
-<!ENTITY filter.cut.label "කපා හරිනවා">
-<!ENTITY addSubscriptionOther.label "වෙනත් දායකත්වයක්">
+<!ENTITY subscription.lastDownload.checksumMismatch "අසාර්ථක විය, පරීක්ෂාකිරීම් ගණනය වෙනස්ය">
+<!ENTITY subscription.actions.label "කාර්ය">
 <!ENTITY filter.selectAll.label "සියල්ල තෝරනවා">
 <!ENTITY sort.ascending.label "A &gt; Z අනුපිළිවෙල">
-<!ENTITY filter.delete.label "මකන්න">
-<!ENTITY viewMenu.label "පෙනීම">
-<!ENTITY filter.copy.label "පිටපත් කරන්න">
+<!ENTITY subscription.source.label "පෙරහන්">
 <!ENTITY filter.paste.label "අලවනවා">
+<!ENTITY subscription.external.label "වෙනත් දිගුවකින් යාවත්කාලීන කර අැත">
+<!ENTITY subscription.lastDownload.inProgress "බාගත වේ…">
+<!ENTITY subscriptions.tab.label "සම්බන්ධ වූ පෙරහන්, සකසා ගත් පෙරහන්">
+<!ENTITY filter.delete.label "මකන්න">
+<!ENTITY addSubscriptionAdd.label "එකතු කරන්න">
+<!ENTITY viewMenu.label "පෙනීම">
+<!ENTITY subscription.lastDownload.unknown "අදාල නැත">
+<!ENTITY addSubscriptionCancel.label "අවලංගු කරන්න">
+<!ENTITY subscription.enabled.label "සක්‍රීයයි">
+<!ENTITY noSubscriptions.text "ඔබ එකදු හෝ පෙරහන් සම්බන්ධතාවක් එකතු කර නැත. පෙරහන් සම්බන්ධතාවක් නොමැතිව අැඩ් බ්ලොක් ප්ලස් කිසිවක් නවත්වන්නේ නැත. කරුණාකර 'පෙරහන් සම්බන්ධතාවක් එකතු කරන්න' මඟින් එ් කාර්යය ඉටු කරගන්න.">
+<!ENTITY subscription.update.label "පෙරහන් යාවත්කාල කරන්න">
+<!ENTITY dialog.title "අැඩ් බ්ලොක් ප්ලස් පෙරහනේ සැකසීම්">
+<!ENTITY subscription.minVersion.warning "මෙම පෙරහන් සම්බන්ධයට අැඩ් බ්ලොක් ප්ලස් නව පිටපතක් අවශ්‍යය, එ් සඳහා යාවත්කාලීන කරවන්න.">
+<!ENTITY subscription.lastDownload.invalidURL "අසාර්ථකයි, වලංගු ලිපිනයක් නාෙවේ">
+<!ENTITY filter.cut.label "කපා හරිනවා">
+<!ENTITY addSubscriptionOther.label "වෙනත් දායකත්වයක්">
+<!ENTITY filter.copy.label "පිටපත් කරන්න">
 <!ENTITY readMore.label "වැඩිදුර කියවන්න">
+<!ENTITY addSubscription.label "පෙරහන් සම්බන්ධයක් එකතු කරන්න">
+<!ENTITY subscription.homepage.label "ප්‍රධාන පිටුව">
+<!ENTITY filters.tab.label "සකසා ගත් පෙරහන්, අකුරු නිවැරදි කිරීම්">
+<!ENTITY subscription.lastDownload.connectionError "අසාර්ථක විය, බාගතකිරීම අසාර්ථකයි">
+<!ENTITY subscription.lastDownload.success "සාර්ථකයි">
+<!ENTITY subscription.lastDownload.invalidData "අසාර්ථක විය, වලංගු පෙරහන් නාමාවලියක් නාෙවේ">
+<!ENTITY subscription.disabledFilters.enable "අකර්මණ්‍ය කළ පෙරහන් ප්‍රතිස්තාපනය කරවන්න">
+<!ENTITY subscription.disabledFilters.warning "පෙරහන් සම්බන්ධයේ සමහරක් පෙරහන් අකර්මණ්‍ය කර අැත.">
+<!ENTITY subscription.lastDownload.label "අවසාන බාගතකිරීම:">

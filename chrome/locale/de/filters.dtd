@@ -44,6 +44,7 @@
 <!ENTITY acceptableAds2.label "Einige nicht auf&amp;dringliche Werbung zulassen">
 <!ENTITY addSubscriptionOther.label "Anderes Abonnement hinzufügen">
 <!ENTITY close.label "Schließen">
+<!ENTITY findbar.caseSensitive "Groß-/Kleinschreibung">
 <!ENTITY sort.none.label "&amp;Unsortiert">
 <!ENTITY filter.actions.label "Filteraktionen">
 <!ENTITY filter.copy.label "Kopieren">
@@ -61,12 +62,17 @@
 <!ENTITY find.label "Filter durch&amp;suchen">
 <!ENTITY subscription.moveDown.label "Nach unten verschieben">
 <!ENTITY subscription.lastDownload.connectionError "Fehler, Download fehlgeschlagen">
+<!ENTITY findbar.statusWrappedStart "Listenanfang erreicht, vom Ende fortgesetzt">
 <!ENTITY subscription.lastDownload.success "Erfolgreich">
+<!ENTITY findbar.placeholder "Filter suchen">
 <!ENTITY subscription.lastDownload.invalidData "Fehler, keine gültige Filterliste">
+<!ENTITY findbar.close "Suchleiste schließen">
 <!ENTITY filter.paste.label "Einfügen">
 <!ENTITY subscription.disabledFilters.enable "Deaktivierte Filter aktivieren">
 <!ENTITY lasthit.column "Let&amp;zter Treffer">
+<!ENTITY findbar.statusWrappedEnd "Listenende erreicht, vom Anfang fortgesetzt">
 <!ENTITY subscription.editTitle.label "Umbenennen">
+<!ENTITY findbar.statusNotFound "Filter nicht gefunden">
 <!ENTITY subscription.disabledFilters.warning "Einige Filter in dieser Filterliste sind deaktiviert.">
 <!ENTITY filter.column "&amp;Filterregel">
 <!ENTITY subscription.lastDownload.label "Zuletzt aktualisiert:">

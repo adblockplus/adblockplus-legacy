@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "De&amp;centne wabjenje dowóliś">
 <!ENTITY addSubscriptionOther.label "Drugi abonement pśidaś">
 <!ENTITY close.label "Zacyniś">
+<!ENTITY findbar.caseSensitive "Na wjelikopisanje źiwaś">
 <!ENTITY sort.none.label "&amp;Njesortěrowany">
 <!ENTITY filter.actions.label "Filtrowe akcije">
 <!ENTITY filter.copy.label "Kopěrowaś">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "&amp;Pytaś">
 <!ENTITY subscription.moveDown.label "Dołoj">
 <!ENTITY subscription.lastDownload.connectionError "Njeraźiło, ześěgnjeńska zmólka">
+<!ENTITY findbar.statusWrappedStart "Górjejce pśiźony, wót dołojce pókšacowaś">
 <!ENTITY subscription.lastDownload.success "Wuspěch">
+<!ENTITY findbar.placeholder "Filter pytaś">
 <!ENTITY subscription.lastDownload.invalidData "Njeporaźiło, žedna płaśiwa filtrowa lisćina">
+<!ENTITY findbar.close "Pytańsku rědku zacyniś">
 <!ENTITY filter.paste.label "Zasunuś">
 <!ENTITY subscription.disabledFilters.enable "Znjemóžnjone filtry zmóžniś">
 <!ENTITY lasthit.column "S&amp;lědny trjefaŕ">
+<!ENTITY findbar.statusWrappedEnd "Dołojce pśiźony, wót górjejce pókšacowaś">
 <!ENTITY subscription.editTitle.label "Titel wobźěłaś">
+<!ENTITY findbar.statusNotFound "Fraza njejo se namakała">
 <!ENTITY subscription.disabledFilters.warning "Někotare filtry w toś tom abonomenśe su znjemóžnjone.">
 <!ENTITY filter.column "&amp;Filtrowe pšawidło">
 <!ENTITY subscription.lastDownload.label "Slědne ześěgnjenje:">

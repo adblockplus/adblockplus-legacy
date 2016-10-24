@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Permitir cierta publicidad no intrusiva">
 <!ENTITY addSubscriptionOther.label "Añadir otra suscripcion">
 <!ENTITY close.label "Cerrar">
+<!ENTITY findbar.caseSensitive "Coincidir May/minús">
 <!ENTITY sort.none.label "&amp;Sin ordenar">
 <!ENTITY filter.actions.label "Filtrar acciones">
 <!ENTITY filter.copy.label "Copiar">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "&amp;Buscar">
 <!ENTITY subscription.moveDown.label "Mover hacia abajo">
 <!ENTITY subscription.lastDownload.connectionError "Falló, descarga fracaso">
+<!ENTITY findbar.statusWrappedStart "Se alcanzó el principio, continúa desde el final">
 <!ENTITY subscription.lastDownload.success "Suceso">
+<!ENTITY findbar.placeholder "Buscar filtro">
 <!ENTITY subscription.lastDownload.invalidData "Falló, no es válida la lista de filtros">
+<!ENTITY findbar.close "Cerrar barra de búsqueda">
 <!ENTITY filter.paste.label "Pegar">
 <!ENTITY subscription.disabledFilters.enable "Activar filltros deesactivados">
 <!ENTITY lasthit.column "&amp;últimouso">
+<!ENTITY findbar.statusWrappedEnd "Se ha alcanzado el final, continúa desde el principio">
 <!ENTITY subscription.editTitle.label "Editar título">
+<!ENTITY findbar.statusNotFound "Frase no encontrada">
 <!ENTITY subscription.disabledFilters.warning "Algúnos filtros en esta suscripcion esta desabilitados.">
 <!ENTITY filter.column "Filtrar regla">
 <!ENTITY subscription.lastDownload.label "Última descarga:">

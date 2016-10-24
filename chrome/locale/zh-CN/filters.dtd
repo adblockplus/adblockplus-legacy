@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "允许一些非侵入式广告 (&amp;i)">
 <!ENTITY addSubscriptionOther.label "添加其他过滤规则订阅组">
 <!ENTITY close.label "关闭">
+<!ENTITY findbar.caseSensitive "匹配大小写">
 <!ENTITY sort.none.label "不排序 (&amp;U)">
 <!ENTITY filter.actions.label "过滤规则操作">
 <!ENTITY filter.copy.label "复制">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "查找 (&amp;n)">
 <!ENTITY subscription.moveDown.label "下移">
 <!ENTITY subscription.lastDownload.connectionError "失败，下载失败">
+<!ENTITY findbar.statusWrappedStart "已达最顶，继续将从底部再查">
 <!ENTITY subscription.lastDownload.success "成功">
+<!ENTITY findbar.placeholder "查找过滤规则">
 <!ENTITY subscription.lastDownload.invalidData "失败，不是有效的过滤规则列表">
+<!ENTITY findbar.close "关闭查找栏">
 <!ENTITY filter.paste.label "粘贴">
 <!ENTITY subscription.disabledFilters.enable "启用已禁用的过滤规则">
 <!ENTITY lasthit.column "最后生效时间 (&amp;L)">
+<!ENTITY findbar.statusWrappedEnd "已达最底，继续将从顶部再查">
 <!ENTITY subscription.editTitle.label "编辑标题">
+<!ENTITY findbar.statusNotFound "未找到此短语">
 <!ENTITY subscription.disabledFilters.warning "该过滤规则订阅组中的某些过滤规则被禁用。">
 <!ENTITY filter.column "过滤规则 (&amp;F)">
 <!ENTITY subscription.lastDownload.label "最后下载于:">

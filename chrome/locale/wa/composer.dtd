@@ -1,0 +1,13 @@
+<!ENTITY accept.label "Ajouter un filtre">
+<!ENTITY type.filter.label "&amp;Filtre de blocage">
+<!ENTITY disabled.warning "Adblock Plus est actuellement désactivée. Vous pouvez toujours ajouter des filtres, mais ils ne seront pas appliquées à moins que vous [link]activez Adblock Plus[/link].">
+<!ENTITY shortpattern.warning "Le modèle que vous avez entré est trop courte pour être optimisé et peut ralentir votre expérience de navigation. Il est recommandé de choisir une chaîne plus longue pour ce filtre pour permettre Adblock Plus pour traiter le filtre plus efficacement.">
+<!ENTITY preferences.label "&amp;Voir les filtres existants...">
+<!ENTITY advanced.label "Vue avancée">
+<!ENTITY pattern.label "Rechercher un masque">
+<!ENTITY type.whitelist.label "Règles d'e&amp;xception">
+<!ENTITY regexp.warning "Le modèle que vous avez entré sera interprété comme une expression régulière qui ne peut être efficacement traitée par Adblock Plus et pourrait ralentir votre expérience de navigation. Si vous ne l'avez pas l'intention d'utiliser une expression régulière, ajouter un astérisque (*) à la fin du motif.">
+<!ENTITY dialog.title "Ajouter des règles de filtrage à Adblock Plus">
+<!ENTITY basic.label "Vue de base">
+<!ENTITY filter.label "Nouveau &amp;filtre:">
+<!ENTITY pattern.explanation "Le motif peut être une partie de l'adresse; les astérisques (*) agissent comme des jokers. Le filtre sera appliqué uniquement à des adresses correspondant au modèle fourni.">

@@ -1,9 +1,9 @@
 <!ENTITY addMain.label "Afegeix la &amp;subscripció de filtre «?1?»">
-<!ENTITY list.download.failed "L'Adblock Plus ha fallat en trobar la llista de subscripcions.">
+<!ENTITY list.download.failed "L'Adblock Plus no ha pogut recuperar la llista de subscripcions.">
 <!ENTITY list.download.retry "Torna-ho a provar">
 <!ENTITY title.label "&amp;Títol de la subscripció:">
 <!ENTITY list.download.website "Vés a la pàgina web">
-<!ENTITY supplementMessage "Aquesta subscripció de filtre s'ha d'utilitzar amb «?1?» que encara no feu servir.">
+<!ENTITY supplementMessage "Aquesta subscripció de filtre s'ha d'utilitzar amb el filtre de subscripció «?1?» que encara no feu servir.">
 <!ENTITY viewList.label "Mostra els filtres">
 <!ENTITY visitHomepage.label "Vés a la pàgina web">
 <!ENTITY addSubscription.label "Afegeix una subscripció">

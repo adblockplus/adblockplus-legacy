@@ -44,6 +44,7 @@
 <!ENTITY acceptableAds2.label "อนุญ&amp;าตให้มีโฆษณาบางอย่างที่ไม่ต้องการรบกวน">
 <!ENTITY addSubscriptionOther.label "เพิ่มนามข้างท้าย">
 <!ENTITY close.label "ปิด">
+<!ENTITY findbar.caseSensitive "จับคู่">
 <!ENTITY sort.none.label "&amp;ไม่จัดลำดับ">
 <!ENTITY filter.actions.label "ดำเนินการตัวกรอง">
 <!ENTITY filter.copy.label "คัดลอก">
@@ -61,12 +62,17 @@
 <!ENTITY find.label "ค้นห&amp;า">
 <!ENTITY subscription.moveDown.label "ย้ายลง">
 <!ENTITY subscription.lastDownload.connectionError "ล้มเหลว การดาวน์โหลดล้มเหลว">
+<!ENTITY findbar.statusWrappedStart "มาถึงด้านบนสุดแล้ว ที่ต่อเนื่องจากด้านล่าง">
 <!ENTITY subscription.lastDownload.success "สำเร็จ">
+<!ENTITY findbar.placeholder "ค้นหาตัวกรอง">
 <!ENTITY subscription.lastDownload.invalidData "ล้มเหลว ไม่มีรายชื่อตัวกรองที่ถูกต้อง">
+<!ENTITY findbar.close "ปิดแถบค้นหา">
 <!ENTITY filter.paste.label "วาง">
 <!ENTITY subscription.disabledFilters.enable "เปิดใช้งาน การปิดใช้งานตัวกรอง">
 <!ENTITY lasthit.column "กด&amp;ล่าสุด">
+<!ENTITY findbar.statusWrappedEnd "มาถึงด้านล่างสุดแล้ว ที่ต่อเนื่องจากด้านบน">
 <!ENTITY subscription.editTitle.label "แก้ไขชื่อเรื่อง">
+<!ENTITY findbar.statusNotFound "ไม่พบหน้านี้">
 <!ENTITY subscription.disabledFilters.warning "บางตัวกรองในการบอกรับสมาชิกนี้ถูกปิดใช้งาน">
 <!ENTITY filter.column "กฎ&amp;ตัวกรอง">
 <!ENTITY subscription.lastDownload.label "ดาวน์โหลดล่าสุด:">

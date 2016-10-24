@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Permet la publ&amp;icitat no intrusiva">
 <!ENTITY addSubscriptionOther.label "Afegeix altre subscripció de filtre">
 <!ENTITY close.label "Tanca">
+<!ENTITY findbar.caseSensitive "Sensible a majúscules">
 <!ENTITY sort.none.label "&amp;Desordenat">
 <!ENTITY filter.actions.label "Accions de filtre">
 <!ENTITY filter.copy.label "Copia">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "&amp;Cerca">
 <!ENTITY subscription.moveDown.label "Mou avall">
 <!ENTITY subscription.lastDownload.connectionError "Error en la baixada">
+<!ENTITY findbar.statusWrappedStart "Es va arribar al principi, continua des del final">
 <!ENTITY subscription.lastDownload.success "Correcte">
+<!ENTITY findbar.placeholder "Cerca un filtre">
 <!ENTITY subscription.lastDownload.invalidData "Error, no és una llista vàlida de filtres">
+<!ENTITY findbar.close "Tanca la barra de cerca">
 <!ENTITY filter.paste.label "Enganxa">
 <!ENTITY subscription.disabledFilters.enable "Habilita els filtres">
 <!ENTITY lasthit.column "U&amp;ltim encert">
+<!ENTITY findbar.statusWrappedEnd "S'ha arribat al final, continua des del principi">
 <!ENTITY subscription.editTitle.label "Edita el títol">
+<!ENTITY findbar.statusNotFound "Frase no localitzada">
 <!ENTITY subscription.disabledFilters.warning "Alguns filtres d'aquesta subscripció no estan habilitats.">
 <!ENTITY filter.column "Regla de &amp;filtre">
 <!ENTITY subscription.lastDownload.label "Darrera baixada">

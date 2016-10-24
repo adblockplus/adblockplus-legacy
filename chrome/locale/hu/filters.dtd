@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Néhány nem &amp;tolakodó hirdetés engedélyezése">
 <!ENTITY addSubscriptionOther.label "Külső szűrő hozzáadása">
 <!ENTITY close.label "Bezárás">
+<!ENTITY findbar.caseSensitive "Kis- és nagy betűk megkülönböztetése">
 <!ENTITY sort.none.label "Ren&amp;dezetlen">
 <!ENTITY filter.actions.label "Szűrő műveletek">
 <!ENTITY filter.copy.label "Másolás">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "&amp;Keresés">
 <!ENTITY subscription.moveDown.label "Mozgatás le">
 <!ENTITY subscription.lastDownload.connectionError "Sikertelen, letöltési hiba">
+<!ENTITY findbar.statusWrappedStart "Elérte az elejét, folytatás az aljáról">
 <!ENTITY subscription.lastDownload.success "Sikeres">
+<!ENTITY findbar.placeholder "Szűrő keresése">
 <!ENTITY subscription.lastDownload.invalidData "Sikertelen, érvénytelen szűrőlista">
+<!ENTITY findbar.close "Keresősáv bezárása">
 <!ENTITY filter.paste.label "Beillesztés">
 <!ENTITY subscription.disabledFilters.enable "Letiltott szűrők engedélyezése">
 <!ENTITY lasthit.column "&amp;Utolsó találat">
+<!ENTITY findbar.statusWrappedEnd "Elérte az alját, folytatás az elejéről">
 <!ENTITY subscription.editTitle.label "Cím szerkesztése">
+<!ENTITY findbar.statusNotFound "A kifejezés nem található">
 <!ENTITY subscription.disabledFilters.warning "Néhány szűrő ebben a listában le van tiltva.">
 <!ENTITY filter.column "&amp;Szűrő szabály">
 <!ENTITY subscription.lastDownload.label "Legutóbb letöltve:">

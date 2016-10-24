@@ -45,6 +45,7 @@
 <!ENTITY acceptableAds2.label "Allow some non-intrusive advertising">
 <!ENTITY addSubscriptionOther.label "Add a different subscription">
 <!ENTITY close.label "Close">
+<!ENTITY findbar.caseSensitive "Match case">
 <!ENTITY sort.none.label "Unsorted">
 <!ENTITY filter.actions.label "Filter actions">
 <!ENTITY filter.copy.label "Copy">
@@ -62,12 +63,17 @@
 <!ENTITY find.label "Find">
 <!ENTITY subscription.moveDown.label "Move down">
 <!ENTITY subscription.lastDownload.connectionError "Failed: download failure">
+<!ENTITY findbar.statusWrappedStart "Reached top, continuing from bottom">
 <!ENTITY subscription.lastDownload.success "Success">
+<!ENTITY findbar.placeholder "Find filter">
 <!ENTITY subscription.lastDownload.invalidData "Failed: not a valid filters list">
+<!ENTITY findbar.close "Close find bar">
 <!ENTITY filter.paste.label "Paste">
 <!ENTITY subscription.disabledFilters.enable "Enable disabled filters">
 <!ENTITY lasthit.column "Last hit">
+<!ENTITY findbar.statusWrappedEnd "Reached bottom, continuing from top">
 <!ENTITY subscription.editTitle.label "Edit title">
+<!ENTITY findbar.statusNotFound "Phrase not found">
 <!ENTITY subscription.disabledFilters.warning "Some filters in this subscription are disabled.">
 <!ENTITY filter.column "Filter rule">
 <!ENTITY subscription.lastDownload.label "Last download:">

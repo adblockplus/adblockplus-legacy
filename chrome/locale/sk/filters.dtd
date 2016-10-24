@@ -45,6 +45,7 @@
 <!ENTITY acceptableAds2.label "Povol&amp;iť niektoré nevtieravé reklamy">
 <!ENTITY addSubscriptionOther.label "Pridať iné odoberania">
 <!ENTITY close.label "Zatvoriť">
+<!ENTITY findbar.caseSensitive "Rozlišovať malé/veľké">
 <!ENTITY sort.none.label "&amp;Netriedené">
 <!ENTITY filter.actions.label "Úlohy filtrov">
 <!ENTITY filter.copy.label "Kopírovať">
@@ -62,12 +63,17 @@
 <!ENTITY find.label "Náj&amp;sť">
 <!ENTITY subscription.moveDown.label "Posunúť dole">
 <!ENTITY subscription.lastDownload.connectionError "Zlyhanie, sťahovanie neúspešné">
+<!ENTITY findbar.statusWrappedStart "Dosiahol vrchol, pokračovať zdola">
 <!ENTITY subscription.lastDownload.success "Úspešné">
+<!ENTITY findbar.placeholder "Nájsť filter">
 <!ENTITY subscription.lastDownload.invalidData "Zlyhanie, neplatný zoznam filtrov">
+<!ENTITY findbar.close "Zatvoriť vyhľadávací panel">
 <!ENTITY filter.paste.label "Prilepiť">
 <!ENTITY subscription.disabledFilters.enable "Zapnúť vypnuté filtre">
 <!ENTITY lasthit.column "Po&amp;sledný zápis">
+<!ENTITY findbar.statusWrappedEnd "Dosiahol koniec, pokračovanie zhora">
 <!ENTITY subscription.editTitle.label "Upraviť názov">
+<!ENTITY findbar.statusNotFound "Fráza nenájdená">
 <!ENTITY subscription.disabledFilters.warning "Niektoré filtre tohto odberu sú vypnuté.">
 <!ENTITY filter.column "Pravidlo &amp;filtra">
 <!ENTITY subscription.lastDownload.label "Posledné prevzatie:">

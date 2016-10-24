@@ -45,6 +45,7 @@
 <!ENTITY acceptableAds2.label "Rahatsız etmeyen bazı reklamlara &amp;izin ver">
 <!ENTITY addSubscriptionOther.label "Başka abonelik ekle">
 <!ENTITY close.label "Kapat">
+<!ENTITY findbar.caseSensitive "Büyük-küçük harfe duyarlı">
 <!ENTITY sort.none.label "Sıralan&amp;mamış">
 <!ENTITY filter.actions.label "Süzgeç eylemleri">
 <!ENTITY filter.copy.label "Kopyala">
@@ -62,12 +63,17 @@
 <!ENTITY find.label "&amp;Bul">
 <!ENTITY subscription.moveDown.label "Aşağıya taşı">
 <!ENTITY subscription.lastDownload.connectionError "Olmadı. İndirmede sorun var.">
+<!ENTITY findbar.statusWrappedStart "En yukarıya ulaşıldı, en aşağıdan devam ediliyor">
 <!ENTITY subscription.lastDownload.success "Eşleme başarılı oldu.">
+<!ENTITY findbar.placeholder "Süzgeç ekle">
 <!ENTITY subscription.lastDownload.invalidData "Olmadı. Bu düzgün bir süzgeç listesi değil.">
+<!ENTITY findbar.close "Arama çubuğunu kapat">
 <!ENTITY filter.paste.label "Yapıştır">
 <!ENTITY subscription.disabledFilters.enable "Devre dışı süzgeçleri devreye sok">
 <!ENTITY lasthit.column "Son isabet">
+<!ENTITY findbar.statusWrappedEnd "En aşağıya ulaşıldı, en yukarıdan devam ediliyor">
 <!ENTITY subscription.editTitle.label "Başlığı değiştir">
+<!ENTITY findbar.statusNotFound "İfade bulunamadı">
 <!ENTITY subscription.disabledFilters.warning "Bu abonelikteki bazı süzgeçler devre dışı.">
 <!ENTITY filter.column "Süzgeç &amp;kuralı">
 <!ENTITY subscription.lastDownload.label "Son indirme zamanı:">

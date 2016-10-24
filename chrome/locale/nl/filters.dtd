@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "&amp;Enkele niet-opdringerige advertenties toestaan">
 <!ENTITY addSubscriptionOther.label "Een ander abonnement toevoegen">
 <!ENTITY close.label "Sluiten">
+<!ENTITY findbar.caseSensitive "Hoofdlettergevoelig">
 <!ENTITY sort.none.label "&amp;Ongesorteerd">
 <!ENTITY filter.actions.label "Filteracties">
 <!ENTITY filter.copy.label "Kopiëren">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "&amp;Zoeken">
 <!ENTITY subscription.moveDown.label "Omlaag verplaatsen">
 <!ENTITY subscription.lastDownload.connectionError "Mislukt, downloadprobleem">
+<!ENTITY findbar.statusWrappedStart "Bovenkant bereikt, doorgegaan vanaf onderkant">
 <!ENTITY subscription.lastDownload.success "Gelukt">
+<!ENTITY findbar.placeholder "Filter zoeken">
 <!ENTITY subscription.lastDownload.invalidData "Mislukt, geen geldige filterlijst">
+<!ENTITY findbar.close "Zoekbalk sluiten">
 <!ENTITY filter.paste.label "Plakken">
 <!ENTITY subscription.disabledFilters.enable "Uitgeschakelde filters inschakelen">
 <!ENTITY lasthit.column "&amp;Laatste treffer">
+<!ENTITY findbar.statusWrappedEnd "Onderkant bereikt, doorgegaan vanaf bovenkant">
 <!ENTITY subscription.editTitle.label "Titel bewerken">
+<!ENTITY findbar.statusNotFound "Tekst niet gevonden">
 <!ENTITY subscription.disabledFilters.warning "Enkele filters in dit abonnement zijn uitgeschakeld.">
 <!ENTITY filter.column "&amp;Filterregel">
 <!ENTITY subscription.lastDownload.label "Laatste download:">

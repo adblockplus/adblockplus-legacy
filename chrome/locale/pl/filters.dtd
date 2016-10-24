@@ -31,7 +31,7 @@
 <!ENTITY subscription.enabled.label "Aktywny">
 <!ENTITY noSubscriptions.text "Jeszcze nie dodano żadnego zestawu filtrów. Adblock Plus nie może nic blokować bez filtrów. Naciśnij przycisk „Dodaj zestaw filtrów…”, by dodać jakiś filtr.">
 <!ENTITY subscription.update.label "Aktualizuj filtry">
-<!ENTITY dialog.title "Add Adblock Plus – ustawienia filtrów">
+<!ENTITY dialog.title "Adblock Plus – ustawienia filtrów">
 <!ENTITY addFilter.label "Dodaj fi&amp;ltr">
 <!ENTITY subscription.minVersion.warning "Ten zestaw filtrów działa z najnowszą wersją Adblock Plusa. Zaktualizuj Adblock Plusa.">
 <!ENTITY subscription.lastDownload.invalidURL "Nie powiodło się – nieprawidłowy adres">
@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Zezwalaj na nie natrętne rekla&amp;my">
 <!ENTITY addSubscriptionOther.label "Wybierz inny zestaw">
 <!ENTITY close.label "Zamknij">
+<!ENTITY findbar.caseSensitive "Uwzględniaj wielkość znaków">
 <!ENTITY sort.none.label "Ni&amp;eposortowane">
 <!ENTITY filter.actions.label "Czynności filtrów">
 <!ENTITY filter.copy.label "Kopiuj">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "Z&amp;najdź">
 <!ENTITY subscription.moveDown.label "Przenieś w dół">
 <!ENTITY subscription.lastDownload.connectionError "Nie powiodło się – błąd pobierania">
+<!ENTITY findbar.statusWrappedStart "Osiągnięto górę, przeglądając od dołu">
 <!ENTITY subscription.lastDownload.success "Zakończono pomyślnie">
+<!ENTITY findbar.placeholder "Znajdź filtr">
 <!ENTITY subscription.lastDownload.invalidData "Nie powiodło się – nieprawidłowy zestaw filtrów">
+<!ENTITY findbar.close "Zamknij pasek szukania">
 <!ENTITY filter.paste.label "Wklej">
 <!ENTITY subscription.disabledFilters.enable "Włącz wyłączone filtry">
 <!ENTITY lasthit.column "&amp;Ostatnie użycie">
+<!ENTITY findbar.statusWrappedEnd "Osiągnięto dół, przeglądając od góry">
 <!ENTITY subscription.editTitle.label "Edytuj nazwę zestawu">
+<!ENTITY findbar.statusNotFound "Nie znaleziono frazy">
 <!ENTITY subscription.disabledFilters.warning "Niektóre filtry w tym zestawie są wyłączone.">
 <!ENTITY filter.column "&amp;Reguła filtru">
 <!ENTITY subscription.lastDownload.label "Ostatnie pobieranie:">

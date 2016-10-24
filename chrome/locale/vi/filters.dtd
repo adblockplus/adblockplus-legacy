@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Cho phép một số quảng cáo không gây hại">
 <!ENTITY addSubscriptionOther.label "Thêm bộ lọc  khác">
 <!ENTITY close.label "Đóng">
+<!ENTITY findbar.caseSensitive "Phân biệt Hoa thường">
 <!ENTITY sort.none.label "&amp;Chưa sắp xếp">
 <!ENTITY filter.actions.label "Hành động cho bộ lọc">
 <!ENTITY filter.copy.label "Sao chép">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "&amp;Tìm">
 <!ENTITY subscription.moveDown.label "Chuyển xuống dưới">
 <!ENTITY subscription.lastDownload.connectionError "Thất bại, tải xuống thất bại">
+<!ENTITY findbar.statusWrappedStart "Đã đạt đến đỉnh, tiếp tục từ dưới">
 <!ENTITY subscription.lastDownload.success "Hoàn thành">
+<!ENTITY findbar.placeholder "Tìm bộ lọc">
 <!ENTITY subscription.lastDownload.invalidData "Thất bại, đây không phải là danh sách bộ lọc hợp lệ">
+<!ENTITY findbar.close "Đóng thanh tìm kiếm">
 <!ENTITY filter.paste.label "Dán">
 <!ENTITY subscription.disabledFilters.enable "Bật bộ lọc đã bị vô hiệu hóa">
 <!ENTITY lasthit.column "Lần bấm cuối">
+<!ENTITY findbar.statusWrappedEnd "Đã đạt đến dưới đỉnh, tiếp tục từ trên">
 <!ENTITY subscription.editTitle.label "Sửa tiêu đề">
+<!ENTITY findbar.statusNotFound "Không tìm thấy cụm từ">
 <!ENTITY subscription.disabledFilters.warning "Một vài phần tử trong bộ lọc này đã bị vô hiệu hóa .">
 <!ENTITY filter.column "&amp;Quy luật lọc">
 <!ENTITY subscription.lastDownload.label "Lần tải cuối:">

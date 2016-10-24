@@ -45,6 +45,7 @@
 <!ENTITY acceptableAds2.label "Izinkan beberapa iklan yang tidak men&amp;colok">
 <!ENTITY addSubscriptionOther.label "Tambah langganan yang lainnya">
 <!ENTITY close.label "Tutup">
+<!ENTITY findbar.caseSensitive "Persis sama">
 <!ENTITY sort.none.label "&amp;Belum diurutkan">
 <!ENTITY filter.actions.label "Tindakan penyaring">
 <!ENTITY filter.copy.label "Salin">
@@ -63,7 +64,9 @@
 <!ENTITY subscription.moveDown.label "Turunkan">
 <!ENTITY subscription.lastDownload.connectionError "Gagal, kesalahan pengunduhan">
 <!ENTITY subscription.lastDownload.success "Berhasil">
+<!ENTITY findbar.placeholder "Temukan Filter">
 <!ENTITY subscription.lastDownload.invalidData "Gagal, daftar penyaring tidak sah">
+<!ENTITY findbar.close "Tutup temukan bar">
 <!ENTITY filter.paste.label "Tempel">
 <!ENTITY subscription.disabledFilters.enable "Aktifkan penyaring yang dinonaktifkan">
 <!ENTITY lasthit.column "Kunjungan &amp;terkini">

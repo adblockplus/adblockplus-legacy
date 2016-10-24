@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Tillat noen ikke-påtrengende annonser">
 <!ENTITY addSubscriptionOther.label "Legg til et annet abonnement">
 <!ENTITY close.label "Lukk">
+<!ENTITY findbar.caseSensitive "Ta hensyn til små eller store bokstaver">
 <!ENTITY sort.none.label "&amp;Usortert">
 <!ENTITY filter.actions.label "Filterhandlinger">
 <!ENTITY filter.copy.label "Kopier">
@@ -60,12 +61,16 @@
 <!ENTITY find.label "Fi&amp;nn">
 <!ENTITY subscription.moveDown.label "Flytt ned">
 <!ENTITY subscription.lastDownload.connectionError "Feilet, nedlastingsfeil">
+<!ENTITY findbar.statusWrappedStart "Nådde toppen, fortsetter fra bunnen">
 <!ENTITY subscription.lastDownload.success "Vellykket">
 <!ENTITY subscription.lastDownload.invalidData "Feilet, ikke en gyldig filterliste">
+<!ENTITY findbar.close "Lukk søkelinje">
 <!ENTITY filter.paste.label "Lim inn">
 <!ENTITY subscription.disabledFilters.enable "Aktiver deaktiverte filtre">
 <!ENTITY lasthit.column "&amp;Siste treff">
+<!ENTITY findbar.statusWrappedEnd "Nådde bunnen, fortsetter fra toppen">
 <!ENTITY subscription.editTitle.label "Rediger tittel">
+<!ENTITY findbar.statusNotFound "Fant ikke uttrykket">
 <!ENTITY subscription.disabledFilters.warning "Noen filtre i dette abonnementet er deaktivert.">
 <!ENTITY filter.column "&amp;Filterregel">
 <!ENTITY subscription.lastDownload.label "Siste nedlasting:">

@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Autor&amp;iser certaines publicités non-intrusives">
 <!ENTITY addSubscriptionOther.label "Ajouter un autre abonnement">
 <!ENTITY close.label "Fermer">
+<!ENTITY findbar.caseSensitive "Sensible à la casse">
 <!ENTITY sort.none.label "&amp;Non trié">
 <!ENTITY filter.actions.label "Actions sur filtre">
 <!ENTITY filter.copy.label "Copier">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "Re&amp;chercher">
 <!ENTITY subscription.moveDown.label "Descendre">
 <!ENTITY subscription.lastDownload.connectionError "Échec, erreur lors du téléchargement !">
+<!ENTITY findbar.statusWrappedStart "Haut atteint, continuant en bas">
 <!ENTITY subscription.lastDownload.success "Réussie">
+<!ENTITY findbar.placeholder "Trouver un filtre">
 <!ENTITY subscription.lastDownload.invalidData "Échec, ceci n'est pas une liste de filtres valide !">
+<!ENTITY findbar.close "Fermer la barre de recherche">
 <!ENTITY filter.paste.label "Coller">
 <!ENTITY subscription.disabledFilters.enable "Activer les filtres désactivés">
 <!ENTITY lasthit.column "&amp;Dernière utilisation">
+<!ENTITY findbar.statusWrappedEnd "Bas atteint, continuant en haut">
 <!ENTITY subscription.editTitle.label "Modifier le nom">
+<!ENTITY findbar.statusNotFound "Phrase non trouvée">
 <!ENTITY subscription.disabledFilters.warning "Certains filtres de cet abonnement sont désactivés.">
 <!ENTITY filter.column "Règle de &amp;filtrage">
 <!ENTITY subscription.lastDownload.label "Dernière mise à jour :">

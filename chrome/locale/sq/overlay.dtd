@@ -1,6 +1,7 @@
 <!ENTITY notification.button.no "&amp;Jo">
 <!ENTITY sync.label "Sync Adblock Plus settings">
 <!ENTITY whitelist.site.label "Çaktivizo në ?1?">
+<!ENTITY notification.closing.button.hide "Mbyll k&amp;ëtë njoftim">
 <!ENTITY filters.label "&amp;filtër preferencat">
 <!ENTITY disable.label "Caktivizo Kudo">
 <!ENTITY objecttab.title "Blloko">
@@ -18,6 +19,7 @@
 <!ENTITY toolbarbutton.label "Adblock Plus">
 <!ENTITY context.frame.label "Adblock Plus: Pjesët e bllokuara">
 <!ENTITY blocked.tooltip "Jane bllokuar te dhena ne kete faqe:">
+<!ENTITY notification.closing.button.optout "&amp;Ndalo shfaqjen e njoftimeve">
 <!ENTITY counthits.label "Llogarit filtrat&amp;hits">
 <!ENTITY showinstatusbar.label "&amp;Trego ne status bar">
 <!ENTITY sidebar.title "Artikuj Blockable në faqen aktuale">

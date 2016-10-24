@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Bezdirici olmayan reklamların bəzilərinə icazə ver">
 <!ENTITY addSubscriptionOther.label "Fərqli abunəlik əlavə et">
 <!ENTITY close.label "Bağla">
+<!ENTITY findbar.caseSensitive "Uyğunluq halı">
 <!ENTITY sort.none.label "&amp;Çeşidlənməmiş">
 <!ENTITY filter.actions.label "Filtr əməliyyatları">
 <!ENTITY filter.copy.label "Kopyala">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "Ta&amp;p">
 <!ENTITY subscription.moveDown.label "Aşağı düş">
 <!ENTITY subscription.lastDownload.connectionError "Baş tutmadı yükləmə uğursuz oldu">
+<!ENTITY findbar.statusWrappedStart "Baş hissəyə çatdı, aşğıdan davam ediləcək">
 <!ENTITY subscription.lastDownload.success "Uğurlu alındı">
+<!ENTITY findbar.placeholder "Filtr tap">
 <!ENTITY subscription.lastDownload.invalidData "Baş tutmadı filtr list düzgün deyil">
+<!ENTITY findbar.close "Axtarış zolağını bağla">
 <!ENTITY filter.paste.label "Yapışdır">
 <!ENTITY subscription.disabledFilters.enable "Deaktiv edilmiş filtrləri aktivləşdir">
 <!ENTITY lasthit.column "&amp;Son tıklama">
+<!ENTITY findbar.statusWrappedEnd "Aşağı hissəyə çatdı, baş tərəfdən davam ediləcək">
 <!ENTITY subscription.editTitle.label "Başlığı düzənlə">
+<!ENTITY findbar.statusNotFound "İfadə tapılmadı">
 <!ENTITY subscription.disabledFilters.warning "Abunəlikdəki bəzi filtrlər deaktiv edildi.">
 <!ENTITY filter.column "&amp;Filtr qaydası">
 <!ENTITY subscription.lastDownload.label "Son yükləmə:">

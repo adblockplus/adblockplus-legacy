@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Povolit &amp;některé nerušivé reklamy">
 <!ENTITY addSubscriptionOther.label "Přidat další sadu cizích filtrů">
 <!ENTITY close.label "Zavřít">
+<!ENTITY findbar.caseSensitive "Rozlišovat velikost">
 <!ENTITY sort.none.label "&amp;Neřadit">
 <!ENTITY filter.actions.label "Akce filtrů">
 <!ENTITY filter.copy.label "Kopírovat">
@@ -61,11 +62,14 @@
 <!ENTITY subscription.moveDown.label "Posunout dolů">
 <!ENTITY subscription.lastDownload.connectionError "Chyba, nepodařilo se stáhnout soubor">
 <!ENTITY subscription.lastDownload.success "Úspěch">
+<!ENTITY findbar.placeholder "Najít filtr">
 <!ENTITY subscription.lastDownload.invalidData "Chyba, stažený soubor není souborem filtrů Adblock Plus">
+<!ENTITY findbar.close "Zavřít vyhledávací lištu">
 <!ENTITY filter.paste.label "Vložit">
 <!ENTITY subscription.disabledFilters.enable "Povolit zakázané filtry">
 <!ENTITY lasthit.column "Pos&amp;lední zásah">
 <!ENTITY subscription.editTitle.label "Upravit název">
+<!ENTITY findbar.statusNotFound "Fráze nenalezena">
 <!ENTITY subscription.disabledFilters.warning "Některé filtry v této sadě jsou zakázány.">
 <!ENTITY filter.column "&amp;Pravidlo filtru">
 <!ENTITY subscription.lastDownload.label "Naposledy staženo:">

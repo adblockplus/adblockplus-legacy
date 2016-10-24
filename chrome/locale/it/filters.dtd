@@ -45,6 +45,7 @@
 <!ENTITY acceptableAds2.label "&amp;Permetti alcune pubblicità non inopportune">
 <!ENTITY addSubscriptionOther.label "Altre sottoscrizioni">
 <!ENTITY close.label "Chiudi">
+<!ENTITY findbar.caseSensitive "Maiuscole / minuscole">
 <!ENTITY sort.none.label "Non or&amp;dinare">
 <!ENTITY filter.actions.label "Opzioni del filtro">
 <!ENTITY filter.copy.label "Copia">
@@ -62,12 +63,17 @@
 <!ENTITY find.label "Tro&amp;va">
 <!ENTITY subscription.moveDown.label "Sposta giù">
 <!ENTITY subscription.lastDownload.connectionError "Sincronizzazione non riuscita, errore durante il download">
+<!ENTITY findbar.statusWrappedStart "Top raggiunto, continuando dal basso">
 <!ENTITY subscription.lastDownload.success "Sincronizzazione effettuata con successo">
+<!ENTITY findbar.placeholder "Trova filtro">
 <!ENTITY subscription.lastDownload.invalidData "Sincronizzazione non riuscita, lista dei filtri non valida">
+<!ENTITY findbar.close "Chiudi barra di ricerca">
 <!ENTITY filter.paste.label "Incolla">
 <!ENTITY subscription.disabledFilters.enable "Attiva i filtri disattivati">
 <!ENTITY lasthit.column "&amp;Ultimo accesso">
+<!ENTITY findbar.statusWrappedEnd "Raggiunto in fondo, continuando dall'alto">
 <!ENTITY subscription.editTitle.label "Modifica il titolo">
+<!ENTITY findbar.statusNotFound "Frase non trovata">
 <!ENTITY subscription.disabledFilters.warning "Alcuni filtri di questa sottoscrizione sono disattivati.">
 <!ENTITY filter.column "&amp;Ruolo del filtro">
 <!ENTITY subscription.lastDownload.label "Ultimo aggiornamento:">

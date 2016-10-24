@@ -61,7 +61,9 @@
 <!ENTITY subscription.moveDown.label "Pārvietot uz leju">
 <!ENTITY subscription.lastDownload.connectionError "Neizdevās, lejupielāde neizdevās">
 <!ENTITY subscription.lastDownload.success "Izdevās">
+<!ENTITY findbar.placeholder "Atrast filtru">
 <!ENTITY subscription.lastDownload.invalidData "Neizdevās, nav derīgs filtru saraksts">
+<!ENTITY findbar.close "Tuvu Atrašanas joslā">
 <!ENTITY filter.paste.label "Ielīmēt">
 <!ENTITY subscription.disabledFilters.enable "Iespējot atspējotie filtri">
 <!ENTITY lasthit.column "Pēdējai klikšķis">

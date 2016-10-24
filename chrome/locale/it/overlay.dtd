@@ -21,7 +21,7 @@
 <!ENTITY blocked.tooltip "Elementi attualmente bloccati">
 <!ENTITY notification.closing.button.optout "Interrompi la visualizzazione delle notifiche">
 <!ENTITY counthits.label "&amp;Effettua le statistiche di accesso">
-<!ENTITY showinstatusbar.label "Vi&amp;sualizza nella barra di stato">
+<!ENTITY showinstatusbar.label "Visualizza nella barra di stato">
 <!ENTITY sidebar.title "Elenco degli elementi bloccabili con Adblock Plus">
 <!ENTITY options.label "&amp;Opzioni di Adblock Plus">
 <!ENTITY context.object.label "Blocca oggetto con Adblock Plus">

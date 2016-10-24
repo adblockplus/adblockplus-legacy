@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "S&amp;alli osa ei-häiritsevästä mainonnasta">
 <!ENTITY addSubscriptionOther.label "Lisää jokin muu tilaus">
 <!ENTITY close.label "Sulje">
+<!ENTITY findbar.caseSensitive "Huomioi kirjainkoko">
 <!ENTITY sort.none.label "Ei &amp;lajiteltu">
 <!ENTITY filter.actions.label "Suodatintoiminnot">
 <!ENTITY filter.copy.label "Kopioi">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "&amp;Etsi">
 <!ENTITY subscription.moveDown.label "Siirrä alas">
 <!ENTITY subscription.lastDownload.connectionError "Epäonnistui, latausvirhe">
+<!ENTITY findbar.statusWrappedStart "Päästiin alkuun, jatketaan lopusta">
 <!ENTITY subscription.lastDownload.success "Onnistui">
+<!ENTITY findbar.placeholder "Etsi suodatin">
 <!ENTITY subscription.lastDownload.invalidData "Epäonnistui, kelvoton suodatinlista">
+<!ENTITY findbar.close "Sulje hakupalkki">
 <!ENTITY filter.paste.label "Liitä">
 <!ENTITY subscription.disabledFilters.enable "Ota käytöstä poistetut suodattimet käyttöön">
 <!ENTITY lasthit.column "&amp;Viimeisin osuma">
+<!ENTITY findbar.statusWrappedEnd "Päästiin loppuun, jatketaan alusta">
 <!ENTITY subscription.editTitle.label "Muokkaa otsikkoa">
+<!ENTITY findbar.statusNotFound "Ei osumia">
 <!ENTITY subscription.disabledFilters.warning "Jotkin tämän suodatintilauksen suodattimista on poistettu käytöstä.">
 <!ENTITY filter.column "&amp;Suodatusehto">
 <!ENTITY subscription.lastDownload.label "Viimeisin lataus:">

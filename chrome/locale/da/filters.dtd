@@ -45,6 +45,7 @@
 <!ENTITY acceptableAds2.label "T&amp;illad upåtrængende annoncering delvist">
 <!ENTITY addSubscriptionOther.label "Tilføj endnu et abonnement">
 <!ENTITY close.label "Luk">
+<!ENTITY findbar.caseSensitive "Versalfølsom (a/A)">
 <!ENTITY sort.none.label "&amp;Usorteret">
 <!ENTITY filter.actions.label "Filterhandlinger">
 <!ENTITY filter.copy.label "Kopier">
@@ -62,12 +63,17 @@
 <!ENTITY find.label "S&amp;øg">
 <!ENTITY subscription.moveDown.label "Flyt op">
 <!ENTITY subscription.lastDownload.connectionError "Fejlede, hentningsfejl">
+<!ENTITY findbar.statusWrappedStart "Nåede toppen, fortsætter fra bunden">
 <!ENTITY subscription.lastDownload.success "Succes">
+<!ENTITY findbar.placeholder "Søgefilter">
 <!ENTITY subscription.lastDownload.invalidData "Fejlede, ikke en gyldig liste over filtre">
+<!ENTITY findbar.close "Luk søgefelt">
 <!ENTITY filter.paste.label "Sæt ind">
 <!ENTITY subscription.disabledFilters.enable "Aktiver deaktiverede filtre">
 <!ENTITY lasthit.column "Seneste h&amp;it">
+<!ENTITY findbar.statusWrappedEnd "Nået bunden, fortsætter fra toppen">
 <!ENTITY subscription.editTitle.label "Rediger titel">
+<!ENTITY findbar.statusNotFound "Sætning ikke fundet">
 <!ENTITY subscription.disabledFilters.warning "Dette abonnement indeholder deaktiverede filtre.">
 <!ENTITY filter.column "&amp;Filterregel">
 <!ENTITY subscription.lastDownload.label "Sidst hentet:">

@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Permesi neal&amp;trudiĝantan reklamon">
 <!ENTITY addSubscriptionOther.label "Aldoni alian abonon">
 <!ENTITY close.label "Fermi">
+<!ENTITY findbar.caseSensitive "Atenti usklecon">
 <!ENTITY sort.none.label "&amp;Nenio">
 <!ENTITY filter.actions.label "Filtrilaj agoj">
 <!ENTITY filter.copy.label "Kopii">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "&amp;Serĉi">
 <!ENTITY subscription.moveDown.label "Malsupren">
 <!ENTITY subscription.lastDownload.connectionError "Malsukcesis, elŝuta eraro">
+<!ENTITY findbar.statusWrappedStart "Alveninta supre, daŭrigi de malsupre">
 <!ENTITY subscription.lastDownload.success "Sukceso">
+<!ENTITY findbar.placeholder "Serĉi filtrilon">
 <!ENTITY subscription.lastDownload.invalidData "Malsukcesis, tio ne estas listo de validaj filtriloj">
+<!ENTITY findbar.close "Fermi serĉbreton">
 <!ENTITY filter.paste.label "Alglui">
 <!ENTITY subscription.disabledFilters.enable "Ebligi malebligitajn filtrilojn">
 <!ENTITY lasthit.column "&amp;Lasta trafo">
+<!ENTITY findbar.statusWrappedEnd "Alveninta malsupre, daŭrigi de supre">
 <!ENTITY subscription.editTitle.label "Redakti titolon">
+<!ENTITY findbar.statusNotFound "Frazo netrovita">
 <!ENTITY subscription.disabledFilters.warning "Kelkaj filtriloj en ĉi tiu abono estas malebligitaj.">
 <!ENTITY filter.column "&amp;Filtrilregulo">
 <!ENTITY subscription.lastDownload.label "Lasta elŝuto:">

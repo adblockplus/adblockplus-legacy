@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Дозволи &amp;ненаметљиве рекламе">
 <!ENTITY addSubscriptionOther.label "Додај другу претплату">
 <!ENTITY close.label "Затвори">
+<!ENTITY findbar.caseSensitive "Подударање великих и малих слова">
 <!ENTITY sort.none.label "Н&amp;епоређано">
 <!ENTITY filter.actions.label "Радње филтера">
 <!ENTITY filter.copy.label "Копирај">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "Прона&amp;ђи">
 <!ENTITY subscription.moveDown.label "Помери надоле">
 <!ENTITY subscription.lastDownload.connectionError "Грешка при преузимању">
+<!ENTITY findbar.statusWrappedStart "Достигнут врх, наставак са дна">
 <!ENTITY subscription.lastDownload.success "Успешно">
+<!ENTITY findbar.placeholder "Филтер претраге">
 <!ENTITY subscription.lastDownload.invalidData "Грешка: неисправан формат списка филтера">
+<!ENTITY findbar.close "Затвори траку претраге">
 <!ENTITY filter.paste.label "Налепи">
 <!ENTITY subscription.disabledFilters.enable "Омогући онемогућене филтере">
 <!ENTITY lasthit.column "Пос&amp;ледњи погодак">
+<!ENTITY findbar.statusWrappedEnd "Достигнуто дно, наставак са врха">
 <!ENTITY subscription.editTitle.label "Уреди наслов">
+<!ENTITY findbar.statusNotFound "Израз није пронађен">
 <!ENTITY subscription.disabledFilters.warning "Неки филтери са списка су онемогућени.">
 <!ENTITY filter.column "Правило &amp;филтера">
 <!ENTITY subscription.lastDownload.label "Последње преузимање:">

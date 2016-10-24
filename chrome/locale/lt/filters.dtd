@@ -45,6 +45,7 @@ norėdami pridėti kelis naudokite
 <!ENTITY acceptableAds2.label "Leisti &amp;neįkyrias reklamas">
 <!ENTITY addSubscriptionOther.label "Pridėti kitą prenumeratą">
 <!ENTITY close.label "Užverti">
+<!ENTITY findbar.caseSensitive "Skirti didžiąsias ir mažąsias raides">
 <!ENTITY sort.none.label "&amp;Nerikiuojama">
 <!ENTITY filter.actions.label "Filtro veiksmai">
 <!ENTITY filter.copy.label "Kopijuoti">
@@ -62,12 +63,17 @@ norėdami pridėti kelis naudokite
 <!ENTITY find.label "Ra&amp;sti">
 <!ENTITY subscription.moveDown.label "Perkelti žemyn">
 <!ENTITY subscription.lastDownload.connectionError "Nepavyko, atsiuntimo klaida">
+<!ENTITY findbar.statusWrappedStart "Pasiektas viršus, tęsiama nuo apačios">
 <!ENTITY subscription.lastDownload.success "Sėkmingai">
+<!ENTITY findbar.placeholder "Rasti filtrą">
 <!ENTITY subscription.lastDownload.invalidData "Nepavyko, netinkamas filtrų sąrašas">
+<!ENTITY findbar.close "Uždaryti paieškos langą">
 <!ENTITY filter.paste.label "Įdėti">
 <!ENTITY subscription.disabledFilters.enable "Įjungti išjungtus filtrus">
 <!ENTITY lasthit.column "Paskutinis b&amp;lokavimas">
+<!ENTITY findbar.statusWrappedEnd "Pasiekta apačia, tęsiama nuo viršaus">
 <!ENTITY subscription.editTitle.label "Pervadinti">
+<!ENTITY findbar.statusNotFound "Puslapis nerastas">
 <!ENTITY subscription.disabledFilters.warning "Kai kurie filtrai, šioje prenumeratoje, išjungti.">
 <!ENTITY filter.column "Filtro &amp;taisyklė">
 <!ENTITY subscription.lastDownload.label "Paskutinis atsiuntimas:">

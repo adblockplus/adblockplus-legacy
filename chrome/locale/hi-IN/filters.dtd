@@ -1,13 +1,28 @@
+<!ENTITY restore.custom.warning "आपके सभी कस्टम फ़िल्टर फ़ाइल की सामग्री के द्वारा प्रतिस्थापित कर दिये जाएंगे। क्या आप यह करना चाहते हैं?">
+<!ENTITY slow.column "फिल्टर दिखाए">
+<!ENTITY enabled.column "अधिकार दिया">
 <!ENTITY subscription.lastDownload.checksumMismatch "असफल, checksum मिसमैच">
+<!ENTITY noFiltersInGroup.text "चयनित समूह खाली है।">
 <!ENTITY subscription.actions.label "क्रियाएँ">
 <!ENTITY filter.selectAll.label "सभी का चयन करें">
+<!ENTITY backupButton.label "बैकअप और पुनर्स्थापना">
+<!ENTITY restore.minVersion.warning "चेतावनी: फ़ाइल एक नए Adblock प्लस संस्करण के साथ बनाया गया है। इस फ़ाइल से पुनर्स्थापित करने से पहले आप नवीनतम Adblock प्लस संस्करण डाउनलोड कीजिये।">
+<!ENTITY restore.error "फ़ाइल के डाटा संसाधित नहीं किया जा सकता है, शायद यह एक Adblock प्लस बैकअप फ़ाइल नहीं है?">
+<!ENTITY sort.ascending.label "A से Z दिखाए">
+<!ENTITY sort.label "से छाँटना">
 <!ENTITY subscription.source.label "फ़िल्टर सूची">
+<!ENTITY hitcount.column "निशाना लगाना">
 <!ENTITY noFilters.text "आपका कोई कस्टम फ़िल्टर नहीं है। ">
+<!ENTITY backup.custom.title "केवल कस्टम फ़िल्टर">
 <!ENTITY subscription.external.label "एक अन्य एक्सटेंशन द्वारा अद्यतन किया">
 <!ENTITY subscription.delete.label "मिटाएँ">
+<!ENTITY noGroupSelected.text "फ़िल्टर्स प्रदर्शित करन से पहले आपको एक फ़िल्टर समूह का चयन करने की जरूरत है।">
 <!ENTITY filter.cut.label "काटें">
+<!ENTITY restore.default.label "?1? बैकअप से पुनर्स्थापित करें">
 <!ENTITY subscription.lastDownload.inProgress "डाउनलोड हो रहा हैं">
 <!ENTITY subscriptions.tab.label "फ़िल्टर सदस्यताएँ">
+<!ENTITY sort.descending.label "Z से A दिखाए">
+<!ENTITY filters.remove.warning "क्या आप वास्तव में सभी चयनित फ़िल्टर को निकालना चाहते हैं?">
 <!ENTITY filter.delete.label "मिटाएँ">
 <!ENTITY addSubscriptionAdd.label "जोड़ें">
 <!ENTITY viewMenu.label "देखें">
@@ -17,29 +32,39 @@
 <!ENTITY noSubscriptions.text "आप किसी भी फिल्टर सदस्यताएँ अभी तक नहीं जोड़ा है। Adblock प्लस को ब्लॉक नहीं करेगा कुछ भी फिल्टर के बिना, कृपया कुछ जोड़ने के लिए &quot;जोड़ें फ़िल्टर सदस्यता&quot; का उपयोग करें।">
 <!ENTITY subscription.update.label "फ़िल्टरों को नवीनतम करें">
 <!ENTITY dialog.title "Adblock प्लस फ़िल्टर वरीयताएँ">
+<!ENTITY addFilter.label "फ़िल्टर जोड़ें">
 <!ENTITY subscription.minVersion.warning "इस फिल्टर सदस्यता Adblock प्लस के किसी नए संस्करण की आवश्यकता है, आप नवीनतम Adblock प्लस संस्करण के लिए अद्यतन करना चाहिए।">
 <!ENTITY subscription.lastDownload.invalidURL "विफल रहा, एक मान्य पता नहीं ">
+<!ENTITY backup.error "फ़ाइल के अंदर फ़िल्टर लिखने में गलतियाँ थी। सुनिश्चित करें कि फ़ाइल लेखन के लिए सुरक्षित नहीं है या किसी अन्य अनुप्रयोग द्वारा उपयोग में नहीं है।">
 <!ENTITY filter.moveUp.label "ऊपर जाएं">
+<!ENTITY addGroup.label "फ़िल्टर और समूह जोड़ें">
 <!ENTITY filter.edit.label "संपादित करें">
 <!ENTITY subscription.showHideFilters.label "फ़िल्टर्स दिखाएँ/छुपाएँ">
 <!ENTITY acceptableAds2.label "कुछ बिना हस्तक्षेप करने वाले विज्ञापन की अनुमति दें">
 <!ENTITY addSubscriptionOther.label "भिन्न सदस्यता जोड़ें">
+<!ENTITY close.label "बंद करें">
+<!ENTITY sort.none.label "अवर्गीकृत">
 <!ENTITY filter.actions.label "फ़िल्टर क्रिया">
 <!ENTITY filter.copy.label "प्रतिलिपि बनाएँ">
 <!ENTITY filter.moveDown.label "नीचे जाएं">
+<!ENTITY filter.resetHitCounts.label "आँकड़े पुनः तैयार करे">
 <!ENTITY readMore.label "और पढ़ें">
 <!ENTITY subscription.moveUp.label "ऊपर जाएं">
 <!ENTITY addSubscription.label "जोड़ें &amp; सदस्यता फ़िल्टर करें">
 <!ENTITY subscription.homepage.label "मुखपृष्ठ">
+<!ENTITY backup.complete.title "सभी फ़िल्टर्स और सदस्यताएँ">
 <!ENTITY restore.own.label "स्वयं बैकअप पुनर्स्थापित करें">
+<!ENTITY restore.complete.warning "आपकी सभी फ़िल्टर प्राथमिकताएँ चयनित फ़ाइल की सामग्री के द्वारा प्रतिस्थापित कर दि जाएगी। क्या आप यह करना चाहते हैं?">
 <!ENTITY filters.tab.label "पसंद के अनुसार फ़िल्टर">
 <!ENTITY backup.label "नया बैकअप बनाएँ">
+<!ENTITY find.label "ढूँढें">
 <!ENTITY subscription.moveDown.label "नीचे जाएं">
 <!ENTITY subscription.lastDownload.connectionError "विफल रहा, डाउनलोड विफलता">
 <!ENTITY subscription.lastDownload.success "सफलता">
 <!ENTITY subscription.lastDownload.invalidData "विफल रहा, एक मान्य फ़िल्टर सूची  नहीं हैं">
 <!ENTITY filter.paste.label "चिपकाएं">
 <!ENTITY subscription.disabledFilters.enable "अक्षम फ़िल्टरों को सक्षम करें">
+<!ENTITY lasthit.column "निशाना लगाना">
 <!ENTITY subscription.editTitle.label "शीर्षक संपादित करें">
 <!ENTITY subscription.disabledFilters.warning "कुछ फिल्टर इस सदस्यता में अक्षम हैं।">
 <!ENTITY filter.column "&amp; फ़िल्टर नियम">

@@ -4,6 +4,7 @@
 <!ENTITY filter.paste.label "ჩასმა">
 <!ENTITY viewList.label "სიის ნახვა">
 <!ENTITY subscription.delete.label "წაშლა">
+<!ENTITY subscription.lastDownload.inProgress "იტვირთება…">
 <!ENTITY subscriptions.tab.label "ფილტრის გამოწერა">
 <!ENTITY filter.delete.label "წაშლა">
 <!ENTITY addSubscriptionAdd.label "დამატება">
@@ -16,7 +17,9 @@
 <!ENTITY subscription.showHideFilters.label "ფილტრების გამოჩენა/დამალვა">
 <!ENTITY filter.cut.label "ამოჭრა">
 <!ENTITY addSubscriptionOther.label "სხვა პოდპისკის დამატება">
+<!ENTITY close.label "დახურვა">
 <!ENTITY filter.copy.label "კოპირება">
+<!ENTITY readMore.label "დაწვრილებით">
 <!ENTITY subscription.moveUp.label "ზევით გადატანა">
 <!ENTITY addSubscription.label "&amp;ფილტრის გამოწერის დამატება">
 <!ENTITY subscription.homepage.label "მთავარი გვერდი">

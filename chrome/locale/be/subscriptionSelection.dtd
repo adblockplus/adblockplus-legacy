@@ -2,7 +2,7 @@
 <!ENTITY list.download.failed "Adblock Plus не змог атрымаць спіс падпісак.">
 <!ENTITY list.download.retry "Паспрабуйце зноў">
 <!ENTITY title.label "&amp;Назва падпіскі:">
-<!ENTITY list.download.website "Глядзец на сайце">
+<!ENTITY list.download.website "Глядзець на сайце">
 <!ENTITY supplementMessage "Гэты фільтр працуе ў звязе з падпіскай «?1?», якая не ўсталявана.">
 <!ENTITY viewList.label "Праглядзець фільтры">
 <!ENTITY visitHomepage.label "Наведаць хатнюю старонку">

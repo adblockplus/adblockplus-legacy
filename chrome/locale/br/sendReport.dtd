@@ -1,5 +1,7 @@
-<!ENTITY sendPage.heading "Kas c'houzout">
 <!ENTITY screenshot.undo.label "&amp;Dizober">
+<!ENTITY sendPage.heading "Kas c'houzout">
+<!ENTITY reloadButton.label "&amp;Adkargañ bajenn">
+<!ENTITY sendPage.retry.label "Kas c'hoazh">
 <!ENTITY email.label "&amp;Postel:">
 <!ENTITY privacyPolicy.label "Kefluniadur politikerez">
-<!ENTITY reloadButton.label "&amp;Adkargañ bajenn">
+<!ENTITY wizard.title "Ar c'hazetenner">

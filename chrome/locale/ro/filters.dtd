@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "&amp;Permite publicitatea discretă">
 <!ENTITY addSubscriptionOther.label "Adaugă alt abonament">
 <!ENTITY close.label "Închide">
+<!ENTITY findbar.caseSensitive "Potrivire exactă">
 <!ENTITY sort.none.label "&amp;Neordonat">
 <!ENTITY filter.actions.label "Acțiuni filtre">
 <!ENTITY filter.copy.label "Copiază">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "&amp;Caută">
 <!ENTITY subscription.moveDown.label "Mută jos">
 <!ENTITY subscription.lastDownload.connectionError "Eşuat, descărcare nereuşită">
+<!ENTITY findbar.statusWrappedStart "Am ajuns la început, continuu de la sfârşit">
 <!ENTITY subscription.lastDownload.success "Succes">
+<!ENTITY findbar.placeholder "Găsește filtru">
 <!ENTITY subscription.lastDownload.invalidData "Eşuat, lista nu este validă">
+<!ENTITY findbar.close "Închide bara de găsire">
 <!ENTITY filter.paste.label "Lipeşte">
 <!ENTITY subscription.disabledFilters.enable "Activează filtrele inactive">
 <!ENTITY lasthit.column "&amp;Ultima aplicare">
+<!ENTITY findbar.statusWrappedEnd "Am ajuns la sfârşit, continuu de la început">
 <!ENTITY subscription.editTitle.label "Editează titlu">
+<!ENTITY findbar.statusNotFound "Fraza nu a fost găsită">
 <!ENTITY subscription.disabledFilters.warning "Unele filtre din acest abonament sunt dezactivate.">
 <!ENTITY filter.column "&amp;Regulă de filtrare">
 <!ENTITY subscription.lastDownload.label "Ultima descărcare:">

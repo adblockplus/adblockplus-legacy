@@ -45,6 +45,7 @@ za dodajanje novega filtra.">
 <!ENTITY acceptableAds2.label "Dovol&amp;i nekatere nevsiljive oglase">
 <!ENTITY addSubscriptionOther.label "Dodaj novo naročnino">
 <!ENTITY close.label "Zapri">
+<!ENTITY findbar.caseSensitive "Razlikuj velike/male črke">
 <!ENTITY sort.none.label "Nerazvr&amp;ščeno">
 <!ENTITY filter.actions.label "Dejanja filtra">
 <!ENTITY filter.copy.label "Kopiraj">
@@ -62,12 +63,17 @@ za dodajanje novega filtra.">
 <!ENTITY find.label "Najdi">
 <!ENTITY subscription.moveDown.label "Premakni navzdol">
 <!ENTITY subscription.lastDownload.connectionError "Neuspešno, napaka prenosa">
+<!ENTITY findbar.statusWrappedStart "Vrh dosežen, nadaljevanje od spodaj">
 <!ENTITY subscription.lastDownload.success "Uspešno">
+<!ENTITY findbar.placeholder "Najdi filter">
 <!ENTITY subscription.lastDownload.invalidData "Neuspešno, ni veljaven seznam filtrov">
+<!ENTITY findbar.close "Zapri iskalno vrstico">
 <!ENTITY filter.paste.label "Prilepi">
 <!ENTITY subscription.disabledFilters.enable "Omogoči onemogočene filtre">
 <!ENTITY lasthit.column "Zad&amp;nji zadetek">
+<!ENTITY findbar.statusWrappedEnd "Dno doseženo, nadaljevanje od zgoraj">
 <!ENTITY subscription.editTitle.label "Uredi naslov">
+<!ENTITY findbar.statusNotFound "Izraza ni bilo mogoče najti">
 <!ENTITY subscription.disabledFilters.warning "V tej naročnini so nekateri filtri onemogočeni.">
 <!ENTITY filter.column "Pravilo &amp;filtra">
 <!ENTITY subscription.lastDownload.label "Zadnji prenos:">

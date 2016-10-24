@@ -27,7 +27,7 @@
 <!ENTITY addSubscriptionAdd.label "اضافة">
 <!ENTITY viewMenu.label "عرض">
 <!ENTITY subscription.lastDownload.unknown "غير متاح">
-<!ENTITY addSubscriptionCancel.label "الغاء">
+<!ENTITY addSubscriptionCancel.label "إلغاء">
 <!ENTITY subscription.enabled.label "مفعّل">
 <!ENTITY noSubscriptions.text "لم تضف أي إشتراك فلاتر حتى الان. آد بلُك بلَس لا يحجب 
 أي شيء بدون هذه الفلاتر, الرجاء إختيار &quot;إشتراكات الفلاتر&quot; 
@@ -45,6 +45,7 @@
 <!ENTITY acceptableAds2.label "السماح لب&amp;عض الإعلانات الغير متطفّلة">
 <!ENTITY addSubscriptionOther.label "إضافة اشتراك آخر">
 <!ENTITY close.label "إغلاق">
+<!ENTITY findbar.caseSensitive "طابق حالة الأحرف">
 <!ENTITY sort.none.label "غي&amp;ر مرتب">
 <!ENTITY filter.actions.label "التطبيقات على الفلتر">
 <!ENTITY filter.copy.label "نسخ">
@@ -62,12 +63,17 @@
 <!ENTITY find.label "بحث (&amp;ج)">
 <!ENTITY subscription.moveDown.label "إلى الأسفل">
 <!ENTITY subscription.lastDownload.connectionError "فشل الأمر، بسبب فشل التحميل">
+<!ENTITY findbar.statusWrappedStart "وصلت إلى الأعلى، الإستمرار من أسفل">
 <!ENTITY subscription.lastDownload.success "نجاح">
+<!ENTITY findbar.placeholder "إيجاد فلتر">
 <!ENTITY subscription.lastDownload.invalidData "فشل الأمر، قائمة فلاتر ليست صحيحة">
+<!ENTITY findbar.close "إغلاق شريط البحث">
 <!ENTITY filter.paste.label "لصق">
 <!ENTITY subscription.disabledFilters.enable "تفعيل الفلاتر المعطّلة">
 <!ENTITY lasthit.column "&amp;آخر إحصاء">
+<!ENTITY findbar.statusWrappedEnd "وصلت إلى الأسفل، الإستمرار من أعلى">
 <!ENTITY subscription.editTitle.label "تعديل العنوان">
+<!ENTITY findbar.statusNotFound "لم يتم العثور على العبارة">
 <!ENTITY subscription.disabledFilters.warning "بعض الفلاتر في هذا الإشتراك معطّلة.">
 <!ENTITY filter.column "قاعدة ال&amp;فلتر">
 <!ENTITY subscription.lastDownload.label "آخر تحميل">

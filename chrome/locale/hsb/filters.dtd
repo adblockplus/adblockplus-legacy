@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "&amp;Njenadběhawe wabjenje dowolić">
 <!ENTITY addSubscriptionOther.label "Druhi abonement přidać">
 <!ENTITY close.label "Začinić">
+<!ENTITY findbar.caseSensitive "Wulkopisanje wobkedźbować">
 <!ENTITY sort.none.label "Njeso&amp;rtěrowany">
 <!ENTITY filter.actions.label "Filtrowe akcije">
 <!ENTITY filter.copy.label "Kopěrować">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "&amp;Pytać">
 <!ENTITY subscription.moveDown.label "Dele">
 <!ENTITY subscription.lastDownload.connectionError "Njeporadźiło, sćahowanski zmylk">
+<!ENTITY findbar.statusWrappedStart "Horjeka dóńdźeny, wot deleka pokročować">
 <!ENTITY subscription.lastDownload.success "Wuspěch">
+<!ENTITY findbar.placeholder "Filter pytać">
 <!ENTITY subscription.lastDownload.invalidData "Njeporadźiło, žana płaćiwa filtrowa lisćina">
+<!ENTITY findbar.close "Pytansku lajstu začinić">
 <!ENTITY filter.paste.label "Zasunyć">
 <!ENTITY subscription.disabledFilters.enable "Znjemóžnjene filtry zmóžnić">
 <!ENTITY lasthit.column "&amp;Posledni wotpowědnik">
+<!ENTITY findbar.statusWrappedEnd "Deleka dóńdźeny, wot horjeka pokročować">
 <!ENTITY subscription.editTitle.label "Titul wobdźěłać">
+<!ENTITY findbar.statusNotFound "Fraza njeje so namakała">
 <!ENTITY subscription.disabledFilters.warning "Někotre filtry w tutym abonemenće su znjemóžnjene.">
 <!ENTITY filter.column "&amp;Filtrowe prawidło">
 <!ENTITY subscription.lastDownload.label "Poslednje sćehnjenje:">
