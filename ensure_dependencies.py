@@ -355,6 +355,7 @@ def resolve_deps(repodir, level=0, self_update=True, overrideroots=None, skipdep
 
 def _ensure_line_exists(path, pattern):
     with open(path, 'a+') as f:
+        f.seek(0, os.SEEK_SET)
         file_content = [l.strip() for l in f.readlines()]
         if not pattern in file_content:
             file_content.append(pattern)
