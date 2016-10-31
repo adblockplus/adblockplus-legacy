@@ -94,7 +94,13 @@ function init() {
 
   // Initialize matcher for disabled filters
   reloadDisabledFilters();
-  FilterNotifier.addListener(reloadDisabledFilters);
+  FilterNotifier.on("subscription.added", reloadDisabledFilters);
+  FilterNotifier.on("subscription.removed", reloadDisabledFilters);
+  FilterNotifier.on("subscription.disabled", reloadDisabledFilters);
+  FilterNotifier.on("subscription.updated", reloadDisabledFilters);
+  FilterNotifier.on("filter.added", reloadDisabledFilters);
+  FilterNotifier.on("filter.removed", reloadDisabledFilters);
+  FilterNotifier.on("filter.disabled", reloadDisabledFilters);
   Prefs.addListener(onPrefChange);
 
   // Activate flasher
@@ -145,7 +151,13 @@ function getFilter(item)
 // To be called on unload
 function cleanUp() {
   requestNotifier.shutdown();
-  FilterNotifier.removeListener(reloadDisabledFilters);
+  FilterNotifier.off("subscription.added", reloadDisabledFilters);
+  FilterNotifier.off("subscription.removed", reloadDisabledFilters);
+  FilterNotifier.off("subscription.disabled", reloadDisabledFilters);
+  FilterNotifier.off("subscription.updated", reloadDisabledFilters);
+  FilterNotifier.off("filter.added", reloadDisabledFilters);
+  FilterNotifier.off("filter.removed", reloadDisabledFilters);
+  FilterNotifier.off("filter.disabled", reloadDisabledFilters);
   Prefs.removeListener(onPrefChange);
   E("list").view = null;
 
