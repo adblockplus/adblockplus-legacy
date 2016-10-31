@@ -70,24 +70,22 @@ class Mercurial():
         subprocess.check_call(['hg', 'update', '--repository', repo, '--quiet', '--check', '--rev', rev])
 
     def ignore(self, target, repo):
+        config_path = os.path.join(repo, '.hg', 'hgrc')
+        ignore_file = os.path.join('.hg', 'dependencies')
+        ignore_path = os.path.join(repo, ignore_file)
 
-        if not self.istype(target):
+        config = RawConfigParser()
+        config.read(config_path)
 
-            config_path = os.path.join(repo, '.hg', 'hgrc')
-            ignore_path = os.path.abspath(os.path.join(repo, '.hg', 'dependencies'))
+        if not config.has_section('ui'):
+            config.add_section('ui')
 
-            config = RawConfigParser()
-            config.read(config_path)
+        config.set('ui', 'ignore.dependencies', ignore_file)
+        with open(config_path, 'w') as stream:
+            config.write(stream)
 
-            if not config.has_section('ui'):
-                config.add_section('ui')
-
-            config.set('ui', 'ignore.dependencies', ignore_path)
-            with open(config_path, 'w') as stream:
-                config.write(stream)
-
-            module = os.path.relpath(target, repo)
-            _ensure_line_exists(ignore_path, module)
+        module = os.path.relpath(target, repo)
+        _ensure_line_exists(ignore_path, module)
 
     def postprocess_url(self, url):
         return url
