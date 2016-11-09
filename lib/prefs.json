@@ -17,7 +17,7 @@
     "data_directory": "adblockplus",
     "patternsbackups": 5,
     "patternsbackupinterval": 24,
-    "whitelistschemes": "about chrome file irc moz-safe-about news resource snews x-jsd addbook cid imap mailbox nntp pop data javascript moz-icon",
+    "whitelistschemes": "about chrome file irc moz-extension moz-safe-about news resource snews x-jsd addbook cid imap mailbox nntp pop data javascript moz-icon",
     "subscriptions_autoupdate": true,
     "subscriptions_listurl": "https://adblockplus.org/subscriptions2.xml",
     "subscriptions_fallbackurl": "https://adblockplus.org/getSubscription?version=%VERSION%&url=%SUBSCRIPTION%&downloadURL=%URL%&error=%ERROR%&channelStatus=%CHANNELSTATUS%&responseStatus=%RESPONSESTATUS%",
