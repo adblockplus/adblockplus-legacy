@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Дозволити деяку ненав'язливу &amp;рекламу">
 <!ENTITY addSubscriptionOther.label "Додати іншу підписку">
 <!ENTITY close.label "Закрити">
+<!ENTITY findbar.caseSensitive "Враховувати регістр">
 <!ENTITY sort.none.label "&amp;Несортовано">
 <!ENTITY filter.actions.label "Дії з фільтрами">
 <!ENTITY filter.copy.label "Копіювати">
@@ -60,12 +61,15 @@
 <!ENTITY find.label "З&amp;найти фільтр">
 <!ENTITY subscription.moveDown.label "Зсунути вниз">
 <!ENTITY subscription.lastDownload.connectionError "Помилка, неможливо викачати">
+<!ENTITY findbar.statusWrappedStart "Знизу вгору">
 <!ENTITY subscription.lastDownload.success "Успіх">
 <!ENTITY findbar.placeholder "Знайти фільтр">
 <!ENTITY subscription.lastDownload.invalidData "Помилка, не правильний список фільтрів">
+<!ENTITY findbar.close "Закрити панель пошуку">
 <!ENTITY filter.paste.label "Вставити">
 <!ENTITY subscription.disabledFilters.enable "Увімкнути вимкнені фільтри">
 <!ENTITY lasthit.column "&amp;Останнє попадання">
+<!ENTITY findbar.statusWrappedEnd "Згори в низ">
 <!ENTITY subscription.editTitle.label "Редагувати назву">
 <!ENTITY findbar.statusNotFound "Фразу не знайдено">
 <!ENTITY subscription.disabledFilters.warning "Деякі фільтри у цій підписці вимкнено.">

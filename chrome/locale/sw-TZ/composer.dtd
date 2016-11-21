@@ -1,6 +1,26 @@
-<!ENTITY accept.label "Ongeza kichujio">
-<!ENTITY disabled.warning "Adblock Plus kwa sasa imesitishwa. Hata hivyo unaweza kuongeza vichujio lakini havitafanya kazi hadi [link]utakapowezesha Adblock Plus[/link].">
-<!ENTITY advanced.label "Mwonekano wa juu">
+<!ENTITY anchor.end.label "mwisho wa anwani">
+<!ENTITY domainRestriction.label "Zuia kwa jina la tovuti:">
+<!ENTITY collapse.default.no.label "Tumia chaguo-msingi(Hapana)">
+<!ENTITY firstParty.label "Wahusika msingi tu">
+<!ENTITY preferences.label "Onesha vichujio vilivyopo...">
+<!ENTITY filter.label "Mpya &amp;kichujio:">
+<!ENTITY unselectAllTypes.label "Chagua moja">
+<!ENTITY anchor.start.label "mwanzo wa anwani">
+<!ENTITY matchCase.label "&amp;Zinazofanana">
+<!ENTITY thirdParty.label "&amp;Wahusika wa nje tu">
+<!ENTITY collapse.label "Ficha zilizo fungiwa:">
+<!ENTITY type.whitelist.label "Kanuni ya kutohusisha">
 <!ENTITY dialog.title "Ongeza kanuni ya kichujio cha Adblock Plus">
 <!ENTITY basic.label "Mwonekano wa msingi">
-<!ENTITY filter.label "Mpya &amp;kichujio:">
+<!ENTITY type.filter.label "Zuia kichujio">
+<!ENTITY types.label "Weka kwenye aina:">
+<!ENTITY collapse.yes.label "Ndiyo">
+<!ENTITY collapse.default.yes.label "Tumia chaguo-msingi(Ndiyo)">
+<!ENTITY domainRestriction.help "Tumia chaguo hili kubainisha kikoa kimoja au zaidi vilivyotengwa kwa alama ya mstari (|). Kichujio kutumika tu kwenye kikoa(vikoa) chaguliwa. Alama hii (~) kabla ya jina la kikoa inaonyesha kwamba Kichujio hakitatumika kwenye kikoa.">
+<!ENTITY accept.label "Ongeza kichujio">
+<!ENTITY options.label "Chaguzi">
+<!ENTITY disabled.warning "Adblock Plus kwa sasa imesitishwa. Hata hivyo unaweza kuongeza vichujio lakini havitafanya kazi hadi [link]utakapowezesha Adblock Plus[/link].">
+<!ENTITY anchor.start.flexible.label "mwanzo wa jina la tovuti">
+<!ENTITY collapse.no.label "Hapana">
+<!ENTITY selectAllTypes.label "Chagua yote">
+<!ENTITY advanced.label "Mwonekano wa juu">

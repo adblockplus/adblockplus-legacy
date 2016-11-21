@@ -1,0 +1,55 @@
+<!ENTITY slow.column "Punguza kasi ya vichujio">
+<!ENTITY enabled.column "V&amp;ilivyowashwa">
+<!ENTITY subscription.actions.label "Vitendo">
+<!ENTITY filter.selectAll.label "Chagua yote">
+<!ENTITY sort.ascending.label "&amp;Panga kwa mpangilio wa A &gt; Z">
+<!ENTITY sort.label "&amp;Panga kwa">
+<!ENTITY subscription.source.label "Orodha ya vichujio">
+<!ENTITY hitcount.column "Utembeleaji">
+<!ENTITY noFilters.text "Huna vichujio yoyote kibinafsi bado.">
+<!ENTITY subscription.external.label "Imebadiliwa na ugani mwingine">
+<!ENTITY subscription.delete.label "Futa">
+<!ENTITY filter.cut.label "Kata">
+<!ENTITY subscription.lastDownload.inProgress "Vinavyopakuliwa…">
+<!ENTITY subscriptions.tab.label "Miunganiko kwenye kichujio">
+<!ENTITY sort.descending.label "&amp;Panga kwa mpangilio wa Z &gt; A">
+<!ENTITY filter.delete.label "Futa">
+<!ENTITY addSubscriptionAdd.label "Ongeza">
+<!ENTITY viewMenu.label "Mwoneko">
+<!ENTITY subscription.lastDownload.unknown "Hakuna">
+<!ENTITY addSubscriptionCancel.label "Futa">
+<!ENTITY subscription.enabled.label "Vilivyowezeshwa">
+<!ENTITY noSubscriptions.text "Haujaongeza kichujio chochote bado. Adblock Plus haitazuia kitu chochote bila vichujio, Tafadhali tumia &quot;Ongeza muunganiko kwenye Kichujio&quot; kuongeza baadhi.">
+<!ENTITY subscription.update.label "Fanyia mabadiliko vichujio">
+<!ENTITY dialog.title "Upendeleo wa kichujio cha Adblock Plus">
+<!ENTITY addFilter.label "Ongeza kichujio">
+<!ENTITY subscription.minVersion.warning "Kujiunga katika kichujio hiki unatakiwa uwe na toleo jipya la Adblock Plus, unatakiwa upakue toleo jipya la Adblock Plus.">
+<!ENTITY subscription.lastDownload.invalidURL "Imeshindikana, sio anwani halali">
+<!ENTITY filter.moveUp.label "Sogeza juu">
+<!ENTITY addGroup.label "Ongeza Kichujio na kikundi">
+<!ENTITY filter.edit.label "Hariri">
+<!ENTITY subscription.showHideFilters.label "Onyesha/ficha vichujio">
+<!ENTITY acceptableAds2.label "Ruhusu baadhi ya matangazo yasiyo vamizi">
+<!ENTITY addSubscriptionOther.label "Ongeza muunganiko tofauti kwenye kichujio">
+<!ENTITY sort.none.label "&amp;Zisizochambuliwa">
+<!ENTITY filter.actions.label "Chuja vitendo">
+<!ENTITY filter.copy.label "Nakili">
+<!ENTITY filter.moveDown.label "Sogeza chini">
+<!ENTITY filter.resetHitCounts.label "Anza upya takwimu za utembeleaji">
+<!ENTITY readMore.label "Soma zaidi">
+<!ENTITY subscription.moveUp.label "Sogeza juu">
+<!ENTITY addSubscription.label "Ongeza muunganiko kwenye &amp;kichujio">
+<!ENTITY subscription.homepage.label "Ukurasa-mwanzo">
+<!ENTITY filters.tab.label "Kichujio binafsi">
+<!ENTITY subscription.moveDown.label "Sogeza chini">
+<!ENTITY subscription.lastDownload.connectionError "Imeshindikana, upakuaji haujafanikiwa">
+<!ENTITY subscription.lastDownload.success "Imefanikiwa">
+<!ENTITY subscription.lastDownload.invalidData "Imeshindikana, sio anwani halali">
+<!ENTITY filter.paste.label "Bandika">
+<!ENTITY subscription.disabledFilters.enable "Washa vichujio vilivyozimwa">
+<!ENTITY lasthit.column "Utembeleaji wa mwisho">
+<!ENTITY subscription.editTitle.label "Hariri kichwa">
+<!ENTITY subscription.disabledFilters.warning "Vichujio baadhi katika kujiunga huku vimezimwa.">
+<!ENTITY filter.column "&amp;Kanuni ya kichujio">
+<!ENTITY subscription.lastDownload.label "Vilivyopakuliwa karibuni:">
+<!ENTITY viewList.label "Ona orodha">

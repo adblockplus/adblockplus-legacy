@@ -1,0 +1,35 @@
+<!ENTITY context.flash.label "Onesha mipaka ya kipengele">
+<!ENTITY address.label "Anwani">
+<!ENTITY context.open.label "Fungua katika Kichupo Kipya">
+<!ENTITY type.label "Aina">
+<!ENTITY tooltip.filterSource.label "Chanzo cha kichujio:">
+<!ENTITY noitems.label "Hakuna vilivyozuiliwa">
+<!ENTITY filter.label "Kichujio">
+<!ENTITY tooltip.size.label "Kipimo:">
+<!ENTITY reattach.label "Ambatisha upya">
+<!ENTITY search.label "&amp;Tafuta:">
+<!ENTITY docDomain.thirdParty "(Wahusika wa nje)">
+<!ENTITY filterSource.label "Chanzo cha kichujio">
+<!ENTITY tooltip.docDomain.label "Cganzo cha hati:">
+<!ENTITY context.copy.label "Nakili anwani ya kipengee">
+<!ENTITY tooltip.type.label "Aina:">
+<!ENTITY context.disablefilter.label "Zima Kichujio? 1?">
+<!ENTITY context.copyFilter.label "Nakili kichujio">
+<!ENTITY context.block.label "Zuia kipengee hiki">
+<!ENTITY context.enablefilter.label "Washa kichujio? 1?">
+<!ENTITY detach.label "Tenganisha">
+<!ENTITY whitelisted.label "Ukurasa usiozuiwa">
+<!ENTITY context.disablefilteronsite.label "Zima Kichujio hiki kwenye? 1?">
+<!ENTITY detached.title "Adblock Plus: Vinavyoweza kuzuiliwa(imetenganishwa)">
+<!ENTITY docDomain.firstParty "(Wahusika awali)">
+<!ENTITY tooltip.type.whitelisted "(visivyozuiwa)">
+<!ENTITY tooltip.filter.label "Vichujio vinavyofanya kazi:">
+<!ENTITY tooltip.filter.disabled "(vilivyozimwa)">
+<!ENTITY context.editfilter.label "Hariri kichujio kinachofanya kazi">
+<!ENTITY tooltip.type.blocked "(vilivyozuiwa)">
+<!ENTITY size.label "Kipimo">
+<!ENTITY context.whitelist.label "Ongeza kanuni kuacha">
+<!ENTITY context.selectAll.label "Chagua yote">
+<!ENTITY state.label "Hali">
+<!ENTITY docDomain.label "Chanzo cha hati">
+<!ENTITY tooltip.address.label "Anwani:">

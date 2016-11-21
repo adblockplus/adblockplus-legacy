@@ -6,7 +6,7 @@
 <!ENTITY noitems.label "Geen blokkeerbare items">
 <!ENTITY filter.label "Filter">
 <!ENTITY tooltip.size.label "Grootte:">
-<!ENTITY reattach.label "Vastkoppelen">
+<!ENTITY reattach.label "Opnieuw koppelen">
 <!ENTITY search.label "&amp;Zoeken:">
 <!ENTITY docDomain.thirdParty "(derden)">
 <!ENTITY filterSource.label "Filterbron">
