@@ -652,7 +652,7 @@ var FilterView =
     this.editDummy = {filter: {text: ""}};
 
     let atomService = Cc["@mozilla.org/atom-service;1"].getService(Ci.nsIAtomService);
-    let stringAtoms = ["col-filter", "col-enabled", "col-hitcount", "col-lasthit", "type-invalid", "type-comment", "type-blocking", "type-whitelist", "type-elemhide", "type-elemhideexception", "type-cssproperty"];
+    let stringAtoms = ["col-filter", "col-enabled", "col-hitcount", "col-lasthit", "type-invalid", "type-comment", "type-blocking", "type-whitelist", "type-elemhide", "type-elemhideexception", "type-elemhideemulation"];
     let boolAtoms = ["selected", "dummy", "slow", "disabled"];
 
     this.atoms = {};

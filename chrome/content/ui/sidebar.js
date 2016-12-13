@@ -1001,7 +1001,7 @@ var treeView = {
           state = "state-whitelisted";
         else if (filter instanceof BlockingFilter)
           state = "state-filtered";
-        else if (filter instanceof ElemHideFilter || filter instanceof CSSPropertyFilter)
+        else if (filter instanceof ElemHideFilter || filter instanceof ElemHideEmulationFilter)
           state = "state-hidden";
         else if (filter instanceof ElemHideException)
           state = "state-hiddenexception";

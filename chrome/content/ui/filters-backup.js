@@ -317,7 +317,7 @@ var Backup =
         if (filter instanceof RegExpFilter && filter.contentType & (RegExpFilter.typeMap.GENERICHIDE | RegExpFilter.typeMap.GENERICBLOCK) && Services.vc.compare(minVersion, "2.6.12") < 0)
           minVersion = "2.6.12";
 
-        if (filter instanceof CSSPropertyFilter && Services.vc.compare(minVersion, "2.7.3") < 0)
+        if (filter instanceof ElemHideEmulationFilter && Services.vc.compare(minVersion, "2.7.3") < 0)
           minVersion = "2.7.3";
 
         if (filter instanceof RegExpFilter &&
