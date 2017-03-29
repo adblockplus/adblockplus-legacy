@@ -17,6 +17,10 @@
 
 (function(global)
 {
+  const Cu = Components.utils;
+
+  let {Services} = Cu.import("resource://gre/modules/Services.jsm", {});
+
   if (!global.ext)
     global.ext = {};
 
@@ -79,6 +83,30 @@
     {
       if (listener[wrapperSymbol])
         this._port.off("ext_message", listener[wrapperSymbol]);
+    }
+  };
+
+  let pageName = "global";
+  if (typeof location !== "undefined")
+    pageName = location.pathname.replace(/.*\//, "").replace(/\..*?$/, "");
+
+  let stringBundle = Services.strings.createBundle(
+    "chrome://adblockplus/locale/" + pageName + ".properties?" + Math.random());
+
+  global.ext.i18n = {
+    getMessage(key, args)
+    {
+      try {
+        return stringBundle.GetStringFromName(key);
+      }
+      catch(e)
+      {
+        // Don't report errors for special strings, these are expected to be
+        // missing.
+        if (key[0] != "@")
+          Cu.reportError(e);
+        return "";
+      }
     }
   };
 

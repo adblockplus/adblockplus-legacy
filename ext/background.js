@@ -18,10 +18,11 @@
 let {XPCOMUtils} = Cu.import("resource://gre/modules/XPCOMUtils.jsm", null);
 let {Services} = Cu.import("resource://gre/modules/Services.jsm", null);
 
-let {_EventTarget: EventTarget} = require("ext_common");
+let {_EventTarget: EventTarget, i18n} = require("ext_common");
 let {port} = require("messaging");
 
 exports.onMessage = new EventTarget(port);
+exports.i18n = i18n;
 
 function Page(windowID)
 {
