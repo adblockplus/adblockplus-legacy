@@ -97,20 +97,22 @@ var Backup =
     while (this.restoreInsertionPoint.nextSibling && !this.restoreInsertionPoint.nextSibling.id)
       this.restoreInsertionPoint.parentNode.removeChild(this.restoreInsertionPoint.nextSibling);
 
-    let files = FilterStorage.getBackupFiles().reverse();
-    for (let i = 0; i < files.length; i++)
+    FilterStorage.getBackupFiles().then(backups =>
     {
-      let file = files[i];
-      let item = this.restoreTemplate.cloneNode(true);
-      let label = item.getAttribute("label");
-      label = label.replace(/\?1\?/, Utils.formatTime(file.lastModifiedTime));
-      item.setAttribute("label", label);
-      item.addEventListener("command", function()
+      backups.reverse();
+      for (let backup of backups)
       {
-        Backup.restoreAllData(file);
-      }, false);
-      this.restoreInsertionPoint.parentNode.insertBefore(item, this.restoreInsertionPoint.nextSibling);
-    }
+        let item = this.restoreTemplate.cloneNode(true);
+        let label = item.getAttribute("label");
+        label = label.replace(/\?1\?/, Utils.formatTime(backup.lastModified));
+        item.setAttribute("label", label);
+        item.addEventListener("command", function()
+        {
+          Backup.restoreAllData(backup.file);
+        }, false);
+        this.restoreInsertionPoint.parentNode.insertBefore(item, this.restoreInsertionPoint.nextSibling);
+      }
+    });
   },
 
   /**
