@@ -50,6 +50,15 @@
   {
     this._port = port;
     this._windowID = windowID;
+    this.addListener((payload, sender, resolve) =>
+    {
+      if (payload.type)
+      {
+        let result = this._port._dispatch(payload.type, payload, sender);
+        if (typeof result != "undefined")
+          resolve(result);
+      }
+    });
   };
   EventTarget.prototype = {
     addListener: function(listener)
