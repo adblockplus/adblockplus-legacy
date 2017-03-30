@@ -108,7 +108,7 @@ var Backup =
         item.setAttribute("label", label);
         item.addEventListener("command", function()
         {
-          Backup.restoreAllData(backup.file);
+          FilterStorage.restoreBackup(backup.index);
         }, false);
         this.restoreInsertionPoint.parentNode.insertBefore(item, this.restoreInsertionPoint.nextSibling);
       }
@@ -141,34 +141,40 @@ var Backup =
    */
   restoreAllData: function(/**nsIFile*/ file)
   {
-    let stream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
-    stream.init(file, FileUtils.MODE_RDONLY, FileUtils.PERMS_FILE, 0);
-    stream.QueryInterface(Ci.nsILineInputStream);
-
+    let sink = FilterStorage.importData();
     let lines = [];
-    let line = {value: null};
-    if (stream.readLine(line))
-      lines.push(line.value);
-    if (stream.readLine(line))
-      lines.push(line.value);
-    stream.close();
+    IO.readFromFile(file, {
+      process(line)
+      {
+        if (line === null)
+        {
+          let match;
+          if (lines.length < 2 || lines[0] != "# Adblock Plus preferences" || !(match = /version=(\d+)/.exec(lines[1])))
+          {
+            Utils.alert(window, E("backupButton").getAttribute("_restoreError"), E("backupButton").getAttribute("_restoreDialogTitle"));
+            return;
+          }
 
-    let match;
-    if (lines.length < 2 || lines[0] != "# Adblock Plus preferences" || !(match = /version=(\d+)/.exec(lines[1])))
+          let warning = E("backupButton").getAttribute("_restoreCompleteWarning");
+          let minVersion = parseInt(match[1], 10);
+          if (minVersion > FilterStorage.formatVersion)
+            warning += "\n\n" + E("backupButton").getAttribute("_restoreVersionWarning");
+
+          if (!Utils.confirm(window, warning, E("backupButton").getAttribute("_restoreDialogTitle")))
+            return;
+        }
+        else if (lines.length < 2)
+          lines.push(line);
+
+        sink(line);
+      }
+    }, error =>
     {
-      Utils.alert(window, E("backupButton").getAttribute("_restoreError"), E("backupButton").getAttribute("_restoreDialogTitle"));
-      return;
-    }
-
-    let warning = E("backupButton").getAttribute("_restoreCompleteWarning");
-    let minVersion = parseInt(match[1], 10);
-    if (minVersion > FilterStorage.formatVersion)
-      warning += "\n\n" + E("backupButton").getAttribute("_restoreVersionWarning");
-
-    if (!Utils.confirm(window, warning, E("backupButton").getAttribute("_restoreDialogTitle")))
-      return;
-
-    FilterStorage.loadFromDisk(file);
+      if (error)
+        alert(error);
+      else
+        FilterStorage.saveToDisk();
+    });
   },
 
   /**
@@ -284,7 +290,11 @@ var Backup =
    */
   backupAllData: function(/**nsIFile*/ file)
   {
-    FilterStorage.saveToDisk(file);
+    IO.writeToFile(file, FilterStorage.exportData(), error =>
+    {
+      if (error)
+        alert(error);
+    });
   },
 
   /**

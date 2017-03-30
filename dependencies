@@ -1,5 +1,5 @@
 _root = hg:https://hg.adblockplus.org/ git:https://github.com/adblockplus/
 _self = buildtools/ensure_dependencies.py
 buildtools = buildtools hg:daa9df1ee39f git:3ab934a
-adblockpluscore = adblockpluscore hg:3bdddf0e8343 git:bb21628
+adblockpluscore = adblockpluscore hg:c8d4a462860a git:7376c58
 adblockplusui = adblockplusui hg:8ceaabb9c639 git:6222fd2
