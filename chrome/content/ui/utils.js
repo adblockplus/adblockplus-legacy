@@ -39,7 +39,7 @@ var {Filter, InvalidFilter, CommentFilter, ActiveFilter, RegExpFilter,
      ElemHideException, ElemHideEmulationFilter} = require("filterClasses");
 var {FilterNotifier} = require("filterNotifier");
 var {FilterStorage} = require("filterStorage");
-var {IO} = require("io");
+var {IO} = require("legacyIO");
 var {defaultMatcher, Matcher, CombinedMatcher} = require("matcher");
 var {Prefs} = require("prefs");
 var {RequestNotifier} = require("requestNotifier");

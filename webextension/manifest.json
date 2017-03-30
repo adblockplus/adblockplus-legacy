@@ -1,0 +1,9 @@
+{
+  "manifest_version": 2,
+  "name": "Web Extensions I/O backend",
+  "version": "1.0",
+  "permissions": ["storage"],
+  "background": {
+    "scripts": ["background.js", "io.js"]
+  }
+}
