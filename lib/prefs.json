@@ -14,7 +14,6 @@
     "enable_key": "",
     "flash_scrolltoitem": true,
     "previewimages": true,
-    "data_directory": "adblockplus",
     "patternsbackups": 5,
     "patternsbackupinterval": 24,
     "whitelistschemes": "about chrome file irc moz-extension moz-safe-about news resource snews x-jsd addbook cid imap mailbox nntp pop data javascript moz-icon",
