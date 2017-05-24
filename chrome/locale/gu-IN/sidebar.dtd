@@ -1,0 +1,35 @@
+<!ENTITY context.flash.label "ફ્લેશ આઇટમની સીમાઓ">
+<!ENTITY address.label "સરનામું">
+<!ENTITY context.open.label "નવી ટૅબમાં ખોલો">
+<!ENTITY type.label "પ્રકાર">
+<!ENTITY tooltip.filterSource.label "ફિલ્ટર સ્ત્રોત:">
+<!ENTITY noitems.label "કોઈ અવરોધનીય આઇટમ્સ નથી">
+<!ENTITY filter.label "ફિલ્ટર">
+<!ENTITY tooltip.size.label "કદ:">
+<!ENTITY reattach.label "રીટ્ચચ">
+<!ENTITY search.label "&amp; શોધો:">
+<!ENTITY docDomain.thirdParty "(ત્રીજો પક્ષ)">
+<!ENTITY filterSource.label "ફિલ્ટર સ્ત્રોત">
+<!ENTITY tooltip.docDomain.label "દસ્તાવેજ સ્રોત:">
+<!ENTITY context.copy.label "વસ્તુના સરનામાની નકલ કરો">
+<!ENTITY tooltip.type.label "પ્રકાર:">
+<!ENTITY context.disablefilter.label "ફિલ્ટર અક્ષમ કરો?">
+<!ENTITY context.copyFilter.label "કૉપિ કરો ફિલ્ટર">
+<!ENTITY context.block.label "આ આઇટમને અવરોધિત કરો">
+<!ENTITY context.enablefilter.label "ફિલ્ટર ફરીથી સક્ષમ કરો? 1?">
+<!ENTITY detach.label "અલગ કરો">
+<!ENTITY whitelisted.label "વ્હાઇટલિસ્ટ કરેલું પૃષ્ઠ">
+<!ENTITY context.disablefilteronsite.label "આ ફિલ્ટરને 1 પર અક્ષમ કરો?">
+<!ENTITY detached.title "એડબ્લોક પ્લસ: અવરોધનીય આઇટમ્સ (અલગ)">
+<!ENTITY docDomain.firstParty "(પ્રથમ પક્ષ)">
+<!ENTITY tooltip.type.whitelisted "(વ્હાઇટલિસ્ટ)">
+<!ENTITY tooltip.filter.label "અસરમાં ફિલ્ટર કરો:">
+<!ENTITY tooltip.filter.disabled "(અક્ષમ)">
+<!ENTITY context.editfilter.label "અસરમાં ફિલ્ટર સંપાદિત કરો">
+<!ENTITY tooltip.type.blocked "(અવરોધિત)">
+<!ENTITY size.label "માપ">
+<!ENTITY context.whitelist.label "આઇટમ માટે અપવાદ નિયમ ઉમેરો">
+<!ENTITY context.selectAll.label "બધા પસંદ">
+<!ENTITY state.label "અવસ્થા">
+<!ENTITY docDomain.label "દસ્તાવેજ સ્રોત">
+<!ENTITY tooltip.address.label "સરનામું:">

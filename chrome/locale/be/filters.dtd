@@ -44,6 +44,7 @@
 <!ENTITY acceptableAds2.label "Дазволіць недакучлівую р&amp;экламу">
 <!ENTITY addSubscriptionOther.label "Дадаць іншую падпіску">
 <!ENTITY close.label "Закрыць">
+<!ENTITY findbar.caseSensitive "З улікам рэгістру">
 <!ENTITY sort.none.label "Н&amp;еўпарадкавана">
 <!ENTITY filter.actions.label "Дзеянні з фільтрамі">
 <!ENTITY filter.copy.label "Капіяваць">
@@ -61,12 +62,17 @@
 <!ENTITY find.label "З&amp;найсці фільтр">
 <!ENTITY subscription.moveDown.label "Пасунуць ніжэй">
 <!ENTITY subscription.lastDownload.connectionError "Не атрымалася спампаваць">
+<!ENTITY findbar.statusWrappedStart "Дасягнуўшы пачатку, працягваць з канца">
 <!ENTITY subscription.lastDownload.success "Паспяхова выканана">
+<!ENTITY findbar.placeholder "Знайсці фільтр">
 <!ENTITY subscription.lastDownload.invalidData "Памылка: няправільны спіс фільтраў">
+<!ENTITY findbar.close "Закрыць панэль пошуку">
 <!ENTITY filter.paste.label "Уставіць">
 <!ENTITY subscription.disabledFilters.enable "Уключыць адключаныя фільтры">
 <!ENTITY lasthit.column "Апошняе ў&amp;жыванне">
+<!ENTITY findbar.statusWrappedEnd "Дасягнуўшы канца, працягваць з пачатку">
 <!ENTITY subscription.editTitle.label "Змяніць назву">
+<!ENTITY findbar.statusNotFound "Фраза не знойдзена">
 <!ENTITY subscription.disabledFilters.warning "Некаторыя фільтры з гэтай падпіскі адключаны.">
 <!ENTITY filter.column "&amp;Правіла">
 <!ENTITY subscription.lastDownload.label "Апошняе абнаўленне:">

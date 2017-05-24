@@ -1,1 +1,67 @@
+<!ENTITY slow.column "Trege filtre">
+<!ENTITY enabled.column "Aktivert">
+<!ENTITY subscription.lastDownload.checksumMismatch "Feilet, checksum feil">
+<!ENTITY noFiltersInGroup.text "Den valgte gruppen er tom.">
+<!ENTITY subscription.actions.label "Handlinger">
+<!ENTITY filter.selectAll.label "Velg alt">
+<!ENTITY backupButton.label "Sikkerhetskopiering og gjenoppretting">
+<!ENTITY restore.error "Kan ikke behandle informasjonen i fila, kankje dette ikke er en Adblock Plus backup fil?">
+<!ENTITY sort.ascending.label "A &gt; Z sorteringsrekkefølge">
+<!ENTITY sort.label "Sorter etter">
+<!ENTITY subscription.source.label "Filter liste">
+<!ENTITY hitcount.column "Treff">
+<!ENTITY noFilters.text "Du har ikke noen egendefinerte filtre ennå.">
+<!ENTITY backup.custom.title "Bare tilpassede filtre">
+<!ENTITY subscription.external.label "Oppdatert av en annen utvidelse">
+<!ENTITY subscription.delete.label "Slett">
+<!ENTITY noGroupSelected.text "Du trenger å velge en filtergruppe før filtrene dennes kan bli vist.">
+<!ENTITY filter.cut.label "Kutt">
+<!ENTITY restore.default.label "Gjenopprette sikkerhetskopien fra ?1?">
+<!ENTITY subscription.lastDownload.inProgress "Laster ned...">
+<!ENTITY subscriptions.tab.label "Filter abonnement">
+<!ENTITY sort.descending.label "Z &gt; A sorteringsrekkefølge">
+<!ENTITY filters.remove.warning "Vil du virkelig fjerne alle valgte filtre?">
+<!ENTITY filter.delete.label "Slett">
+<!ENTITY addSubscriptionAdd.label "Legg til">
+<!ENTITY viewMenu.label "Vis">
+<!ENTITY subscription.lastDownload.unknown "N/A">
+<!ENTITY addSubscriptionCancel.label "Avbryt">
+<!ENTITY subscription.enabled.label "Aktivert">
+<!ENTITY noSubscriptions.text "Du har ikke lagt til noen filter abonnementer ennå. Adblock Plus vil ikke blokere noe uten filter, bruk &quot;Legg til filter abonnement&quot; for å legge til noen.">
+<!ENTITY subscription.update.label "Oppdater filter">
 <!ENTITY dialog.title "Adblock Filter Innstillingar">
+<!ENTITY addFilter.label "Legg til filter">
+<!ENTITY subscription.minVersion.warning "Dette filter abonnemanget trenger en nyere Adblock Plus versjon, du burde oppdatere til den nyeste Adblock Plus versjonen.">
+<!ENTITY subscription.lastDownload.invalidURL "Feilet, ikke en gyldig adresse">
+<!ENTITY backup.error "En feil oppstod under skriving av filen. Kontroller at filen ikke er skrivebeskyttet eller i bruk av et annet program.">
+<!ENTITY filter.moveUp.label "Flytt opp">
+<!ENTITY addGroup.label "Legg til filter og gruppe">
+<!ENTITY filter.edit.label "Rediger">
+<!ENTITY subscription.showHideFilters.label "Vis/skjul filtre">
+<!ENTITY acceptableAds2.label "Tilatt noen ikke-påtrengende annonser">
+<!ENTITY addSubscriptionOther.label "Legg til et annet abonnement">
+<!ENTITY sort.none.label "Usortert">
+<!ENTITY filter.actions.label "Filtrer handlinger">
+<!ENTITY filter.copy.label "Kopier">
+<!ENTITY filter.moveDown.label "Flytt ned">
+<!ENTITY filter.resetHitCounts.label "Nullstill treff statistikk">
+<!ENTITY readMore.label "Les mer">
+<!ENTITY subscription.moveUp.label "Flytt opp">
+<!ENTITY addSubscription.label "Legg til filterabonnement">
+<!ENTITY subscription.homepage.label "Hjemmeside">
+<!ENTITY backup.complete.title "Alle filtre og abonnementer">
+<!ENTITY restore.own.label "Gjenopprette egen sikkerhetskopi">
+<!ENTITY filters.tab.label "Egendefinerte filtre">
+<!ENTITY backup.label "Lag en ny sikkerhetskopi">
+<!ENTITY subscription.moveDown.label "Flytt ned">
+<!ENTITY subscription.lastDownload.connectionError "Feilet, nedlastningsfeil">
+<!ENTITY subscription.lastDownload.success "Suksess">
+<!ENTITY subscription.lastDownload.invalidData "Feilet, ikke en gyldig filter liste">
+<!ENTITY filter.paste.label "Lim inn">
+<!ENTITY subscription.disabledFilters.enable "Aktiver deaktiverte filter">
+<!ENTITY lasthit.column "Siste treff">
+<!ENTITY subscription.editTitle.label "Endre tittel">
+<!ENTITY subscription.disabledFilters.warning "Noen filtre i dette abonnemanget er deaktivert.">
+<!ENTITY filter.column "Filtrer regel">
+<!ENTITY subscription.lastDownload.label "Siste nedlastning:">
+<!ENTITY viewList.label "Vis liste">

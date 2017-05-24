@@ -1,0 +1,12 @@
+<!ENTITY addMain.label "ફિલ્ટર અને સબ્સ્ક્રિપ્શન ઉમેરો &quot;? 1?&quot; તેમજ">
+<!ENTITY list.download.failed "એડબ્લોક પ્લસ સબ્સ્ક્રિપ્શન્સની સૂચિ પુનઃપ્રાપ્ત કરવામાં નિષ્ફળ રહી.">
+<!ENTITY list.download.retry "ફરીથી પ્રયત્ન કરો">
+<!ENTITY title.label "સબ્સ્ક્રિપ્શન શીર્ષક:">
+<!ENTITY list.download.website "વેબસાઇટ જુઓ">
+<!ENTITY supplementMessage "આ ફિલ્ટર સબ્સ્ક્રિપ્શનનો ઉપયોગ ફિલ્ટર સબ્સ્ક્રિપ્શન &quot;? 1?&quot; જે તમે હજુ સુધી ઉપયોગમાં નથી.">
+<!ENTITY viewList.label "ફિલ્ટર્સ જુઓ">
+<!ENTITY visitHomepage.label "હોમ પેજની મુલાકાત લો">
+<!ENTITY addSubscription.label "સબ્સ્ક્રિપ્શન ઉમેરો">
+<!ENTITY dialog.title "એડબ્લોક પ્લસ ફિલ્ટર સબ્સ્ક્રિપ્શન ઉમેરો">
+<!ENTITY location.label "ફિલ્ટર સૂચિ સ્થાન:">
+<!ENTITY fromWeb.description "કૃપા કરીને પુષ્ટિ કરો કે તમે આ ફિલ્ટર સબ્સ્ક્રિપ્શન ઉમેરવા માંગો છો. તમે તેને ઉમેરવા પહેલાં સબ્સ્ક્રિપ્શન શીર્ષક અથવા સ્થાન બદલી શકો છો.">

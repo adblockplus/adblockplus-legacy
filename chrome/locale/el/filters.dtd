@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Να επιτρέπονται &amp;μερικές μη-παρεμβατικές διαφημίσεις">
 <!ENTITY addSubscriptionOther.label "Προσθήκη άλλης συνδρομής">
 <!ENTITY close.label "Κλείσιμο">
+<!ENTITY findbar.caseSensitive "Εντοπισμός μπάρας. ευαίσθητο στην υπόθεση">
 <!ENTITY sort.none.label "Χ&amp;ωρίς ταξινόμηση">
 <!ENTITY filter.actions.label "Ενέργειες φίλτρων">
 <!ENTITY filter.copy.label "Αντιγραφή">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "Εύ&amp;ρεση">
 <!ENTITY subscription.moveDown.label "Μετακίνηση κάτω">
 <!ENTITY subscription.lastDownload.connectionError "Απέτυχε, σφάλμα κατά τη λήψη">
+<!ENTITY findbar.statusWrappedStart "Έφτασες στο πάνω μέρος, συνέχεια από το κάτω μέρος">
 <!ENTITY subscription.lastDownload.success "Επιτυχής">
+<!ENTITY findbar.placeholder "Εύρεση φίλτρου">
 <!ENTITY subscription.lastDownload.invalidData "Απέτυχε, μη έγκυρη λίστα φίλτρων">
+<!ENTITY findbar.close "Κλείσιμο γραμμής εύρεσης">
 <!ENTITY filter.paste.label "Επικόλληση">
 <!ENTITY subscription.disabledFilters.enable "Ενεργοποίηση απενεργοποιημένων φίλτρων">
 <!ENTITY lasthit.column "Τε&amp;λευταία επιτυχία">
+<!ENTITY findbar.statusWrappedEnd "Έφτασες στο κάτω μέρος, συνέχεια από το πάνω μέρος">
 <!ENTITY subscription.editTitle.label "Επεξεργασία τίτλου">
+<!ENTITY findbar.statusNotFound "Η φράση δεν βρέθηκε">
 <!ENTITY subscription.disabledFilters.warning "Κάποια φίλτρα σε αυτή την συνδρομή είναι απενεργοποιημένα.">
 <!ENTITY filter.column "Κανόνας &amp;φίλτρου">
 <!ENTITY subscription.lastDownload.label "Τελευταία ενημέρωση:">

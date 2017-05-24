@@ -1,5 +1,6 @@
 <!ENTITY slow.column "Punguza kasi ya vichujio">
 <!ENTITY enabled.column "V&amp;ilivyowashwa">
+<!ENTITY subscription.lastDownload.checksumMismatch "Haijafanikiwa, cheksamu haikulingana">
 <!ENTITY subscription.actions.label "Vitendo">
 <!ENTITY filter.selectAll.label "Chagua yote">
 <!ENTITY sort.ascending.label "&amp;Panga kwa mpangilio wa A &gt; Z">

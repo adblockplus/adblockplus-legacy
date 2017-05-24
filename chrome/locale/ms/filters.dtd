@@ -44,6 +44,7 @@
 <!ENTITY acceptableAds2.label "Benarkan iklan yan&amp;g tidak mengganggu">
 <!ENTITY addSubscriptionOther.label "Tambah langganan lain">
 <!ENTITY close.label "Tutup">
+<!ENTITY findbar.caseSensitive "Sepadankan frasa">
 <!ENTITY sort.none.label "&amp;Tidak disusun">
 <!ENTITY filter.actions.label "Aksi penapis">
 <!ENTITY filter.copy.label "Salin">
@@ -61,12 +62,17 @@
 <!ENTITY find.label "&amp;Cari">
 <!ENTITY subscription.moveDown.label "Pindah ke bawah">
 <!ENTITY subscription.lastDownload.connectionError "Gagal, kegagalan memuat-turun">
+<!ENTITY findbar.statusWrappedStart "Sampai atas, bersambung semula dari bawah">
 <!ENTITY subscription.lastDownload.success "Berjaya">
+<!ENTITY findbar.placeholder "Cari Penapis">
 <!ENTITY subscription.lastDownload.invalidData "Gagal, bukan senarai penapis yang sah">
+<!ENTITY findbar.close "Tutup Carian">
 <!ENTITY filter.paste.label "Tampal">
 <!ENTITY subscription.disabledFilters.enable "Aktifkan penapis yang telah dinyaktifkan.">
 <!ENTITY lasthit.column "Hit t&amp;erakhir">
+<!ENTITY findbar.statusWrappedEnd "Sampai bawah, bersambung semula dari atas">
 <!ENTITY subscription.editTitle.label "Ubahsuai tajuk">
+<!ENTITY findbar.statusNotFound "Frasa tidak dijumpai">
 <!ENTITY subscription.disabledFilters.warning "Sesetengah penapis dalam langganan ini telah dinyahaktifkan.">
 <!ENTITY filter.column "Pe&amp;raturan penapis">
 <!ENTITY subscription.lastDownload.label "Muat-turun terakhir:">

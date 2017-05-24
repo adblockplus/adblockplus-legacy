@@ -1,7 +1,7 @@
 <!ENTITY anchor.end.label "aan het &amp;einde van het adres">
 <!ENTITY domainRestriction.label "Beperken tot &amp;domein:">
 <!ENTITY collapse.default.no.label "Standaard gebruiken (nee)">
-<!ENTITY firstParty.label "Alleen van &amp;eigen website">
+<!ENTITY firstParty.label "Alleen van eigen &amp;website">
 <!ENTITY preferences.label "Bestaande filters &amp;tonen…">
 <!ENTITY pattern.label "Zoeken naar patroon">
 <!ENTITY thirdParty.label "Alleen van &amp;derden">

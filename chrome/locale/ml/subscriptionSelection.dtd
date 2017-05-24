@@ -1,4 +1,6 @@
+<!ENTITY list.download.failed "ആഡ്ബ്ലോക്ക്‌ പ്ലസിന് സബ്സ്ക്രിപ്ഷന്‍ ലിസ്റ്റ് എടുക്കാന്‍ സാധിച്ചില്ല.">
 <!ENTITY list.download.retry "വീണ്ടും ശ്രമിക്കുക">
+<!ENTITY title.label "സബ്സ്ക്രിപ്ഷന്‍ തലക്കെട്ട്:">
 <!ENTITY list.download.website "വെബ്സൈറ്റ് കാണുക">
 <!ENTITY viewList.label "ഫില്‍റ്ററുകള്‍ കാണുക">
 <!ENTITY visitHomepage.label "ഹോംപേജ് സന്ദര്‍ശിക്കുക">

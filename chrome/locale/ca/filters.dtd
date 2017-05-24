@@ -41,8 +41,8 @@
 <!ENTITY filter.edit.label "Edita">
 <!ENTITY subscription.showHideFilters.label "Mostra/amaga els filtres">
 <!ENTITY acceptableAds2.label "Permet la publ&amp;icitat no intrusiva">
-<!ENTITY addSubscriptionOther.label "Afegeix altre subscripció de filtre">
-<!ENTITY close.label "Tanca">
+<!ENTITY addSubscriptionOther.label "Afegir altre subscripció de filtre">
+<!ENTITY close.label "Tancar">
 <!ENTITY findbar.caseSensitive "Sensible a majúscules">
 <!ENTITY sort.none.label "&amp;Desordenat">
 <!ENTITY filter.actions.label "Accions de filtre">
@@ -51,21 +51,21 @@
 <!ENTITY filter.resetHitCounts.label "Reinicia les estadístiques">
 <!ENTITY readMore.label "Més informació">
 <!ENTITY subscription.moveUp.label "Mou amunt">
-<!ENTITY addSubscription.label "A&amp;fegeix una subscripció de filtre">
+<!ENTITY addSubscription.label "A&amp;fegir una subscripció de filtre">
 <!ENTITY subscription.homepage.label "Pàgina d'inici">
 <!ENTITY backup.complete.title "Tots els filtres i subscripcions">
 <!ENTITY restore.own.label "Restaura d'una còpia de seguretat propia">
 <!ENTITY restore.complete.warning "Totes les preferències de filtre seràn substituides amb els continguts del fitxer seleccionat. Vols seguir endavant?">
 <!ENTITY filters.tab.label "Filtres personalitzats">
 <!ENTITY backup.label "Crea una nova còpia de seguretat">
-<!ENTITY find.label "&amp;Cerca">
+<!ENTITY find.label "&amp;Cercar">
 <!ENTITY subscription.moveDown.label "Mou avall">
 <!ENTITY subscription.lastDownload.connectionError "Error en la baixada">
 <!ENTITY findbar.statusWrappedStart "Es va arribar al principi, continua des del final">
 <!ENTITY subscription.lastDownload.success "Correcte">
-<!ENTITY findbar.placeholder "Cerca un filtre">
+<!ENTITY findbar.placeholder "Cercar un filtre">
 <!ENTITY subscription.lastDownload.invalidData "Error, no és una llista vàlida de filtres">
-<!ENTITY findbar.close "Tanca la barra de cerca">
+<!ENTITY findbar.close "Tancar la barra de cerca">
 <!ENTITY filter.paste.label "Enganxa">
 <!ENTITY subscription.disabledFilters.enable "Habilita els filtres">
 <!ENTITY lasthit.column "U&amp;ltim encert">

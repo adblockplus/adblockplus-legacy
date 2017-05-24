@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Lejo ndoca reklamë jo të &amp;bezdisshme">
 <!ENTITY addSubscriptionOther.label "Shto nje abonim tjeter">
 <!ENTITY close.label "Mbylle">
+<!ENTITY findbar.caseSensitive "Përputh shembullin">
 <!ENTITY sort.none.label "Pa radhitur">
 <!ENTITY filter.actions.label "Veprime filtrash">
 <!ENTITY filter.copy.label "Kopjo">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "Kërko">
 <!ENTITY subscription.moveDown.label "Zbrite poshtë">
 <!ENTITY subscription.lastDownload.connectionError "Deshtoi,gabim shkarkimi">
+<!ENTITY findbar.statusWrappedStart "Arrit lartë, duke vazhduar nga fundi">
 <!ENTITY subscription.lastDownload.success "Sukses">
+<!ENTITY findbar.placeholder "Kërko filtër">
 <!ENTITY subscription.lastDownload.invalidData "Deshtoi,nje liste jo e vlefshme filtrash">
+<!ENTITY findbar.close "Mbylle hapsirën kërkuese">
 <!ENTITY filter.paste.label "Hedh">
 <!ENTITY subscription.disabledFilters.enable "Aktivizoni filtrat e aktivizuar">
 <!ENTITY lasthit.column "Shtypja e fundit">
+<!ENTITY findbar.statusWrappedEnd "Arrit në fund, duke vazhduar nga lartë">
 <!ENTITY subscription.editTitle.label "Përpunoni titullin">
+<!ENTITY findbar.statusNotFound "Shprehja nuk u gjet">
 <!ENTITY subscription.disabledFilters.warning "Për këtë pajtim, disa nga filtrat janë çaktivizuar.">
 <!ENTITY filter.column "Rregulla e filtrimit">
 <!ENTITY subscription.lastDownload.label "Shkarkimi i fundit:">

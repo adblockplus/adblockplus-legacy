@@ -29,5 +29,5 @@
 <!ENTITY anchor.start.flexible.label "domen adının əv&amp;vəlinə">
 <!ENTITY collapse.no.label "Xeyr">
 <!ENTITY selectAllTypes.label "Hamısını seç">
-<!ENTITY advanced.label "İrəli səviyyə görüntü">
+<!ENTITY advanced.label "Detallı baxış">
 <!ENTITY pattern.explanation "Şablon istənilən ünvanın bir hissəsi ola bilər; ulduzlar (*) təyin edilməmiş hissə rolunu oynayır. Filtr yalnız ünvanla təyin edilmiş şablon üst-üstə düşərsə işləyəcək.">

@@ -8,6 +8,7 @@
 <!ENTITY typeSelector.description "यह विंडो आपको Adblock प्लस मुद्दा रिपोर्ट को 
   जमा करने के लिए मार्गदर्शन करेगा। पहले, कृपया किस तरह के मुद्दों का आप इस पृष्ठ पर सामना कर रहे हैं 
   का चयन करें:">
+<!ENTITY update.inProgress.description "समस्या पहले से ही हल हो गई है यह सुनिश्चित करने के लिए Adblock प्लस को अापकी फ़िल्टर सदस्यता को अद्यतन करने की जरूरत है। कृपया प्रतीक्षा करें...">
 <!ENTITY sendPage.retry.label "पुन: भेजें">
 <!ENTITY recentReports.label "अपनी हाल ही में प्रस्तुत की गयी रिपोर्ट">
 <!ENTITY issues.nosubscriptions.add.label "फ़िल्टर सदस्यता जोड़ें">

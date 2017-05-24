@@ -43,6 +43,7 @@
 <!ENTITY acceptableAds2.label "Tillåt viss icke-störande reklam">
 <!ENTITY addSubscriptionOther.label "Lägg till en ny prenumeration">
 <!ENTITY close.label "Stäng">
+<!ENTITY findbar.caseSensitive "Matcha gemener/versaler">
 <!ENTITY sort.none.label "&amp;Osorterad">
 <!ENTITY filter.actions.label "Filteråtgärder">
 <!ENTITY filter.copy.label "Kopiera">
@@ -60,12 +61,17 @@
 <!ENTITY find.label "Sö&amp;k">
 <!ENTITY subscription.moveDown.label "Flytta nedåt">
 <!ENTITY subscription.lastDownload.connectionError "Fel vid hämtning">
+<!ENTITY findbar.statusWrappedStart "Nådde toppen, fortsätter från botten">
 <!ENTITY subscription.lastDownload.success "Klart">
+<!ENTITY findbar.placeholder "Hitta filter">
 <!ENTITY subscription.lastDownload.invalidData "Fel vid validering av filter">
+<!ENTITY findbar.close "Stäng sökfält">
 <!ENTITY filter.paste.label "Klistra in">
 <!ENTITY subscription.disabledFilters.enable "Aktivera inaktiverade filter">
 <!ENTITY lasthit.column "Senaste t&amp;räff">
+<!ENTITY findbar.statusWrappedEnd "Nådde botten, fortsätter från toppen">
 <!ENTITY subscription.editTitle.label "Redigera rubrik">
+<!ENTITY findbar.statusNotFound "Fras hittades ej">
 <!ENTITY subscription.disabledFilters.warning "Vissa filter i denna prenumeration är inaktiverade.">
 <!ENTITY filter.column "Filterregler">
 <!ENTITY subscription.lastDownload.label "Senast hämtat:">

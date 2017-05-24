@@ -20,7 +20,7 @@
 <!ENTITY detach.label "Tenganisha">
 <!ENTITY whitelisted.label "Ukurasa usiozuiwa">
 <!ENTITY context.disablefilteronsite.label "Zima Kichujio hiki kwenye? 1?">
-<!ENTITY detached.title "Adblock Plus: Vinavyoweza kuzuiliwa(imetenganishwa)">
+<!ENTITY detached.title "Adblock Plus: Vinavyoweza kuzuiliwa (vimetenganishwa)">
 <!ENTITY docDomain.firstParty "(Wahusika awali)">
 <!ENTITY tooltip.type.whitelisted "(visivyozuiwa)">
 <!ENTITY tooltip.filter.label "Vichujio vinavyofanya kazi:">

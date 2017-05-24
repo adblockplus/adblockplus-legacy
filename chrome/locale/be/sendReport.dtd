@@ -2,6 +2,7 @@
 <!ENTITY showData.label "Паказаць змесціва справаздачы">
 <!ENTITY typeSelector.falsePositive.label "Adblock Plus блакуе лішняе">
 <!ENTITY email.label "E&amp;mail:">
+<!ENTITY issues.openPreferences.label "Адкрыць налады фільтраў">
 <!ENTITY copyLink.label "Капіяваць спасылку на справаздачу">
 <!ENTITY typeWarning.override.label "Я разумею і ўсё адно хачу адправіць справаздачу">
 <!ENTITY issues.disabled.enable.label "Уключыць Adblock Plus">

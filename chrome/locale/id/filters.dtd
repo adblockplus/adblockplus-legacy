@@ -63,6 +63,7 @@
 <!ENTITY find.label "&amp;Temukan">
 <!ENTITY subscription.moveDown.label "Turunkan">
 <!ENTITY subscription.lastDownload.connectionError "Gagal, kesalahan pengunduhan">
+<!ENTITY findbar.statusWrappedStart "Sampai di atas, lanjutkan dari bawah">
 <!ENTITY subscription.lastDownload.success "Berhasil">
 <!ENTITY findbar.placeholder "Temukan Filter">
 <!ENTITY subscription.lastDownload.invalidData "Gagal, daftar penyaring tidak sah">
@@ -70,7 +71,9 @@
 <!ENTITY filter.paste.label "Tempel">
 <!ENTITY subscription.disabledFilters.enable "Aktifkan penyaring yang dinonaktifkan">
 <!ENTITY lasthit.column "Kunjungan &amp;terkini">
+<!ENTITY findbar.statusWrappedEnd "Sampai di bawah, lanjutkan dari atas">
 <!ENTITY subscription.editTitle.label "Sunting judul">
+<!ENTITY findbar.statusNotFound "Frasa tidak ditemukan">
 <!ENTITY subscription.disabledFilters.warning "Beberapa penyaring pada langganan ini dinonaktifkan.">
 <!ENTITY filter.column "&amp;Aturan penyaring">
 <!ENTITY subscription.lastDownload.label "Terakhir diunduh:">

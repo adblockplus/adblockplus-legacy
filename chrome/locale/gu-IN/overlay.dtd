@@ -1,0 +1,33 @@
+<!ENTITY notification.button.no "&amp; ના">
+<!ENTITY sync.label "ઍડબ્લૉક પ્લસ સેટિંગ્સને સમન્વયિત કરો">
+<!ENTITY whitelist.site.label "પર અક્ષમ કરો? 1?">
+<!ENTITY notification.closing.button.hide "આ સૂચના બંધ કરો">
+<!ENTITY filters.label "ફિલ્ટર પસંદગીઓ">
+<!ENTITY disable.label "દરેક જગ્યાએ અક્ષમ કરો">
+<!ENTITY objecttab.title "બ્લોક">
+<!ENTITY objecttab.tooltip "એડબ્લોક પ્લસ સાથે આ ઑબ્જેક્ટને અવરોધિત કરવા અહીં ક્લિક કરો">
+<!ENTITY menuitem.label "એડબ્લોક પ્લસ પસંદગીઓ">
+<!ENTITY objecttabs.label "ફ્લેશ અને જાવા પર અને ટેબ્સ બતાવો">
+<!ENTITY sendReport.label "આ પૃષ્ઠ પર અને સમસ્યાની જાણ કરો">
+<!ENTITY whitelist.page.label "ફક્ત આ પૃષ્ઠ પર અક્ષમ કરો">
+<!ENTITY context.image.label "એડબ્લોક પ્લસ: છબીને અવરોધિત કરો">
+<!ENTITY notification.button.yes "&amp; હા">
+<!ENTITY opensidebar.label "ખોલો અને અવરોધનીય વસ્તુઓ">
+<!ENTITY notification.button.close "બંધ">
+<!ENTITY shownotifications.label "ઉપયોગી અને સૂચનાઓ બતાવો">
+<!ENTITY contribute.label "એડબ્લોક પ્લસમાં યોગદાન આપો">
+<!ENTITY toolbarbutton.label "એડબ્લોક પ્લસ">
+<!ENTITY context.frame.label "એડબ્લોક પ્લસ: બ્લોક ફ્રેમ">
+<!ENTITY blocked.tooltip "આ પૃષ્ઠ પર અવરોધિત આઇટમ્સ:">
+<!ENTITY notification.closing.button.optout "&amp; સૂચનાઓ દર્શાવવાનું રોકો">
+<!ENTITY counthits.label "ફિલ્ટર ગણક અને હિટ">
+<!ENTITY showinstatusbar.label "સ્થિતિ બારમાં &amp; બતાવો">
+<!ENTITY sidebar.title "વર્તમાન પૃષ્ઠ પર અવરોધનીય આઇટમ્સ">
+<!ENTITY options.label "&amp; વિકલ્પો">
+<!ENTITY context.object.label "એડબ્લોક પ્લસ: બ્લોક ઑબ્જેક્ટ">
+<!ENTITY context.removeWhitelist.label "એડબ્લોક પ્લસ: આ પૃષ્ઠ પર ફરી સક્ષમ કરો">
+<!ENTITY filters.tooltip "સૌથી વધુ સક્રિય ફિલ્ટર્સ:">
+<!ENTITY closesidebar.label "બંધ અને અવરોધનીય વસ્તુઓ">
+<!ENTITY showintoolbar.label "ટૂલ અને બારમાં બતાવો">
+<!ENTITY status.tooltip "સ્થિતિ:">
+<!ENTITY context.media.label "એડબ્લોક પ્લસ: બ્લોક ઑડિઓ / વિડિઓ">

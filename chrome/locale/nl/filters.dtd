@@ -5,7 +5,7 @@
 <!ENTITY noFiltersInGroup.text "De geselecteerde groep is leeg.">
 <!ENTITY subscription.actions.label "Acties">
 <!ENTITY filter.selectAll.label "Alles selecteren">
-<!ENTITY backupButton.label "Ba&amp;ck-up en herstel">
+<!ENTITY backupButton.label "Ba&amp;ck-up maken en terugzetten">
 <!ENTITY restore.minVersion.warning "Waarschuwing: het bestand is gemaakt met een nieuwere versie van Adblock Plus. U dient Adblock Plus bij te werken naar de nieuwste versie voordat u iets vanuit dit bestand kunt terugzetten.">
 <!ENTITY restore.error "De gegevens in het bestand konden niet worden verwerkt; wellicht is het geen back-upbestand van Adblock Plus?">
 <!ENTITY sort.ascending.label "Sorteervolgorde &amp;A &gt; Z">

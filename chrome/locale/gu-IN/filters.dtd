@@ -1,0 +1,78 @@
+<!ENTITY restore.custom.warning "તમારી બધી વૈવિધ્યપૂર્ણ ગાળકો પસંદ કરેલ ફાઇલ સમાવિષ્ટો દ્વારા બદલવામાં આવશે. તમે પ્રોસીડ કરવા માંગો છો?">
+<!ENTITY slow.column "સ્લૉ અને ડબલ્યુ ફિલ્ટર્સ">
+<!ENTITY enabled.column "સક્ષમ કરેલું">
+<!ENTITY subscription.lastDownload.checksumMismatch "નિષ્ફળ, checksum મેળ ખાતી નથી">
+<!ENTITY noFiltersInGroup.text "પસંદ કરેલ જૂથ ખાલી છે.">
+<!ENTITY subscription.actions.label "ક્રિયાઓ">
+<!ENTITY filter.selectAll.label "બધા પસંદ">
+<!ENTITY backupButton.label "બેકઅપ અને રીસ્ટોર">
+<!ENTITY restore.minVersion.warning "ચેતવણી: ફાઇલ નવી એડબ્લૉક પ્લસ સંસ્કરણ સાથે બનાવવામાં આવી છે. આ ફાઇલમાંથી પુનઃસ્થાપિત કરતા પહેલાં તમારે અદ્યતન એડબ્લોક પ્લસ સંસ્કરણ પર અપડેટ કરવું જોઈએ.">
+<!ENTITY restore.error "ફાઇલના ડેટા પર પ્રક્રિયા થઈ શકી નથી, કદાચ આ એડબ્લોક પ્લસ બૅકઅપ ફાઇલ નથી?">
+<!ENTITY sort.ascending.label "A&gt; Z સૉર્ટ ક્રમ">
+<!ENTITY sort.label "દ્વારા સૉર્ટ કરો">
+<!ENTITY subscription.source.label "ફિલ્ટરની લીસ્ટ">
+<!ENTITY hitcount.column "અને હિટ્સ">
+<!ENTITY noFilters.text "તમારી પાસે હજી કોઈ કસ્ટમ ફિલ્ટર્સ નથી.">
+<!ENTITY backup.custom.title "ફક્ત કસ્ટમ ફિલ્ટર્સ">
+<!ENTITY subscription.external.label "અન્ય એક્સ્ટેંશન દ્વારા અપડેટ">
+<!ENTITY subscription.delete.label "કાઢી નાંખો">
+<!ENTITY noGroupSelected.text "તેના ફિલ્ટર્સ પ્રદર્શિત થઈ તે પહેલાં તમારે એક ફિલ્ટર જૂથ પસંદ કરવાની જરૂર છે.">
+<!ENTITY filter.cut.label "કાપવું">
+<!ENTITY restore.default.label "માંથી બેકઅપ પુનઃસ્થાપિત કરો ?">
+<!ENTITY subscription.lastDownload.inProgress "ડાઉનલોડ…">
+<!ENTITY subscriptions.tab.label "ફિલ્ટર ઉમેદવારી">
+<!ENTITY sort.descending.label "&amp; Z&gt; A પ્રકારની ક્રમમાં">
+<!ENTITY filters.remove.warning "શું તમે ખરેખર બધા પસંદ કરેલા ફિલ્ટર્સને દૂર કરવા માંગો છો?">
+<!ENTITY filter.delete.label "કાઢી નાંખો">
+<!ENTITY addSubscriptionAdd.label "ઊમેરો">
+<!ENTITY viewMenu.label "જુઓ">
+<!ENTITY subscription.lastDownload.unknown "લાગુ નથી">
+<!ENTITY addSubscriptionCancel.label "રદ કરો">
+<!ENTITY subscription.enabled.label "સમર્થ">
+<!ENTITY noSubscriptions.text "તમે હજી સુધી કોઈપણ ફિલ્ટર સબ્સ્ક્રિપ્શન્સ ઉમેર્યા નથી. ઍડબ્લૉક પ્લસ ફિલ્ટર્સ વગર કંઈપણ બ્લૉક નહીં કરે, કૃપા કરીને કેટલાક ઉમેરવા માટે &quot;ફિલ્ટર સબ્સ્ક્રિપ્શન ઉમેરો&quot; નો ઉપયોગ કરો.">
+<!ENTITY subscription.update.label "ફિલ્ટર્સ અપડેટ કરો">
+<!ENTITY dialog.title "એડબ્લોક પ્લસ ફિલ્ટર પસંદગીઓ">
+<!ENTITY addFilter.label "ફિલ્ટર ઊમેરો">
+<!ENTITY subscription.minVersion.warning "આ ફિલ્ટર સબ્સ્ક્રિપ્શનને નવા એડબ્લૉક પ્લસ સંસ્કરણની આવશ્યકતા છે, તમારે અદ્યતન એડબ્લૉક પ્લસ સંસ્કરણ પર અપડેટ કરવું જોઈએ.">
+<!ENTITY subscription.lastDownload.invalidURL "નિષ્ફળ થયું, માન્ય સરનામું નથી">
+<!ENTITY backup.error "ફિલ્ટર્સને ફાઇલમાં લખવામાં ભૂલ હતી ખાતરી કરો કે ફાઇલ લખાયેલ સુરક્ષિત નથી અથવા અન્ય એપ્લિકેશન દ્વારા ઉપયોગમાં લેવાતી નથી.">
+<!ENTITY filter.moveUp.label "ઉપર ખસેડો">
+<!ENTITY addGroup.label "ફિલ્ટર અને જૂથ ઉમેરો">
+<!ENTITY filter.edit.label "સંપાદિત કરો">
+<!ENTITY subscription.showHideFilters.label "ફિલ્ટર્સ બતાવો / છુપાવો">
+<!ENTITY acceptableAds2.label "કેટલાક બિન- અને કર્કશ જાહેરાતોને મંજૂરી આપો">
+<!ENTITY addSubscriptionOther.label "અલગ સબ્સ્ક્રિપ્શન ઉમેરો">
+<!ENTITY close.label "બંધ">
+<!ENTITY findbar.caseSensitive "મેચ કેસ">
+<!ENTITY sort.none.label "અનસાર કરેલા">
+<!ENTITY filter.actions.label "ફિલ્ટર ક્રિયાઓ">
+<!ENTITY filter.copy.label "નકલ કરો">
+<!ENTITY filter.moveDown.label "નીચે ખસેડો">
+<!ENTITY filter.resetHitCounts.label "હિટ આંકડા ફરીથી સેટ કરો">
+<!ENTITY readMore.label "વધુ વાંચો">
+<!ENTITY subscription.moveUp.label "ઉપર ખસેડો">
+<!ENTITY addSubscription.label "ઉમેરો અને સબ્સ્ક્રિપ્શન ફિલ્ટર કરો">
+<!ENTITY subscription.homepage.label "મુખપૃષ્ઠ">
+<!ENTITY backup.complete.title "બધા ફિલ્ટર્સ અને સબ્સ્ક્રિપ્શન્સ">
+<!ENTITY restore.own.label "પોતાના બેકઅપ પુનઃસ્થાપિત કરો">
+<!ENTITY restore.complete.warning "તમારી બધી ફિલ્ટર પસંદગીઓને પસંદ કરેલી ફાઇલની સામગ્રી દ્વારા બદલવામાં આવશે. તમે પ્રોસીડ કરવા માંગો છો?">
+<!ENTITY filters.tab.label "કસ્ટમ ફિલ્ટર્સ">
+<!ENTITY backup.label "નવું બેકઅપ બનાવો">
+<!ENTITY find.label "શોધવા">
+<!ENTITY subscription.moveDown.label "નીચે ખસેડો">
+<!ENTITY subscription.lastDownload.connectionError "નિષ્ફળ થયું, ડાઉનલોડ નિષ્ફળ થયું">
+<!ENTITY findbar.statusWrappedStart "ટોચ પર પહોંચ્યું, નીચેથી ચાલુ">
+<!ENTITY subscription.lastDownload.success "સફળતા">
+<!ENTITY findbar.placeholder "ફિલ્ટર શોધો">
+<!ENTITY subscription.lastDownload.invalidData "નિષ્ફળ, કોઈ માન્ય ફિલ્ટર્સ સૂચિ નથી">
+<!ENTITY findbar.close "શોધ બાર બંધ કરો">
+<!ENTITY filter.paste.label "પેસ્ટ કરો">
+<!ENTITY subscription.disabledFilters.enable "અક્ષમ ફિલ્ટર્સને સક્ષમ કરો">
+<!ENTITY lasthit.column "છેલ્લું હિટ">
+<!ENTITY findbar.statusWrappedEnd "તળિયે પહોંચ્યું, ટોચથી આગળ">
+<!ENTITY subscription.editTitle.label "શીર્ષક સંપાદિત કરો">
+<!ENTITY findbar.statusNotFound "શબ્દસમૂહ મળ્યું નથી">
+<!ENTITY subscription.disabledFilters.warning "આ સબ્સ્ક્રિપ્શનમાંના કેટલાક ફિલ્ટર્સ અક્ષમ છે.">
+<!ENTITY filter.column "અને ફિલ્ટર નિયમ">
+<!ENTITY subscription.lastDownload.label "છેલ્લું ડાઉનલોડ:">
+<!ENTITY viewList.label "સૂચિ જુઓ">

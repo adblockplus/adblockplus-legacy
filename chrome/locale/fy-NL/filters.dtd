@@ -45,6 +45,7 @@
 <!ENTITY acceptableAds2.label "Let sommige net skreauwende advertinsjes ta">
 <!ENTITY addSubscriptionOther.label "In oar abonnemint tafoegje">
 <!ENTITY close.label "sluten">
+<!ENTITY findbar.caseSensitive "Haadlettergefoelich">
 <!ENTITY sort.none.label "&amp;Net sortearre">
 <!ENTITY filter.actions.label "Filter aksjes">
 <!ENTITY filter.copy.label "Kopiearje">
@@ -62,12 +63,17 @@
 <!ENTITY find.label "Sykje">
 <!ENTITY subscription.moveDown.label "omleech">
 <!ENTITY subscription.lastDownload.connectionError "Mislearre, ynlaadprobleem">
+<!ENTITY findbar.statusWrappedStart "Boppekant berikt, trochgien fan ûnderkant ôf">
 <!ENTITY subscription.lastDownload.success "Slagge">
+<!ENTITY findbar.placeholder "Filter sykje">
 <!ENTITY subscription.lastDownload.invalidData "Mislearre, gjin jildige filterlist">
+<!ENTITY findbar.close "Sykbalke slute">
 <!ENTITY filter.paste.label "Plakke">
 <!ENTITY subscription.disabledFilters.enable "Set filters oan">
 <!ENTITY lasthit.column "Lêste hit">
+<!ENTITY findbar.statusWrappedEnd "Underkant berikt, trochgien fan boppekant ôf">
 <!ENTITY subscription.editTitle.label "Namme oanpasse">
+<!ENTITY findbar.statusNotFound "Tekst net fûn">
 <!ENTITY subscription.disabledFilters.warning "Sommige filters in dit abonnemint stean út.">
 <!ENTITY filter.column "Filterrigel">
 <!ENTITY subscription.lastDownload.label "Lêste ynlaad:">
