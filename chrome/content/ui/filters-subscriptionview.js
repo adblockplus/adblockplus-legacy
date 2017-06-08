@@ -32,7 +32,6 @@ function ListManager(list, template, filter, listener)
 
   this._deck = this._list.parentNode;
 
-  this._list.listManager = this;
   this.reload();
 
   let me = this;
@@ -289,17 +288,23 @@ ListManager.prototype =
  */
 ListManager.init = function()
 {
-  new ListManager(E("subscriptions"),
+  ListManager.lm1=new ListManager(E("subscriptions"),
                   E("subscriptionTemplate"),
                   s => s instanceof RegularSubscription && !(ListManager.acceptableAdsCheckbox && s.url == Prefs.subscriptions_exceptionsurl),
                   SubscriptionActions.updateCommands);
-  new ListManager(E("groups"),
+  ListManager.lm2=new ListManager(E("groups"),
                   E("groupTemplate"),
                   s => s instanceof SpecialSubscription,
                   SubscriptionActions.updateCommands);
   E("acceptableAds").checked = FilterStorage.subscriptions.some(s => s.url == Prefs.subscriptions_exceptionsurl);
   E("acceptableAds").parentNode.hidden = !ListManager.acceptableAdsCheckbox;
 };
+
+ListManager.uninit = function()
+{
+	ListManager.lm1=null;
+	ListManager.lm2=null;
+}
 
 /**
  * Defines whether the "acceptable ads" subscription needs special treatment.
@@ -344,3 +349,4 @@ ListManager.isUpgradeRequired = function(/**Subscription*/ subscription)
 };
 
 window.addEventListener("load", ListManager.init, false);
+window.addEventListener("unload", ListManager.uninit, false)
