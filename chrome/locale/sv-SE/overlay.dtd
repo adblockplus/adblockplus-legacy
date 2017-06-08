@@ -1,5 +1,5 @@
 <!ENTITY notification.button.no "Nej">
-<!ENTITY sync.label "Syn&amp;kronisera Adblock Plus inställningar">
+<!ENTITY sync.label "Syn&amp;kronisera inställningarna i Adblock Plus">
 <!ENTITY whitelist.site.label "Använd inte på ?1?">
 <!ENTITY notification.closing.button.hide "Stäng denna notifiering">
 <!ENTITY filters.label "Filterinställningar">
