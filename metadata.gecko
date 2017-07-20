@@ -31,7 +31,7 @@ zh-TW=https://adblockplus.org/zh_TW/
 [compat]
 firefox=51.0/*
 fennec2=51.0/*
-thunderbird=51.0/54.0
+thunderbird=51.0/57.0
 seamonkey=2.48/*
 toolkit=51.0/*
 adblockbrowser=1.0/1.0
