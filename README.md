@@ -1,5 +1,10 @@
-Adblock Plus for Firefox
-========================
+Adblock Plus for Firefox (DEPRECATED!)
+======================================
+
+IMPORTANT: Deprecation notice
+-----------------------------
+
+This codebase is deprecated, it will not work with Firefox 57 and above. As of Adblock Plus 3.0, Adblock Plus for Firefox is based on the [adblockpluschrome repository](https://github.com/adblockplus/adblockpluschrome/).
 
 Building
 ---------
